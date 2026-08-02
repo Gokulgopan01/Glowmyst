@@ -1,0 +1,55 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar-container">
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" (click)="toggleMobileMenu()" aria-label="Open menu">
+      <lucide-icon [img]="MenuIcon"></lucide-icon>
+    </button>
+
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="assets/Glowmyst_logo.png" alt="Glowmyst Logo" class="logo-img">
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="nav-menu-wrapper" [class.mobile-open]="isMobileMenuOpen">
+      <div class="mobile-close">
+        <button class="close-menu-btn" (click)="toggleMobileMenu()" aria-label="Close menu">
+          <lucide-icon [img]="XIcon"></lucide-icon>
+        </button>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a routerLink="/jewellery" routerLinkActive="active" class="nav-link">
+            Jewellery <lucide-icon [img]="ChevronDownIcon" class="dropdown-arrow"></lucide-icon>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a routerLink="/sarees" routerLinkActive="active" class="nav-link">
+            Sarees <lucide-icon [img]="ChevronDownIcon" class="dropdown-arrow"></lucide-icon>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/new-arrivals" routerLinkActive="active" class="nav-link">New Arrivals</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/about-us" routerLinkActive="active" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contact-us" routerLinkActive="active" class="nav-link">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Search Box -->
+    <div class="search-container">
+      <input type="text" class="search-box" placeholder="Search for jewels or sarees...">
+      <lucide-icon [img]="SearchIcon" class="search-icon"></lucide-icon>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-overlay" *ngIf="isMobileMenuOpen" (click)="toggleMobileMenu()"></div>
+</nav>
