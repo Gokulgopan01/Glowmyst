@@ -1,1 +1,138 @@
-<p>home works!</p>
+<section class="hero-section">
+  <div class="carousel-container">
+    <div class="carousel-slide" *ngFor="let slide of slides; let i = index" [class.active]="activeSlide === i">
+      <div class="slide-bg" [style.background-image]="'url(' + slide.image + ')'"></div>
+      <div class="slide-overlay"></div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <!-- Optional Logo -->
+    <div class="hero-logo-container">
+      <img src="assets/Glowmyst_logo.png" alt="Glowmyst Logo" class="hero-logo">
+    </div>
+
+    <h1 class="hero-heading">
+      <span class="heading-line">Timeless Jewellery,</span>
+      <span class="heading-line">Trendy Sarees.</span>
+    </h1>
+
+    <div class="divider">
+      <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M60 2L64 12L74 16L64 20L60 30L56 20L46 16L56 12L60 2Z" fill="#C79A4A" />
+        <line x1="0" y1="16" x2="40" y2="16" stroke="#C79A4A" stroke-width="1" />
+        <line x1="80" y1="16" x2="120" y2="16" stroke="#C79A4A" stroke-width="1" />
+      </svg>
+    </div>
+
+    <p class="hero-subtitle">Elegance that reflects you.</p>
+
+    <div class="hero-actions">
+      <button class="cta-button primary">SHOP JEWELLERY</button>
+      <button class="cta-button secondary">SHOP SAREES</button>
+    </div>
+  </div>
+
+  <button class="carousel-nav prev" (click)="prevSlide()" aria-label="Previous slide">
+    <lucide-icon [img]="ChevronLeftIcon"></lucide-icon>
+  </button>
+
+  <button class="carousel-nav next" (click)="nextSlide()" aria-label="Next slide">
+    <lucide-icon [img]="ChevronRightIcon"></lucide-icon>
+  </button>
+
+  <div class="carousel-indicators">
+    <button *ngFor="let slide of slides; let i = index" class="indicator" [class.active]="activeSlide === i"
+      (click)="goToSlide(i)" [attr.aria-label]="'Go to slide ' + (i + 1)">
+    </button>
+  </div>
+</section>
+
+<!-- SHOP BY CATEGORY SECTION -->
+<section #animatedElement class="category-section animated-section">
+  <div class="category-container">
+    
+    <!-- Cut-out Heading -->
+    <div class="category-heading-wrapper">
+      <div class="heading-line-left"></div>
+      
+      <div class="heading-content">
+        <svg class="ornament top" width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 0L24 6L20 12L16 6L20 0Z" fill="rgba(214,164,79,0.8)"/>
+          <path d="M12 4L14 6L12 8L10 6L12 4Z" fill="rgba(214,164,79,0.8)"/>
+          <path d="M28 4L30 6L28 8L26 6L28 4Z" fill="rgba(214,164,79,0.8)"/>
+        </svg>
+        
+        <h2 class="category-title">SHOP BY CATEGORY</h2>
+        
+        <svg class="ornament bottom" width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 12L16 6L20 0L24 6L20 12Z" fill="rgba(214,164,79,0.8)"/>
+          <path d="M12 8L10 6L12 4L14 6L12 8Z" fill="rgba(214,164,79,0.8)"/>
+          <path d="M28 8L26 6L28 4L30 6L28 8Z" fill="rgba(214,164,79,0.8)"/>
+        </svg>
+      </div>
+      
+      <div class="heading-line-right"></div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="category-grid">
+      
+      <!-- Card 1: Necklaces -->
+      <div #animatedElement class="category-card card-necklaces animated-card" style="transition-delay: 100ms;">
+        <img src="assets/home/necklaces.png" alt="Necklaces" class="card-bg">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <h3 class="card-title">NECKLACES</h3>
+          <a href="#" class="explore-link">
+            <div class="explore-divider"></div>
+            <span>Explore <lucide-icon [img]="ArrowRightIcon" class="explore-icon"></lucide-icon></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Bangles -->
+      <div #animatedElement class="category-card card-bangles animated-card" style="transition-delay: 200ms;">
+        <div class="bangles-border"></div>
+        <img src="assets/home/bangles.png" alt="Bangles" class="card-bg">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <h3 class="card-title">BANGLES</h3>
+          <a href="#" class="explore-link">
+            <div class="explore-divider"></div>
+            <span>Explore <lucide-icon [img]="ArrowRightIcon" class="explore-icon"></lucide-icon></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Earrings -->
+      <div #animatedElement class="category-card card-earrings animated-card" style="transition-delay: 300ms;">
+        <div class="earrings-border"></div>
+        <img src="assets/home/earrings.png" alt="Earrings" class="card-bg">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <h3 class="card-title">EARRINGS</h3>
+          <a href="#" class="explore-link">
+            <div class="explore-divider"></div>
+            <span>Explore <lucide-icon [img]="ArrowRightIcon" class="explore-icon"></lucide-icon></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4: Sarees -->
+      <div #animatedElement class="category-card card-sarees animated-card" style="transition-delay: 400ms;">
+        <div class="sarees-border"></div>
+        <img src="assets/home/sarees.png" alt="Sarees" class="card-bg">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <h3 class="card-title">SAREES</h3>
+          <a href="#" class="explore-link">
+            <div class="explore-divider"></div>
+            <span>Explore <lucide-icon [img]="ArrowRightIcon" class="explore-icon"></lucide-icon></span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
