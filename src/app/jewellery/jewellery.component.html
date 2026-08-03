@@ -58,7 +58,8 @@
         <span>FILTERS</span>
       </button>
       <p class="product-count">
-        Showing <span class="highlight">{{ currentRangeStart }} – {{ currentRangeEnd }}</span> of <span class="highlight">{{ allProducts.length }}</span> products
+        Showing <span class="highlight">{{ currentRangeStart }} – {{ currentRangeEnd }}</span> of <span
+          class="highlight">{{ allProducts.length }}</span> products
       </p>
     </div>
 
@@ -209,7 +210,7 @@
       <img src="assets/jewellery/footer.png" alt="Luxury Necklace">
       <div class="banner-gradient"></div>
     </div>
-    
+
     <div class="banner-content">
       <div class="content-left">
         <span class="exclusive-label">EXCLUSIVE COLLECTION</span>
@@ -223,9 +224,9 @@
         </p>
         <button class="shop-bestsellers-btn">SHOP BESTSELLERS</button>
       </div>
-      
+
       <div class="banner-divider"></div>
-      
+
       <div class="banner-features">
         <div class="feature-item">
           <lucide-icon [img]="ShieldCheckIcon" class="icon"></lucide-icon>
@@ -254,12 +255,9 @@
     <button class="page-arrow" [disabled]="currentPage === 1" (click)="prevPage()">
       <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
     </button>
-    
+
     <ng-container *ngFor="let page of pages">
-      <button class="page-num" 
-              *ngIf="page !== '...'" 
-              [class.active]="currentPage === page"
-              (click)="changePage(page)">
+      <button class="page-num" *ngIf="page !== '...'" [class.active]="currentPage === page" (click)="changePage(page)">
         {{ page }}
       </button>
       <span class="page-dots" *ngIf="page === '...'">...</span>
@@ -280,7 +278,7 @@
         Crafting timeless elegance and illuminating your most precious moments with exquisite luxury jewellery.
       </p>
     </div>
-    
+
     <div class="footer-col links-col">
       <h3>Quick Links</h3>
       <ul>
@@ -290,7 +288,7 @@
         <li><a href="#">Careers</a></li>
       </ul>
     </div>
-    
+
     <div class="footer-col links-col">
       <h3>Shop Categories</h3>
       <ul>
@@ -300,7 +298,7 @@
         <li><a href="#">Bridal Collection</a></li>
       </ul>
     </div>
-    
+
     <div class="footer-col links-col">
       <h3>Customer Service</h3>
       <ul>
@@ -310,7 +308,7 @@
         <li><a href="#">FAQs</a></li>
       </ul>
     </div>
-    
+
     <div class="footer-col newsletter-col">
       <h3>Stay Connected</h3>
       <p>Subscribe to receive updates on new arrivals and exclusive offers.</p>
@@ -326,7 +324,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="footer-bottom">
     <p>&copy; 2026 Glowmyst. Crafted with Elegance.</p>
   </div>

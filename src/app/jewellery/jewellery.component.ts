@@ -104,6 +104,7 @@ export class JewelleryComponent implements OnInit {
     this.currentPage = page;
     this.updateDisplayedProducts();
     this.updatePagination();
+    this.scrollToProducts();
   }
 
   nextPage() {
@@ -111,6 +112,7 @@ export class JewelleryComponent implements OnInit {
       this.currentPage++;
       this.updateDisplayedProducts();
       this.updatePagination();
+      this.scrollToProducts();
     }
   }
 
@@ -119,6 +121,14 @@ export class JewelleryComponent implements OnInit {
       this.currentPage--;
       this.updateDisplayedProducts();
       this.updatePagination();
+      this.scrollToProducts();
+    }
+  }
+
+  private scrollToProducts() {
+    const element = document.querySelector('.toolbar-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
