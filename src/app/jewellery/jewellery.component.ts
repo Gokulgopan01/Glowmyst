@@ -35,12 +35,14 @@ export class JewelleryComponent implements OnInit {
   readonly ChevronRightIcon = ChevronRight;
 
   currentView: 'grid' | 'list' = 'grid';
+  allProducts: Product[] = [];
   products: Product[] = [];
 
   // Pagination
   currentPage = 1;
-  totalPages = 10;
-  pages = [1, 2, 3, 4, '...', 10];
+  itemsPerPage = 16;
+  totalPages = 1;
+  pages: (number | string)[] = [];
 
   // Accordion states
   isCategoryOpen = true;
@@ -87,8 +89,69 @@ export class JewelleryComponent implements OnInit {
 
   ngOnInit() {
     this.http.get<Product[]>('assets/Products_json/jeweller_product.json').subscribe(data => {
-      this.products = data;
+      this.allProducts = data;
+      this.totalPages = Math.ceil(this.allProducts.length / this.itemsPerPage);
+      this.updatePagination();
+      this.updateDisplayedProducts();
+      
+      // Update the total count dynamically for "All Jewellery" if needed, though sidebar count is hardcoded right now.
+      // this.sidebarCategories[0].count = this.allProducts.length;
     });
+  }
+
+  changePage(page: number | string) {
+    if (page === '...' || typeof page === 'string') return;
+    this.currentPage = page;
+    this.updateDisplayedProducts();
+    this.updatePagination();
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updateDisplayedProducts();
+      this.updatePagination();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updateDisplayedProducts();
+      this.updatePagination();
+    }
+  }
+
+  updateDisplayedProducts() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.products = this.allProducts.slice(startIndex, endIndex);
+  }
+
+  updatePagination() {
+    const pages: (number | string)[] = [];
+    if (this.totalPages <= 5) {
+      for (let i = 1; i <= this.totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      if (this.currentPage <= 3) {
+        pages.push(1, 2, 3, 4, '...', this.totalPages);
+      } else if (this.currentPage >= this.totalPages - 2) {
+        pages.push(1, '...', this.totalPages - 3, this.totalPages - 2, this.totalPages - 1, this.totalPages);
+      } else {
+        pages.push(1, '...', this.currentPage - 1, this.currentPage, this.currentPage + 1, '...', this.totalPages);
+      }
+    }
+    this.pages = pages;
+  }
+
+  get currentRangeStart(): number {
+    return this.allProducts.length === 0 ? 0 : (this.currentPage - 1) * this.itemsPerPage + 1;
+  }
+
+  get currentRangeEnd(): number {
+    return Math.min(this.currentPage * this.itemsPerPage, this.allProducts.length);
   }
 
   toggleMobileFilter() {

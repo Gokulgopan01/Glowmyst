@@ -1219,7 +1219,8 @@ input:checked+.custom-checkbox {
   gap: 8px;
 }
 
-.page-num, .page-arrow {
+.page-num,
+.page-arrow {
   width: 44px;
   height: 44px;
   display: flex;
@@ -1425,6 +1426,7 @@ input:checked+.custom-checkbox {
   .footer-container {
     grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
   }
+
   .newsletter-col {
     grid-column: span 1;
   }
@@ -1435,10 +1437,11 @@ input:checked+.custom-checkbox {
     flex-direction: column;
     height: auto;
   }
-  
+
   .banner-image {
     width: 100%;
     height: 200px;
+
     .banner-gradient {
       width: 100%;
       height: 60%;
@@ -1462,7 +1465,7 @@ input:checked+.custom-checkbox {
     background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.3), transparent);
     margin: 0;
   }
-  
+
   .footer-container {
     grid-template-columns: 1fr 1fr;
   }

@@ -58,7 +58,7 @@
         <span>FILTERS</span>
       </button>
       <p class="product-count">
-        Showing <span class="highlight">1 – 16</span> of <span class="highlight">156</span> products
+        Showing <span class="highlight">{{ currentRangeStart }} – {{ currentRangeEnd }}</span> of <span class="highlight">{{ allProducts.length }}</span> products
       </p>
     </div>
 
@@ -250,8 +250,8 @@
 
 <!-- Pagination -->
 <section class="pagination-section">
-  <div class="pagination-container">
-    <button class="page-arrow" [disabled]="currentPage === 1" (click)="currentPage = currentPage > 1 ? currentPage - 1 : 1">
+  <div class="pagination-container" *ngIf="totalPages > 1">
+    <button class="page-arrow" [disabled]="currentPage === 1" (click)="prevPage()">
       <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
     </button>
     
@@ -259,13 +259,13 @@
       <button class="page-num" 
               *ngIf="page !== '...'" 
               [class.active]="currentPage === page"
-              (click)="currentPage = +page">
+              (click)="changePage(page)">
         {{ page }}
       </button>
       <span class="page-dots" *ngIf="page === '...'">...</span>
     </ng-container>
 
-    <button class="page-arrow" [disabled]="currentPage === totalPages" (click)="currentPage = currentPage < totalPages ? currentPage + 1 : totalPages">
+    <button class="page-arrow" [disabled]="currentPage === totalPages" (click)="nextPage()">
       <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
     </button>
   </div>
