@@ -48,39 +48,152 @@
   </div>
 </section>
 
-<!-- Product Toolbar Section -->
-<section class="toolbar-section">
-  <div class="toolbar-container">
+<!-- Main Listing Layout -->
+<section class="listing-section">
+  <div class="listing-container">
     
-    <!-- Left Section -->
-    <div class="toolbar-left">
-      <button class="filter-btn">
-        <lucide-icon [img]="FilterIcon" class="icon"></lucide-icon>
-        <span>FILTERS</span>
+    <!-- Sidebar -->
+    <aside class="sidebar" [class.open]="isMobileFilterOpen">
+      <!-- Mobile header -->
+      <div class="sidebar-header mobile-only">
+        <h3>FILTERS</h3>
+        <button class="close-btn" (click)="toggleMobileFilter()">✕</button>
+      </div>
+
+      <!-- Categories Accordion -->
+      <div class="accordion">
+        <div class="accordion-header" (click)="isCategoryOpen = !isCategoryOpen">
+          <span>CATEGORIES</span>
+          <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isCategoryOpen"></lucide-icon>
+        </div>
+        <div class="accordion-body" [class.closed]="!isCategoryOpen">
+           <label class="radio-label" *ngFor="let cat of sidebarCategories">
+             <!-- Angular doesn't need FormsModule if we just use plain HTML for visual -->
+             <input type="radio" name="category" [value]="cat.name" [checked]="selectedCategory === cat.name" (change)="selectedCategory = cat.name">
+             <span class="custom-radio"></span>
+             <span class="label-text">{{ cat.name }}</span>
+             <span class="count">({{ cat.count }})</span>
+           </label>
+        </div>
+      </div>
+
+      <!-- Price Range Accordion -->
+      <div class="accordion">
+        <div class="accordion-header" (click)="isPriceOpen = !isPriceOpen">
+          <span>PRICE RANGE</span>
+          <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isPriceOpen"></lucide-icon>
+        </div>
+        <div class="accordion-body" [class.closed]="!isPriceOpen">
+           <div class="slider-track-container">
+             <div class="slider-track"></div>
+             <div class="slider-range"></div>
+             <div class="slider-thumb min-thumb"></div>
+             <div class="slider-thumb max-thumb"></div>
+           </div>
+           <div class="price-inputs">
+             <div class="price-input">
+                <span class="currency">₹</span> 
+                <input type="text" value="1,000" readonly>
+             </div>
+             <div class="price-input">
+                <span class="currency">₹</span> 
+                <input type="text" value="2,00,000" readonly>
+             </div>
+           </div>
+        </div>
+      </div>
+      
+      <!-- Material Accordion -->
+      <div class="accordion">
+        <div class="accordion-header" (click)="isMaterialOpen = !isMaterialOpen">
+          <span>MATERIAL</span>
+          <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isMaterialOpen"></lucide-icon>
+        </div>
+        <div class="accordion-body" [class.closed]="!isMaterialOpen">
+           <label class="checkbox-label" *ngFor="let mat of materials">
+             <input type="checkbox" [value]="mat">
+             <span class="custom-checkbox"></span>
+             <span class="label-text">{{ mat }}</span>
+           </label>
+        </div>
+      </div>
+
+      <!-- Occasion Accordion -->
+      <div class="accordion">
+        <div class="accordion-header" (click)="isOccasionOpen = !isOccasionOpen">
+          <span>OCCASION</span>
+          <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isOccasionOpen"></lucide-icon>
+        </div>
+        <div class="accordion-body" [class.closed]="!isOccasionOpen">
+           <label class="checkbox-label" *ngFor="let occ of occasions">
+             <input type="checkbox" [value]="occ">
+             <span class="custom-checkbox"></span>
+             <span class="label-text">{{ occ }}</span>
+           </label>
+        </div>
+      </div>
+
+      <button class="clear-all-btn">
+        CLEAR ALL
       </button>
-      <p class="product-count">
-        Showing <span class="highlight">1 – 24</span> of <span class="highlight">156</span> products
-      </p>
-    </div>
 
-    <!-- Right Section -->
-    <div class="toolbar-right">
-      <div class="sort-dropdown">
-        <span class="sort-label">Sort by:</span>
-        <span class="sort-value">Popular</span>
-        <lucide-icon [img]="ChevronDownIcon" class="icon"></lucide-icon>
+    </aside>
+
+    <!-- Right Content: Toolbar & Grid -->
+    <div class="right-content">
+      
+      <!-- Product Toolbar -->
+      <div class="toolbar-container">
+        
+        <div class="toolbar-left">
+          <button class="filter-btn" (click)="toggleMobileFilter()">
+            <lucide-icon [img]="FilterIcon" class="icon"></lucide-icon>
+            <span>FILTERS</span>
+          </button>
+          <p class="product-count">
+            Showing <span class="highlight">1 – 16</span> of <span class="highlight">156</span> products
+          </p>
+        </div>
+
+        <div class="toolbar-right">
+          <div class="sort-dropdown">
+            <span class="sort-label">Sort by:</span>
+            <span class="sort-value">Popular</span>
+            <lucide-icon [img]="ChevronDownIcon" class="icon"></lucide-icon>
+          </div>
+
+          <div class="view-toggle">
+            <button class="view-btn" [class.active]="currentView === 'grid'" (click)="currentView = 'grid'">
+              <lucide-icon [img]="GridIcon" class="icon"></lucide-icon>
+            </button>
+            <button class="view-btn" [class.active]="currentView === 'list'" (click)="currentView = 'list'">
+              <lucide-icon [img]="ListIcon" class="icon"></lucide-icon>
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div class="toolbar-divider"></div>
+      
+      <!-- Product Grid -->
+      <div class="product-grid" [class.list-view]="currentView === 'list'">
+        <div class="product-card" *ngFor="let p of products; let i = index" [style.animation-delay]="i * 50 + 'ms'">
+          <div class="card-image-wrapper">
+             <img [src]="p.image" [alt]="p.name" class="product-img">
+             <span class="badge" *ngIf="p.badge">{{ p.badge }}</span>
+             <div class="vignette-overlay"></div>
+          </div>
+          <div class="card-details">
+            <h3 class="product-name">{{ p.name }}</h3>
+            <div class="product-price">₹ {{ p.price | number:'1.0-0' }}</div>
+            <button class="buy-now-btn">
+              <span class="btn-text">BUY NOW</span>
+              <span class="shine-effect"></span>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div class="view-toggle">
-        <button class="view-btn" [class.active]="currentView === 'grid'" (click)="currentView = 'grid'">
-          <lucide-icon [img]="GridIcon" class="icon"></lucide-icon>
-        </button>
-        <button class="view-btn" [class.active]="currentView === 'list'" (click)="currentView = 'list'">
-          <lucide-icon [img]="ListIcon" class="icon"></lucide-icon>
-        </button>
-      </div>
     </div>
-
   </div>
-  <div class="toolbar-divider"></div>
 </section>

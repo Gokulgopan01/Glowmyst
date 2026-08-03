@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "name": "Royal Heritage Necklace",
+        "category": "Necklaces",
+        "price": 89999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "NEW"
+    },
+    {
+        "id": 2,
+        "name": "Peacock Jhumka Earrings",
+        "category": "Earrings",
+        "price": 34999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "NEW"
+    },
+    {
+        "id": 3,
+        "name": "Traditional Gold Bangles",
+        "category": "Bangles",
+        "price": 64999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "BESTSELLER"
+    },
+    {
+        "id": 4,
+        "name": "Diamond Floral Necklace",
+        "category": "Necklaces",
+        "price": 125999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "NEW"
+    },
+    {
+        "id": 5,
+        "name": "Polki Kundan Necklace",
+        "category": "Necklaces",
+        "price": 109999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "TRENDING"
+    },
+    {
+        "id": 6,
+        "name": "Temple Lakshmi Necklace",
+        "category": "Temple",
+        "price": 94999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "NEW"
+    },
+    {
+        "id": 7,
+        "name": "Dew Drop Diamond Earrings",
+        "category": "Diamond",
+        "price": 45999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "HOT"
+    },
+    {
+        "id": 8,
+        "name": "Antique Gold Bracelet",
+        "category": "Bracelets",
+        "price": 28999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "NEW"
+    },
+    {
+        "id": 9,
+        "name": "Ruby Studded Ring",
+        "category": "Rings",
+        "price": 26999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "SALE"
+    },
+    {
+        "id": 10,
+        "name": "Layered Gold Necklace",
+        "category": "Necklaces",
+        "price": 76999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "POPULAR"
+    },
+    {
+        "id": 11,
+        "name": "Kundan Chandbali Earrings",
+        "category": "Earrings",
+        "price": 39999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "NEW"
+    },
+    {
+        "id": 12,
+        "name": "Meenakari Bangle Set",
+        "category": "Bangles",
+        "price": 32999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "LIMITED"
+    },
+    {
+        "id": 13,
+        "name": "Diamond Solitaire Ring",
+        "category": "Diamond",
+        "price": 58999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "HOT"
+    },
+    {
+        "id": 14,
+        "name": "Emerald Choker Necklace",
+        "category": "Necklaces",
+        "price": 134999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "PREMIUM"
+    },
+    {
+        "id": 15,
+        "name": "Antique Temple Haram",
+        "category": "Temple",
+        "price": 159999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "EXCLUSIVE"
+    },
+    {
+        "id": 16,
+        "name": "Pearl Drop Earrings",
+        "category": "Earrings",
+        "price": 22999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "NEW"
+    },
+    {
+        "id": 17,
+        "name": "Rose Gold Bracelet",
+        "category": "Bracelets",
+        "price": 35999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "TRENDING"
+    },
+    {
+        "id": 18,
+        "name": "Diamond Tennis Bracelet",
+        "category": "Diamond",
+        "price": 84999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "PREMIUM"
+    },
+    {
+        "id": 19,
+        "name": "Bridal Gold Necklace Set",
+        "category": "Bridal",
+        "price": 189999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "BRIDAL"
+    },
+    {
+        "id": 20,
+        "name": "Classic Gold Chain",
+        "category": "Gold",
+        "price": 31999,
+        "image": "assets/jewellery/bangles.jpg",
+        "badge": "POPULAR"
+    }
+]
