@@ -48,10 +48,45 @@
   </div>
 </section>
 
+<!-- Product Toolbar (Full Width) -->
+<section class="toolbar-section">
+  <div class="toolbar-container">
+
+    <div class="toolbar-left">
+      <button class="filter-btn" (click)="toggleMobileFilter()">
+        <lucide-icon [img]="FilterIcon" class="icon"></lucide-icon>
+        <span>FILTERS</span>
+      </button>
+      <p class="product-count">
+        Showing <span class="highlight">1 – 16</span> of <span class="highlight">156</span> products
+      </p>
+    </div>
+
+    <div class="toolbar-right">
+      <div class="sort-dropdown">
+        <span class="sort-label">Sort by:</span>
+        <span class="sort-value">Popular</span>
+        <lucide-icon [img]="ChevronDownIcon" class="icon"></lucide-icon>
+      </div>
+
+      <div class="view-toggle">
+        <button class="view-btn" [class.active]="currentView === 'grid'" (click)="currentView = 'grid'">
+          <lucide-icon [img]="GridIcon" class="icon"></lucide-icon>
+        </button>
+        <button class="view-btn" [class.active]="currentView === 'list'" (click)="currentView = 'list'">
+          <lucide-icon [img]="ListIcon" class="icon"></lucide-icon>
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <div class="toolbar-divider"></div>
+</section>
+
 <!-- Main Listing Layout -->
 <section class="listing-section">
   <div class="listing-container">
-    
+
     <!-- Sidebar -->
     <aside class="sidebar" [class.open]="isMobileFilterOpen">
       <!-- Mobile header -->
@@ -67,13 +102,13 @@
           <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isCategoryOpen"></lucide-icon>
         </div>
         <div class="accordion-body" [class.closed]="!isCategoryOpen">
-           <label class="radio-label" *ngFor="let cat of sidebarCategories">
-             <!-- Angular doesn't need FormsModule if we just use plain HTML for visual -->
-             <input type="radio" name="category" [value]="cat.name" [checked]="selectedCategory === cat.name" (change)="selectedCategory = cat.name">
-             <span class="custom-radio"></span>
-             <span class="label-text">{{ cat.name }}</span>
-             <span class="count">({{ cat.count }})</span>
-           </label>
+          <label class="radio-label" *ngFor="let cat of sidebarCategories">
+            <input type="radio" name="category" [value]="cat.name" [checked]="selectedCategory === cat.name"
+              (change)="selectedCategory = cat.name">
+            <span class="custom-radio"></span>
+            <span class="label-text">{{ cat.name }}</span>
+            <span class="count">({{ cat.count }})</span>
+          </label>
         </div>
       </div>
 
@@ -84,25 +119,25 @@
           <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isPriceOpen"></lucide-icon>
         </div>
         <div class="accordion-body" [class.closed]="!isPriceOpen">
-           <div class="slider-track-container">
-             <div class="slider-track"></div>
-             <div class="slider-range"></div>
-             <div class="slider-thumb min-thumb"></div>
-             <div class="slider-thumb max-thumb"></div>
-           </div>
-           <div class="price-inputs">
-             <div class="price-input">
-                <span class="currency">₹</span> 
-                <input type="text" value="1,000" readonly>
-             </div>
-             <div class="price-input">
-                <span class="currency">₹</span> 
-                <input type="text" value="2,00,000" readonly>
-             </div>
-           </div>
+          <div class="slider-track-container">
+            <div class="slider-track"></div>
+            <div class="slider-range"></div>
+            <div class="slider-thumb min-thumb"></div>
+            <div class="slider-thumb max-thumb"></div>
+          </div>
+          <div class="price-inputs">
+            <div class="price-input">
+              <span class="currency">₹</span>
+              <input type="text" value="1,000" readonly>
+            </div>
+            <div class="price-input">
+              <span class="currency">₹</span>
+              <input type="text" value="2,00,000" readonly>
+            </div>
+          </div>
         </div>
       </div>
-      
+
       <!-- Material Accordion -->
       <div class="accordion">
         <div class="accordion-header" (click)="isMaterialOpen = !isMaterialOpen">
@@ -110,11 +145,11 @@
           <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isMaterialOpen"></lucide-icon>
         </div>
         <div class="accordion-body" [class.closed]="!isMaterialOpen">
-           <label class="checkbox-label" *ngFor="let mat of materials">
-             <input type="checkbox" [value]="mat">
-             <span class="custom-checkbox"></span>
-             <span class="label-text">{{ mat }}</span>
-           </label>
+          <label class="checkbox-label" *ngFor="let mat of materials">
+            <input type="checkbox" [value]="mat">
+            <span class="custom-checkbox"></span>
+            <span class="label-text">{{ mat }}</span>
+          </label>
         </div>
       </div>
 
@@ -125,11 +160,11 @@
           <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isOccasionOpen"></lucide-icon>
         </div>
         <div class="accordion-body" [class.closed]="!isOccasionOpen">
-           <label class="checkbox-label" *ngFor="let occ of occasions">
-             <input type="checkbox" [value]="occ">
-             <span class="custom-checkbox"></span>
-             <span class="label-text">{{ occ }}</span>
-           </label>
+          <label class="checkbox-label" *ngFor="let occ of occasions">
+            <input type="checkbox" [value]="occ">
+            <span class="custom-checkbox"></span>
+            <span class="label-text">{{ occ }}</span>
+          </label>
         </div>
       </div>
 
@@ -139,49 +174,16 @@
 
     </aside>
 
-    <!-- Right Content: Toolbar & Grid -->
+    <!-- Right Content: Grid -->
     <div class="right-content">
-      
-      <!-- Product Toolbar -->
-      <div class="toolbar-container">
-        
-        <div class="toolbar-left">
-          <button class="filter-btn" (click)="toggleMobileFilter()">
-            <lucide-icon [img]="FilterIcon" class="icon"></lucide-icon>
-            <span>FILTERS</span>
-          </button>
-          <p class="product-count">
-            Showing <span class="highlight">1 – 16</span> of <span class="highlight">156</span> products
-          </p>
-        </div>
 
-        <div class="toolbar-right">
-          <div class="sort-dropdown">
-            <span class="sort-label">Sort by:</span>
-            <span class="sort-value">Popular</span>
-            <lucide-icon [img]="ChevronDownIcon" class="icon"></lucide-icon>
-          </div>
-
-          <div class="view-toggle">
-            <button class="view-btn" [class.active]="currentView === 'grid'" (click)="currentView = 'grid'">
-              <lucide-icon [img]="GridIcon" class="icon"></lucide-icon>
-            </button>
-            <button class="view-btn" [class.active]="currentView === 'list'" (click)="currentView = 'list'">
-              <lucide-icon [img]="ListIcon" class="icon"></lucide-icon>
-            </button>
-          </div>
-        </div>
-
-      </div>
-      <div class="toolbar-divider"></div>
-      
       <!-- Product Grid -->
       <div class="product-grid" [class.list-view]="currentView === 'list'">
         <div class="product-card" *ngFor="let p of products; let i = index" [style.animation-delay]="i * 50 + 'ms'">
           <div class="card-image-wrapper">
-             <img [src]="p.image" [alt]="p.name" class="product-img">
-             <span class="badge" *ngIf="p.badge">{{ p.badge }}</span>
-             <div class="vignette-overlay"></div>
+            <img [src]="p.image" [alt]="p.name" class="product-img">
+            <span class="badge" *ngIf="p.badge">{{ p.badge }}</span>
+            <div class="vignette-overlay"></div>
           </div>
           <div class="card-details">
             <h3 class="product-name">{{ p.name }}</h3>
@@ -197,3 +199,135 @@
     </div>
   </div>
 </section>
+
+<!-- Promotional Banner -->
+<section class="promo-banner-section">
+  <div class="promo-banner">
+    <div class="banner-image">
+      <!-- We will just use the left part of the background via CSS or an image tag if needed, but since we are asked to use the banner image, let's put it as background or img -->
+      <!-- Let's put it as a background in CSS for easier cropping/positioning, or an img if preferred. Let's use img for now with object-fit -->
+      <img src="assets/jewellery/footer.png" alt="Luxury Necklace">
+      <div class="banner-gradient"></div>
+    </div>
+    
+    <div class="banner-content">
+      <div class="content-left">
+        <span class="exclusive-label">EXCLUSIVE COLLECTION</span>
+        <h2 class="banner-heading">
+          Timeless Beauty<br>
+          Endless Elegance
+        </h2>
+        <p class="banner-desc">
+          Discover our most loved pieces, crafted to<br>
+          celebrate your every special moment.
+        </p>
+        <button class="shop-bestsellers-btn">SHOP BESTSELLERS</button>
+      </div>
+      
+      <div class="banner-divider"></div>
+      
+      <div class="banner-features">
+        <div class="feature-item">
+          <lucide-icon [img]="ShieldCheckIcon" class="icon"></lucide-icon>
+          <span>100% Certified Jewellery</span>
+        </div>
+        <div class="feature-item">
+          <lucide-icon [img]="AwardIcon" class="icon"></lucide-icon>
+          <span>Hallmarked Gold</span>
+        </div>
+        <div class="feature-item">
+          <lucide-icon [img]="PackageIcon" class="icon"></lucide-icon>
+          <span>Premium Packaging</span>
+        </div>
+        <div class="feature-item">
+          <lucide-icon [img]="LockIcon" class="icon"></lucide-icon>
+          <span>Secure Payment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pagination -->
+<section class="pagination-section">
+  <div class="pagination-container">
+    <button class="page-arrow" [disabled]="currentPage === 1" (click)="currentPage = currentPage > 1 ? currentPage - 1 : 1">
+      <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
+    </button>
+    
+    <ng-container *ngFor="let page of pages">
+      <button class="page-num" 
+              *ngIf="page !== '...'" 
+              [class.active]="currentPage === page"
+              (click)="currentPage = +page">
+        {{ page }}
+      </button>
+      <span class="page-dots" *ngIf="page === '...'">...</span>
+    </ng-container>
+
+    <button class="page-arrow" [disabled]="currentPage === totalPages" (click)="currentPage = currentPage < totalPages ? currentPage + 1 : totalPages">
+      <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
+    </button>
+  </div>
+</section>
+
+<!-- Premium Footer -->
+<footer class="premium-footer">
+  <div class="footer-container">
+    <div class="footer-col brand-col">
+      <h2 class="footer-logo">GLOWMYST</h2>
+      <p class="brand-desc">
+        Crafting timeless elegance and illuminating your most precious moments with exquisite luxury jewellery.
+      </p>
+    </div>
+    
+    <div class="footer-col links-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Collections</a></li>
+        <li><a href="#">Store Locator</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col links-col">
+      <h3>Shop Categories</h3>
+      <ul>
+        <li><a href="#">Necklaces</a></li>
+        <li><a href="#">Earrings</a></li>
+        <li><a href="#">Rings & Bangles</a></li>
+        <li><a href="#">Bridal Collection</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col links-col">
+      <h3>Customer Service</h3>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col newsletter-col">
+      <h3>Stay Connected</h3>
+      <p>Subscribe to receive updates on new arrivals and exclusive offers.</p>
+      <div class="newsletter-input-group">
+        <input type="email" placeholder="Enter your email address">
+        <button class="subscribe-btn">SUBSCRIBE</button>
+      </div>
+      <div class="social-icons">
+        <a href="#" class="social-link">In</a>
+        <a href="#" class="social-link">Fb</a>
+        <a href="#" class="social-link">Tw</a>
+        <a href="#" class="social-link">Yt</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2026 Glowmyst. Crafted with Elegance.</p>
+  </div>
+</footer>

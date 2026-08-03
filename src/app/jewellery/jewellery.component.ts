@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List } from 'lucide-angular';
+import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight } from 'lucide-angular';
 
 export interface Product {
   id: number;
@@ -27,9 +27,20 @@ export class JewelleryComponent implements OnInit {
   readonly ChevronDownIcon = ChevronDown;
   readonly GridIcon = LayoutGrid;
   readonly ListIcon = List;
+  readonly ShieldCheckIcon = ShieldCheck;
+  readonly AwardIcon = Award;
+  readonly PackageIcon = Package;
+  readonly LockIcon = Lock;
+  readonly ChevronLeftIcon = ChevronLeft;
+  readonly ChevronRightIcon = ChevronRight;
 
   currentView: 'grid' | 'list' = 'grid';
   products: Product[] = [];
+
+  // Pagination
+  currentPage = 1;
+  totalPages = 10;
+  pages = [1, 2, 3, 4, '...', 10];
 
   // Accordion states
   isCategoryOpen = true;
