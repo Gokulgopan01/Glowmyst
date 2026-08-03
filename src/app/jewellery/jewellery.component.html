@@ -1,0 +1,49 @@
+<section class="jewellery-hero">
+  <div class="hero-bg-effects">
+    <div class="glow-circle"></div>
+    <div class="particles"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="left-col">
+      <nav class="breadcrumb">
+        <a routerLink="/home">Home</a>
+        <span class="separator">></span>
+        <span class="current">Jewellery</span>
+      </nav>
+
+      <h1 class="main-heading">JEWELLERY</h1>
+      <h2 class="subtitle">CRAFTED FOR EVERY<br>PRECIOUS MOMENT</h2>
+
+      <p class="description">
+        Handpicked designs that blend tradition,<br>
+        elegance and timeless beauty.
+      </p>
+
+      <button class="explore-btn">
+        EXPLORE COLLECTION
+      </button>
+    </div>
+
+    <div class="right-col">
+      <div class="model-container">
+        <img src="assets/jewellery/luxury_bridal_model.png" alt="Luxury Bridal Model" class="hero-model" />
+        <div class="model-gradient-overlay"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <div class="category-card">
+      <div class="category-scroll-container">
+        <div class="category-item" *ngFor="let cat of categories; let i = index"
+          [style.animation-delay]="i * 50 + 'ms'">
+          <div class="icon-container">
+            <img [src]="cat.image" [alt]="cat.name" class="cat-image" />
+          </div>
+          <span class="category-name">{{ cat.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

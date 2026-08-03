@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   private observer: IntersectionObserver | null = null;
 
   slides: Slide[] = [
-    { id: 0, image: 'assets/hero_1.png' },
-    { id: 1, image: 'assets/hero_2.png' }
+    { id: 0, image: 'assets/home/hero_1.png' },
+    { id: 1, image: 'assets/home/hero_2.png' }
   ];
 
   activeSlide = 0;
