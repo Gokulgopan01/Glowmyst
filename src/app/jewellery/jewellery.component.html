@@ -47,3 +47,40 @@
     </div>
   </div>
 </section>
+
+<!-- Product Toolbar Section -->
+<section class="toolbar-section">
+  <div class="toolbar-container">
+    
+    <!-- Left Section -->
+    <div class="toolbar-left">
+      <button class="filter-btn">
+        <lucide-icon [img]="FilterIcon" class="icon"></lucide-icon>
+        <span>FILTERS</span>
+      </button>
+      <p class="product-count">
+        Showing <span class="highlight">1 – 24</span> of <span class="highlight">156</span> products
+      </p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="toolbar-right">
+      <div class="sort-dropdown">
+        <span class="sort-label">Sort by:</span>
+        <span class="sort-value">Popular</span>
+        <lucide-icon [img]="ChevronDownIcon" class="icon"></lucide-icon>
+      </div>
+
+      <div class="view-toggle">
+        <button class="view-btn" [class.active]="currentView === 'grid'" (click)="currentView = 'grid'">
+          <lucide-icon [img]="GridIcon" class="icon"></lucide-icon>
+        </button>
+        <button class="view-btn" [class.active]="currentView === 'list'" (click)="currentView = 'list'">
+          <lucide-icon [img]="ListIcon" class="icon"></lucide-icon>
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <div class="toolbar-divider"></div>
+</section>
