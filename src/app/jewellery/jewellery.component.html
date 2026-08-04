@@ -105,7 +105,7 @@
         <div class="accordion-body" [class.closed]="!isCategoryOpen">
           <label class="radio-label" *ngFor="let cat of sidebarCategories">
             <input type="radio" name="category" [value]="cat.name" [checked]="selectedCategory === cat.name"
-              (change)="selectedCategory = cat.name">
+              (change)="selectedCategory = cat.name; onFilterChange()">
             <span class="custom-radio"></span>
             <span class="label-text">{{ cat.name }}</span>
             <span class="count">({{ cat.count }})</span>
@@ -120,20 +120,17 @@
           <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isPriceOpen"></lucide-icon>
         </div>
         <div class="accordion-body" [class.closed]="!isPriceOpen">
-          <div class="slider-track-container">
-            <div class="slider-track"></div>
-            <div class="slider-range"></div>
-            <div class="slider-thumb min-thumb"></div>
-            <div class="slider-thumb max-thumb"></div>
+          <div class="price-slider-container">
+            <input type="range" class="price-slider" style="width: 100%" min="0" max="200000" step="1000" [(ngModel)]="maxPrice" (change)="onFilterChange()">
           </div>
-          <div class="price-inputs">
+          <div class="price-inputs" style="margin-top: 15px;">
             <div class="price-input">
               <span class="currency">₹</span>
-              <input type="text" value="1,000" readonly>
+              <input type="number" [(ngModel)]="minPrice" (change)="onFilterChange()">
             </div>
             <div class="price-input">
               <span class="currency">₹</span>
-              <input type="text" value="2,00,000" readonly>
+              <input type="number" [(ngModel)]="maxPrice" (change)="onFilterChange()">
             </div>
           </div>
         </div>

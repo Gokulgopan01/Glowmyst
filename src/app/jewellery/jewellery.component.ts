@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight } from 'lucide-angular';
 
 export interface Product {
@@ -16,7 +17,7 @@ export interface Product {
 @Component({
   selector: 'app-jewellery',
   standalone: true,
-  imports: [CommonModule, RouterModule, LucideAngularModule],
+  imports: [CommonModule, RouterModule, LucideAngularModule, FormsModule],
   templateUrl: './jewellery.component.html',
   styleUrl: './jewellery.component.scss'
 })
@@ -52,6 +53,8 @@ export class JewelleryComponent implements OnInit {
 
   // Filter selections
   selectedCategory = 'All Jewellery';
+  minPrice = 0;
+  maxPrice = 200000;
 
   // Mobile filter panel
   isMobileFilterOpen = false;
@@ -71,17 +74,17 @@ export class JewelleryComponent implements OnInit {
   ];
 
   sidebarCategories = [
-    { name: 'All Jewellery', count: 156 },
-    { name: 'Necklaces', count: 32 },
-    { name: 'Earrings', count: 28 },
-    { name: 'Bangles', count: 21 },
-    { name: 'Rings', count: 18 },
-    { name: 'Bridal', count: 15 },
-    { name: 'Antique', count: 12 },
-    { name: 'Temple', count: 10 },
-    { name: 'Diamond', count: 8 },
-    { name: 'Gold', count: 7 },
-    { name: 'Silver', count: 5 }
+    { name: 'All Jewellery', count: 0 },
+    { name: 'Necklaces', count: 0 },
+    { name: 'Earrings', count: 0 },
+    { name: 'Bangles', count: 0 },
+    { name: 'Rings', count: 0 },
+    { name: 'Bridal', count: 0 },
+    { name: 'Antique', count: 0 },
+    { name: 'Temple', count: 0 },
+    { name: 'Diamond', count: 0 },
+    { name: 'Gold', count: 0 },
+    { name: 'Silver', count: 0 }
   ];
 
   materials = ['Gold', 'Diamond', 'Kundan', 'Polki', 'Silver', 'Rose Gold', 'White Gold'];
@@ -93,9 +96,17 @@ export class JewelleryComponent implements OnInit {
       this.totalPages = Math.ceil(this.allProducts.length / this.itemsPerPage);
       this.updatePagination();
       this.updateDisplayedProducts();
-      
-      // Update the total count dynamically for "All Jewellery" if needed, though sidebar count is hardcoded right now.
-      // this.sidebarCategories[0].count = this.allProducts.length;
+      this.updateCategoryCounts();
+    });
+  }
+
+  updateCategoryCounts() {
+    this.sidebarCategories.forEach(cat => {
+      if (cat.name === 'All Jewellery') {
+        cat.count = this.allProducts.length;
+      } else {
+        cat.count = this.allProducts.filter(p => p.category.toLowerCase() === cat.name.toLowerCase()).length;
+      }
     });
   }
 
@@ -132,10 +143,24 @@ export class JewelleryComponent implements OnInit {
     }
   }
 
+  onFilterChange() {
+    this.currentPage = 1;
+    this.updateDisplayedProducts();
+    this.updatePagination();
+  }
+
   updateDisplayedProducts() {
+    const filtered = this.allProducts.filter(p => {
+      const matchCategory = this.selectedCategory === 'All Jewellery' || p.category.toLowerCase() === this.selectedCategory.toLowerCase();
+      const matchPrice = p.price >= this.minPrice && p.price <= this.maxPrice;
+      return matchCategory && matchPrice;
+    });
+    
+    this.totalPages = Math.ceil(filtered.length / this.itemsPerPage) || 1;
+    
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    this.products = this.allProducts.slice(startIndex, endIndex);
+    this.products = filtered.slice(startIndex, endIndex);
   }
 
   updatePagination() {
