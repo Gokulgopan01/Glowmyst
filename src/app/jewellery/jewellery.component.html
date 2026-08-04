@@ -125,7 +125,8 @@
         </div>
         <div class="accordion-body" [class.closed]="!isPriceOpen">
           <div class="price-slider-container">
-            <input type="range" class="price-slider" style="width: 100%" min="0" max="200000" step="1000" [(ngModel)]="maxPrice" (change)="onFilterChange()">
+            <input type="range" class="price-slider" style="width: 100%" min="0" max="200000" step="1000"
+              [(ngModel)]="maxPrice" (change)="onFilterChange()">
           </div>
           <div class="price-inputs" style="margin-top: 15px;">
             <div class="price-input">
@@ -163,7 +164,8 @@
         </div>
         <div class="accordion-body" [class.closed]="!isOccasionOpen">
           <label class="checkbox-label" *ngFor="let occ of occasions">
-            <input type="checkbox" [value]="occ" (change)="toggleOccasion(occ, $event)" [checked]="selectedOccasions.includes(occ)">
+            <input type="checkbox" [value]="occ" (change)="toggleOccasion(occ, $event)"
+              [checked]="selectedOccasions.includes(occ)">
             <span class="custom-checkbox"></span>
             <span class="label-text">{{ occ }}</span>
           </label>
@@ -198,9 +200,26 @@
         </div>
       </div>
 
+      <!-- Pagination -->
+      <div class="pagination-container" *ngIf="totalPages > 1">
+        <ng-container *ngFor="let page of pages">
+          <button class="page-number" *ngIf="page !== '...'" [class.active]="currentPage === page"
+            (click)="changePage(page)">
+            {{ page }}
+          </button>
+          <span class="page-dots" *ngIf="page === '...'">...</span>
+        </ng-container>
+
+        <button class="page-next" (click)="nextPage()" [disabled]="currentPage === totalPages">
+          <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
+        </button>
+      </div>
+
     </div>
   </div>
 </section>
+
+
 
 <!-- Promotional Banner -->
 <section class="promo-banner-section">
@@ -250,25 +269,7 @@
   </div>
 </section>
 
-<!-- Pagination -->
-<section class="pagination-section">
-  <div class="pagination-container" *ngIf="totalPages > 1">
-    <button class="page-arrow" [disabled]="currentPage === 1" (click)="prevPage()">
-      <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
-    </button>
 
-    <ng-container *ngFor="let page of pages">
-      <button class="page-num" *ngIf="page !== '...'" [class.active]="currentPage === page" (click)="changePage(page)">
-        {{ page }}
-      </button>
-      <span class="page-dots" *ngIf="page === '...'">...</span>
-    </ng-container>
-
-    <button class="page-arrow" [disabled]="currentPage === totalPages" (click)="nextPage()">
-      <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
-    </button>
-  </div>
-</section>
 
 <!-- Premium Footer -->
 <footer class="premium-footer">

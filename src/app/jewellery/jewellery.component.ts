@@ -140,9 +140,12 @@ export class JewelleryComponent implements OnInit {
   }
 
   private scrollToProducts() {
-    const element = document.querySelector('.toolbar-section');
+    const element = document.querySelector('.listing-section');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Add a slight delay to allow the DOM to render the new products before scrolling
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
     }
   }
 
@@ -191,17 +194,17 @@ export class JewelleryComponent implements OnInit {
 
   updatePagination() {
     const pages: (number | string)[] = [];
-    if (this.totalPages <= 5) {
+    if (this.totalPages <= 3) {
       for (let i = 1; i <= this.totalPages; i++) {
         pages.push(i);
       }
     } else {
-      if (this.currentPage <= 3) {
-        pages.push(1, 2, 3, 4, '...', this.totalPages);
-      } else if (this.currentPage >= this.totalPages - 2) {
-        pages.push(1, '...', this.totalPages - 3, this.totalPages - 2, this.totalPages - 1, this.totalPages);
+      if (this.currentPage <= 2) {
+        pages.push(1, 2, 3, '...', this.totalPages);
+      } else if (this.currentPage >= this.totalPages - 1) {
+        pages.push(1, '...', this.totalPages - 2, this.totalPages - 1, this.totalPages);
       } else {
-        pages.push(1, '...', this.currentPage - 1, this.currentPage, this.currentPage + 1, '...', this.totalPages);
+        pages.push(1, '...', this.currentPage, '...', this.totalPages);
       }
     }
     this.pages = pages;
