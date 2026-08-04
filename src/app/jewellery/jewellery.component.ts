@@ -47,10 +47,10 @@ export class JewelleryComponent implements OnInit {
   pages: (number | string)[] = [];
 
   // Accordion states
-  isCategoryOpen = true;
-  isPriceOpen = true;
-  isMaterialOpen = true;
-  isOccasionOpen = true;
+  isCategoryOpen = false;
+  isPriceOpen = false;
+  isMaterialOpen = false;
+  isOccasionOpen = false;
 
   // Filter selections
   selectedCategory = 'All Jewellery';
