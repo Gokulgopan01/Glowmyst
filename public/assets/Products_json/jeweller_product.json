@@ -5,6 +5,8 @@
         "category": "Necklaces",
         "price": 9999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
+        "image3": "assets/jewellery/bangles.jpg",
         "badge": "NEW",
         "OCCASION": "Daily Wear"
     },
@@ -14,6 +16,8 @@
         "category": "Earrings",
         "price": 4999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
+        "image3": "assets/jewellery/bangles.jpg",
         "badge": "NEW",
         "OCCASION": "Festive"
     },
@@ -23,6 +27,7 @@
         "category": "Bangles",
         "price": 4999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "BESTSELLER",
         "OCCASION": "Party Wear"
     },
@@ -32,6 +37,7 @@
         "category": "Necklaces",
         "price": 125999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "NEW",
         "OCCASION": "Office Wear"
     },
@@ -41,6 +47,7 @@
         "category": "Necklaces",
         "price": 9999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "TRENDING",
         "OCCASION": "Daily Wear"
     },
@@ -50,6 +57,7 @@
         "category": "Temple",
         "price": 999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "NEW",
         "OCCASION": "Daily Wear"
     },
@@ -59,6 +67,7 @@
         "category": "Diamond",
         "price": 999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "HOT",
         "OCCASION": "Daily Wear"
     },
@@ -68,6 +77,7 @@
         "category": "Bracelets",
         "price": 8999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "NEW",
         "OCCASION": "Daily Wear"
     },
@@ -77,6 +87,7 @@
         "category": "Rings",
         "price": 6999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "SALE",
         "OCCASION": "Daily Wear"
     },
@@ -86,6 +97,7 @@
         "category": "Necklaces",
         "price": 6999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "POPULAR",
         "OCCASION": "Daily Wear"
     },
@@ -95,6 +107,7 @@
         "category": "Earrings",
         "price": 9999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "NEW",
         "OCCASION": "Daily Wear"
     },
@@ -104,6 +117,7 @@
         "category": "Bangles",
         "price": 2999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "LIMITED",
         "OCCASION": "Daily Wear"
     },
@@ -113,6 +127,7 @@
         "category": "Diamond",
         "price": 8999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "HOT",
         "OCCASION": "Daily Wear"
     },
@@ -122,6 +137,7 @@
         "category": "Necklaces",
         "price": 34999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "PREMIUM",
         "OCCASION": "Daily Wear"
     },
@@ -131,6 +147,7 @@
         "category": "Temple",
         "price": 9999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "EXCLUSIVE",
         "OCCASION": "Daily Wear"
     },
@@ -140,6 +157,7 @@
         "category": "Earrings",
         "price": 2999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "NEW",
         "OCCASION": "Daily Wear"
     },
@@ -149,6 +167,7 @@
         "category": "Bracelets",
         "price": 5999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "TRENDING",
         "OCCASION": "Daily Wear"
     },
@@ -158,6 +177,7 @@
         "category": "Diamond",
         "price": 4999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "PREMIUM",
         "OCCASION": "Daily Wear"
     },
@@ -167,6 +187,7 @@
         "category": "Bridal",
         "price": 9999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "BRIDAL",
         "OCCASION": "Daily Wear"
     },
@@ -176,6 +197,7 @@
         "category": "Gold",
         "price": 999,
         "image": "assets/jewellery/bangles.jpg",
+        "image2": "assets/jewellery/bangles.jpg",
         "badge": "POPULAR",
         "OCCASION": "Daily Wear"
     }

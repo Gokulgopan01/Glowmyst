@@ -1,0 +1,67 @@
+<div class="product-detail-container" *ngIf="product">
+  <div class="back-nav">
+    <a routerLink="/jewellery" class="back-link">
+      <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
+      Back to Jewellery
+    </a>
+  </div>
+
+  <div class="content-wrapper">
+    <!-- Left Column: Image Gallery -->
+    <div class="gallery-section">
+      <!-- Thumbnails -->
+      <div class="thumbnails-container">
+        <div 
+          class="thumbnail" 
+          *ngFor="let img of images"
+          [class.active]="activeImage === img"
+          (click)="setActiveImage(img)"
+        >
+          <img [src]="img" [alt]="product.name">
+        </div>
+      </div>
+
+      <!-- Main Image -->
+      <div class="main-image-container">
+        <img [src]="activeImage" [alt]="product.name" class="main-image">
+        <span class="badge" *ngIf="product.badge">{{ product.badge }}</span>
+        <div class="vignette-overlay"></div>
+      </div>
+    </div>
+
+    <!-- Right Column: Product Details -->
+    <div class="details-section">
+      <div class="brand">GLOWMYST EXCLUSIVE</div>
+      <h1 class="product-title">{{ product.name }}</h1>
+      
+
+      <div class="pricing-block">
+        <div class="offer-price">₹{{ product.price | number:'1.0-0' }}</div>
+        <div class="mrp-row">
+          <span class="mrp-label">MRP</span>
+          <span class="mrp-value">₹{{ mrp | number:'1.0-0' }}</span>
+          <span class="discount-badge">({{ discountPercentage }}% OFF)</span>
+        </div>
+        <div class="tax-info">Price inclusive of all taxes. Shipping calculated at checkout.</div>
+      </div>
+
+
+      <button class="buy-now-btn">
+        <lucide-icon [img]="BagIcon" class="icon"></lucide-icon>
+        <span class="btn-text">BUY NOW</span>
+        <div class="shine-effect"></div>
+      </button>
+
+      <div class="features-list">
+        <div class="feature-item">✓ Handpicked Styles</div>
+        <div class="feature-item">✓ Assured Quality</div>
+        <div class="feature-item">✓ Easy Returns</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading-state" *ngIf="!product">
+  <div class="spinner"></div>
+  <p>Loading Details...</p>
+</div>

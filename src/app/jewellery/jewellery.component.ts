@@ -1,9 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Directive, ElementRef, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight } from 'lucide-angular';
+import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight, Eye } from 'lucide-angular';
 
 export interface Product {
   id: number;
@@ -15,10 +15,39 @@ export interface Product {
   OCCASION?: string;
 }
 
+@Directive({
+  selector: '[appFadeIn]',
+  standalone: true
+})
+export class FadeInDirective implements OnInit, OnDestroy {
+  private observer: IntersectionObserver | undefined;
+
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.el.nativeElement.classList.add('in-view');
+          this.observer?.unobserve(this.el.nativeElement);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    this.observer.observe(this.el.nativeElement);
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+}
+
 @Component({
   selector: 'app-jewellery',
   standalone: true,
-  imports: [CommonModule, RouterModule, LucideAngularModule, FormsModule],
+  imports: [CommonModule, RouterModule, LucideAngularModule, FormsModule, FadeInDirective],
   templateUrl: './jewellery.component.html',
   styleUrl: './jewellery.component.scss'
 })
@@ -35,6 +64,7 @@ export class JewelleryComponent implements OnInit {
   readonly LockIcon = Lock;
   readonly ChevronLeftIcon = ChevronLeft;
   readonly ChevronRightIcon = ChevronRight;
+  readonly EyeIcon = Eye;
 
   currentView: 'grid' | 'list' = 'grid';
   allProducts: Product[] = [];
