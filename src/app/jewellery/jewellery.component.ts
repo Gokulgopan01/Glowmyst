@@ -57,6 +57,7 @@ export class JewelleryComponent implements OnInit {
   minPrice = 0;
   maxPrice = 200000;
   selectedOccasions: string[] = [];
+  currentSort = 'Popular';
 
   // Mobile filter panel
   isMobileFilterOpen = false;
@@ -160,16 +161,29 @@ export class JewelleryComponent implements OnInit {
     this.onFilterChange();
   }
 
+  onSortChange(event: any) {
+    this.currentSort = event.target.value;
+    this.currentPage = 1;
+    this.updateDisplayedProducts();
+    this.updatePagination();
+  }
+
   updateDisplayedProducts() {
-    const filtered = this.allProducts.filter(p => {
+    let filtered = this.allProducts.filter(p => {
       const matchCategory = this.selectedCategory === 'All Jewellery' || p.category.toLowerCase() === this.selectedCategory.toLowerCase();
       const matchPrice = p.price >= this.minPrice && p.price <= this.maxPrice;
       const matchOccasion = this.selectedOccasions.length === 0 || (p.OCCASION && this.selectedOccasions.includes(p.OCCASION));
       return matchCategory && matchPrice && matchOccasion;
     });
-    
+
+    if (this.currentSort === 'Price: Low to High') {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (this.currentSort === 'Price: High to Low') {
+      filtered.sort((a, b) => b.price - a.price);
+    }
+
     this.totalPages = Math.ceil(filtered.length / this.itemsPerPage) || 1;
-    
+
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     this.products = filtered.slice(startIndex, endIndex);

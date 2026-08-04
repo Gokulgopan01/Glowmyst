@@ -702,7 +702,7 @@ input:checked+.custom-checkbox {
 
 // Toolbar (updated to full width layout)
 .toolbar-section {
-  width: 920%;
+  width: 92%;
   // max-width: 1600px;
   margin: 0 auto;
   padding: 80px 50px 0;
@@ -787,9 +787,20 @@ input:checked+.custom-checkbox {
     font-size: 14px;
   }
 
-  .sort-value {
+  .sort-select {
+    background: transparent;
     color: #ECE4D7;
     font-size: 14px;
+    border: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+
+    option {
+      background: #0f0f0f;
+      color: #ECE4D7;
+    }
   }
 
   .icon {
@@ -814,18 +825,22 @@ input:checked+.custom-checkbox {
     justify-content: center;
     cursor: pointer;
     transition: 0.3s;
+    color: #ffffff;
 
     .icon {
       width: 18px;
       height: 18px;
-      stroke: #D4AF37;
+      stroke: #ffffff;
+      color: #ffffff;
     }
 
     &.active {
       background: #D4AF37;
+      color: #111111;
 
       .icon {
         stroke: #111111;
+        color: #111111;
       }
     }
   }
