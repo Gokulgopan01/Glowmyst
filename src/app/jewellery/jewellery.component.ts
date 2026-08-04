@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight, Eye } from 'lucide-angular';
+import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight, Eye, ArrowDownUp } from 'lucide-angular';
 
 export interface Product {
   id: number;
@@ -65,6 +65,7 @@ export class JewelleryComponent implements OnInit {
   readonly ChevronLeftIcon = ChevronLeft;
   readonly ChevronRightIcon = ChevronRight;
   readonly EyeIcon = Eye;
+  readonly ArrowDownUpIcon = ArrowDownUp;
 
   currentView: 'grid' | 'list' = 'grid';
   allProducts: Product[] = [];

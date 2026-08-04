@@ -481,10 +481,59 @@ $icon-gold: #D4A550;
       background: transparent !important;
       box-sizing: border-box !important;
       padding: 0 16px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+    }
+
+    .filter-btn .icon, .sort-dropdown .icon {
+      width: 16px !important;
+      height: 16px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .filter-btn span, .sort-dropdown .mobile-only-text {
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      line-height: 1 !important;
+      letter-spacing: 0.5px !important;
+      display: block !important;
     }
 
     .sort-dropdown {
       border: 1px solid rgba(212, 175, 55, 0.25) !important;
+      position: relative !important;
+
+      .desktop-only, .desktop-only-icon {
+        display: none !important;
+      }
+
+      .mobile-only-icon {
+        display: flex !important;
+      }
+
+      .mobile-only-text {
+        color: #F2E8D5 !important;
+        font-family: 'Inter', sans-serif !important;
+      }
+      
+      .mobile-only-icon {
+        stroke: #D4AF37 !important;
+      }
+
+      .sort-select {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        opacity: 0 !important;
+        cursor: pointer !important;
+        display: block !important;
+        -webkit-appearance: none;
+      }
     }
   }
 }
@@ -880,10 +929,14 @@ input:checked+.custom-checkbox {
   }
 
   .icon {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     stroke: #D4AF37;
   }
+}
+
+.mobile-only-icon, .mobile-only-text {
+  display: none !important;
 }
 
 .view-toggle {
@@ -949,6 +1002,7 @@ input:checked+.custom-checkbox {
   display: flex;
   flex-direction: column;
   height: 100%;
+  cursor: pointer;
 
   &.in-view {
     animation: fadeUp 0.6s ease forwards;
@@ -1025,7 +1079,8 @@ input:checked+.custom-checkbox {
     .quick-view-btn {
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 6px;
       background: rgba(15, 15, 15, 0.85);
       border: 1px solid rgba(212, 175, 55, 0.5);
       color: #D4AF37;
@@ -1037,10 +1092,19 @@ input:checked+.custom-checkbox {
       cursor: pointer;
       transform: translateY(20px);
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-sizing: border-box;
       
       .icon {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      span {
+        line-height: 1;
+        display: block;
       }
 
       &:hover {

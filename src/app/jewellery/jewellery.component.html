@@ -65,13 +65,15 @@
 
     <div class="toolbar-right">
       <div class="sort-dropdown">
-        <span class="sort-label">Sort by:</span>
+        <span class="sort-label desktop-only">Sort by:</span>
+        <lucide-icon [img]="ArrowDownUpIcon" class="icon mobile-only-icon"></lucide-icon>
+        <span class="sort-text mobile-only-text">SORT</span>
         <select class="sort-select" (change)="onSortChange($event)">
           <option value="Popular">Popular</option>
           <option value="Price: Low to High">Price: Low to High</option>
           <option value="Price: High to Low">Price: High to Low</option>
         </select>
-        <lucide-icon [img]="ChevronDownIcon" class="icon"></lucide-icon>
+        <lucide-icon [img]="ChevronDownIcon" class="icon desktop-only-icon"></lucide-icon>
       </div>
 
       <div class="view-toggle">
@@ -183,7 +185,7 @@
 
       <!-- Product Grid -->
       <div class="product-grid" [class.list-view]="currentView === 'list'">
-        <div class="product-card" *ngFor="let p of products; let i = index" [style.animation-delay]="i * 50 + 'ms'" appFadeIn>
+        <div class="product-card" *ngFor="let p of products; let i = index" [style.animation-delay]="i * 50 + 'ms'" appFadeIn [routerLink]="['/product', p.id]">
           <div class="card-image-wrapper">
             <img [src]="p.image" [alt]="p.name" class="product-img">
             <span class="badge" *ngIf="p.badge">{{ p.badge }}</span>

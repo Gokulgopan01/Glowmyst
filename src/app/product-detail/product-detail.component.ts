@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LucideAngularModule, ChevronLeft, Star, MapPin, ShoppingBag } from 'lucide-angular';
+import { LucideAngularModule, ChevronLeft, Star, MapPin, ShoppingBag, Gem, ShieldCheck, Undo2 } from 'lucide-angular';
 
 export interface ProductDetail {
   id: number;
@@ -31,6 +31,9 @@ export class ProductDetailComponent implements OnInit {
   readonly StarIcon = Star;
   readonly MapPinIcon = MapPin;
   readonly BagIcon = ShoppingBag;
+  readonly GemIcon = Gem;
+  readonly ShieldCheckIcon = ShieldCheck;
+  readonly Undo2Icon = Undo2;
 
   product: ProductDetail | null = null;
   images: string[] = [];
