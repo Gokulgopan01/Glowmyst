@@ -159,7 +159,7 @@
         </div>
         <div class="accordion-body" [class.closed]="!isOccasionOpen">
           <label class="checkbox-label" *ngFor="let occ of occasions">
-            <input type="checkbox" [value]="occ">
+            <input type="checkbox" [value]="occ" (change)="toggleOccasion(occ, $event)" [checked]="selectedOccasions.includes(occ)">
             <span class="custom-checkbox"></span>
             <span class="label-text">{{ occ }}</span>
           </label>

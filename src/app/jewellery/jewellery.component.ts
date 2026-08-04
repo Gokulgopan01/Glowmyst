@@ -12,6 +12,7 @@ export interface Product {
   price: number;
   image: string;
   badge: string;
+  OCCASION?: string;
 }
 
 @Component({
@@ -55,6 +56,7 @@ export class JewelleryComponent implements OnInit {
   selectedCategory = 'All Jewellery';
   minPrice = 0;
   maxPrice = 200000;
+  selectedOccasions: string[] = [];
 
   // Mobile filter panel
   isMobileFilterOpen = false;
@@ -149,11 +151,21 @@ export class JewelleryComponent implements OnInit {
     this.updatePagination();
   }
 
+  toggleOccasion(occ: string, event: any) {
+    if (event.target.checked) {
+      this.selectedOccasions.push(occ);
+    } else {
+      this.selectedOccasions = this.selectedOccasions.filter(o => o !== occ);
+    }
+    this.onFilterChange();
+  }
+
   updateDisplayedProducts() {
     const filtered = this.allProducts.filter(p => {
       const matchCategory = this.selectedCategory === 'All Jewellery' || p.category.toLowerCase() === this.selectedCategory.toLowerCase();
       const matchPrice = p.price >= this.minPrice && p.price <= this.maxPrice;
-      return matchCategory && matchPrice;
+      const matchOccasion = this.selectedOccasions.length === 0 || (p.OCCASION && this.selectedOccasions.includes(p.OCCASION));
+      return matchCategory && matchPrice && matchOccasion;
     });
     
     this.totalPages = Math.ceil(filtered.length / this.itemsPerPage) || 1;
