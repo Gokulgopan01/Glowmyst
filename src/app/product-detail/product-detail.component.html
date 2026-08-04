@@ -72,7 +72,108 @@
     </div>
 </div>
 
+<!-- Related Products Section -->
+<div class="related-products-section" *ngIf="relatedProducts.length > 0">
+    <div class="related-header">
+        <lucide-icon [img]="CrownIcon" class="crown-icon"></lucide-icon>
+        <div class="title-with-lines">
+            <div class="line"></div>
+            <h2>YOU MAY ALSO LIKE</h2>
+            <div class="line"></div>
+        </div>
+    </div>
 
+    <div class="related-grid">
+        <div class="related-card" *ngFor="let rp of relatedProducts" [routerLink]="['/product', rp.id]">
+            <button class="wishlist-btn" (click)="$event.stopPropagation()">
+                <lucide-icon [img]="HeartIcon" class="icon"></lucide-icon>
+            </button>
+            <div class="image-wrapper">
+                <img [src]="rp.image" [alt]="rp.name">
+                <div class="vignette-overlay"></div>
+            </div>
+            <div class="details">
+                <h3 class="name">{{ rp.name }}</h3>
+                <div class="price">₹{{ rp.price | number:'1.0-0' }}</div>
+                <button class="buy-btn" (click)="$event.stopPropagation()">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ads Banner Section -->
+<div class="ad-banner-section" *ngIf="product">
+  <div class="ad-banner">
+    <img src="assets/jewellery/royal-banner.png" alt="Royal Collection" class="banner-img">
+    <div class="banner-content">
+      <div class="subtitle">DISCOVER OUR</div>
+      <h2 class="title">ROYAL COLLECTION</h2>
+      <p class="desc">Timeless designs that celebrate you.</p>
+      <button class="explore-btn">EXPLORE COLLECTION</button>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section" *ngIf="product">
+  <h2 class="faq-title">FREQUENTLY ASKED QUESTIONS</h2>
+  <div class="faq-grid">
+    <div class="faq-column">
+      <div class="faq-item" *ngFor="let f of faqs.slice(0, 2); let i = index" (click)="toggleFaq(i)">
+        <div class="faq-header">
+          <span>{{ f.question }}</span>
+          <lucide-icon [img]="f.open ? MinusIcon : PlusIcon" class="icon"></lucide-icon>
+        </div>
+        <div class="faq-body" *ngIf="f.open">
+          {{ f.answer }}
+        </div>
+      </div>
+    </div>
+    <div class="faq-column">
+      <div class="faq-item" *ngFor="let f of faqs.slice(2, 4); let i = index" (click)="toggleFaq(i + 2)">
+        <div class="faq-header">
+          <span>{{ f.question }}</span>
+          <lucide-icon [img]="f.open ? MinusIcon : PlusIcon" class="icon"></lucide-icon>
+        </div>
+        <div class="faq-body" *ngIf="f.open">
+          {{ f.answer }}
+        </div>
+      </div>
+    </div>
+    <div class="faq-column">
+      <div class="faq-item" *ngFor="let f of faqs.slice(4, 5); let i = index" (click)="toggleFaq(i + 4)">
+        <div class="faq-header">
+          <span>{{ f.question }}</span>
+          <lucide-icon [img]="f.open ? MinusIcon : PlusIcon" class="icon"></lucide-icon>
+        </div>
+        <div class="faq-body" *ngIf="f.open">
+          {{ f.answer }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Subscribe Section -->
+<div class="subscribe-section" *ngIf="product">
+  <div class="subscribe-box">
+    <div class="sub-left">
+      <div class="mail-icon-wrapper">
+        <lucide-icon [img]="MailIcon" class="mail-icon"></lucide-icon>
+      </div>
+      <div class="sub-text">
+        <h3>BE THE FIRST TO DISCOVER</h3>
+        <p>Exclusive launches, limited editions & special offers<br>delivered straight to your inbox.</p>
+      </div>
+    </div>
+    <div class="sub-right">
+      <div class="input-group">
+        <input type="email" placeholder="Enter your email address">
+        <button>SUBSCRIBE</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="loading-state" *ngIf="!product">
     <div class="spinner"></div>
     <p>Loading Details...</p>

@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LucideAngularModule, ChevronLeft, Star, MapPin, ShoppingBag, Gem, ShieldCheck, Undo2 } from 'lucide-angular';
+import { LucideAngularModule, ChevronLeft, Star, MapPin, ShoppingBag, Gem, ShieldCheck, Undo2, Crown, Heart, Mail, Plus, Minus } from 'lucide-angular';
 
 export interface ProductDetail {
   id: number;
@@ -34,8 +34,26 @@ export class ProductDetailComponent implements OnInit {
   readonly GemIcon = Gem;
   readonly ShieldCheckIcon = ShieldCheck;
   readonly Undo2Icon = Undo2;
+  readonly CrownIcon = Crown;
+  readonly HeartIcon = Heart;
+  readonly MailIcon = Mail;
+  readonly PlusIcon = Plus;
+  readonly MinusIcon = Minus;
 
   product: ProductDetail | null = null;
+  relatedProducts: ProductDetail[] = [];
+
+  faqs = [
+    { question: 'Is the jewellery real gold plated?', answer: 'Yes, our jewellery is plated with high-quality 18k or 24k gold.', open: false },
+    { question: 'What is your return policy?', answer: 'We offer a 14-day hassle-free return policy on all unworn items.', open: false },
+    { question: 'How long does shipping take?', answer: 'Standard shipping takes 3-5 business days. Express options are available at checkout.', open: false },
+    { question: 'Does it come with gift packaging?', answer: 'Absolutely! Every order is beautifully packaged in our signature Glowmyst box.', open: false },
+    { question: 'Is there a warranty on the products?', answer: 'Yes, we provide a 1-year warranty against any manufacturing defects.', open: false }
+  ];
+
+  toggleFaq(index: number) {
+    this.faqs[index].open = !this.faqs[index].open;
+  }
   images: string[] = [];
   activeImage: string = '';
 
@@ -63,9 +81,12 @@ export class ProductDetailComponent implements OnInit {
 
         this.activeImage = this.images[0];
 
-        // Calculate MRP (assuming ~25% discount logic since json only has offer price)
-        // If product is 9999, MRP would be around 13332
         this.mrp = Math.round(this.product.price * (100 / (100 - this.discountPercentage)));
+
+        // Get 4 related products (excluding current one, maybe from same category or random)
+        const others = data.filter(p => p.id !== id);
+        // Let's just take the first 4 for simplicity
+        this.relatedProducts = others.slice(0, 4);
       }
     });
   }

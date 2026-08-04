@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs';
 import { NavbarComponent } from './navbar/navbar.component';
 import Lenis from 'lenis';
 
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'Glowmyst';
   private lenis: any;
   private rafId: number | undefined;
+  private router = inject(Router);
 
   ngOnInit() {
     this.lenis = new Lenis({
@@ -30,6 +32,15 @@ export class AppComponent implements OnInit, OnDestroy {
     };
 
     this.rafId = requestAnimationFrame(raf);
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      if (this.lenis) {
+        this.lenis.scrollTo(0, { immediate: true });
+      }
+      window.scrollTo(0, 0);
+    });
   }
 
   ngOnDestroy() {
