@@ -1,8 +1,8 @@
 <div class="product-detail-container" *ngIf="product">
     <div class="back-nav">
-        <a routerLink="/jewellery" class="back-link">
+        <a [routerLink]="'/' + (currentType === 'saree' ? 'sarees' : 'jewellery')" class="back-link">
             <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
-            Back to Jewellery
+            Back to {{ currentType === 'saree' ? 'Sarees' : 'Jewellery' }}
         </a>
     </div>
 
@@ -84,7 +84,7 @@
     </div>
 
     <div class="related-grid">
-        <div class="related-card" *ngFor="let rp of relatedProducts" [routerLink]="['/product', rp.id]">
+        <div class="related-card" *ngFor="let rp of relatedProducts" [routerLink]="['/product', rp.id]" [queryParams]="{ type: currentType }">
             <button class="wishlist-btn" (click)="$event.stopPropagation()">
                 <lucide-icon [img]="HeartIcon" class="icon"></lucide-icon>
             </button>

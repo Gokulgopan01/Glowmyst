@@ -59,18 +59,22 @@ export class ProductDetailComponent implements OnInit {
 
   mrp: number = 0;
   discountPercentage: number = 25; // Default assumption
+  currentType: string = 'jewellery';
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
+      const type = this.route.snapshot.queryParamMap.get('type') || 'jewellery';
+      this.currentType = type;
       if (id) {
-        this.fetchProductDetails(id);
+        this.fetchProductDetails(id, type);
       }
     });
   }
 
-  fetchProductDetails(id: number) {
-    this.http.get<ProductDetail[]>('assets/Products_json/jeweller_product.json').subscribe(data => {
+  fetchProductDetails(id: number, type: string) {
+    const jsonPath = type === 'saree' ? 'assets/Products_json/saree_product.json' : 'assets/Products_json/jeweller_product.json';
+    this.http.get<ProductDetail[]>(jsonPath).subscribe(data => {
       this.product = data.find(p => p.id === id) || null;
 
       if (this.product) {

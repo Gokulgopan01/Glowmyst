@@ -192,14 +192,14 @@
       <!-- Product Grid -->
       <div class="product-grid" [class.list-view]="currentView === 'list'">
         <div class="product-card" *ngFor="let p of products; let i = index" [style.animation-delay]="i * 50 + 'ms'"
-          appFadeIn [routerLink]="['/product', p.id]">
+          appFadeIn [routerLink]="['/product', p.id]" [queryParams]="{ type: 'saree' }">
           <div class="card-image-wrapper">
             <img [src]="p.image" [alt]="p.name" class="product-img">
             <span class="badge" *ngIf="p.badge">{{ p.badge }}</span>
             <div class="vignette-overlay"></div>
 
             <div class="quick-view-overlay">
-              <button class="quick-view-btn" [routerLink]="['/product', p.id]">
+              <button class="quick-view-btn" [routerLink]="['/product', p.id]" [queryParams]="{ type: 'saree' }">
                 <lucide-icon [img]="EyeIcon" class="icon"></lucide-icon>
                 <span>QUICK VIEW</span>
               </button>
