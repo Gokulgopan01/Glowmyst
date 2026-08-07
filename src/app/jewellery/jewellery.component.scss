@@ -1770,3 +1770,22 @@ input:checked+.custom-checkbox {
     }
   }
 }
+
+.mobile-product-count {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile-product-count {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: #bdb7ae;
+    text-align: left;
+    
+    .highlight {
+      color: #d9a441;
+      font-weight: 600;
+    }
+  }
+}

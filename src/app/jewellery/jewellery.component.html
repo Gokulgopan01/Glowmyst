@@ -183,6 +183,12 @@
     <!-- Right Content: Grid -->
     <div class="right-content">
 
+      <!-- Mobile Product Count -->
+      <div class="mobile-product-count">
+        Showing <span class="highlight">{{ currentRangeStart }} – {{ currentRangeEnd }}</span> of <span
+          class="highlight">{{ allProducts.length }}</span> products
+      </div>
+
       <!-- Product Grid -->
       <div class="product-grid" [class.list-view]="currentView === 'list'">
         <div class="product-card" *ngFor="let p of products; let i = index" [style.animation-delay]="i * 50 + 'ms'"
