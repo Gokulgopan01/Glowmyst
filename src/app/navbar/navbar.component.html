@@ -19,11 +19,12 @@
       </div>
       <ul class="nav-menu">
         <li class="nav-item">
-          <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+          <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            class="nav-link">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a routerLink="/jewellery" routerLinkActive="active" class="nav-link">
-            Jewellery <lucide-icon [img]="ChevronDownIcon" class="dropdown-arrow"></lucide-icon>
+            Jewellery
           </a>
           <ul class="dropdown-menu">
             <li><a routerLink="/jewellery/bridal">Bridal</a></li>
@@ -34,7 +35,7 @@
         </li>
         <li class="nav-item dropdown">
           <a routerLink="/sarees" routerLinkActive="active" class="nav-link">
-            Sarees <lucide-icon [img]="ChevronDownIcon" class="dropdown-arrow"></lucide-icon>
+            Sarees
           </a>
           <ul class="dropdown-menu">
             <li><a routerLink="/sarees/silk">Silk</a></li>
@@ -61,7 +62,7 @@
       <lucide-icon [img]="SearchIcon" class="search-icon"></lucide-icon>
     </div>
   </div>
-  
+
   <!-- Mobile Menu Overlay -->
   <div class="mobile-overlay" *ngIf="isMobileMenuOpen" (click)="toggleMobileMenu()"></div>
 </nav>

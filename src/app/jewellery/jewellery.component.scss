@@ -22,7 +22,7 @@ $icon-gold: #D4A550;
 .jewellery-hero {
   position: relative;
   width: 100%;
-  height: 650px;
+  height: 450px;
   background: $bg-black;
   display: flex;
   flex-direction: column;
@@ -172,9 +172,12 @@ $icon-gold: #D4A550;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, $bg-black 0%, transparent 40%),
-      linear-gradient(to bottom, transparent 60%, $bg-black 100%),
-      radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
+    background:
+      linear-gradient(to right, $bg-black 0%, transparent 40%),
+      linear-gradient(to bottom, transparent 65%, rgba(0, 0, 0, 0.55) 100%),
+      radial-gradient(circle at center,
+        transparent 45%,
+        rgba(0, 0, 0, 0.45) 100%);
   }
 }
 
@@ -803,21 +806,37 @@ input:checked+.custom-checkbox {
 // Clear All button
 .clear-all-btn {
   width: 100%;
-  padding: 12px;
+  height: 54px;
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
   background: transparent;
   border: 1px solid #D4AF37;
+  border-radius: 10px;
+
   color: #D4AF37;
-  border-radius: 8px;
   font-family: 'Inter', sans-serif;
+  font-size: 15px;
   font-weight: 600;
+
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
+
+  .icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+    color: #D4AF37;
+    stroke: #D4AF37;
+    stroke-width: 2;
+    margin: 0;
+  }
 
   &:hover {
-    background: #D4AF37;
-    color: #0F0F0F;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    background: rgba(212, 175, 55, 0.08);
   }
 }
 
@@ -830,10 +849,10 @@ input:checked+.custom-checkbox {
 
 // Toolbar (updated to full width layout)
 .toolbar-section {
-  width: 92%;
-  // max-width: 1600px;
+  width: 100%;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 80px 50px 0;
+  padding: 0 32px;
   background: $bg-black;
   position: relative;
   z-index: 5;
@@ -861,24 +880,30 @@ input:checked+.custom-checkbox {
 .filter-btn {
   width: 120px;
   height: 44px;
+  flex: 0 0 120px;
+
   background: transparent;
   border: 1px solid rgba(212, 175, 55, 0.25);
   border-radius: 12px;
+
   color: #F2E8D5;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 14px;
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+
   cursor: pointer;
   transition: all 0.3s ease;
 
   .icon {
     width: 18px;
-    height: 16px;
+    height: 18px;
     stroke: #D4AF37;
+    flex-shrink: 0;
   }
 
   &:hover {
@@ -945,35 +970,57 @@ input:checked+.custom-checkbox {
 
 .view-toggle {
   display: flex;
+  align-items: center;
   gap: 8px;
 
   .view-btn {
     width: 44px;
     height: 44px;
-    background: transparent;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 12px;
+    min-width: 44px;
+    padding: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+
     color: #ffffff;
 
     .icon {
-      width: 18px;
-      height: 18px;
-      stroke: #ffffff;
+      width: 19px;
+      height: 19px;
+      min-width: 19px;
+      min-height: 19px;
+
+      display: block;
+      margin: 0;
+      padding: 0;
+
       color: #ffffff;
+      stroke: #ffffff;
+      stroke-width: 1.8;
+    }
+
+    &:hover {
+      border-color: rgba(212, 175, 55, 0.6);
+      background: rgba(212, 175, 55, 0.08);
     }
 
     &.active {
       background: #D4AF37;
+      border-color: #D4AF37;
       color: #111111;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.18);
 
       .icon {
-        stroke: #111111;
         color: #111111;
+        stroke: #111111;
       }
     }
   }
@@ -1142,6 +1189,7 @@ input:checked+.custom-checkbox {
 
   .page-number,
   .page-next,
+  .page-prev,
   .page-dots {
     background: transparent;
     border: none;
@@ -1159,7 +1207,8 @@ input:checked+.custom-checkbox {
   }
 
   .page-number,
-  .page-next {
+  .page-next,
+  .page-prev {
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -1168,8 +1217,11 @@ input:checked+.custom-checkbox {
     }
 
     &.active {
-      color: #ffffff;
-      border-bottom-color: #777777;
+      color: #111111;
+      background: #D4AF37;
+      border-radius: 50%;
+      border-bottom-color: transparent;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
     }
   }
 
@@ -1177,6 +1229,7 @@ input:checked+.custom-checkbox {
     width: 16px;
     height: 16px;
     display: block;
+    stroke: #D4AF37;
   }
 }
 
@@ -1185,8 +1238,54 @@ input:checked+.custom-checkbox {
   padding: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 4px;
+
+  .price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .cart-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    .icon {
+      width: 19px;
+      height: 19px;
+      min-width: 19px;
+      min-height: 19px;
+
+      display: block;
+      color: #D4AF37;
+      stroke: #D4AF37;
+      stroke-width: 1.8;
+
+      margin: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      background: rgba(212, 175, 55, 0.08);
+      border-color: #D4AF37;
+      transform: translateY(-1px);
+    }
+  }
 }
 
 .product-name {

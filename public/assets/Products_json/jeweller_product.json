@@ -4,9 +4,9 @@
         "name": "Traditional Bangles",
         "category": "Bangles",
         "price": 4999,
-        "image": "assets/Products/bangles.jpeg",
-        "image2": "assets/Products/bangles (2).jpeg",
-        "image3": "assets/Products/bangles (3).jpeg",
+        "image": "assets/Products/Jewellery/bangles.jpeg",
+        "image2": "assets/Products/Jewellery/bangles (2).jpeg",
+        "image3": "assets/Products/Jewellery/bangles (3).jpeg",
         "badge": "BESTSELLER",
         "OCCASION": "Party Wear"
     },
@@ -15,7 +15,7 @@
         "name": "Peacock Earrings",
         "category": "Earrings",
         "price": 4999,
-        "image": "assets/Products/IMG_3206.jpeg",
+        "image": "assets/Products/Jewellery/IMG_3206.jpeg",
         "badge": "NEW",
         "OCCASION": "Festive"
     },
@@ -24,8 +24,8 @@
         "name": "Ruby Studded Ring",
         "category": "Rings",
         "price": 6999,
-        "image": "assets/Products/ring2.jpeg",
-        "image2": "assets/Products/ring2 (2).jpeg",
+        "image": "assets/Products/Jewellery/ring2.jpeg",
+        "image2": "assets/Products/Jewellery/ring2 (2).jpeg",
         "badge": "SALE",
         "OCCASION": "Daily Wear"
     },
@@ -34,7 +34,7 @@
         "name": "Gold Coloured Ring",
         "category": "Rings",
         "price": 6999,
-        "image": "assets/Products/IMG_0542.jpeg",
+        "image": "assets/Products/Jewellery/IMG_0542.jpeg",
         "badge": "SALE",
         "OCCASION": "Daily Wear"
     },
@@ -43,7 +43,7 @@
         "name": "Combo Ring Set",
         "category": "Rings",
         "price": 6999,
-        "image": "assets/Products/IMG_0544.PNG",
+        "image": "assets/Products/Jewellery/IMG_0544.PNG",
         "badge": "SALE",
         "OCCASION": "Daily Wear"
     },
@@ -52,7 +52,7 @@
         "name": "Kundan Chandbali Earrings",
         "category": "Earrings",
         "price": 9999,
-        "image": "assets/Products/IMG_0533.jpeg",
+        "image": "assets/Products/Jewellery/IMG_0533.jpeg",
         "badge": "NEW",
         "OCCASION": "Daily Wear"
     },
@@ -61,7 +61,7 @@
         "name": "Dew Drop Earrings",
         "category": "Earrings",
         "price": 999,
-        "image": "assets/Products/IMG_0537.jpeg",
+        "image": "assets/Products/Jewellery/IMG_0537.jpeg",
         "badge": "HOT",
         "OCCASION": "Daily Wear"
     },
@@ -70,9 +70,9 @@
         "name": "Gold Plated Ring",
         "category": "Rings",
         "price": 6999,
-        "image": "assets/Products/ring_metal.jpeg",
-        "image2": "assets/Products/ring_metal (2).jpeg",
-        "image3": "assets/Products/ring_metal (3).jpeg",
+        "image": "assets/Products/Jewellery/ring_metal.jpeg",
+        "image2": "assets/Products/Jewellery/ring_metal (2).jpeg",
+        "image3": "assets/Products/Jewellery/ring_metal (3).jpeg",
         "badge": "SALE",
         "OCCASION": "Daily Wear"
     },
@@ -81,7 +81,7 @@
         "name": "Traditional Earings",
         "category": "Earrings",
         "price": 6999,
-        "image": "assets/Products/IMG_3208.PNG",
+        "image": "assets/Products/Jewellery/IMG_3208.PNG",
         "badge": "SALE",
         "OCCASION": "Daily Wear"
     },

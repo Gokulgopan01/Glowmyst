@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight, Eye, ArrowDownUp } from 'lucide-angular';
+import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight, Eye, ArrowDownUp, ShoppingBag, RotateCcw } from 'lucide-angular';
 
 export interface Product {
   id: number;
@@ -22,7 +22,7 @@ export interface Product {
 export class FadeInDirective implements OnInit, OnDestroy {
   private observer: IntersectionObserver | undefined;
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
     this.observer = new IntersectionObserver(entries => {
@@ -33,7 +33,7 @@ export class FadeInDirective implements OnInit, OnDestroy {
         }
       });
     }, { threshold: 0.1 });
-    
+
     this.observer.observe(this.el.nativeElement);
   }
 
@@ -66,6 +66,8 @@ export class JewelleryComponent implements OnInit {
   readonly ChevronRightIcon = ChevronRight;
   readonly EyeIcon = Eye;
   readonly ArrowDownUpIcon = ArrowDownUp;
+  readonly ShoppingBagIcon = ShoppingBag;
+  readonly RotateCcwIcon = RotateCcw;
 
   currentView: 'grid' | 'list' = 'grid';
   allProducts: Product[] = [];

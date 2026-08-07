@@ -20,9 +20,9 @@
         elegance and timeless beauty.
       </p>
 
-      <button class="explore-btn">
+      <!-- <button class="explore-btn">
         EXPLORE COLLECTION
-      </button>
+      </button> -->
     </div>
 
     <div class="right-col">
@@ -175,7 +175,7 @@
       </div>
 
       <button class="clear-all-btn">
-        CLEAR ALL
+        CLEAR ALL <lucide-icon [img]="RotateCcwIcon" class="icon"></lucide-icon>
       </button>
 
     </aside>
@@ -207,13 +207,21 @@
           </div>
           <div class="card-details">
             <h3 class="product-name">{{ p.name }}</h3>
-            <div class="product-price">₹ {{ p.price | number:'1.0-0' }}</div>
+            <div class="price-row">
+              <div class="product-price">₹ {{ p.price | number:'1.0-0' }}</div>
+              <button class="cart-btn" (click)="$event.stopPropagation()">
+                <lucide-icon [img]="ShoppingBagIcon" class="icon"></lucide-icon>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Pagination -->
       <div class="pagination-container" *ngIf="totalPages > 1">
+        <button class="page-prev" (click)="prevPage()" [disabled]="currentPage === 1">
+          <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
+        </button>
         <ng-container *ngFor="let page of pages">
           <button class="page-number" *ngIf="page !== '...'" [class.active]="currentPage === page"
             (click)="changePage(page)">

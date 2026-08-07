@@ -1,7 +1,7 @@
 .product-detail-container {
   min-height: 100vh;
   background: #090909;
-  padding: 120px 5% 60px;
+  padding: 30px 5% 60px;
   color: #EAE3D2;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
@@ -572,7 +572,7 @@
 .faq-section {
   padding: 40px 5%;
   background: #0f0f0f;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 
   .faq-title {
@@ -767,18 +767,18 @@
   }
 
   .product-detail-container {
-    padding-top: 100px;
+    padding-top: 30px;
   }
 }
 
 @media (max-width: 600px) {
   .ad-banner-section {
     padding: 20px 5%;
-    
+
     .ad-banner {
       height: auto;
       min-height: 250px;
-      
+
       .banner-content {
         padding: 24px;
         background: rgba(30, 10, 35, 0.85);

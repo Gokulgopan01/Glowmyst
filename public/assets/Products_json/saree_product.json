@@ -1,0 +1,205 @@
+[
+    {
+        "id": 1,
+        "name": "Kanchipuram Silk Saree",
+        "category": "Silk Sarees",
+        "price": 8999,
+        "image": "assets/Sarees/kanchipuram-silk.jpeg",
+        "image2": "assets/Sarees/kanchipuram-silk (2).jpeg",
+        "image3": "assets/Sarees/kanchipuram-silk (3).jpeg",
+        "badge": "BESTSELLER",
+        "OCCASION": "Wedding"
+    },
+    {
+        "id": 2,
+        "name": "Banarasi Gold Zari Saree",
+        "category": "Banarasi Sarees",
+        "price": 6999,
+        "image": "assets/Sarees/banarasi-gold.jpeg",
+        "image2": "assets/Sarees/banarasi-gold (2).jpeg",
+        "badge": "NEW",
+        "OCCASION": "Festive"
+    },
+    {
+        "id": 3,
+        "name": "Designer Organza Saree",
+        "category": "Organza Sarees",
+        "price": 4999,
+        "image": "assets/Sarees/designer-organza.jpeg",
+        "image2": "assets/Sarees/designer-organza (2).jpeg",
+        "badge": "TRENDING",
+        "OCCASION": "Party Wear"
+    },
+    {
+        "id": 4,
+        "name": "Soft Silk Wedding Saree",
+        "category": "Silk Sarees",
+        "price": 7999,
+        "image": "assets/Sarees/soft-silk.jpeg",
+        "image2": "assets/Sarees/soft-silk (2).jpeg",
+        "badge": "BESTSELLER",
+        "OCCASION": "Wedding"
+    },
+    {
+        "id": 5,
+        "name": "Floral Printed Georgette Saree",
+        "category": "Georgette Sarees",
+        "price": 2999,
+        "image": "assets/Sarees/floral-georgette.jpeg",
+        "image2": "assets/Sarees/floral-georgette (2).jpeg",
+        "badge": "SALE",
+        "OCCASION": "Daily Wear"
+    },
+    {
+        "id": 6,
+        "name": "Embroidered Designer Saree",
+        "category": "Designer Sarees",
+        "price": 5999,
+        "image": "assets/Sarees/embroidered-designer.jpeg",
+        "image2": "assets/Sarees/embroidered-designer (2).jpeg",
+        "badge": "NEW",
+        "OCCASION": "Party Wear"
+    },
+    {
+        "id": 7,
+        "name": "Chiffon Party Wear Saree",
+        "category": "Chiffon Sarees",
+        "price": 3499,
+        "image": "assets/Sarees/chiffon-party.jpeg",
+        "image2": "assets/Sarees/chiffon-party (2).jpeg",
+        "badge": "HOT",
+        "OCCASION": "Party Wear"
+    },
+    {
+        "id": 8,
+        "name": "Mysore Silk Saree",
+        "category": "Silk Sarees",
+        "price": 7499,
+        "image": "assets/Sarees/mysore-silk.jpeg",
+        "image2": "assets/Sarees/mysore-silk (2).jpeg",
+        "image3": "assets/Sarees/mysore-silk (3).jpeg",
+        "badge": "PREMIUM",
+        "OCCASION": "Festive"
+    },
+    {
+        "id": 9,
+        "name": "Cotton Handloom Saree",
+        "category": "Cotton Sarees",
+        "price": 1999,
+        "image": "assets/Sarees/cotton-handloom.jpeg",
+        "image2": "assets/Sarees/cotton-handloom (2).jpeg",
+        "badge": "POPULAR",
+        "OCCASION": "Daily Wear"
+    },
+    {
+        "id": 10,
+        "name": "Traditional Kerala Kasavu Saree",
+        "category": "Traditional Sarees",
+        "price": 3999,
+        "image": "assets/Sarees/kerala-kasavu.jpeg",
+        "image2": "assets/Sarees/kerala-kasavu (2).jpeg",
+        "badge": "BESTSELLER",
+        "OCCASION": "Festive"
+    },
+    {
+        "id": 11,
+        "name": "Kalamkari Printed Saree",
+        "category": "Printed Sarees",
+        "price": 2499,
+        "image": "assets/Sarees/kalamkari.jpeg",
+        "image2": "assets/Sarees/kalamkari (2).jpeg",
+        "badge": "NEW",
+        "OCCASION": "Daily Wear"
+    },
+    {
+        "id": 12,
+        "name": "Chanderi Silk Saree",
+        "category": "Chanderi Sarees",
+        "price": 4499,
+        "image": "assets/Sarees/chanderi-silk.jpeg",
+        "image2": "assets/Sarees/chanderi-silk (2).jpeg",
+        "badge": "LIMITED",
+        "OCCASION": "Festive"
+    },
+    {
+        "id": 13,
+        "name": "Designer Satin Saree",
+        "category": "Satin Sarees",
+        "price": 3299,
+        "image": "assets/Sarees/designer-satin.jpeg",
+        "image2": "assets/Sarees/designer-satin (2).jpeg",
+        "badge": "HOT",
+        "OCCASION": "Party Wear"
+    },
+    {
+        "id": 14,
+        "name": "Pastel Tissue Silk Saree",
+        "category": "Tissue Sarees",
+        "price": 6499,
+        "image": "assets/Sarees/pastel-tissue.jpeg",
+        "image2": "assets/Sarees/pastel-tissue (2).jpeg",
+        "badge": "PREMIUM",
+        "OCCASION": "Wedding"
+    },
+    {
+        "id": 15,
+        "name": "Temple Border Silk Saree",
+        "category": "Traditional Sarees",
+        "price": 5999,
+        "image": "assets/Sarees/temple-border.jpeg",
+        "image2": "assets/Sarees/temple-border (2).jpeg",
+        "badge": "EXCLUSIVE",
+        "OCCASION": "Wedding"
+    },
+    {
+        "id": 16,
+        "name": "Pearl Embellished Party Saree",
+        "category": "Party Wear Sarees",
+        "price": 5499,
+        "image": "assets/Sarees/pearl-party.jpeg",
+        "image2": "assets/Sarees/pearl-party (2).jpeg",
+        "badge": "NEW",
+        "OCCASION": "Party Wear"
+    },
+    {
+        "id": 17,
+        "name": "Bridal Red Silk Saree",
+        "category": "Bridal Sarees",
+        "price": 12999,
+        "image": "assets/Sarees/bridal-red.jpeg",
+        "image2": "assets/Sarees/bridal-red (2).jpeg",
+        "image3": "assets/Sarees/bridal-red (3).jpeg",
+        "badge": "BRIDAL",
+        "OCCASION": "Wedding"
+    },
+    {
+        "id": 18,
+        "name": "Zari Woven Tissue Saree",
+        "category": "Zari Sarees",
+        "price": 6999,
+        "image": "assets/Sarees/zari-tissue.jpeg",
+        "image2": "assets/Sarees/zari-tissue (2).jpeg",
+        "badge": "PREMIUM",
+        "OCCASION": "Festive"
+    },
+    {
+        "id": 19,
+        "name": "Elegant Crepe Saree",
+        "category": "Crepe Sarees",
+        "price": 2799,
+        "image": "assets/Sarees/elegant-crepe.jpeg",
+        "image2": "assets/Sarees/elegant-crepe (2).jpeg",
+        "badge": "TRENDING",
+        "OCCASION": "Party Wear"
+    },
+    {
+        "id": 20,
+        "name": "Classic Gold Border Saree",
+        "category": "Traditional Sarees",
+        "price": 4999,
+        "image": "assets/Sarees/classic-gold-border.jpeg",
+        "image2": "assets/Sarees/classic-gold-border (2).jpeg",
+        "badge": "POPULAR",
+        "OCCASION": "Festive"
+    }
+]
