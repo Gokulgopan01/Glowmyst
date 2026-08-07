@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="category-section">
+  <!-- <div class="category-section">
     <div class="category-card">
       <div class="category-scroll-container">
         <div class="category-item" *ngFor="let cat of categories; let i = index"
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 
 <!-- Product Toolbar (Full Width) -->
@@ -185,12 +185,13 @@
 
       <!-- Product Grid -->
       <div class="product-grid" [class.list-view]="currentView === 'list'">
-        <div class="product-card" *ngFor="let p of products; let i = index" [style.animation-delay]="i * 50 + 'ms'" appFadeIn [routerLink]="['/product', p.id]">
+        <div class="product-card" *ngFor="let p of products; let i = index" [style.animation-delay]="i * 50 + 'ms'"
+          appFadeIn [routerLink]="['/product', p.id]">
           <div class="card-image-wrapper">
             <img [src]="p.image" [alt]="p.name" class="product-img">
             <span class="badge" *ngIf="p.badge">{{ p.badge }}</span>
             <div class="vignette-overlay"></div>
-            
+
             <div class="quick-view-overlay">
               <button class="quick-view-btn" [routerLink]="['/product', p.id]">
                 <lucide-icon [img]="EyeIcon" class="icon"></lucide-icon>
