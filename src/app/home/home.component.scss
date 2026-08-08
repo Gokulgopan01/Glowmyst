@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap');
 
 :host {
   --hero-bg: #0A0807;
@@ -658,7 +658,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 8px; /* Slightly rounded edges if desired */
+  border-radius: 8px;
+  /* Slightly rounded edges if desired */
   height: 320px;
   display: flex;
   align-items: center;
@@ -666,37 +667,116 @@
   /* Allow girl image to overflow */
 }
 
+.jewellery-banner {
+  background-image: url('/assets/home/saree_section_background.png');
+  /* Or another dark elegant background */
+  background-position: left center;
+}
+
 .celebrity-content {
   padding-left: 10%;
   z-index: 2;
   position: relative;
-  transform: translateY(-20px); /* Adjust vertical alignment if needed */
+  transform: translateY(-20px);
+  /* Adjust vertical alignment if needed */
 }
 
-.loved-by {
+.new-edition-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-left: 8%;
+  max-width: 450px;
+  transform: translateY(-10px);
+}
+
+.special-edition-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.se-line {
+  width: 35px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.se-text {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 34px;
-  color: #FFFFFF;
-  margin: 0 0 5px 0;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #333;
+  text-transform: uppercase;
 }
 
-.celebrities-title {
+.ethereal-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 24px 0;
+  line-height: 0.75;
+}
+
+.ethereal-caps {
   font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.elegance-script {
+  font-family: 'Great Vibes', cursive;
+  font-size: 80px;
+  font-weight: 400;
+  color: #2a2a2a;
+  margin-top: -10px;
+  margin-left: 15px;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.timeless-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+  margin: 0 0 35px 0;
+}
+
+.discover-btn {
+  background: linear-gradient(180deg, #3A2500 0%, #110B00 100%);
+  border: 1px solid rgba(201, 154, 69, 0.4);
+  border-radius: 6px;
+  padding: 14px 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
   font-weight: 600;
-  font-size: 85px;
-  color: #FFE159; /* Bright golden yellow */
-  margin: 0;
-  line-height: 1;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  color: #C99A45;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .celebrity-image-wrapper {
   position: absolute;
-  bottom: -20px; /* Let her anchor slightly below or at the bottom */
+  bottom: -20px;
+  /* Let her anchor slightly below or at the bottom */
   right: 15%;
-  height: 145%; /* Taller than the container to break out top */
+  height: 145%;
+  /* Taller than the container to break out top */
   display: flex;
   align-items: flex-end;
   z-index: 5;
@@ -714,15 +794,19 @@
   .celebrity-section {
     margin-top: 100px;
   }
+
   .celebrity-banner {
     height: 280px;
   }
+
   .loved-by {
     font-size: 28px;
   }
+
   .celebrities-title {
     font-size: 65px;
   }
+
   .celebrity-image-wrapper {
     right: 8%;
     height: 135%;
@@ -734,22 +818,308 @@
     padding: 0 20px;
     margin-top: 80px;
   }
+
   .celebrity-banner {
     height: 220px;
   }
+
   .celebrity-content {
     padding-left: 20px;
     transform: translateY(-10px);
   }
+
   .loved-by {
     font-size: 22px;
   }
+
   .celebrities-title {
     font-size: 45px;
   }
+
   .celebrity-image-wrapper {
     right: -10px;
     height: 130%;
     bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   TRENDING NOW SECTION
+   ========================================================================== */
+
+.trending-section {
+  max-width: 1900px;
+  margin: 0 auto 100px auto;
+  padding: 0 35px;
+}
+
+.trending-heading-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.heading-line-left,
+.heading-line-right {
+  flex-grow: 1;
+  height: 1px;
+  background: rgba(201, 154, 69, 0.35);
+}
+
+.heading-content {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.heading-ornament {
+  opacity: 0.8;
+}
+
+.category-title {
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #C99A45;
+  margin: 0 16px;
+  text-align: center;
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.product-card {
+  background: #0B0908;
+  border-radius: 8px;
+  border: 1px solid rgba(201, 154, 69, 0.35);
+  padding: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(201, 154, 69, 0.8);
+  }
+}
+
+.product-image-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #C99A45;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  padding: 0;
+
+  &:hover {
+    opacity: 1;
+    color: #C99A45;
+  }
+
+  .heart-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-rating-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.product-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+  padding-right: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #C99A45;
+  line-height: 1;
+}
+
+.star-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: transparent;
+  /* Changed from fill to match stroke */
+  stroke: #C99A45;
+  stroke-width: 2px;
+}
+
+.rating-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  display: block;
+}
+
+.product-pricing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.current-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.original-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #888888;
+  text-decoration: line-through;
+}
+
+.buy-now-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(201, 154, 69, 0.4);
+  border-radius: 4px;
+  color: #C99A45;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    background: rgba(201, 154, 69, 0.1);
+    border-color: rgba(201, 154, 69, 0.8);
+  }
+
+  .bag-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    stroke-width: 2px;
+  }
+}
+
+.view-all-container {
+  display: flex;
+  justify-content: center;
+}
+
+.view-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(201, 154, 69, 0.4);
+  border-radius: 4px;
+  color: #C99A45;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 32px;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background: rgba(201, 154, 69, 0.1);
+    border-color: rgba(201, 154, 69, 0.8);
+  }
+
+  .arrow-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    stroke-width: 2px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .trending-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .trending-section {
+    padding: 0 20px;
+  }
+
+  .trending-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image-container {
+    height: auto;
+    aspect-ratio: 3/4;
   }
 }

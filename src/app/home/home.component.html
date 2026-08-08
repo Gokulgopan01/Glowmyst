@@ -51,33 +51,35 @@
 <!-- SHOP BY CATEGORY SECTION -->
 <section #animatedElement class="category-section animated-section">
   <div class="category-container">
-    
+
     <!-- Cut-out Heading -->
     <div class="category-heading-wrapper">
       <div class="heading-line-left"></div>
-      
+
       <div class="heading-content">
-        <svg class="ornament top" width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 0L24 6L20 12L16 6L20 0Z" fill="rgba(214,164,79,0.8)"/>
-          <path d="M12 4L14 6L12 8L10 6L12 4Z" fill="rgba(214,164,79,0.8)"/>
-          <path d="M28 4L30 6L28 8L26 6L28 4Z" fill="rgba(214,164,79,0.8)"/>
+        <svg class="ornament top" width="40" height="12" viewBox="0 0 40 12" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 0L24 6L20 12L16 6L20 0Z" fill="rgba(214,164,79,0.8)" />
+          <path d="M12 4L14 6L12 8L10 6L12 4Z" fill="rgba(214,164,79,0.8)" />
+          <path d="M28 4L30 6L28 8L26 6L28 4Z" fill="rgba(214,164,79,0.8)" />
         </svg>
-        
+
         <h2 class="category-title">SHOP BY CATEGORY</h2>
-        
-        <svg class="ornament bottom" width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 12L16 6L20 0L24 6L20 12Z" fill="rgba(214,164,79,0.8)"/>
-          <path d="M12 8L10 6L12 4L14 6L12 8Z" fill="rgba(214,164,79,0.8)"/>
-          <path d="M28 8L26 6L28 4L30 6L28 8Z" fill="rgba(214,164,79,0.8)"/>
+
+        <svg class="ornament bottom" width="40" height="12" viewBox="0 0 40 12" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 12L16 6L20 0L24 6L20 12Z" fill="rgba(214,164,79,0.8)" />
+          <path d="M12 8L10 6L12 4L14 6L12 8Z" fill="rgba(214,164,79,0.8)" />
+          <path d="M28 8L26 6L28 4L30 6L28 8Z" fill="rgba(214,164,79,0.8)" />
         </svg>
       </div>
-      
+
       <div class="heading-line-right"></div>
     </div>
 
     <!-- Cards Grid -->
     <div class="category-grid">
-      
+
       <!-- Card 1: Necklaces -->
       <div #animatedElement class="category-card card-necklaces animated-card" style="transition-delay: 100ms;">
         <img src="assets/home/necklaces.png" alt="Necklaces" class="card-bg">
@@ -137,15 +139,159 @@
   </div>
 </section>
 
-<!-- LOVED BY CELEBRITIES SECTION -->
-<section class="celebrity-section">
-  <div class="celebrity-banner">
-    <div class="celebrity-content">
-      <h3 class="loved-by">Loved by</h3>
-      <h2 class="celebrities-title">Celebrities</h2>
+
+
+<!-- TRENDING NOW SECTION -->
+<section class="trending-section">
+  <!-- LOVED BY CELEBRITIES SECTION -->
+  <section class="celebrity-section">
+    <div class="celebrity-banner">
+      <div class="celebrity-content new-edition-content">
+        <div class="special-edition-wrapper">
+          <span class="se-line"></span>
+          <!-- <span class="se-text">SPECIAL EDITION</span> -->
+          <span class="se-line"></span>
+        </div>
+        <h2 class="ethereal-title">
+          <span class="ethereal-caps">ETHEREAL</span><br>
+          <span class="elegance-script">Elegance</span>
+        </h2>
+        <p class="timeless-text">For the moments that<br>deserve to be timeless.</p>
+        <button class="discover-btn">DISCOVER COLLECTION</button>
+      </div>
+      <div class="celebrity-image-wrapper">
+        <img src="assets/home/saree_girl.png" alt="Celebrity in Saree" class="celebrity-girl-img">
+      </div>
     </div>
-    <div class="celebrity-image-wrapper">
-      <img src="assets/home/saree_girl.png" alt="Celebrity in Saree" class="celebrity-girl-img">
+  </section>
+
+  <!-- Cut-out Heading style matching the image -->
+  <div class="trending-heading-wrapper">
+    <div class="heading-line-left"></div>
+    <div class="heading-content">
+      <!-- <svg class="heading-ornament" width="24" height="12" viewBox="0 0 24 12" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
+      </svg> -->
+      <h2 class="category-title">TRENDING NOW</h2>
+      <!-- <svg class="heading-ornament" width="24" height="12" viewBox="0 0 24 12" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
+      </svg> -->
     </div>
+    <div class="heading-line-right"></div>
+  </div>
+
+  <div class="trending-grid">
+    <div *ngFor="let product of trendingProducts" class="product-card">
+      <div class="product-image-container">
+        <span *ngIf="product.badge" class="product-badge">{{ product.badge }}</span>
+        <!-- <button class="wishlist-btn" aria-label="Add to Wishlist">
+          <lucide-icon [img]="HeartIcon" class="heart-icon"></lucide-icon>
+        </button> -->
+        <img [src]="product.image" [alt]="product.name" class="product-image">
+      </div>
+      <div class="product-info">
+        <div class="title-rating-row">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <div class="product-rating">
+            <lucide-icon [img]="StarIcon" class="star-icon" size="14"></lucide-icon>
+            <span class="rating-value">{{ product.rating | number:'1.1-1' }}</span>
+          </div>
+        </div>
+        <div class="product-pricing">
+          <span class="current-price">₹{{ product.price | number:'1.0-0' }}</span>
+          <span class="original-price">₹{{ product.originalPrice | number:'1.0-0' }}</span>
+        </div>
+        <button class="buy-now-btn">
+          <lucide-icon [img]="ShoppingBagIcon" class="bag-icon" size="14"></lucide-icon>
+          BUY NOW
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="view-all-container">
+    <button class="view-all-btn">
+      VIEW ALL
+      <lucide-icon [img]="ArrowRightIcon" class="arrow-icon" size="16"></lucide-icon>
+    </button>
+  </div>
+</section>
+
+<!-- JEWELLERY SECTION -->
+<section class="trending-section jewellery-section">
+  <!-- JEWELLERY BANNER SECTION -->
+  <section class="celebrity-section">
+    <div class="celebrity-banner jewellery-banner">
+      <div class="celebrity-content new-edition-content">
+        <div class="special-edition-wrapper">
+          <span class="se-line"></span>
+          <span class="se-text" style="color: #F8D85B;">EXCLUSIVE COLLECTION</span>
+          <span class="se-line"></span>
+        </div>
+        <h2 class="ethereal-title">
+          <span class="ethereal-caps" style="color: #FFF;">TIMELESS</span><br>
+          <span class="elegance-script" style="color: #F8D85B;">Treasures</span>
+        </h2>
+        <p class="timeless-text" style="color: #EAEAEA;">Crafted for the modern queen.</p>
+        <button class="discover-btn">DISCOVER JEWELLERY</button>
+      </div>
+      <div class="celebrity-image-wrapper">
+        <img src="assets/home/necklaces.png" alt="Jewellery" class="celebrity-girl-img" style="border-radius: 8px;">
+      </div>
+    </div>
+  </section>
+
+  <div class="trending-heading-wrapper">
+    <div class="heading-line-left"></div>
+    <div class="heading-content">
+      <svg class="heading-ornament" width="24" height="12" viewBox="0 0 24 12" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
+      </svg>
+      <h2 class="category-title">EXQUISITE JEWELLERY</h2>
+      <svg class="heading-ornament" width="24" height="12" viewBox="0 0 24 12" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
+      </svg>
+    </div>
+    <div class="heading-line-right"></div>
+  </div>
+
+  <div class="trending-grid">
+    <div *ngFor="let product of jewelleryProducts" class="product-card">
+      <div class="product-image-container">
+        <span *ngIf="product.badge" class="product-badge">{{ product.badge }}</span>
+        <button class="wishlist-btn" aria-label="Add to Wishlist">
+          <lucide-icon [img]="HeartIcon" class="heart-icon" size="18"></lucide-icon>
+        </button>
+        <img [src]="product.image" [alt]="product.name" class="product-image">
+      </div>
+      <div class="product-info">
+        <div class="title-rating-row">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <div class="product-rating">
+            <lucide-icon [img]="StarIcon" class="star-icon" size="14"></lucide-icon>
+            <span class="rating-value">{{ product.rating | number:'1.1-1' }}</span>
+          </div>
+        </div>
+        <div class="product-pricing">
+          <span class="current-price">₹{{ product.price | number:'1.0-0' }}</span>
+          <span class="original-price">₹{{ product.originalPrice | number:'1.0-0' }}</span>
+        </div>
+        <button class="buy-now-btn">
+          <lucide-icon [img]="ShoppingBagIcon" class="bag-icon" size="14"></lucide-icon>
+          BUY NOW
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="view-all-container">
+    <button class="view-all-btn">
+      VIEW ALL
+      <lucide-icon [img]="ArrowRightIcon" class="arrow-icon" size="16"></lucide-icon>
+    </button>
   </div>
 </section>
