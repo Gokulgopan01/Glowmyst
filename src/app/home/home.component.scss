@@ -641,3 +641,115 @@
     height: 380px;
   }
 }
+
+/* ==========================================================================
+   LOVED BY CELEBRITIES SECTION
+   ========================================================================== */
+
+.celebrity-section {
+  max-width: 1450px;
+  margin: 120px auto 80px auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+.celebrity-banner {
+  background-image: url('/assets/home/saree_section_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px; /* Slightly rounded edges if desired */
+  height: 320px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* Allow girl image to overflow */
+}
+
+.celebrity-content {
+  padding-left: 10%;
+  z-index: 2;
+  position: relative;
+  transform: translateY(-20px); /* Adjust vertical alignment if needed */
+}
+
+.loved-by {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 34px;
+  color: #FFFFFF;
+  margin: 0 0 5px 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.celebrities-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 85px;
+  color: #FFE159; /* Bright golden yellow */
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.celebrity-image-wrapper {
+  position: absolute;
+  bottom: -20px; /* Let her anchor slightly below or at the bottom */
+  right: 15%;
+  height: 145%; /* Taller than the container to break out top */
+  display: flex;
+  align-items: flex-end;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.celebrity-girl-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .celebrity-section {
+    margin-top: 100px;
+  }
+  .celebrity-banner {
+    height: 280px;
+  }
+  .loved-by {
+    font-size: 28px;
+  }
+  .celebrities-title {
+    font-size: 65px;
+  }
+  .celebrity-image-wrapper {
+    right: 8%;
+    height: 135%;
+  }
+}
+
+@media (max-width: 768px) {
+  .celebrity-section {
+    padding: 0 20px;
+    margin-top: 80px;
+  }
+  .celebrity-banner {
+    height: 220px;
+  }
+  .celebrity-content {
+    padding-left: 20px;
+    transform: translateY(-10px);
+  }
+  .loved-by {
+    font-size: 22px;
+  }
+  .celebrities-title {
+    font-size: 45px;
+  }
+  .celebrity-image-wrapper {
+    right: -10px;
+    height: 130%;
+    bottom: 0;
+  }
+}
