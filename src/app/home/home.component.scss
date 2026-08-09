@@ -629,7 +629,22 @@
   }
 
   .category-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding-bottom: 10px;
+    margin-top: 40px; /* Breathing space below heading */
+    
+    /* Hide scrollbar */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .category-title {
@@ -639,6 +654,8 @@
 
   .category-card {
     height: 380px;
+    flex: 0 0 85%;
+    scroll-snap-align: center;
   }
 }
 
@@ -1282,6 +1299,8 @@
 
   .split-image {
     height: 400px;
+    width: 100%;
+    flex: none;
   }
 }
 
