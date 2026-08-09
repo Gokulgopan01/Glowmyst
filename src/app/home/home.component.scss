@@ -1336,6 +1336,7 @@
   height: 100%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.4s ease, border-color 0.4s ease;
+  min-width: 0;
 }
 
 .featured-necklace-card:hover {
@@ -1389,6 +1390,7 @@
   padding: 16px;
   background: transparent;
   flex-grow: 1;
+  min-width: 0;
 }
 
 .fn-name {
