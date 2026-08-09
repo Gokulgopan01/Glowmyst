@@ -355,6 +355,77 @@
     </div>
   </section>
 
+  <!-- RINGS BANNER SECTION -->
+  <section class="split-banner-section">
+    <div class="split-banner">
+      <div class="split-content">
+        <div class="split-tag">
+          <span class="tag-icon">✦</span>
+          EXCLUSIVE COLLECTION · DESIGNER RINGS
+        </div>
+        
+        <h2 class="split-title">
+          <span class="title-regular">Elegant</span><br>
+          <span class="title-script">Ring Sets</span>
+        </h2>
+        
+        <p class="split-desc">
+          A touch of grace for your fingers — <br>
+          crafted for the modern South Indian woman
+        </p>
+
+        <ul class="split-bullets">
+          <li>Ruby studded, Temple & AD Stone Rings</li>
+          <li>Kundan & Polki Bridal Rings</li>
+          <li>Daily wear gold plated bands</li>
+          <li>Sizes available for all</li>
+        </ul>
+        
+        <div class="split-divider"></div>
+        
+        <div class="split-stats">
+          <div class="stat-item">
+            <span class="stat-value">300+</span>
+            <span class="stat-label">DESIGNS</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">₹299</span>
+            <span class="stat-label">STARTING FROM</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">Daily</span>
+            <span class="stat-label">NEW ADDITIONS</span>
+          </div>
+        </div>
+        
+        <div class="split-actions">
+          <button class="cta-button primary">SHOP ALL RINGS</button>
+          <button class="cta-button secondary">BRIDAL RINGS</button>
+        </div>
+      </div>
+
+      <div class="split-image">
+        <img src="assets/Products/Jewellery/ring2.jpeg" alt="Elegant Ring Sets">
+      </div>
+    </div>
+  </section>
+
+  <!-- EARRINGS GRID SECTION -->
+  <section class="featured-necklaces-section">
+    <div class="featured-necklaces-grid">
+      <div *ngFor="let product of featuredEarrings" class="featured-necklace-card">
+        <div class="fn-image-container">
+          <span *ngIf="product.badge" class="fn-badge" [class.sale]="product.badge === 'SALE'">{{ product.badge }}</span>
+          <img [src]="product.image" [alt]="product.name" class="fn-image">
+        </div>
+        <div class="fn-info">
+          <h4 class="fn-name">{{ product.name }}</h4>
+          <span class="fn-price">Rs. {{ product.price | number:'1.2-2' }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="trending-heading-wrapper">
     <div class="heading-line-left"></div>
     <div class="heading-content">
