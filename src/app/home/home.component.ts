@@ -48,11 +48,39 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   private intervalId: any;
   trendingProducts: Product[] = [];
   jewelleryProducts: Product[] = [];
+  featuredNecklaces: Product[] = [];
+  featuredBangles: Product[] = [];
 
   ngOnInit(): void {
     this.startAutoPlay();
     this.loadTrendingProducts();
     this.loadJewelleryProducts();
+    this.loadFeaturedNecklaces();
+    this.loadFeaturedBangles();
+  }
+
+  async loadFeaturedNecklaces() {
+    try {
+      const response = await fetch('/assets/Products_json/jeweller_product.json');
+      const data: Product[] = await response.json();
+      this.featuredNecklaces = data
+        .filter(p => p.category === 'Necklaces')
+        .slice(0, 5);
+    } catch (error) {
+      console.error('Error loading featured necklaces', error);
+    }
+  }
+
+  async loadFeaturedBangles() {
+    try {
+      const response = await fetch('/assets/Products_json/jeweller_product.json');
+      const data: Product[] = await response.json();
+      this.featuredBangles = data
+        .filter(p => p.category === 'Bangles')
+        .slice(0, 5);
+    } catch (error) {
+      console.error('Error loading featured bangles', error);
+    }
   }
 
   async loadTrendingProducts() {

@@ -94,8 +94,8 @@
       </div>
 
       <!-- Card 2: Bangles -->
-      <div #animatedElement class="category-card card-bangles animated-card" style="transition-delay: 200ms;">
-        <div class="bangles-border"></div>
+      <div #animatedElement class="category-card card-necklaces animated-card" style="transition-delay: 100ms;">
+        <!-- <div class="bangles-border"></div> -->
         <img src="assets/home/bangles.png" alt="Bangles" class="card-bg">
         <div class="card-overlay"></div>
         <div class="card-content">
@@ -108,8 +108,8 @@
       </div>
 
       <!-- Card 3: Earrings -->
-      <div #animatedElement class="category-card card-earrings animated-card" style="transition-delay: 300ms;">
-        <div class="earrings-border"></div>
+      <div #animatedElement class="category-card card-necklaces animated-card" style="transition-delay: 100ms;">
+        <!-- <div class="bangles-border"></div> -->
         <img src="assets/home/earrings.png" alt="Earrings" class="card-bg">
         <div class="card-overlay"></div>
         <div class="card-content">
@@ -222,23 +222,135 @@
 <!-- JEWELLERY SECTION -->
 <section class="trending-section jewellery-section">
   <!-- JEWELLERY BANNER SECTION -->
-  <section class="celebrity-section">
-    <div class="celebrity-banner jewellery-banner">
-      <div class="celebrity-content new-edition-content">
-        <div class="special-edition-wrapper">
-          <span class="se-line"></span>
-          <span class="se-text" style="color: #F8D85B;">EXCLUSIVE COLLECTION</span>
-          <span class="se-line"></span>
+  <section class="split-banner-section">
+    <div class="split-banner">
+      <div class="split-content">
+        <div class="split-tag">
+          <span class="tag-icon">✦</span>
+          FEATURED COLLECTION · IMITATION JEWELLERY
         </div>
-        <h2 class="ethereal-title">
-          <span class="ethereal-caps" style="color: #FFF;">TIMELESS</span><br>
-          <span class="elegance-script" style="color: #F8D85B;">Treasures</span>
+
+        <h2 class="split-title">
+          <span class="title-regular">Imitation</span><br>
+          <span class="title-script">Necklace Sets</span>
         </h2>
-        <p class="timeless-text" style="color: #EAEAEA;">Crafted for the modern queen.</p>
-        <button class="discover-btn">DISCOVER JEWELLERY</button>
+
+        <p class="split-desc">
+          Temple grandeur meets everyday elegance — <br>
+          crafted for the modern South Indian woman
+        </p>
+
+        <div class="split-stats">
+          <div class="stat-item">
+            <span class="stat-value">2,200+</span>
+            <span class="stat-label">DESIGNS</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">₹299</span>
+            <span class="stat-label">STARTING FROM</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">Daily</span>
+            <span class="stat-label">NEW ADDITIONS</span>
+          </div>
+        </div>
+
+        <div class="split-divider"></div>
+
+        <div class="split-actions">
+          <button class="cta-button primary">SHOP ALL NECKLACES</button>
+          <button class="cta-button secondary">BRIDAL SETS</button>
+        </div>
       </div>
-      <div class="celebrity-image-wrapper">
-        <img src="assets/home/necklaces.png" alt="Jewellery" class="celebrity-girl-img" style="border-radius: 8px;">
+
+      <div class="split-image">
+        <img src="assets/home/necklaces.png" alt="Imitation Necklace Sets">
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-necklaces-section">
+    <div class="featured-necklaces-grid">
+      <div *ngFor="let product of featuredNecklaces" class="featured-necklace-card">
+        <div class="fn-image-container">
+          <span *ngIf="product.badge" class="fn-badge" [class.sale]="product.badge === 'SALE'">{{ product.badge
+            }}</span>
+          <img [src]="product.image" [alt]="product.name" class="fn-image">
+        </div>
+        <div class="fn-info">
+          <h4 class="fn-name">{{ product.name }}</h4>
+          <span class="fn-price">Rs. {{ product.price | number:'1.2-2' }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANGLES BANNER SECTION -->
+  <section class="split-banner-section reverse">
+    <div class="split-banner reverse">
+      <div class="split-content">
+        <div class="split-tag">
+          <span class="tag-icon">✦</span>
+          EXCLUSIVE COLLECTION · DESIGNER BANGLES
+        </div>
+        
+        <h2 class="split-title">
+          <span class="title-regular">Exquisite</span><br>
+          <span class="title-script">Bangle Sets</span>
+        </h2>
+        
+        <p class="split-desc">
+          The perfect jingle for your wrists — <br>
+          crafted for the modern South Indian woman
+        </p>
+
+        <ul class="split-bullets">
+          <li>Antique, Temple & AD Stone Bangles</li>
+          <li>Kundan & Polki Bridal Sets</li>
+          <li>Daily wear gold plated kadas</li>
+          <li>Sizes available from 2.2 to 2.8</li>
+        </ul>
+        
+        <div class="split-divider"></div>
+        
+        <div class="split-stats">
+          <div class="stat-item">
+            <span class="stat-value">500+</span>
+            <span class="stat-label">DESIGNS</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">₹499</span>
+            <span class="stat-label">STARTING FROM</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">Daily</span>
+            <span class="stat-label">NEW ADDITIONS</span>
+          </div>
+        </div>
+        
+        <div class="split-actions">
+          <button class="cta-button primary">SHOP ALL BANGLES</button>
+          <button class="cta-button secondary">BRIDAL KADAS</button>
+        </div>
+      </div>
+
+      <div class="split-image">
+        <img src="assets/home/bangles.png" alt="Exquisite Bangle Sets">
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-necklaces-section">
+    <div class="featured-necklaces-grid">
+      <div *ngFor="let product of featuredBangles" class="featured-necklace-card">
+        <div class="fn-image-container">
+          <span *ngIf="product.badge" class="fn-badge" [class.sale]="product.badge === 'SALE'">{{ product.badge }}</span>
+          <img [src]="product.image" [alt]="product.name" class="fn-image">
+        </div>
+        <div class="fn-info">
+          <h4 class="fn-name">{{ product.name }}</h4>
+          <span class="fn-price">Rs. {{ product.price | number:'1.2-2' }}</span>
+        </div>
       </div>
     </div>
   </section>

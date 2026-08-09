@@ -90,8 +90,7 @@
         "name": "Layered Gold Necklace",
         "category": "Necklaces",
         "price": 6999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/LayeredGoldNecklace.webp",
         "badge": "POPULAR",
         "OCCASION": "Daily Wear"
     },
@@ -100,8 +99,7 @@
         "name": "Kundan Chandbali Earrings",
         "category": "Earrings",
         "price": 9999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/KundanChandbaliEarrings.jpg",
         "badge": "NEW",
         "OCCASION": "Daily Wear"
     },
@@ -110,68 +108,67 @@
         "name": "Meenakari Bangle Set",
         "category": "Bangles",
         "price": 2999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/MeenakariBangleSet.webp",
         "badge": "LIMITED",
         "OCCASION": "Daily Wear"
     },
     {
         "id": 13,
-        "name": "Diamond Solitaire Ring",
-        "category": "Diamond",
+        "name": "Diamond Elegance Necklace",
+        "category": "Necklaces",
         "price": 8999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/DiamondEleganceNecklace.jpg",
+        "image2": "assets/Products/Jewellery/DiamondEleganceNecklace.jpg",
         "badge": "HOT",
-        "OCCASION": "Daily Wear"
+        "OCCASION": "Party Wear"
     },
     {
         "id": 14,
         "name": "Emerald Choker Necklace",
         "category": "Necklaces",
         "price": 34999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/EmeraldChokerNecklace.jpg",
+        "image2": "assets/Products/Jewellery/EmeraldChokerNecklace.jpg",
         "badge": "PREMIUM",
-        "OCCASION": "Daily Wear"
+        "OCCASION": "Wedding"
     },
     {
         "id": 15,
-        "name": "Antique Temple Haram",
-        "category": "Temple",
+        "name": "Antique Temple Necklace",
+        "category": "Necklaces",
         "price": 9999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/AntiqueTempleNecklace.jpg",
+        "image2": "assets/Products/Jewellery/AntiqueTempleNecklace.jpg",
         "badge": "EXCLUSIVE",
-        "OCCASION": "Daily Wear"
+        "OCCASION": "Traditional"
     },
     {
         "id": 16,
         "name": "Pearl Drop Earrings",
         "category": "Earrings",
         "price": 2999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/PearlDropEarrings.jpg",
+        "image2": "assets/Products/Jewellery/PearlDropEarrings.jpg",
         "badge": "NEW",
         "OCCASION": "Daily Wear"
     },
     {
         "id": 17,
-        "name": "Rose Gold Bracelet",
-        "category": "Bracelets",
+        "name": "Bridal Necklace",
+        "category": "Necklaces",
         "price": 5999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/BridalNecklace.jpg",
+        "image2": "assets/Products/Jewellery/BridalNecklace.jpg",
         "badge": "TRENDING",
-        "OCCASION": "Daily Wear"
+        "OCCASION": "Wedding"
     },
     {
         "id": 18,
         "name": "Diamond Tennis Bracelet",
         "category": "Diamond",
         "price": 4999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/DiamondTennisBracelet.jpg",
+        "image2": "assets/Products/Jewellery/DiamondTennisBracelet.jpg",
         "badge": "PREMIUM",
         "OCCASION": "Daily Wear"
     },
@@ -180,8 +177,8 @@
         "name": "Bridal Gold Necklace Set",
         "category": "Bridal",
         "price": 9999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/BridalGoldNecklaceSet.jpg",
+        "image2": "assets/Products/Jewellery/BridalGoldNecklaceSet.jpg",
         "badge": "BRIDAL",
         "OCCASION": "Daily Wear"
     },
@@ -190,9 +187,39 @@
         "name": "Classic Gold Chain",
         "category": "Gold",
         "price": 999,
-        "image": "assets/jewellery/bangles.jpg",
-        "image2": "assets/jewellery/bangles.jpg",
+        "image": "assets/Products/Jewellery/ClassicGoldChain.jpg",
+        "image2": "assets/Products/Jewellery/ClassicGoldChain.jpg",
         "badge": "POPULAR",
         "OCCASION": "Daily Wear"
+    },
+    {
+        "id": 21,
+        "name": "Kundan Bridal Bangle Set",
+        "category": "Bangles",
+        "price": 4499,
+        "image": "assets/Products/Jewellery/KundanBridalBangleSet.jpg",
+        "image2": "assets/Products/Jewellery/KundanBridalBangleSet.jpg",
+        "badge": "PREMIUM",
+        "OCCASION": "Wedding"
+    },
+    {
+        "id": 22,
+        "name": "Gold Plated Kada Bangle",
+        "category": "Bangles",
+        "price": 2499,
+        "image": "assets/Products/Jewellery/GoldPlatedKadaBangle.jpg",
+        "image2": "assets/Products/Jewellery/GoldPlatedKadaBangle.jpg",
+        "badge": "TRENDING",
+        "OCCASION": "Daily Wear"
+    },
+    {
+        "id": 23,
+        "name": "Temple Gold Bangle Set",
+        "category": "Bangles",
+        "price": 3999,
+        "image": "assets/Products/Jewellery/TempleGoldBangleSet.jpg",
+        "image2": "assets/Products/Jewellery/TempleGoldBangleSet.jpg",
+        "badge": "EXCLUSIVE",
+        "OCCASION": "Traditional"
     }
 ]
