@@ -219,8 +219,7 @@
   </div>
 </section>
 
-<!-- JEWELLERY SECTION -->
-<section class="trending-section jewellery-section">
+<!-- JEWELLERY SECTIONS -->
   <!-- JEWELLERY BANNER SECTION -->
   <section class="split-banner-section">
     <div class="split-banner">
@@ -426,55 +425,73 @@
     </div>
   </section>
 
-  <div class="trending-heading-wrapper">
-    <div class="heading-line-left"></div>
-    <div class="heading-content">
-      <svg class="heading-ornament" width="24" height="12" viewBox="0 0 24 12" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
-      </svg>
-      <h2 class="category-title">EXQUISITE JEWELLERY</h2>
-      <svg class="heading-ornament" width="24" height="12" viewBox="0 0 24 12" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
-      </svg>
-    </div>
-    <div class="heading-line-right"></div>
-  </div>
+  <!-- EXQUISITE JEWELLERY BANNER SECTION -->
+  <section class="split-banner-section reverse">
+    <div class="split-banner reverse">
+      <div class="split-content">
+        <div class="split-tag">
+          <span class="tag-icon">✦</span>
+          MASTERPIECE COLLECTION · FINE JEWELLERY
+        </div>
+        
+        <h2 class="split-title">
+          <span class="title-regular">Exquisite</span><br>
+          <span class="title-script">Jewellery</span>
+        </h2>
+        
+        <p class="split-desc">
+          Timeless artistry and unmatched craftsmanship — <br>
+          for every grand occasion
+        </p>
 
-  <div class="trending-grid">
-    <div *ngFor="let product of jewelleryProducts" class="product-card">
-      <div class="product-image-container">
-        <span *ngIf="product.badge" class="product-badge">{{ product.badge }}</span>
-        <button class="wishlist-btn" aria-label="Add to Wishlist">
-          <lucide-icon [img]="HeartIcon" class="heart-icon" size="18"></lucide-icon>
-        </button>
-        <img [src]="product.image" [alt]="product.name" class="product-image">
-      </div>
-      <div class="product-info">
-        <div class="title-rating-row">
-          <h3 class="product-name">{{ product.name }}</h3>
-          <div class="product-rating">
-            <lucide-icon [img]="StarIcon" class="star-icon" size="14"></lucide-icon>
-            <span class="rating-value">{{ product.rating | number:'1.1-1' }}</span>
+        <ul class="split-bullets">
+          <li>Handcrafted bridal masterpieces</li>
+          <li>Authentic Temple & Antique designs</li>
+          <li>Premium Kundan & Polki sets</li>
+          <li>Available in 22k gold plating</li>
+        </ul>
+        
+        <div class="split-divider"></div>
+        
+        <div class="split-stats">
+          <div class="stat-item">
+            <span class="stat-value">1000+</span>
+            <span class="stat-label">DESIGNS</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">₹999</span>
+            <span class="stat-label">STARTING FROM</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">Weekly</span>
+            <span class="stat-label">NEW ADDITIONS</span>
           </div>
         </div>
-        <div class="product-pricing">
-          <span class="current-price">₹{{ product.price | number:'1.0-0' }}</span>
-          <span class="original-price">₹{{ product.originalPrice | number:'1.0-0' }}</span>
+        
+        <div class="split-actions">
+          <button class="cta-button primary">SHOP COLLECTION</button>
+          <button class="cta-button secondary">VIEW CATALOG</button>
         </div>
-        <button class="buy-now-btn">
-          <lucide-icon [img]="ShoppingBagIcon" class="bag-icon" size="14"></lucide-icon>
-          BUY NOW
-        </button>
+      </div>
+
+      <div class="split-image">
+        <img src="assets/Products/Jewellery/BridalGoldNecklaceSet.jpg" alt="Exquisite Jewellery Sets">
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="view-all-container">
-    <button class="view-all-btn">
-      VIEW ALL
-      <lucide-icon [img]="ArrowRightIcon" class="arrow-icon" size="16"></lucide-icon>
-    </button>
-  </div>
-</section>
+  <!-- EXQUISITE JEWELLERY GRID SECTION -->
+  <section class="featured-necklaces-section">
+    <div class="featured-necklaces-grid">
+      <div *ngFor="let product of jewelleryProducts" class="featured-necklace-card">
+        <div class="fn-image-container">
+          <span *ngIf="product.badge" class="fn-badge" [class.sale]="product.badge === 'SALE'">{{ product.badge }}</span>
+          <img [src]="product.image" [alt]="product.name" class="fn-image">
+        </div>
+        <div class="fn-info">
+          <h4 class="fn-name">{{ product.name }}</h4>
+          <span class="fn-price">Rs. {{ product.price | number:'1.2-2' }}</span>
+        </div>
+      </div>
+    </div>
+  </section>

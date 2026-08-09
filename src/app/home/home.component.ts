@@ -124,8 +124,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     try {
       const response = await fetch('/assets/Products_json/jeweller_product.json');
       const data: Product[] = await response.json();
-      // Just take the first 4 products for the jewellery section
-      this.jewelleryProducts = data.slice(0, 4);
+      // Just take the first 5 products for the jewellery section
+      this.jewelleryProducts = data.slice(0, 5);
       
       const mockRatings = [4.9, 4.8, 4.7, 4.9];
       this.jewelleryProducts.forEach((p, index) => {

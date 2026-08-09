@@ -1289,7 +1289,7 @@
 .featured-necklaces-section {
   background-color: #12100E;
   /* Slightly lighter than the hero background */
-  padding: 60px 5%;
+  padding: 60px 0;
   width: 100%;
 }
 
@@ -1297,7 +1297,8 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  max-width: 1450px;
+  width: 100%;
+  padding: 0 5%;
   margin: 0 auto;
 }
 
