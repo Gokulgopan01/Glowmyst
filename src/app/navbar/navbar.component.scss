@@ -14,9 +14,13 @@
 
     display: block;
     width: 100%;
-    position: sticky;
-    top: 0;
+    position: relative;
+    height: var(--nav-height);
     z-index: 1000;
+}
+
+:host(.nav-hidden) .navbar {
+    transform: translateY(-100%);
 }
 
 @keyframes fadeDown {
@@ -68,12 +72,15 @@
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: var(--nav-height);
     background: linear-gradient(180deg, #0B0908 0%, #0E0A08 40%, #0A0908 100%);
     border-bottom: 1px solid var(--nav-bottom-border);
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
-    transition: height 0.3s ease, background 0.3s ease;
+    transition: height 0.3s ease, background 0.3s ease, transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     animation: fadeDown 0.8s ease-out forwards;

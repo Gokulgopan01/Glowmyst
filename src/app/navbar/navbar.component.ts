@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, HostBinding } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LucideAngularModule, Search, ChevronDown, Menu, X, RotateCcw, Gem, ShieldCheck, Truck } from 'lucide-angular';
@@ -13,6 +13,9 @@ import { LucideAngularModule, Search, ChevronDown, Menu, X, RotateCcw, Gem, Shie
 export class NavbarComponent {
   isScrolled = false;
   isMobileMenuOpen = false;
+  lastScrollY = 0;
+
+  @HostBinding('class.nav-hidden') isHidden = false;
 
   readonly SearchIcon = Search;
   readonly ChevronDownIcon = ChevronDown;
@@ -25,7 +28,18 @@ export class NavbarComponent {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isScrolled = window.scrollY > 20;
+    const currentScrollY = window.scrollY;
+    
+    this.isScrolled = currentScrollY > 20;
+
+    // Hide navbar on scroll down, show on scroll up
+    if (currentScrollY > this.lastScrollY && currentScrollY > 150) {
+      this.isHidden = true;
+    } else {
+      this.isHidden = false;
+    }
+    
+    this.lastScrollY = currentScrollY;
   }
 
   toggleMobileMenu() {
