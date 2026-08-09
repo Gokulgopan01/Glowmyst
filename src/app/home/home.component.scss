@@ -1422,3 +1422,234 @@
     aspect-ratio: 3/4;
   }
 }
+
+/* COMMUNITY SECTION */
+.community-section {
+    background-color: #050404;
+    /* Very dark, almost black */
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .community-header {
+    margin-bottom: 40px;
+  }
+
+  .community-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .community-dots span {
+    width: 6px;
+    height: 6px;
+    background-color: #C99A45;
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  .community-dots span:nth-child(2) {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  .community-tag {
+    color: #C99A45;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  .community-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #F4E5C3;
+    font-weight: 400;
+  }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    max-width: 100%;
+    padding: 0 2%;
+    margin: 0 auto 40px auto;
+  }
+
+  .community-img-wrapper {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(201, 154, 69, 0.2);
+  }
+
+  .community-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .community-img-wrapper:hover img {
+    transform: scale(1.05);
+  }
+
+  .community-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .instagram-handle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #F4E5C3;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .instagram-handle:hover {
+    color: #C99A45;
+  }
+
+  .insta-btn {
+    display: inline-block;
+    color: #C99A45;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 12px 30px;
+    border: 1px solid #C99A45;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .insta-btn:hover {
+    background-color: rgba(201, 154, 69, 0.1);
+    box-shadow: 0 0 15px rgba(201, 154, 69, 0.2);
+  }
+
+  @media (max-width: 1024px) {
+    .community-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .community-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .community-title {
+      font-size: 32px;
+    }
+
+    .community-footer {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  /* WHATSAPP CTA SECTION */
+  .whatsapp-cta-section {
+    background-color: #0b140e;
+    /* Deep luxurious forest green */
+    padding: 100px 5%;
+    text-align: center;
+    border-top: 1px solid rgba(37, 211, 102, 0.15);
+    margin-top: 60px;
+  }
+
+  .wa-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .wa-title {
+    color: #C99A45;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .wa-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #F4E5C3;
+    line-height: 1.2;
+    margin-bottom: 25px;
+  }
+
+  .wa-highlight {
+    color: #25D366;
+    /* WhatsApp Green */
+    font-style: italic;
+  }
+
+  .wa-desc {
+    font-family: 'Inter', sans-serif;
+    color: #a39c91;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 45px;
+  }
+
+  .wa-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #25D366;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 18px 40px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+    margin-bottom: 25px;
+  }
+
+  .wa-button:hover {
+    background-color: #20BA56;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+  }
+
+  .wa-timing {
+    font-family: 'Inter', sans-serif;
+    color: rgba(244, 229, 195, 0.5);
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    .whatsapp-cta-section {
+      padding: 80px 20px;
+    }
+
+    .wa-heading {
+      font-size: 36px;
+    }
+
+    .wa-button {
+      width: 100%;
+    }
+  }
