@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, NgZone } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,22 +16,26 @@ export class AppComponent implements OnInit, OnDestroy {
   private lenis: any;
   private rafId: number | undefined;
   private router = inject(Router);
+  private ngZone = inject(NgZone);
 
   ngOnInit() {
-    this.lenis = new Lenis({
-      duration: 1.2,
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-      infinite: false,
-    });
+    this.ngZone.runOutsideAngular(() => {
+      this.lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth exponential easing
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        infinite: false,
+      });
 
-    const raf = (time: number) => {
-      this.lenis.raf(time);
+      const raf = (time: number) => {
+        this.lenis.raf(time);
+        this.rafId = requestAnimationFrame(raf);
+      };
+
       this.rafId = requestAnimationFrame(raf);
-    };
-
-    this.rafId = requestAnimationFrame(raf);
+    });
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
