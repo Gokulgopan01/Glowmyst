@@ -1121,9 +1121,13 @@
 .split-content {
   flex: 1;
   padding: 60px 8%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+
+  box-sizing: border-box;
 }
 
 .split-banner.reverse .split-content {
@@ -1258,9 +1262,13 @@
 .split-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
-  object-position: center;
+
+  /* Show the complete image */
+  object-fit: contain;
+
+  /* Keep the image centered */
+  object-position: center center;
 }
 
 @media (max-width: 1024px) {
