@@ -94,6 +94,9 @@
 <section class="listing-section">
   <div class="listing-container">
 
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay mobile-only" *ngIf="isMobileFilterOpen" (click)="toggleMobileFilter()"></div>
+
     <!-- Sidebar -->
     <aside class="sidebar" [class.open]="isMobileFilterOpen">
       <!-- Mobile header -->
