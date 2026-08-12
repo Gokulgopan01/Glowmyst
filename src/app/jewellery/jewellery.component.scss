@@ -1300,6 +1300,14 @@ input:checked+.custom-checkbox {
       display: none !important;
     }
 
+    .mobile-only {
+      display: flex !important;
+    }
+
+    .accordion.mobile-only {
+      display: block !important;
+    }
+
     .sidebar-header {
       display: flex;
       justify-content: space-between;
