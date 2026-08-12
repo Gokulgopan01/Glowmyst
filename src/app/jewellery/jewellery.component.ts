@@ -51,7 +51,7 @@ export class FadeInDirective implements OnInit, OnDestroy {
   templateUrl: './jewellery.component.html',
   styleUrl: './jewellery.component.scss'
 })
-export class JewelleryComponent implements OnInit {
+export class JewelleryComponent implements OnInit, OnDestroy {
   private http = inject(HttpClient);
 
   readonly FilterIcon = Filter;
@@ -254,6 +254,11 @@ export class JewelleryComponent implements OnInit {
 
   toggleMobileFilter() {
     this.isMobileFilterOpen = !this.isMobileFilterOpen;
+    if (this.isMobileFilterOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   }
 
   clearAllFilters() {
@@ -263,6 +268,10 @@ export class JewelleryComponent implements OnInit {
     this.selectedOccasions = [];
     this.currentSort = 'Popular';
     this.onFilterChange();
+  }
+
+  ngOnDestroy() {
+    document.body.style.overflow = 'auto';
   }
 }
 
