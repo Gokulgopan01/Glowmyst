@@ -84,6 +84,7 @@ export class SareeComponent implements OnInit {
   isPriceOpen = false;
   isMaterialOpen = false;
   isOccasionOpen = false;
+  isSortOpen = false;
 
   // Filter selections
   selectedCategory = 'All Sarees';
@@ -256,6 +257,24 @@ export class SareeComponent implements OnInit {
 
   toggleMobileFilter() {
     this.isMobileFilterOpen = !this.isMobileFilterOpen;
+    if (this.isMobileFilterOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  clearAllFilters() {
+    this.selectedCategory = 'All Sarees';
+    this.minPrice = 0;
+    this.maxPrice = 200000;
+    this.selectedOccasions = [];
+    this.currentSort = 'Popular';
+    this.onFilterChange();
+  }
+
+  ngOnDestroy() {
+    document.body.style.overflow = 'auto';
   }
 }
 
