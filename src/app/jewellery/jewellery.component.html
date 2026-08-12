@@ -98,9 +98,43 @@
     <aside class="sidebar" [class.open]="isMobileFilterOpen">
       <!-- Mobile header -->
       <div class="sidebar-header mobile-only">
-        <h3>FILTERS</h3>
-        <button class="close-btn" (click)="toggleMobileFilter()">✕</button>
+        <div class="header-titles">
+          <h3>Filter and sort</h3>
+          <span class="product-count">{{ allProducts.length }} products</span>
+        </div>
+        <button class="close-btn" (click)="toggleMobileFilter()">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+            <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor"></path>
+          </svg>
+        </button>
       </div>
+
+      <div class="sidebar-scroll-area">
+        <!-- Sort Accordion (Mobile Only) -->
+        <div class="accordion mobile-only">
+          <div class="accordion-header" (click)="isSortOpen = !isSortOpen">
+            <span>Sort by:</span>
+            <span class="sort-selected-value">{{ currentSort }}</span>
+            <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isSortOpen"></lucide-icon>
+          </div>
+          <div class="accordion-body" [class.closed]="!isSortOpen">
+            <label class="radio-label">
+              <input type="radio" name="sort" value="Popular" (change)="onSortChange($event)" [checked]="currentSort === 'Popular'">
+              <span class="custom-radio"></span>
+              <span class="label-text">Popular</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="sort" value="Price: Low to High" (change)="onSortChange($event)" [checked]="currentSort === 'Price: Low to High'">
+              <span class="custom-radio"></span>
+              <span class="label-text">Price: Low to High</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="sort" value="Price: High to Low" (change)="onSortChange($event)" [checked]="currentSort === 'Price: High to Low'">
+              <span class="custom-radio"></span>
+              <span class="label-text">Price: High to Low</span>
+            </label>
+          </div>
+        </div>
 
       <!-- Categories Accordion -->
       <div class="accordion">
@@ -174,7 +208,15 @@
         </div>
       </div>
 
-      <button class="clear-all-btn">
+      </div> <!-- End sidebar-scroll-area -->
+
+      <!-- Mobile footer -->
+      <div class="sidebar-footer mobile-only">
+        <button class="remove-all-btn" (click)="clearAllFilters()">Remove all</button>
+        <button class="apply-btn" (click)="toggleMobileFilter()">Apply</button>
+      </div>
+
+      <button class="clear-all-btn desktop-only" (click)="clearAllFilters()">
         CLEAR ALL <lucide-icon [img]="RotateCcwIcon" class="icon"></lucide-icon>
       </button>
 

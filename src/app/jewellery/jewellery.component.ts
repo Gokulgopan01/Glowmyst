@@ -84,6 +84,7 @@ export class JewelleryComponent implements OnInit {
   isPriceOpen = false;
   isMaterialOpen = false;
   isOccasionOpen = false;
+  isSortOpen = false;
 
   // Filter selections
   selectedCategory = 'All Jewellery';
@@ -253,6 +254,15 @@ export class JewelleryComponent implements OnInit {
 
   toggleMobileFilter() {
     this.isMobileFilterOpen = !this.isMobileFilterOpen;
+  }
+
+  clearAllFilters() {
+    this.selectedCategory = 'All Jewellery';
+    this.minPrice = 0;
+    this.maxPrice = 200000;
+    this.selectedOccasions = [];
+    this.currentSort = 'Popular';
+    this.onFilterChange();
   }
 }
 
