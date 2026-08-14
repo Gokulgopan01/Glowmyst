@@ -2565,6 +2565,25 @@
     padding: 60px 20px;
   }
 
+  .tryon-right-content {
+    display: contents; /* Enable flex order re-arrangement */
+  }
+
+  .tryon-text-area {
+    order: 1;
+    margin-bottom: 30px;
+  }
+
+  .tryon-left-model {
+    order: 2;
+    margin-bottom: 30px;
+  }
+
+  .tryon-selector-area {
+    order: 3;
+    width: 100%;
+  }
+
   .tryon-heading {
     font-size: 42px;
     text-align: center;
@@ -2576,9 +2595,15 @@
   }
 
   .tryon-model-frame {
-    aspect-ratio: auto;
-    height: 55vh;
-    border-radius: 150px 150px 0 0;
+    height: auto;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .tryon-model-img {
+    height: auto;
+    object-fit: contain;
   }
 
   .tryon-trynow-header {
@@ -2700,11 +2725,6 @@
     gap: 30px;
   }
 
-  .tryon-model-frame {
-    height: 300px;
-    border-radius: 90px 90px 0 0;
-  }
-
   .tryon-right-content {
     padding: 0;
   }
@@ -2802,11 +2822,6 @@
 @media (max-width: 380px) {
   .tryon-section {
     padding: 36px 14px;
-  }
-
-  .tryon-model-frame {
-    height: 260px;
-    border-radius: 70px 70px 0 0;
   }
 
   .tryon-heading {
