@@ -41,6 +41,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren('animatedElement') animatedElements!: QueryList<ElementRef>;
   private observer: IntersectionObserver | null = null;
 
+  @ViewChild('earOverlayTarget') earOverlayTarget!: ElementRef<HTMLDivElement>;
+  tryOnLanded = false;
+
   slides: Slide[] = [
     { id: 0, image: 'assets/home/hero_1.png' },
     { id: 1, image: 'assets/home/hero_2.png' }
@@ -329,20 +332,62 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   // Try-On Section Methods
-  selectTryOnEarring(product: Product) {
+  selectTryOnEarring(product: Product, sourceImgEl?: HTMLImageElement) {
     if (this.selectedTryOnProduct?.id === product.id || this.tryOnAnimating) return;
 
     this.tryOnAnimating = true;
 
-    // Halfway through animation, swap the actual product overlay
-    setTimeout(() => {
-      this.selectedTryOnProduct = product;
-    }, 250); // Matches CSS crossfade timing
-
-    setTimeout(() => {
-      this.tryOnAnimating = false;
-    }, 500); // Total animation duration
+    if (sourceImgEl && this.earOverlayTarget) {
+      this.flyToEar(product, sourceImgEl);
+    } else {
+      // Fallback for prev/next arrows (no click origin) — simple crossfade
+      setTimeout(() => { this.selectedTryOnProduct = product; }, 250);
+      setTimeout(() => { this.tryOnAnimating = false; }, 500);
+    }
   }
+
+  private flyToEar(product: Product, sourceImgEl: HTMLImageElement): void {
+    const startRect = sourceImgEl.getBoundingClientRect();
+    const targetRect = this.earOverlayTarget.nativeElement.getBoundingClientRect();
+
+    const flyImg = document.createElement('img');
+    flyImg.src = product.image;
+    flyImg.style.cssText = `
+      position: fixed;
+      left: ${startRect.left}px;
+      top: ${startRect.top}px;
+      width: ${startRect.width}px;
+      height: ${startRect.height}px;
+      z-index: 9999;
+      pointer-events: none;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.55));
+      border-radius: 8px;
+    `;
+    document.body.appendChild(flyImg);
+
+    const deltaX = (targetRect.left + targetRect.width / 2) - (startRect.left + startRect.width / 2);
+    const deltaY = (targetRect.top + targetRect.height / 2) - (startRect.top + startRect.height / 2);
+    const endScale = Math.max(0.3, targetRect.width / startRect.width);
+
+    const anim = flyImg.animate(
+      [
+        { transform: 'translate(0px, 0px) scale(1) rotate(0deg)', opacity: 1, offset: 0 },
+        { transform: `translate(${deltaX * 0.55}px, ${deltaY * 0.4 - 70}px) scale(${(1 + endScale) / 2}) rotate(10deg)`, opacity: 1, offset: 0.6 },
+        { transform: `translate(${deltaX}px, ${deltaY}px) scale(${endScale}) rotate(0deg)`, opacity: 0, offset: 1 }
+      ],
+      { duration: 750, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' }
+    );
+
+    anim.onfinish = () => {
+      flyImg.remove();
+      this.selectedTryOnProduct = product;
+      this.tryOnLanded = true;
+      setTimeout(() => { this.tryOnLanded = false; }, 500);
+      this.tryOnAnimating = false;
+    };
+  }
+
 
   nextTryOn() {
     if (this.tryOnProducts.length === 0) return;

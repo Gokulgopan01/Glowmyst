@@ -2532,6 +2532,39 @@
 }
 
 
+/* Landing "pop" when the flown earring settles on the ear */
+.tryon-overlay-wrapper.tryon-landed .tryon-overlay-img {
+  animation: earLand 0.5s var(--ease-snap);
+}
+
+@keyframes earLand {
+  0% {
+    transform: scale(0.4);
+    filter: drop-shadow(0 0 0 rgba(201, 154, 69, 0));
+  }
+
+  55% {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 16px rgba(201, 154, 69, 0.85));
+  }
+
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+  }
+}
+
+/* Sync signature-card animation to match your 700ms TS timeout */
+.sig-card {
+  &.animating-up {
+    animation: cardCycleUp 0.7s var(--ease-premium);
+  }
+
+  &.animating-down {
+    animation: cardCycleDown 0.7s var(--ease-premium);
+  }
+}
+
 /* CLICK */
 .tryon-nav-btn:active {
   transform: translateY(-50%) scale(0.97);

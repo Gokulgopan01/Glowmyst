@@ -106,7 +106,8 @@
     <div class="tryon-left-model">
       <div class="tryon-model-frame">
         <img [src]="tryOnModelImage" alt="Model wearing earrings" class="tryon-model-img">
-        <div class="tryon-overlay-wrapper" [class.tryon-crossfade]="tryOnAnimating">
+        <div class="tryon-overlay-wrapper" #earOverlayTarget [class.tryon-crossfade]="tryOnAnimating"
+          [class.tryon-landed]="tryOnLanded">
           <img *ngIf="selectedTryOnProduct" [src]="selectedTryOnProduct.image" alt="Earring Overlay"
             class="tryon-overlay-img">
         </div>
@@ -138,7 +139,7 @@
             <div class="tryon-carousel">
               <!-- We rely on array shifting now, so the first item is always active -->
               <div class="tryon-card" *ngFor="let product of tryOnProducts; let i = index" [class.selected]="i === 0"
-                (click)="selectTryOnEarring(product)">
+                (click)="selectTryOnEarring(product, cardImg)">
 
                 <!-- Navigation buttons attached to the active card -->
                 <button *ngIf="i === 0" class="tryon-nav-btn prev-btn" (click)="$event.stopPropagation(); prevTryOn()">
@@ -147,7 +148,7 @@
 
                 <div class="tryon-card-inner">
                   <div class="tryon-card-img-wrapper">
-                    <img [src]="product.image" [alt]="product.name" class="tryon-card-img">
+                    <img #cardImg [src]="product.image" [alt]="product.name" class="tryon-card-img">
                   </div>
                   <div class="tryon-card-divider"></div>
                   <h4 class="tryon-card-name">{{ product.name }}</h4>
@@ -158,7 +159,7 @@
                 </button>
 
               </div>
-            </div>  
+            </div>
           </div>
           <div class="tryon-dots">
             <span class="tryon-dot active"></span>

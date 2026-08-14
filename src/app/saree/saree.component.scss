@@ -1223,6 +1223,10 @@ input:checked+.custom-checkbox {
   }
 }
 
+.mobile-toolbar-top {
+  opacity: 0;
+}
+
 @media (max-width: 767px) {
   .mobile-toolbar-top {
     display: flex;
