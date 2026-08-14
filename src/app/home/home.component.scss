@@ -336,327 +336,290 @@
 }
 
 /* ==========================================================================
-   SHOP BY CATEGORY SECTION
+   SIGNATURE JEWELRY VERTICAL CAROUSEL
    ========================================================================== */
 
-.category-section {
-  max-width: 1450px;
-  margin: 0 auto;
-  padding: 70px 40px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.category-container {
+.signature-carousel-section {
   position: relative;
-  background: linear-gradient(180deg, #0B0908 0%, #0F0B09 100%);
-  border-radius: 28px;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(201, 154, 69, 0.35);
-  border-top: none;
-  /* Removed so we can create the cut-out effect */
-  padding: 40px;
-}
-
-/* CUT-OUT HEADING (Overlaps the top border) */
-.category-heading-wrapper {
-  position: absolute;
-  top: -24px;
-  left: 0;
   width: 100%;
+  height: 100vh;
+  min-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #080504;
+  overflow: hidden;
 }
 
-.heading-line-left,
-.heading-line-right {
-  flex-grow: 1;
-  height: 1px;
-  background: rgba(201, 154, 69, 0.35);
+.sig-bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/home/saree_section_background.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
 }
 
-.heading-line-left {
-  border-top-left-radius: 28px;
+.sig-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(8,5,4,0.95) 0%, rgba(12,8,6,0.85) 30%, rgba(20,12,8,0.7) 100%);
 }
 
-.heading-line-right {
-  border-top-right-radius: 28px;
+.sig-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.heading-content {
+/* LEFT CONTENT */
+.sig-left-content {
+  flex: 1;
+  max-width: 400px;
+}
+
+.sig-heading {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0 24px;
+  margin: 0 0 24px 0;
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.1;
 }
 
-.category-title {
-  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+.sig-heading-discover {
+  font-size: 48px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.sig-heading-the {
+  font-size: 32px;
+  font-style: italic;
+  margin-left: 60px;
+  margin-bottom: 12px;
+  color: var(--hero-light-gold);
+}
+
+.sig-heading-main {
+  font-size: 64px;
   font-weight: 600;
-  font-size: 38px;
-  letter-spacing: 3px;
   color: var(--hero-gold);
-  margin: 8px 0;
-  text-align: center;
 }
 
-/* CATEGORY GRID */
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  margin-top: 30px;
+.sig-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 40px;
 }
 
-/* BASE CARD STYLE */
-.category-card {
-  position: relative;
-  height: 420px;
-  background: #090807;
-  border: 1px solid rgba(214, 164, 79, 0.35);
+.sig-shop-btn {
+  background: transparent;
+  border: 1px solid var(--hero-gold);
+  border-radius: 30px;
+  padding: 12px 28px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+  transition: all 0.3s ease;
 
-  &.animated-card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  /* Since intersection observer adds .visible to the section, cards need to animate in */
-  .category-section.visible &.animated-card {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .card-bg {
-    width: 100%;
-    height: 74%;
-    object-fit: cover;
-    transition: transform 0.45s ease;
-  }
-
-  .card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.15) 55%,
-        rgba(5, 3, 2, 0.88) 100%);
-    transition: background 0.45s ease;
-    z-index: 1;
-  }
-
-  .card-content {
-    position: absolute;
-    bottom: 26px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 2;
-  }
-
-  .card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: 26px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #F2DFC0;
-    margin: 0;
-    transition: color 0.45s ease;
-  }
-
-  .explore-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    margin-top: 10px;
-
-    .explore-divider {
-      width: 24px;
-      height: 1px;
-      background: var(--hero-gold);
-      margin-bottom: 8px;
-    }
-
-    span {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
-      font-size: 16px;
-      color: var(--hero-gold);
-    }
-
-    .explore-icon {
-      width: 16px;
-      height: 16px;
-      transition: transform 0.45s ease;
-    }
-  }
-
-  /* HOVER STATE */
   &:hover {
-    transform: translateY(-10px) !important;
-    border-color: var(--hero-light-gold);
-    box-shadow: 0 18px 45px rgba(214, 164, 79, 0.18);
+    background: var(--hero-gold);
+    color: #000;
 
-    .card-bg {
-      transform: scale(1.08);
-    }
-
-    .card-overlay {
-      background: linear-gradient(180deg,
-          rgba(0, 0, 0, 0.05) 0%,
-          rgba(0, 0, 0, 0.25) 55%,
-          rgba(5, 3, 2, 0.95) 100%);
-    }
-
-    .card-title {
-      color: var(--hero-light-gold);
-    }
-
-    .explore-icon {
+    .icon {
       transform: translateX(4px);
     }
   }
-}
 
-/* ==========================================================================
-   UNIQUE CARD SHAPES
-   ========================================================================== */
-
-/* Card 1: Necklaces (Rounded Rectangle) */
-.card-necklaces {
-  border-radius: 28px;
-}
-
-/* Card 2: Bangles (Mughal Arch) */
-.card-bangles {
-  border-radius: 28px 28px 0 0;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px),
-      calc(50% + 40px) calc(100% - 30px),
-      50% 100%,
-      calc(50% - 40px) calc(100% - 30px),
-      0 calc(100% - 30px));
-  /* The border might get clipped by clip-path, so we use a pseudo element or rely on standard border */
-  border-bottom: none;
-
-  .bangles-border {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    background: transparent;
-    border-bottom: 1px solid rgba(214, 164, 79, 0.35);
-    z-index: 5;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px),
-        calc(50% + 40px) calc(100% - 30px),
-        50% 100%,
-        calc(50% - 40px) calc(100% - 30px),
-        0 calc(100% - 30px));
-  }
-
-  &:hover .bangles-border {
-    border-color: var(--hero-light-gold);
+  .icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
   }
 }
 
-/* Card 3: Earrings (Temple Inward Cuts) */
-.card-earrings {
-  clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px,
-      100% 100%, calc(50% + 20px) 100%,
-      50% calc(100% - 15px), calc(50% - 20px) 100%,
-      0 100%, 0 20px);
-  border-radius: 0;
+/* CENTER CARD */
+.sig-center-card-wrapper {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 550px;
+  position: relative;
+  perspective: 1000px;
 }
 
-/* Card 4: Sarees (Clipped Bottom Corners) */
-.card-sarees {
-  border-radius: 28px 28px 0 0;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px),
-      calc(100% - 24px) 100%, 24px 100%,
-      0 calc(100% - 24px));
+.sig-card {
+  width: 400px;
+  height: 550px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: #111;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.05);
+
+  /* Animation defaults */
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.7s ease, filter 0.7s ease;
+
+  /* Up Animation (old leaves up, new comes from bottom) */
+  &.animating-up {
+    animation: slideUpFade 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Down Animation (old leaves down, new comes from top) */
+  &.animating-down {
+    animation: slideDownFade 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  }
 }
 
+.sig-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-/* ==========================================================================
-   RESPONSIVE DESIGN (CATEGORY)
-   ========================================================================== */
+.sig-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+}
 
+.sig-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 4px 0;
+  letter-spacing: 1px;
+}
+
+.sig-card-count {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* RIGHT CONTROLS */
+.sig-right-controls {
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.sig-nav-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* KEYFRAMES */
+@keyframes slideUpFade {
+  0% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+  49% { transform: translateY(-40px) scale(0.95); opacity: 0; filter: blur(4px); }
+  50% { transform: translateY(40px) scale(0.95); opacity: 0; filter: blur(4px); }
+  100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+}
+
+@keyframes slideDownFade {
+  0% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+  49% { transform: translateY(40px) scale(0.95); opacity: 0; filter: blur(4px); }
+  50% { transform: translateY(-40px) scale(0.95); opacity: 0; filter: blur(4px); }
+  100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+}
+
+/* RESPONSIVE */
 @media (max-width: 1024px) {
-  .category-section {
-    padding: 60px 28px;
+  .signature-carousel-section {
+    height: auto;
+    padding: 80px 0;
   }
-
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .sig-container {
+    flex-direction: column;
+    text-align: center;
   }
-
-  .category-title {
-    font-size: 30px;
+  .sig-left-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+  }
+  .sig-heading-the {
+    margin-left: 0;
+  }
+  .sig-right-controls {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .sig-center-card-wrapper {
+    height: 450px;
+  }
+  .sig-card {
+    width: 320px;
+    height: 450px;
   }
 }
 
 @media (max-width: 768px) {
-  .category-section {
-    padding: 45px 18px;
+  .sig-card {
+    width: 280px;
+    height: 400px;
   }
-
-  .category-container {
-    padding: 30px 20px;
+  .sig-center-card-wrapper {
+    height: 400px;
   }
-
-  .category-heading-wrapper {
-    top: -18px;
-  }
-
-  .category-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    gap: 16px;
-    padding-bottom: 10px;
-    margin-top: 40px; /* Breathing space below heading */
-    
-    /* Hide scrollbar */
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .category-title {
-    font-size: 24px;
-    letter-spacing: 2px;
-  }
-
-  .category-card {
-    height: 380px;
-    flex: 0 0 85%;
-    scroll-snap-align: center;
-  }
+  .sig-heading-discover { font-size: 36px; }
+  .sig-heading-the { font-size: 24px; }
+  .sig-heading-main { font-size: 36px; }
 }
 
 /* ==========================================================================

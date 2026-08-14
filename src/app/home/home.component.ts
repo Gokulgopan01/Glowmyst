@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChildren, QueryList, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule, ChevronLeft, ChevronRight, ArrowRight, Star, Heart, ShoppingBag } from 'lucide-angular';
+import { LucideAngularModule, ChevronLeft, ChevronRight, ArrowRight, Star, Heart, ShoppingBag, ArrowUp, ArrowDown } from 'lucide-angular';
 
 interface Slide {
   id: number;
@@ -35,6 +35,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   readonly StarIcon = Star;
   readonly HeartIcon = Heart;
   readonly ShoppingBagIcon = ShoppingBag;
+  readonly ArrowUpIcon = ArrowUp;
+  readonly ArrowDownIcon = ArrowDown;
 
   @ViewChildren('animatedElement') animatedElements!: QueryList<ElementRef>;
   private observer: IntersectionObserver | null = null;
@@ -51,6 +53,18 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   featuredNecklaces: Product[] = [];
   featuredBangles: Product[] = [];
   featuredEarrings: Product[] = [];
+
+  // Signature Carousel State
+  signatureCategories = [
+    { title: 'Necklaces', count: 'Explore Collection', image: 'assets/home/necklaces.png' },
+    { title: 'Bangles', count: 'Explore Collection', image: 'assets/home/bangles.png' },
+    { title: 'Earrings', count: 'Explore Collection', image: 'assets/home/earrings.png' },
+    { title: 'Sarees', count: 'Explore Collection', image: 'assets/home/sarees.png' }
+  ];
+  currentSignatureIndex = 0;
+  isAnimating = false;
+  animationDirection: 'up' | 'down' | '' = '';
+  private touchStartY = 0;
 
   ngOnInit(): void {
     this.startAutoPlay();
@@ -126,7 +140,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       const data: Product[] = await response.json();
       // Just take the first 5 products for the jewellery section
       this.jewelleryProducts = data.slice(0, 5);
-      
+
       const mockRatings = [4.9, 4.8, 4.7, 4.9];
       this.jewelleryProducts.forEach((p, index) => {
         p.originalPrice = Math.round(p.price * 1.4);
@@ -197,5 +211,68 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   private resetAutoPlay(): void {
     this.stopAutoPlay();
     this.startAutoPlay();
+  }
+
+  // Signature Carousel Methods
+  nextSignature() {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+    this.animationDirection = 'down'; // Next item comes from bottom
+
+    // Halfway point: swap the data
+    setTimeout(() => {
+      this.currentSignatureIndex = (this.currentSignatureIndex + 1) % this.signatureCategories.length;
+    }, 300);
+
+    // End of animation
+    setTimeout(() => {
+      this.isAnimating = false;
+      this.animationDirection = '';
+    }, 700);
+  }
+
+  prevSignature() {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+    this.animationDirection = 'up'; // Prev item comes from top
+
+    setTimeout(() => {
+      this.currentSignatureIndex = (this.currentSignatureIndex - 1 + this.signatureCategories.length) % this.signatureCategories.length;
+    }, 300);
+
+    setTimeout(() => {
+      this.isAnimating = false;
+      this.animationDirection = '';
+    }, 700);
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    // Only handle if it's broadly useful or check if element is in viewport,
+    // but for now we'll handle document wide to match requirements.
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      this.prevSignature();
+    } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      this.nextSignature();
+    }
+  }
+
+  onTouchStart(event: TouchEvent) {
+    this.touchStartY = event.touches[0].clientY;
+  }
+
+  onTouchEnd(event: TouchEvent) {
+    const touchEndY = event.changedTouches[0].clientY;
+    const deltaY = this.touchStartY - touchEndY;
+
+    if (Math.abs(deltaY) > 50) {
+      if (deltaY > 0) {
+        this.nextSignature(); // swiped up -> go next
+      } else {
+        this.prevSignature(); // swiped down -> go prev
+      }
+    }
   }
 }

@@ -48,93 +48,50 @@
   </div>
 </section>
 
-<!-- SHOP BY CATEGORY SECTION -->
-<section #animatedElement class="category-section animated-section">
-  <div class="category-container">
+<!-- SIGNATURE JEWELRY VERTICAL CAROUSEL -->
+<section class="signature-carousel-section" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+  <!-- Background Image with Overlay -->
+  <div class="sig-bg-layer">
+    <div class="sig-bg-overlay"></div>
+  </div>
 
-    <!-- Cut-out Heading -->
-    <div class="category-heading-wrapper">
-      <div class="heading-line-left"></div>
-
-      <div class="heading-content">
-        <svg class="ornament top" width="40" height="12" viewBox="0 0 40 12" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 0L24 6L20 12L16 6L20 0Z" fill="rgba(214,164,79,0.8)" />
-          <path d="M12 4L14 6L12 8L10 6L12 4Z" fill="rgba(214,164,79,0.8)" />
-          <path d="M28 4L30 6L28 8L26 6L28 4Z" fill="rgba(214,164,79,0.8)" />
-        </svg>
-
-        <h2 class="category-title">SHOP BY CATEGORY</h2>
-
-        <svg class="ornament bottom" width="40" height="12" viewBox="0 0 40 12" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 12L16 6L20 0L24 6L20 12Z" fill="rgba(214,164,79,0.8)" />
-          <path d="M12 8L10 6L12 4L14 6L12 8Z" fill="rgba(214,164,79,0.8)" />
-          <path d="M28 8L26 6L28 4L30 6L28 8Z" fill="rgba(214,164,79,0.8)" />
-        </svg>
-      </div>
-
-      <div class="heading-line-right"></div>
+  <div class="sig-container">
+    <!-- Left Content -->
+    <div class="sig-left-content">
+      <h2 class="sig-heading">
+        <span class="sig-heading-discover">Discover</span>
+        <span class="sig-heading-the">The</span>
+        <span class="sig-heading-main">Signature<br>Jewelry</span>
+      </h2>
+      <p class="sig-description">
+        From minimalist elegance to bold statements, our jewelry is designed to elevate your style effortlessly.
+      </p>
+      <button class="sig-shop-btn">
+        Shop Now <lucide-icon [img]="ArrowRightIcon" class="icon"></lucide-icon>
+      </button>
     </div>
 
-    <!-- Cards Grid -->
-    <div class="category-grid">
-
-      <!-- Card 1: Necklaces -->
-      <div #animatedElement class="category-card card-necklaces animated-card" style="transition-delay: 100ms;">
-        <img src="assets/home/necklaces.png" alt="Necklaces" class="card-bg">
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <h3 class="card-title">NECKLACES</h3>
-          <a href="#" class="explore-link">
-            <div class="explore-divider"></div>
-            <span>Explore <lucide-icon [img]="ArrowRightIcon" class="explore-icon"></lucide-icon></span>
-          </a>
+    <!-- Center Card -->
+    <div class="sig-center-card-wrapper">
+      <div class="sig-card" [class.animating-up]="animationDirection === 'up'"
+        [class.animating-down]="animationDirection === 'down'">
+        <img [src]="signatureCategories[currentSignatureIndex].image"
+          [alt]="signatureCategories[currentSignatureIndex].title" class="sig-card-img">
+        <div class="sig-card-info">
+          <h3 class="sig-card-title">{{ signatureCategories[currentSignatureIndex].title }}</h3>
+          <span class="sig-card-count">{{ signatureCategories[currentSignatureIndex].count }}</span>
         </div>
       </div>
+    </div>
 
-      <!-- Card 2: Bangles -->
-      <div #animatedElement class="category-card card-necklaces animated-card" style="transition-delay: 100ms;">
-        <!-- <div class="bangles-border"></div> -->
-        <img src="assets/home/bangles.png" alt="Bangles" class="card-bg">
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <h3 class="card-title">BANGLES</h3>
-          <a href="#" class="explore-link">
-            <div class="explore-divider"></div>
-            <span>Explore <lucide-icon [img]="ArrowRightIcon" class="explore-icon"></lucide-icon></span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 3: Earrings -->
-      <div #animatedElement class="category-card card-necklaces animated-card" style="transition-delay: 100ms;">
-        <!-- <div class="bangles-border"></div> -->
-        <img src="assets/home/earrings.png" alt="Earrings" class="card-bg">
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <h3 class="card-title">EARRINGS</h3>
-          <a href="#" class="explore-link">
-            <div class="explore-divider"></div>
-            <span>Explore <lucide-icon [img]="ArrowRightIcon" class="explore-icon"></lucide-icon></span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 4: Sarees -->
-      <div #animatedElement class="category-card card-necklaces animated-card" style="transition-delay: 400ms;">
-        <!-- <div class="sarees-border"></div> -->
-        <img src="assets/home/sarees.png" alt="Sarees" class="card-bg">
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <h3 class="card-title">SAREES</h3>
-          <a href="#" class="explore-link">
-            <div class="explore-divider"></div>
-            <span>Explore <lucide-icon [img]="ArrowRightIcon" class="explore-icon"></lucide-icon></span>
-          </a>
-        </div>
-      </div>
-
+    <!-- Right Controls -->
+    <div class="sig-right-controls">
+      <button class="sig-nav-btn up-btn" (click)="prevSignature()" aria-label="Previous Category">
+        <lucide-icon [img]="ArrowUpIcon" class="icon"></lucide-icon>
+      </button>
+      <button class="sig-nav-btn down-btn" (click)="nextSignature()" aria-label="Next Category">
+        <lucide-icon [img]="ArrowDownIcon" class="icon"></lucide-icon>
+      </button>
     </div>
   </div>
 </section>
