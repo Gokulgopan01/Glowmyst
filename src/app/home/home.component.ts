@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChildren, QueryList, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, ViewChildren, QueryList, HostListener } from '@angular/core'; import { CommonModule } from '@angular/common';
 import { LucideAngularModule, ChevronLeft, ChevronRight, ArrowRight, Star, Heart, ShoppingBag, ArrowUp, ArrowDown } from 'lucide-angular';
+import { Directive } from '@angular/core';
 
 interface Slide {
   id: number;
@@ -346,7 +346,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   nextTryOn() {
     if (this.tryOnProducts.length === 0) return;
-    
+
     // Rotate array: move first element to the end
     const first = this.tryOnProducts.shift();
     if (first) {
@@ -358,7 +358,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   prevTryOn() {
     if (this.tryOnProducts.length === 0) return;
-    
+
     // Rotate array: move last element to the beginning
     const last = this.tryOnProducts.pop();
     if (last) {
