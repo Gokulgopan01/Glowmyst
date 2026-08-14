@@ -66,6 +66,14 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   animationDirection: 'up' | 'down' | '' = '';
   private touchStartY = 0;
 
+  // Try-On Section State
+  tryOnProducts: Product[] = [];
+  selectedTryOnProduct: Product | null = null;
+  tryOnModelImage = 'assets/home/community_1.jpg'; // Placeholder for model
+  tryOnAnimating = false;
+  tryOnStartIndex = 0; // For desktop carousel navigation (shows 3 at a time)
+  private tryOnTouchStartX = 0;
+
   ngOnInit(): void {
     this.startAutoPlay();
     this.loadTrendingProducts();
@@ -73,6 +81,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.loadFeaturedNecklaces();
     this.loadFeaturedBangles();
     this.loadFeaturedEarrings();
+    this.loadTryOnProducts();
   }
 
   async loadFeaturedNecklaces() {
@@ -150,6 +159,24 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       });
     } catch (error) {
       console.error('Error loading jewellery products', error);
+    }
+  }
+
+  async loadTryOnProducts() {
+    try {
+      const response = await fetch('/assets/Products_json/jeweller_product.json');
+      const data: Product[] = await response.json();
+      
+      // Fetch 5 earrings for the try-on section
+      this.tryOnProducts = data
+        .filter(p => p.category === 'Earrings')
+        .slice(0, 5);
+        
+      if (this.tryOnProducts.length > 0) {
+        this.selectedTryOnProduct = this.tryOnProducts[0];
+      }
+    } catch (error) {
+      console.error('Error loading try-on products', error);
     }
   }
 
@@ -261,18 +288,71 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onTouchStart(event: TouchEvent) {
     this.touchStartY = event.touches[0].clientY;
+    this.tryOnTouchStartX = event.touches[0].clientX;
   }
 
   onTouchEnd(event: TouchEvent) {
     const touchEndY = event.changedTouches[0].clientY;
+    const touchEndX = event.changedTouches[0].clientX;
     const deltaY = this.touchStartY - touchEndY;
+    const deltaX = this.tryOnTouchStartX - touchEndX;
 
-    if (Math.abs(deltaY) > 50) {
+    // Vertical swipe for signature carousel
+    if (Math.abs(deltaY) > 50 && Math.abs(deltaY) > Math.abs(deltaX)) {
       if (deltaY > 0) {
         this.nextSignature(); // swiped up -> go next
       } else {
         this.prevSignature(); // swiped down -> go prev
       }
+    }
+    
+    // Horizontal swipe for try-on carousel (mobile)
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX > 0) {
+        this.nextTryOn(); // swiped left -> go next
+      } else {
+        this.prevTryOn(); // swiped right -> go prev
+      }
+    }
+  }
+
+  // Try-On Section Methods
+  selectTryOnEarring(product: Product) {
+    if (this.selectedTryOnProduct?.id === product.id || this.tryOnAnimating) return;
+    
+    this.tryOnAnimating = true;
+    
+    // Halfway through animation, swap the actual product overlay
+    setTimeout(() => {
+      this.selectedTryOnProduct = product;
+    }, 250); // Matches CSS crossfade timing
+    
+    setTimeout(() => {
+      this.tryOnAnimating = false;
+    }, 500); // Total animation duration
+  }
+
+  nextTryOn() {
+    if (this.tryOnProducts.length === 0) return;
+    
+    // For desktop carousel sliding
+    this.tryOnStartIndex = (this.tryOnStartIndex + 1) % this.tryOnProducts.length;
+    
+    // On mobile, also update the selected product automatically when swiping
+    // We can just rely on the same logic for simplicity if it's one item
+    if (window.innerWidth <= 768) {
+      this.selectTryOnEarring(this.tryOnProducts[this.tryOnStartIndex]);
+    }
+  }
+
+  prevTryOn() {
+    if (this.tryOnProducts.length === 0) return;
+    
+    // For desktop carousel sliding
+    this.tryOnStartIndex = (this.tryOnStartIndex - 1 + this.tryOnProducts.length) % this.tryOnProducts.length;
+    
+    if (window.innerWidth <= 768) {
+      this.selectTryOnEarring(this.tryOnProducts[this.tryOnStartIndex]);
     }
   }
 }
