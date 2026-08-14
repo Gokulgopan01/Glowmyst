@@ -1979,7 +1979,7 @@
   overflow: hidden;
   border: 1px solid rgba(201, 154, 69, 0.4);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  background: #111;
+  background: #000000;
 }
 
 .tryon-model-img {
@@ -1992,9 +1992,9 @@
 
 .tryon-overlay-wrapper {
   position: absolute;
-  top: 45%;
-  left: 35%;
-  width: 15%;
+  top: 42%;
+  left: 64%;
+  width: 18%;
   height: auto;
   z-index: 10;
   transition: opacity 0.25s ease-in-out;

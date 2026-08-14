@@ -167,14 +167,26 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       const response = await fetch('/assets/Products_json/jeweller_product.json');
       const data: Product[] = await response.json();
 
-      // Fetch 5 earrings for the try-on section
-      this.tryOnProducts = data
-        .filter(p => p.category === 'Earrings')
-        .slice(0, 5);
+      const selectedImages = [
+        'earings.png',
+        'earings2.png',
+        'earings3.png',
+        'earings4.png',
+        'earings5.png'
+      ];
+
+      this.tryOnProducts = selectedImages
+        .map(imageName =>
+          data.find(product =>
+            product.image.toLowerCase().endsWith('/' + imageName.toLowerCase())
+          )
+        )
+        .filter((product): product is Product => !!product);
 
       if (this.tryOnProducts.length > 0) {
         this.selectedTryOnProduct = this.tryOnProducts[0];
       }
+
     } catch (error) {
       console.error('Error loading try-on products', error);
     }
