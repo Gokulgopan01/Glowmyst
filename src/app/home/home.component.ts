@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   // Try-On Section State
   tryOnProducts: Product[] = [];
   selectedTryOnProduct: Product | null = null;
-  tryOnModelImage = 'assets/home/community_1.jpg'; // Placeholder for model
+  tryOnModelImage = 'assets/home/earings_modal.png'; // Placeholder for model
   tryOnAnimating = false;
   tryOnStartIndex = 0; // For desktop carousel navigation (shows 3 at a time)
   private tryOnTouchStartX = 0;
@@ -166,12 +166,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     try {
       const response = await fetch('/assets/Products_json/jeweller_product.json');
       const data: Product[] = await response.json();
-      
+
       // Fetch 5 earrings for the try-on section
       this.tryOnProducts = data
         .filter(p => p.category === 'Earrings')
         .slice(0, 5);
-        
+
       if (this.tryOnProducts.length > 0) {
         this.selectedTryOnProduct = this.tryOnProducts[0];
       }
@@ -305,7 +305,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         this.prevSignature(); // swiped down -> go prev
       }
     }
-    
+
     // Horizontal swipe for try-on carousel (mobile)
     if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
       if (deltaX > 0) {
@@ -319,14 +319,14 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   // Try-On Section Methods
   selectTryOnEarring(product: Product) {
     if (this.selectedTryOnProduct?.id === product.id || this.tryOnAnimating) return;
-    
+
     this.tryOnAnimating = true;
-    
+
     // Halfway through animation, swap the actual product overlay
     setTimeout(() => {
       this.selectedTryOnProduct = product;
     }, 250); // Matches CSS crossfade timing
-    
+
     setTimeout(() => {
       this.tryOnAnimating = false;
     }, 500); // Total animation duration
@@ -334,10 +334,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   nextTryOn() {
     if (this.tryOnProducts.length === 0) return;
-    
+
     // For desktop carousel sliding
     this.tryOnStartIndex = (this.tryOnStartIndex + 1) % this.tryOnProducts.length;
-    
+
     // On mobile, also update the selected product automatically when swiping
     // We can just rely on the same logic for simplicity if it's one item
     if (window.innerWidth <= 768) {
@@ -347,10 +347,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   prevTryOn() {
     if (this.tryOnProducts.length === 0) return;
-    
+
     // For desktop carousel sliding
     this.tryOnStartIndex = (this.tryOnStartIndex - 1 + this.tryOnProducts.length) % this.tryOnProducts.length;
-    
+
     if (window.innerWidth <= 768) {
       this.selectTryOnEarring(this.tryOnProducts[this.tryOnStartIndex]);
     }
