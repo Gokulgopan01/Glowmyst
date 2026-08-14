@@ -128,26 +128,31 @@
         </div>
 
         <div class="tryon-carousel-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
-          <button class="tryon-nav-btn prev-btn" (click)="prevTryOn()">
-            <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
-          </button>
-
           <div class="tryon-carousel-viewport">
             <div class="tryon-carousel">
-              <div class="tryon-card" *ngFor="let product of tryOnProducts; let i = index"
-                [class.selected]="selectedTryOnProduct?.id === product.id" (click)="selectTryOnEarring(product)"
-                [style.transform]="'translateX(-' + (tryOnStartIndex * 100) + '%)'">
-                <div class="tryon-card-img-wrapper">
-                  <img [src]="product.image" [alt]="product.name" class="tryon-card-img">
+              <!-- We rely on array shifting now, so the first item is always active -->
+              <div class="tryon-card" *ngFor="let product of tryOnProducts; let i = index" [class.selected]="i === 0"
+                (click)="selectTryOnEarring(product)">
+
+                <!-- Navigation buttons attached to the active card -->
+                <button *ngIf="i === 0" class="tryon-nav-btn prev-btn" (click)="$event.stopPropagation(); prevTryOn()">
+                  <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
+                </button>
+
+                <div class="tryon-card-inner">
+                  <div class="tryon-card-img-wrapper">
+                    <img [src]="product.image" [alt]="product.name" class="tryon-card-img">
+                  </div>
+                  <h4 class="tryon-card-name">{{ product.name }}</h4>
                 </div>
-                <h4 class="tryon-card-name">{{ product.name }}</h4>
+
+                <button *ngIf="i === 0" class="tryon-nav-btn next-btn" (click)="$event.stopPropagation(); nextTryOn()">
+                  <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
+                </button>
+
               </div>
             </div>
           </div>
-
-          <button class="tryon-nav-btn next-btn" (click)="nextTryOn()">
-            <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
-          </button>
         </div>
       </div>
     </div>

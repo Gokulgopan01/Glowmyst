@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       const response = await fetch('/assets/Products_json/jeweller_product.json');
       const data: Product[] = await response.json();
       this.featuredEarrings = data
-        .filter(p => p.category === 'Earrings')
+        .filter(p => p.category === 'Rings')
         .slice(0, 5);
     } catch (error) {
       console.error('Error loading featured earrings', error);
@@ -346,25 +346,25 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   nextTryOn() {
     if (this.tryOnProducts.length === 0) return;
-
-    // For desktop carousel sliding
-    this.tryOnStartIndex = (this.tryOnStartIndex + 1) % this.tryOnProducts.length;
-
-    // On mobile, also update the selected product automatically when swiping
-    // We can just rely on the same logic for simplicity if it's one item
-    if (window.innerWidth <= 768) {
-      this.selectTryOnEarring(this.tryOnProducts[this.tryOnStartIndex]);
+    
+    // Rotate array: move first element to the end
+    const first = this.tryOnProducts.shift();
+    if (first) {
+      this.tryOnProducts.push(first);
     }
+    // Automatically select the new first item
+    this.selectTryOnEarring(this.tryOnProducts[0]);
   }
 
   prevTryOn() {
     if (this.tryOnProducts.length === 0) return;
-
-    // For desktop carousel sliding
-    this.tryOnStartIndex = (this.tryOnStartIndex - 1 + this.tryOnProducts.length) % this.tryOnProducts.length;
-
-    if (window.innerWidth <= 768) {
-      this.selectTryOnEarring(this.tryOnProducts[this.tryOnStartIndex]);
+    
+    // Rotate array: move last element to the beginning
+    const last = this.tryOnProducts.pop();
+    if (last) {
+      this.tryOnProducts.unshift(last);
     }
+    // Automatically select the new first item
+    this.selectTryOnEarring(this.tryOnProducts[0]);
   }
 }

@@ -1948,16 +1948,15 @@
 .tryon-section {
   width: 100%;
   background-color: #080808;
-  padding: 100px 40px;
+  padding: 100px 0;
+  /* Remove left padding to allow full bleed */
   display: flex;
-  justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
 .tryon-container {
   width: 100%;
-  max-width: 1400px;
   display: flex;
   align-items: center;
   gap: 80px;
@@ -1965,20 +1964,23 @@
 
 /* LEFT COLUMN: MODEL AREA */
 .tryon-left-model {
-  flex: 0 0 42%;
+  flex: 0 0 45%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .tryon-model-frame {
   position: relative;
   width: 100%;
-  max-width: 500px;
-  aspect-ratio: 3 / 4;
-  border-radius: 200px 200px 0 0;
+  max-width: none;
+  aspect-ratio: 4 / 5;
+  border-radius: 0 300px 0 0;
+  /* Edged top border only on right */
   overflow: hidden;
   border: 1px solid rgba(201, 154, 69, 0.4);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border-left: none;
+  /* First image card of modal don't need left border */
+  border-bottom: none;
   background: #000000;
 }
 
@@ -1992,8 +1994,8 @@
 
 .tryon-overlay-wrapper {
   position: absolute;
-  top: 42%;
-  left: 64%;
+  top: 57%;
+  left: 63%;
   width: 18%;
   height: auto;
   z-index: 10;
@@ -2015,6 +2017,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-right: 40px;
 }
 
 .tryon-text-area {
@@ -2071,38 +2074,49 @@
 }
 
 .tryon-nav-btn {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  width: 48px;
-  height: 48px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(201, 154, 69, 0.8);
+  border: none;
+  color: #000;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 10;
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: var(--hero-gold);
-    color: var(--hero-gold);
+    background: var(--hero-gold);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &.prev-btn {
+    left: -20px;
+  }
+
+  &.next-btn {
+    right: -20px;
   }
 }
 
 .tryon-carousel-viewport {
   flex: 1;
-  overflow: hidden;
   padding: 20px 0;
 }
 
 .tryon-carousel {
   display: flex;
   gap: 24px;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .tryon-card {
   flex: 0 0 calc(33.333% - 16px);
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2111,21 +2125,32 @@
   opacity: 0.6;
 }
 
-.tryon-card-img-wrapper {
+.tryon-card-inner {
   width: 100%;
-  aspect-ratio: 1;
+  height: 380px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  overflow: hidden;
-  background: #151515;
-  margin-bottom: 16px;
+  border-radius: 160px 160px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 16px 20px 16px;
+  background: transparent;
   transition: all 0.4s ease;
 }
 
-.tryon-card-img {
+.tryon-card-img-wrapper {
+  flex: 1;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.tryon-card-img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
   transition: transform 0.5s ease;
 }
 
@@ -2135,6 +2160,7 @@
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
   transition: color 0.4s ease;
+  margin-top: auto;
 }
 
 /* Selected State */
@@ -2142,9 +2168,9 @@
   opacity: 1;
   transform: translateY(-8px);
 
-  .tryon-card-img-wrapper {
+  .tryon-card-inner {
     border-color: var(--hero-gold);
-    box-shadow: 0 10px 25px rgba(201, 154, 69, 0.2);
+    box-shadow: 0 10px 25px rgba(201, 154, 69, 0.1);
   }
 
   .tryon-card-img {

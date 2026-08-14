@@ -239,5 +239,32 @@
         "image": "assets/Products/Jewellery/earings.png",
         "badge": "SALE",
         "OCCASION": "Daily Wear"
+    },
+    {
+        "id": 27,
+        "name": "Pearl Drop Earrings",
+        "category": "Earrings",
+        "price": 2999,
+        "image": "assets/Products/Jewellery/earings3.png",
+        "badge": "NEW",
+        "OCCASION": "Daily Wear"
+    },
+    {
+        "id": 28,
+        "name": "Pearl Drop Earrings",
+        "category": "Earrings",
+        "price": 2999,
+        "image": "assets/Products/Jewellery/earings4.png",
+        "badge": "NEW",
+        "OCCASION": "Daily Wear"
+    },
+    {
+        "id": 27,
+        "name": "Pearl Drop Earrings",
+        "category": "Earrings",
+        "price": 2999,
+        "image": "assets/Products/Jewellery/earings5.png",
+        "badge": "NEW",
+        "OCCASION": "Daily Wear"
     }
 ]
