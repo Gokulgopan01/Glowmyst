@@ -58,11 +58,11 @@
   <div class="sig-container">
     <!-- Left Content -->
     <div class="sig-left-content">
-      <h2 class="sig-heading">
-        <span class="sig-heading-discover">Discover</span>
-        <span class="sig-heading-the">The</span>
-        <span class="sig-heading-main">Signature<br>Jewelry</span>
-      </h2>
+      <div class="sig-heading">
+        <span class="sig-heading-line1">Timeless Beauty.</span>
+        <span class="sig-heading-line2">Crafted for You.</span>
+      </div>
+      <hr class="sig-divider" />
       <p class="sig-description">
         From minimalist elegance to bold statements, our jewelry is designed to elevate your style effortlessly.
       </p>
@@ -78,8 +78,10 @@
         <img [src]="signatureCategories[currentSignatureIndex].image"
           [alt]="signatureCategories[currentSignatureIndex].title" class="sig-card-img">
         <div class="sig-card-info">
-          <h3 class="sig-card-title">{{ signatureCategories[currentSignatureIndex].title }}</h3>
-          <span class="sig-card-count">{{ signatureCategories[currentSignatureIndex].count }}</span>
+          <div class="sig-card-info-text">
+            <p class="sig-card-title">Necklaces</p>
+            <p class="sig-card-subtitle">Discover Our Collection <svg class="icon">...arrow...</svg></p>
+          </div>
         </div>
       </div>
     </div>
