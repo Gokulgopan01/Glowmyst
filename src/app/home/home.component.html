@@ -117,6 +117,10 @@
     <div class="tryon-right-content">
       <div class="tryon-text-area">
         <h2 class="tryon-heading">Earrings</h2>
+        <div class="tryon-heading-accent">
+          <span class="tryon-heading-dot"></span>
+          <span class="tryon-heading-accent-line"></span>
+        </div>
         <p class="tryon-description">
           Every bloom has the power to inspire us to love unconditionally. These earrings, in radiant bloom, are
           certainly nothing short of that.
@@ -145,6 +149,7 @@
                   <div class="tryon-card-img-wrapper">
                     <img [src]="product.image" [alt]="product.name" class="tryon-card-img">
                   </div>
+                  <div class="tryon-card-divider"></div>
                   <h4 class="tryon-card-name">{{ product.name }}</h4>
                 </div>
 
@@ -153,7 +158,12 @@
                 </button>
 
               </div>
-            </div>
+            </div>  
+          </div>
+          <div class="tryon-dots">
+            <span class="tryon-dot active"></span>
+            <span class="tryon-dot"></span>
+            <span class="tryon-dot"></span>
           </div>
         </div>
       </div>
