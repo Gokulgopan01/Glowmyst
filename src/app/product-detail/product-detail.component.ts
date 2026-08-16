@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LucideAngularModule, ChevronLeft, Star, MapPin, ShoppingBag, Gem, ShieldCheck, Undo2, Crown, Heart, Mail, Plus, Minus } from 'lucide-angular';
+import { LucideAngularModule, ChevronLeft, ChevronRightIcon, Star, MapPin, ShoppingBag, Gem, ShieldCheck, Undo2, Crown, Heart, Mail, Plus, Minus } from 'lucide-angular';
 
 export interface ProductDetail {
   id: number;
@@ -14,6 +14,7 @@ export interface ProductDetail {
   image3?: string;
   badge: string;
   OCCASION?: string;
+  description : string;
 }
 
 @Component({
@@ -28,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
   private http = inject(HttpClient);
 
   readonly ChevronLeftIcon = ChevronLeft;
+  readonly ChevronRightIcon = ChevronRightIcon;
   readonly StarIcon = Star;
   readonly MapPinIcon = MapPin;
   readonly BagIcon = ShoppingBag;
@@ -56,6 +58,25 @@ export class ProductDetailComponent implements OnInit {
   }
   images: string[] = [];
   activeImage: string = '';
+  description: string = '';
+
+  prevImage() {
+    const currentIndex = this.images.indexOf(this.activeImage);
+    if (currentIndex > 0) {
+      this.activeImage = this.images[currentIndex - 1];
+    } else {
+      this.activeImage = this.images[this.images.length - 1];
+    }
+  }
+
+  nextImage() {
+    const currentIndex = this.images.indexOf(this.activeImage);
+    if (currentIndex < this.images.length - 1) {
+      this.activeImage = this.images[currentIndex + 1];
+    } else {
+      this.activeImage = this.images[0];
+    }
+  }
 
   mrp: number = 0;
   discountPercentage: number = 25; // Default assumption
@@ -91,6 +112,7 @@ export class ProductDetailComponent implements OnInit {
         const others = data.filter(p => p.id !== id);
         // Let's just take the first 4 for simplicity
         this.relatedProducts = others.slice(0, 4);
+        this.description = this.product.description;
       }
     });
   }
