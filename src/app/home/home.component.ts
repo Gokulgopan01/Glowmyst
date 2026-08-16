@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, ViewChildren, QueryList, HostListener } from '@angular/core'; import { CommonModule } from '@angular/common';
 import { LucideAngularModule, ChevronLeft, ChevronRight, ArrowRight, Star, Heart, ShoppingBag, ArrowUp, ArrowDown } from 'lucide-angular';
-import { Directive } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface Slide {
   id: number;
@@ -22,11 +22,12 @@ interface Product {
 }
 
 import { FoldTextComponent } from '../shared/fold-text/fold-text.component';
+import { DepthCarouselComponent } from '../shared/depth-carousel/depth-carousel.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule, FoldTextComponent],
+  imports: [CommonModule, LucideAngularModule, FoldTextComponent, DepthCarouselComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -61,10 +62,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // Signature Carousel State
   signatureCategories = [
-    { title: 'Necklaces', count: 'Explore Collection', image: 'assets/home/necklaces.png' },
-    { title: 'Bangles', count: 'Explore Collection', image: 'assets/home/bangles.png' },
-    { title: 'Earrings', count: 'Explore Collection', image: 'assets/home/earrings.png' },
-    { title: 'Sarees', count: 'Explore Collection', image: 'assets/home/sarees.png' }
+    { title: 'Necklaces', subtitle: 'Explore Collection', image: 'assets/home/necklaces.png' },
+    { title: 'Bangles', subtitle: 'Explore Collection', image: 'assets/home/bangles.png' },
+    { title: 'Earrings', subtitle: 'Explore Collection', image: 'assets/home/earrings.png' },
+    { title: 'Sarees', subtitle: 'Explore Collection', image: 'assets/home/sarees.png' }
   ];
   currentSignatureIndex = 0;
   isAnimating = false;

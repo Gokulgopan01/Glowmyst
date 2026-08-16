@@ -39,11 +39,11 @@
     <p class="hero-subtitle">Elegance that reflects you.</p>
 
     <div class="hero-actions">
-      <button class="cta-button primary">
+      <button class="cta-button primary" routerLink="/jewellery">
         EXPLORE JEWELLERY
         <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
       </button>
-      <button class="cta-button secondary">
+      <button class="cta-button secondary" routerLink="/sarees">
         EXPLORE SAREES
         <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
       </button>
@@ -95,52 +95,13 @@
       <p class="sig-description">
         From minimalist elegance to bold statements, our jewelry is designed to elevate your style effortlessly.
       </p>
-      <button class="sig-shop-btn">
+      <button class="sig-shop-btn" routerLink="/sarees">
         Shop Now <lucide-icon [img]="ArrowRightIcon" class="icon"></lucide-icon>
       </button>
     </div>
 
-    <!-- Center Card -->
-    <!-- Center Card -->
-    <div class="sig-center-card-wrapper">
-      <div class="sig-card" [class.animating-up]="animationDirection === 'up'"
-        [class.animating-down]="animationDirection === 'down'">
-
-        <img [src]="signatureCategories[currentSignatureIndex].image"
-          [alt]="signatureCategories[currentSignatureIndex].title" class="sig-card-img">
-
-        <div class="sig-card-info">
-          <div class="sig-card-info-text">
-
-            <p class="sig-card-title">
-              {{ signatureCategories[currentSignatureIndex].title }}
-            </p>
-
-            <p class="sig-card-subtitle">
-              {{ signatureCategories[currentSignatureIndex].count }}
-
-              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-
-            </p>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <!-- Right Controls -->
-    <div class="sig-right-controls">
-      <button class="sig-nav-btn up-btn" (click)="prevSignature()" aria-label="Previous Category">
-        <lucide-icon [img]="ArrowUpIcon" class="icon"></lucide-icon>
-      </button>
-      <button class="sig-nav-btn down-btn" (click)="nextSignature()" aria-label="Next Category">
-        <lucide-icon [img]="ArrowDownIcon" class="icon"></lucide-icon>
-      </button>
+    <div class="sig-right-carousel-wrapper">
+      <app-depth-carousel [items]="signatureCategories"></app-depth-carousel>
     </div>
   </div>
 </section>
@@ -234,7 +195,9 @@
         <span class="elegance-script">Elegance</span>
       </h2>
       <p class="timeless-text">For the moments that<br>deserve to be timeless.</p>
-      <button class="discover-btn">DISCOVER COLLECTION</button>
+      <button class="discover-btn" routerLink="/sarees">
+        DISCOVER COLLECTION
+      </button>
     </div>
   </div>
 </section>
@@ -250,7 +213,7 @@
         xmlns="http://www.w3.org/2000/svg">
         <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
       </svg> -->
-      <h2 class="category-title">TRENDING NOW</h2>
+      <h2 class="category-title">TRENDING SAREES</h2>
       <!-- <svg class="heading-ornament" width="24" height="12" viewBox="0 0 24 12" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
@@ -280,7 +243,7 @@
           <span class="current-price">₹{{ product.price | number:'1.0-0' }}</span>
           <span class="original-price">₹{{ product.originalPrice | number:'1.0-0' }}</span>
         </div>
-        <button class="buy-now-btn">
+        <button class="buy-now-btn" routerLink="/sarees">
           <lucide-icon [img]="ShoppingBagIcon" class="bag-icon" size="14"></lucide-icon>
           BUY NOW
         </button>
@@ -289,7 +252,7 @@
   </div>
 
   <div class="view-all-container">
-    <button class="view-all-btn">
+    <button class="view-all-btn" routerLink="/sarees">
       VIEW ALL
       <lucide-icon [img]="ArrowRightIcon" class="arrow-icon" size="16"></lucide-icon>
     </button>
@@ -334,8 +297,16 @@
       <div class="split-divider"></div>
 
       <div class="split-actions">
-        <button class="cta-button primary">SHOP ALL NECKLACES</button>
-        <button class="cta-button secondary">BRIDAL SETS</button>
+        <div class="hero-actions">
+          <button class="cta-button primary" routerLink="/jewellery">
+            SHOP ALL NECKLACES
+            <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+          </button>
+          <button class="cta-button secondary" routerLink="/jewellery">
+            BRIDAL SETS
+            <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -405,8 +376,16 @@
       </div>
 
       <div class="split-actions">
-        <button class="cta-button primary">SHOP ALL BANGLES</button>
-        <button class="cta-button secondary">BRIDAL KADAS</button>
+        <div class="hero-actions">
+          <button class="cta-button primary" routerLink="/jewellery">
+            SHOP ALL BANGLES
+            <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+          </button>
+          <button class="cta-button secondary" routerLink="/jewellery">
+            BRIDAL KADAS
+            <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -475,8 +454,16 @@
       </div>
 
       <div class="split-actions">
-        <button class="cta-button primary">SHOP ALL RINGS</button>
-        <button class="cta-button secondary">BRIDAL RINGS</button>
+        <div class="hero-actions">
+          <button class="cta-button primary" routerLink="/jewellery">
+            SHOP ALL RINGS
+            <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+          </button>
+          <button class="cta-button secondary" routerLink="/jewellery">
+            BRIDAL RINGS
+            <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -546,8 +533,16 @@
       </div>
 
       <div class="split-actions">
-        <button class="cta-button primary">SHOP COLLECTION</button>
-        <button class="cta-button secondary">VIEW CATALOG</button>
+        <div class="hero-actions">
+          <button class="cta-button primary" routerLink="/jewellery">
+            SHOP MASTERPIECE COLLECTION
+            <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+          </button>
+          <button class="cta-button secondary" routerLink="/jewellery">
+            VIEW CATALOG
+            <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -641,9 +636,9 @@
 <!-- COMMUNITY SECTION -->
 <section class="community-section">
   <div class="community-header">
-    <div class="community-dots">
+    <!-- <div class="community-dots">
       <span></span><span></span><span></span>
-    </div>
+    </div> -->
     <div class="community-tag">AS SEEN ON YOU</div>
     <h2 class="community-title">Styled by Our Community</h2>
   </div>
