@@ -13,23 +13,30 @@
     </div>
 
     <h1 class="hero-heading">
-      <span class="heading-line">Timeless Jewellery,</span>
-      <span class="heading-line">Trendy Sarees.</span>
+      <span class="heading-line">
+        Timeless <span class="gold-text">Jewellery,</span>
+      </span>
+
+      <span class="heading-line">
+        <span class="gold-text">Trendy</span> Sarees.
+      </span>
     </h1>
 
-    <div class="divider">
-      <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M60 2L64 12L74 16L64 20L60 30L56 20L46 16L56 12L60 2Z" fill="#C79A4A" />
-        <line x1="0" y1="16" x2="40" y2="16" stroke="#C79A4A" stroke-width="1" />
-        <line x1="80" y1="16" x2="120" y2="16" stroke="#C79A4A" stroke-width="1" />
-      </svg>
+    <div class="tryon-trynow-header">
+      <span class="tryon-trynow-line"></span>
     </div>
 
     <p class="hero-subtitle">Elegance that reflects you.</p>
 
     <div class="hero-actions">
-      <button class="cta-button primary">SHOP JEWELLERY</button>
-      <button class="cta-button secondary">SHOP SAREES</button>
+      <button class="cta-button primary">
+        EXPLORE JEWELLERY
+        <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+      </button>
+      <button class="cta-button secondary">
+        EXPLORE SAREES
+        <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+      </button>
     </div>
   </div>
 
@@ -72,20 +79,38 @@
     </div>
 
     <!-- Center Card -->
+    <!-- Center Card -->
     <div class="sig-center-card-wrapper">
       <div class="sig-card" [class.animating-up]="animationDirection === 'up'"
         [class.animating-down]="animationDirection === 'down'">
+
         <img [src]="signatureCategories[currentSignatureIndex].image"
           [alt]="signatureCategories[currentSignatureIndex].title" class="sig-card-img">
+
         <div class="sig-card-info">
           <div class="sig-card-info-text">
-            <p class="sig-card-title">Necklaces</p>
-            <p class="sig-card-subtitle">Discover Our Collection <svg class="icon">...arrow...</svg></p>
+
+            <p class="sig-card-title">
+              {{ signatureCategories[currentSignatureIndex].title }}
+            </p>
+
+            <p class="sig-card-subtitle">
+              {{ signatureCategories[currentSignatureIndex].count }}
+
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+
+            </p>
+
           </div>
         </div>
+
       </div>
     </div>
-
     <!-- Right Controls -->
     <div class="sig-right-controls">
       <button class="sig-nav-btn up-btn" (click)="prevSignature()" aria-label="Previous Category">

@@ -73,19 +73,20 @@
 
 .navbar {
     position: fixed;
-    top: 0;
+    top: 32px;
     left: 0;
     width: 100%;
     height: var(--nav-height);
     background: linear-gradient(180deg, #0B0908 0%, #0E0A08 40%, #0A0908 100%);
     border-bottom: 1px solid var(--nav-bottom-border);
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
-    transition: height 0.3s ease, background 0.3s ease, transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    transition: top 0.3s ease, height 0.3s ease, background 0.3s ease, transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     animation: fadeDown 0.8s ease-out forwards;
 
     &.scrolled {
+        top: 0;
         height: var(--nav-scrolled-height);
         background: rgba(11, 9, 8, 0.95);
     }
@@ -466,84 +467,26 @@
     }
 }
 
-.marquee-container {
+.top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 42px;
-
-    background: #0B0908;
-    color: #D6A44F;
-
-    overflow: hidden;
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    border-bottom: 1px solid rgba(214, 164, 79, 0.22);
-}
-
-
-.marquee-content {
-    display: flex;
-    align-items: center;
-
-    width: max-content;
-    white-space: nowrap;
-
-    animation: marquee 30s linear infinite;
-
-    will-change: transform;
-}
-
-.marquee-item {
-    height: 42px;
-
+    height: 32px;
+    background-color: #9c7336;
+    color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    gap: 9px;
-
-    /* Gives every feature equal visual space */
-    min-width: 250px;
-
-    padding: 0 25px;
-
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-
-    box-sizing: border-box;
-
-    .marquee-icon {
-        width: 19px;
-        height: 19px;
-
-        flex-shrink: 0;
-
-        color: #D6A44F;
-        stroke: #D6A44F;
-        stroke-width: 1.8;
-
-        display: block;
-    }
-
-    span {
-        display: block;
-        line-height: 1;
-    }
-}
-
-
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+    border-bottom: 1px solid rgba(214, 164, 79, 0.22);
+    
+    &.scrolled {
+        transform: translateY(-100%);
     }
 }
