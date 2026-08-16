@@ -485,8 +485,30 @@
     z-index: 1001;
     transition: transform 0.3s ease;
     border-bottom: 1px solid rgba(214, 164, 79, 0.22);
+    overflow: hidden;
     
     &.scrolled {
         transform: translateY(-100%);
     }
+}
+
+.banner-text {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .top-banner {
+        justify-content: flex-start;
+    }
+    
+    .banner-text {
+        padding-left: 100vw;
+        animation: marquee 15s linear infinite;
+    }
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }

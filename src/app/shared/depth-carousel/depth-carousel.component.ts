@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, OnDestroy, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit, OnDestroy, Output, EventEmitter, ChangeDetectorRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
 
 export interface DepthCarouselItem {
   image: string;
@@ -167,15 +167,17 @@ export interface DepthCarouselItem {
       transform: scale(0.94);
     }
     .prev-btn {
-      left: calc(50% - 60px); 
+      left: calc(50% - 60px);
+      bottom: -60px;
     }
     .next-btn {
       right: calc(50% - 60px);
+      bottom: -60px;
     }
     
     @media (max-width: 768px) {
-      .prev-btn { left: calc(50% - 60px); }
-      .next-btn { right: calc(50% - 60px); }
+      .prev-btn { left: calc(50% - 60px); bottom: -45px; }
+      .next-btn { right: calc(50% - 60px); bottom: -45px; }
     }
   `]
 })
@@ -205,12 +207,39 @@ export class DepthCarouselComponent implements OnInit, OnDestroy {
   activeIndex = 0;
   private intervalId: any;
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.updateDimensions(window.innerWidth);
+    }
     if (this.autoplay) {
       this.startAutoplay();
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.updateDimensions(event.target.innerWidth);
+    }
+  }
+
+  private updateDimensions(width: number) {
+    if (width <= 480) {
+      this.cardWidth = 260;
+      this.cardHeight = 360;
+      this.spread = 80;
+    } else if (width <= 768) {
+      this.cardWidth = 280;
+      this.cardHeight = 380;
+      this.spread = 100;
+    } else {
+      this.cardWidth = 360;
+      this.cardHeight = 480;
+      this.spread = 120;
+    }
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy() {
