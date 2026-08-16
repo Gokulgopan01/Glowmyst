@@ -21,10 +21,12 @@ interface Product {
   reviews?: number;
 }
 
+import { FoldTextComponent } from '../shared/fold-text/fold-text.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, FoldTextComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

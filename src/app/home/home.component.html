@@ -12,13 +12,23 @@
       <img src="assets/Glowmyst_logo.png" alt="Glowmyst Logo" class="hero-logo">
     </div>
 
-    <h1 class="hero-heading">
+    <h1 class="hero-heading fold-animated">
       <span class="heading-line">
-        Timeless <span class="gold-text">Jewellery,</span>
+        <app-fold-text text="Timeless " splitBy="char" hinge="top" trigger="mount" [duration]="0.65" [stagger]="0.045"
+          [perspective]="700" [creaseShading]="0.55"></app-fold-text>
+        <span class="gold-text">
+          <app-fold-text text="Jewellery," splitBy="char" hinge="top" trigger="mount" [duration]="0.65"
+            [stagger]="0.045" [staggerOffset]="0.4" [perspective]="700" [creaseShading]="0.55"></app-fold-text>
+        </span>
       </span>
 
       <span class="heading-line">
-        <span class="gold-text">Trendy</span> Sarees.
+        <span class="gold-text">
+          <app-fold-text text="Trendy " splitBy="char" hinge="top" trigger="mount" [duration]="0.65" [stagger]="0.045"
+            [staggerOffset]="0.85" [perspective]="700" [creaseShading]="0.55"></app-fold-text>
+        </span>
+        <app-fold-text text="Sarees." splitBy="char" hinge="top" trigger="mount" [duration]="0.65" [stagger]="0.045"
+          [staggerOffset]="1.15" [perspective]="700" [creaseShading]="0.55"></app-fold-text>
       </span>
     </h1>
 
@@ -65,9 +75,21 @@
   <div class="sig-container">
     <!-- Left Content -->
     <div class="sig-left-content">
-      <div class="sig-heading">
-        <span class="sig-heading-line1">Timeless Beauty.</span>
-        <span class="sig-heading-line2">Crafted for You.</span>
+      <div class="sig-heading fold-animated">
+        <span class="sig-heading-line1">
+          <app-fold-text text="Timeless " splitBy="char" hinge="top" trigger="scroll" [duration]="0.65"
+            [stagger]="0.045" [perspective]="700" [creaseShading]="0.55"></app-fold-text>
+          <app-fold-text text="Beauty." splitBy="char" hinge="top" trigger="scroll" [duration]="0.65" [stagger]="0.045"
+            [staggerOffset]="0.4" [perspective]="700" [creaseShading]="0.55"></app-fold-text>
+        </span>
+        <span class="sig-heading-line2">
+          <app-fold-text text="Crafted " splitBy="char" hinge="top" trigger="scroll" [duration]="0.65" [stagger]="0.045"
+            [staggerOffset]="0.8" [perspective]="700" [creaseShading]="0.55"></app-fold-text>
+          <app-fold-text text="for " splitBy="char" hinge="top" trigger="scroll" [duration]="0.65" [stagger]="0.045"
+            [staggerOffset]="1.1" [perspective]="700" [creaseShading]="0.55"></app-fold-text>
+          <app-fold-text text="You." splitBy="char" hinge="top" trigger="scroll" [duration]="0.65" [stagger]="0.045"
+            [staggerOffset]="1.3" [perspective]="700" [creaseShading]="0.55"></app-fold-text>
+        </span>
       </div>
       <hr class="sig-divider" />
       <p class="sig-description">
