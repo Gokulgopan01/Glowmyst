@@ -17,7 +17,7 @@ export interface DepthCarouselItem {
       
       <button *ngIf="showControls" class="nav-button prev-btn" (click)="handlePrev()" aria-label="Previous">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
+          <polyline points="14 18 8 12 14 6"></polyline>
         </svg>
       </button>
 
@@ -50,7 +50,7 @@ export interface DepthCarouselItem {
       
       <button *ngIf="showControls" class="nav-button next-btn" (click)="handleNext()" aria-label="Next">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
+          <polyline points="10 18 16 12 10 6"></polyline>
         </svg>
       </button>
     </div>
@@ -277,7 +277,7 @@ export class DepthCarouselComponent implements OnInit, OnDestroy {
     if (absDistance > this.visibleCards) {
       return {
         display: 'none',
-        'margin-left.px': -(this.cardWidth / 2)
+        'margin-left': `-${this.cardWidth / 2}px`
       };
     }
 
@@ -300,8 +300,8 @@ export class DepthCarouselComponent implements OnInit, OnDestroy {
       transform: `translateX(${tx}px) translateZ(${tz}px) rotateY(${ry}deg) scale(${scale})`,
       'z-index': zIndex,
       filter: `blur(${blurAmount}px)`,
-      transition: `transform ${this.duration}ms ${this.ease}, filter ${this.duration}ms ${this.ease}`,
-      'margin-left.px': -(this.cardWidth / 2)
+      transition: `transform ${this.duration}ms ${this.ease}, filter ${this.duration}ms ${this.ease}, opacity ${this.duration}ms ${this.ease}`,
+      'margin-left': `-${this.cardWidth / 2}px`
     };
   }
 
