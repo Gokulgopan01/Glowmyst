@@ -185,6 +185,73 @@
         "description": "Elegant pearl drop earrings with a delicate silhouette, perfect for adding a soft and sophisticated touch."
     },
     {
+        "id": 24,
+        "name": "Temple Gold Bangle Set",
+        "category": "Bangles",
+        "price": 2499,
+        "sellingPrice": 1999,
+        "image": "assets/Products/Jewellery/TempleGoldBangleSet.jpg",
+        "image2": "assets/Products/Jewellery/TempleGoldBangleSet.jpg",
+        "badge": "EXCLUSIVE",
+        "OCCASION": "Traditional",
+        "description": "A traditional temple-inspired bangle set featuring intricate detailing and a graceful ethnic design."
+    },
+    {
+        "id": 25,
+        "name": "Traditional Earings",
+        "category": "Earrings",
+        "price": 1999,
+        "sellingPrice": 1599,
+        "image": "assets/Products/Jewellery/earings2.png",
+        "badge": "SALE",
+        "OCCASION": "Daily Wear",
+        "description": "Elegant traditional earrings designed with classic detailing to complement ethnic and everyday outfits."
+    },
+    {
+        "id": 26,
+        "name": "Traditional Earings",
+        "category": "Earrings",
+        "price": 1899,
+        "sellingPrice": 1499,
+        "image": "assets/Products/Jewellery/earings.png",
+        "badge": "SALE",
+        "OCCASION": "Daily Wear",
+        "description": "A timeless pair of traditional earrings that adds a graceful finishing touch to any ethnic ensemble."
+    },
+    {
+        "id": 27,
+        "name": "Pearl Drop Earrings",
+        "category": "Earrings",
+        "price": 1499,
+        "sellingPrice": 1199,
+        "image": "assets/Products/Jewellery/earings3.png",
+        "badge": "NEW",
+        "OCCASION": "Daily Wear",
+        "description": "Delicate pearl drop earrings designed for a graceful and minimal look, perfect for everyday elegance."
+    },
+    {
+        "id": 28,
+        "name": "Pearl Drop Earrings",
+        "category": "Earrings",
+        "price": 1399,
+        "sellingPrice": 1099,
+        "image": "assets/Products/Jewellery/earings4.png",
+        "badge": "NEW",
+        "OCCASION": "Daily Wear",
+        "description": "Classic pearl-inspired drop earrings with a refined design that adds subtle sophistication to any outfit."
+    },
+    {
+        "id": 29,
+        "name": "Pearl Drop Earrings",
+        "category": "Earrings",
+        "price": 1299,
+        "sellingPrice": 999,
+        "image": "assets/Products/Jewellery/earings5.png",
+        "badge": "NEW",
+        "OCCASION": "Daily Wear",
+        "description": "Stylish pearl drop earrings with an elegant silhouette, perfect for enhancing your everyday jewellery collection."
+    },
+    {
         "id": 18,
         "name": "Bridal Necklace",
         "category": "Necklaces",
@@ -255,72 +322,5 @@
         "badge": "TRENDING",
         "OCCASION": "Daily Wear",
         "description": "A bold gold-plated Kada with a polished finish, perfect for adding a sophisticated statement to everyday outfits."
-    },
-    {
-        "id": 24,
-        "name": "Temple Gold Bangle Set",
-        "category": "Bangles",
-        "price": 2499,
-        "sellingPrice": 1999,
-        "image": "assets/Products/Jewellery/TempleGoldBangleSet.jpg",
-        "image2": "assets/Products/Jewellery/TempleGoldBangleSet.jpg",
-        "badge": "EXCLUSIVE",
-        "OCCASION": "Traditional",
-        "description": "A traditional temple-inspired bangle set featuring intricate detailing and a graceful ethnic design."
-    },
-    {
-        "id": 25,
-        "name": "Traditional Earings",
-        "category": "Earrings",
-        "price": 1999,
-        "sellingPrice": 1599,
-        "image": "assets/Products/Jewellery/earings2.png",
-        "badge": "SALE",
-        "OCCASION": "Daily Wear",
-        "description": "Elegant traditional earrings designed with classic detailing to complement ethnic and everyday outfits."
-    },
-    {
-        "id": 26,
-        "name": "Traditional Earings",
-        "category": "Earrings",
-        "price": 1899,
-        "sellingPrice": 1499,
-        "image": "assets/Products/Jewellery/earings.png",
-        "badge": "SALE",
-        "OCCASION": "Daily Wear",
-        "description": "A timeless pair of traditional earrings that adds a graceful finishing touch to any ethnic ensemble."
-    },
-    {
-        "id": 27,
-        "name": "Pearl Drop Earrings",
-        "category": "Earrings",
-        "price": 1499,
-        "sellingPrice": 1199,
-        "image": "assets/Products/Jewellery/earings3.png",
-        "badge": "NEW",
-        "OCCASION": "Daily Wear",
-        "description": "Delicate pearl drop earrings designed for a graceful and minimal look, perfect for everyday elegance."
-    },
-    {
-        "id": 28,
-        "name": "Pearl Drop Earrings",
-        "category": "Earrings",
-        "price": 1399,
-        "sellingPrice": 1099,
-        "image": "assets/Products/Jewellery/earings4.png",
-        "badge": "NEW",
-        "OCCASION": "Daily Wear",
-        "description": "Classic pearl-inspired drop earrings with a refined design that adds subtle sophistication to any outfit."
-    },
-    {
-        "id": 29,
-        "name": "Pearl Drop Earrings",
-        "category": "Earrings",
-        "price": 1299,
-        "sellingPrice": 999,
-        "image": "assets/Products/Jewellery/earings5.png",
-        "badge": "NEW",
-        "OCCASION": "Daily Wear",
-        "description": "Stylish pearl drop earrings with an elegant silhouette, perfect for enhancing your everyday jewellery collection."
     }
 ]

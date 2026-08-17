@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild('earOverlayTarget') earOverlayTarget!: ElementRef<HTMLDivElement>;
   tryOnLanded = false;
+  @ViewChild('depthCarousel') depthCarousel!: DepthCarouselComponent;
 
   slides: Slide[] = [
     { id: 0, image: 'assets/home/hero_1.png' },
@@ -344,8 +345,22 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       this.flyToEar(product, sourceImgEl);
     } else {
       // Fallback for prev/next arrows (no click origin) — simple crossfade
-      setTimeout(() => { this.selectedTryOnProduct = product; }, 250);
-      setTimeout(() => { this.tryOnAnimating = false; }, 500);
+      setTimeout(() => { this.selectedTryOnProduct = product; }, 500);
+      setTimeout(() => { this.tryOnAnimating = false; }, 1200);
+    }
+  }
+
+  get tryOnProductsForCarousel() {
+    return this.tryOnProducts.map(p => ({
+      ...p,
+      title: p.name,
+      subtitle: 'Try Now'
+    }));
+  }
+
+  onTryOnChange(index: number) {
+    if (this.tryOnProducts[index]) {
+      this.selectTryOnEarring(this.tryOnProducts[index]);
     }
   }
 
@@ -414,5 +429,17 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     // Automatically select the new first item
     this.selectTryOnEarring(this.tryOnProducts[0]);
+  }
+
+  nextTryOnCarousel() {
+    if (this.depthCarousel) {
+      this.depthCarousel.handleNext();
+    }
+  }
+
+  prevTryOnCarousel() {
+    if (this.depthCarousel) {
+      this.depthCarousel.handlePrev();
+    }
   }
 }

@@ -141,42 +141,38 @@
       </div>
 
       <div class="tryon-selector-area">
-        <div class="tryon-trynow-header">
-          <span class="tryon-trynow-text">Try Now</span>
-          <span class="tryon-trynow-line"></span>
+        <div class="tryon-trynow-header" style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 24px;">
+          <button class="tryon-nav-btn prev-btn" (click)="prevTryOnCarousel()" style="position: static; transform: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
+          </button>
+          
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <span class="tryon-trynow-text">Try Now</span>
+            <span class="tryon-trynow-line"></span>
+          </div>
+
+          <button class="tryon-nav-btn next-btn" (click)="nextTryOnCarousel()" style="position: static; transform: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
+          </button>
         </div>
 
         <div class="tryon-carousel-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
-          <div class="tryon-carousel-viewport">
-            <div class="tryon-carousel">
-              <!-- We rely on array shifting now, so the first item is always active -->
-              <div class="tryon-card" *ngFor="let product of tryOnProducts; let i = index" [class.selected]="i === 0"
-                (click)="selectTryOnEarring(product, cardImg)">
-
-                <!-- Navigation buttons attached to the active card -->
-                <button *ngIf="i === 0" class="tryon-nav-btn prev-btn" (click)="$event.stopPropagation(); prevTryOn()">
-                  <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
-                </button>
-
-                <div class="tryon-card-inner">
-                  <div class="tryon-card-img-wrapper">
-                    <img #cardImg [src]="product.image" [alt]="product.name" class="tryon-card-img">
-                  </div>
-                  <div class="tryon-card-divider"></div>
-                  <h4 class="tryon-card-name">{{ product.name }}</h4>
-                </div>
-
-                <button *ngIf="i === 0" class="tryon-nav-btn next-btn" (click)="$event.stopPropagation(); nextTryOn()">
-                  <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
-                </button>
-
-              </div>
-            </div>
-          </div>
-          <div class="tryon-dots">
-            <span class="tryon-dot active"></span>
-            <span class="tryon-dot"></span>
-            <span class="tryon-dot"></span>
+          <div class="tryon-carousel-viewport" style="display: flex; justify-content: center; align-items: center; width: 100%; min-height: 400px; padding: 20px 0;">
+            <app-depth-carousel #depthCarousel
+              [showControls]="false"
+              [items]="tryOnProductsForCarousel" 
+              (onChange)="onTryOnChange($event)"
+              [cardWidth]="220"
+              [cardHeight]="340"
+              [radius]="18"
+              [depth]="140"
+              [spread]="100"
+              [tilt]="15"
+              [perspective]="1200"
+              [visibleCards]="2"
+              [duration]="1200"
+              ease="cubic-bezier(0.16, 1, 0.3, 1)"
+            ></app-depth-carousel>
           </div>
         </div>
       </div>

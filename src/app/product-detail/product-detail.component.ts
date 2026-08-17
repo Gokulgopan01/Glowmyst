@@ -14,7 +14,7 @@ export interface ProductDetail {
   image3?: string;
   badge: string;
   OCCASION?: string;
-  description : string;
+  description: string;
 }
 
 @Component({
@@ -111,7 +111,7 @@ export class ProductDetailComponent implements OnInit {
         // Get 4 related products (excluding current one, maybe from same category or random)
         const others = data.filter(p => p.id !== id);
         // Let's just take the first 4 for simplicity
-        this.relatedProducts = others.slice(0, 4);
+        this.relatedProducts = others.slice(-4).reverse();
         this.description = this.product.description;
       }
     });
