@@ -395,13 +395,13 @@ $icon-gold: #D4A550;
     height: 48px;
   }
 
-  .right-col {
-    height: 350px;
-    border-radius: 18px;
-    overflow: hidden;
-    margin: 0 24px;
-    width: calc(100% - 48px);
-  }
+  // .right-col {
+  //   height: 350px;
+  //   border-radius: 18px;
+  //   overflow: hidden;
+  //   margin: 0 24px;
+  //   width: calc(100% - 48px);
+  // }
 
   .category-section {
     margin-top: 20px;
@@ -1931,12 +1931,14 @@ input:checked+.custom-checkbox {
   .saree-hero {
     height: 400px;
   }
+
   .hero-content {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
   }
+
   .right-col {
     position: absolute;
     top: 0;
@@ -1948,9 +1950,11 @@ input:checked+.custom-checkbox {
     flex: unset;
     animation: none !important;
   }
+
   .model-container .model-gradient-overlay {
     background: linear-gradient(to top, #080808 0%, transparent 80%) !important;
   }
+
   .left-col {
     position: relative;
     z-index: 5;
@@ -1958,14 +1962,17 @@ input:checked+.custom-checkbox {
     flex: unset;
     text-align: center;
   }
+
   .main-heading {
     font-size: 42px;
     margin-bottom: 5px;
   }
+
   .subtitle {
     font-size: 18px;
     margin-bottom: 0;
   }
+
   .description {
     display: none;
   }
