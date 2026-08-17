@@ -1925,7 +1925,48 @@ input:checked+.custom-checkbox {
   .product-price {
     font-size: 13px !important;
   }
+}
 
-
-
+@media (max-width: 768px) {
+  .saree-hero {
+    height: 400px;
+  }
+  .hero-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .right-col {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    width: 100vw;
+    height: 100%;
+    z-index: 2;
+    flex: unset;
+    animation: none !important;
+  }
+  .model-container .model-gradient-overlay {
+    background: linear-gradient(to top, #080808 0%, transparent 80%) !important;
+  }
+  .left-col {
+    position: relative;
+    z-index: 5;
+    padding: 0 5% 30px;
+    flex: unset;
+    text-align: center;
+  }
+  .main-heading {
+    font-size: 42px;
+    margin-bottom: 5px;
+  }
+  .subtitle {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  .description {
+    display: none;
+  }
 }
