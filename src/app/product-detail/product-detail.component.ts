@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LucideAngularModule, ChevronLeft, ChevronRightIcon, Star, MapPin, ShoppingBag, Gem, ShieldCheck, Undo2, Crown, Heart, Mail, Plus, Minus } from 'lucide-angular';
+import { WhatsappService } from '../services/whatsapp.service';
 
 export interface ProductDetail {
   id: number;
@@ -27,6 +28,7 @@ export interface ProductDetail {
 export class ProductDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private http = inject(HttpClient);
+  private whatsappService = inject(WhatsappService);
 
   readonly ChevronLeftIcon = ChevronLeft;
   readonly ChevronRightIcon = ChevronRightIcon;
@@ -119,5 +121,15 @@ export class ProductDetailComponent implements OnInit {
 
   setActiveImage(img: string) {
     this.activeImage = img;
+  }
+
+  buyNow(): void {
+    if (this.product) {
+      this.whatsappService.buyProduct(this.product);
+    }
+  }
+
+  buyRelated(product: any): void {
+    this.whatsappService.buyProduct(product);
   }
 }

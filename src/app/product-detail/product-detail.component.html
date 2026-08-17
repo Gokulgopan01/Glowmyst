@@ -64,7 +64,7 @@
 
       <p class="product-description" *ngIf="product.description">{{ product.description }}</p>
 
-      <button class="buy-now-btn">
+      <button class="buy-now-btn" (click)="buyNow()">
         <lucide-icon [img]="BagIcon" class="icon"></lucide-icon>
         <span class="btn-text">BUY NOW</span>
         <div class="shine-effect"></div>
@@ -97,7 +97,7 @@
       <div class="details">
         <h3 class="name">{{ rp.name }}</h3>
         <div class="price">₹{{ rp.price | number:'1.0-0' }}</div>
-        <button class="buy-btn" (click)="$event.stopPropagation()">BUY NOW</button>
+        <button class="buy-btn" (click)="$event.stopPropagation(); buyRelated(rp)">BUY NOW</button>
       </div>
     </div>
   </div>
