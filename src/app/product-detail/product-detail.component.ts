@@ -49,7 +49,7 @@ export class ProductDetailComponent implements OnInit {
 
   faqs = [
     { question: 'Is the jewellery real gold plated?', answer: 'Yes, our jewellery is plated with high-quality 18k or 24k gold.', open: false },
-    { question: 'What is your return policy?', answer: 'We offer a 14-day hassle-free return policy on all unworn items.', open: false },
+    { question: 'What is your return policy?', answer: 'We offer 14-day hassle-free return policy on all unworn items.', open: false },
     { question: 'How long does shipping take?', answer: 'Standard shipping takes 3-5 business days. Express options are available at checkout.', open: false },
     { question: 'Does it come with gift packaging?', answer: 'Absolutely! Every order is beautifully packaged in our signature Glowmyst box.', open: false },
     { question: 'Is there a warranty on the products?', answer: 'Yes, we provide a 1-year warranty against any manufacturing defects.', open: false }
