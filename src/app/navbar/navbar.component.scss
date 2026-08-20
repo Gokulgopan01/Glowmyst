@@ -226,22 +226,6 @@
 
 .dropdown {
     position: relative;
-
-    &:hover {
-        .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            transition: opacity 0.5s var(--ease-luxury),
-                visibility 0.5s var(--ease-luxury),
-                transform 0.5s var(--ease-luxury);
-        }
-
-        .nav-link .dropdown-arrow {
-            transform: rotate(180deg);
-            color: var(--nav-text);
-        }
-    }
 }
 
 .dropdown-menu {
@@ -285,15 +269,32 @@
     }
 }
 
-.dropdown:hover .dropdown-menu {
-    transform: translate(-50%, 0);
-}
-
 .dropdown-arrow {
     width: 14px;
     height: 14px;
     color: var(--nav-text);
     transition: transform 0.6s var(--ease-luxury);
+}
+
+/* Desktop-only: hover opens the dropdown, centered under its parent link.
+   Scoped behind min-width so it can never leak transforms into the mobile
+   accordion layout (that was the cause of the misplaced floating box). */
+@media (min-width: 769px) {
+    .dropdown:hover {
+        .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, 0);
+            transition: opacity 0.5s var(--ease-luxury),
+                visibility 0.5s var(--ease-luxury),
+                transform 0.5s var(--ease-luxury);
+        }
+
+        .nav-link .dropdown-arrow {
+            transform: rotate(180deg);
+            color: var(--nav-text);
+        }
+    }
 }
 
 /* SEARCH */
@@ -444,7 +445,9 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 90px 34px;
+        /* clears the fixed top-banner (32px) + navbar comfortably, with room
+           to spare so the first item never sits under either */
+        padding: 148px 34px 40px;
         transition: right 1s var(--ease-luxury-slow);
         z-index: 1001;
         border-left: 1px solid var(--nav-border-gold);
@@ -478,7 +481,7 @@
     .mobile-close {
         display: block;
         position: absolute;
-        top: 22px;
+        top: 48px;
         right: 22px;
     }
 
@@ -528,9 +531,45 @@
         }
     }
 
-    /* MOBILE DROPDOWN — INLINE ACCORDION STYLE */
+    /* MOBILE DROPDOWN — INLINE ACCORDION, OPENED BY TAP (NOT :hover) */
     .dropdown {
         width: 100%;
+
+        /* row: the link navigates as normal; the chevron button is a
+           separate tap target that only expands/collapses the submenu */
+        .dropdown-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .nav-link {
+            width: auto;
+            flex: 1;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: none;
+            border: none;
+            color: var(--nav-luxury-gold);
+            cursor: pointer;
+            flex-shrink: 0;
+
+            .dropdown-arrow {
+                transition: transform 0.5s var(--ease-luxury);
+            }
+        }
+
+        &.open .dropdown-toggle .dropdown-arrow {
+            transform: rotate(180deg);
+            color: var(--nav-light-gold);
+        }
 
         .dropdown-menu {
             position: static;
@@ -561,8 +600,7 @@
             }
         }
 
-        &:hover .dropdown-menu,
-        &:focus-within .dropdown-menu {
+        &.open .dropdown-menu {
             max-height: 300px;
             opacity: 1;
             visibility: visible;
