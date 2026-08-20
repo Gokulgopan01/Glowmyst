@@ -182,7 +182,7 @@ export class SareeComponent implements OnInit {
       // Add a slight delay to allow the DOM to render the new products before scrolling
       setTimeout(() => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
+      }, 1000);
     }
   }
 

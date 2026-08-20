@@ -1140,17 +1140,23 @@ input:checked+.custom-checkbox+.label-text {
   .page-dots {
     background: transparent;
     border: none;
-    border-bottom: 1px solid transparent;
     color: #9F978B;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 32px;
     height: 32px;
     min-width: 32px;
+
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    padding: 0 4px;
+
+    line-height: 1;
   }
 
   .page-number,
@@ -1167,16 +1173,30 @@ input:checked+.custom-checkbox+.label-text {
       color: #111111;
       background: #D4AF37;
       border-radius: 50%;
-      border-bottom-color: transparent;
       box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
     }
   }
 
-  .icon {
-    width: 16px;
-    height: 16px;
-    display: block;
-    stroke: #D4AF37;
+  // Arrow alignment
+  .page-next,
+  .page-prev {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      flex-shrink: 0;
+      margin: 0;
+      stroke: #9F978B;
+    }
+  }
+
+  .page-next:hover .icon,
+  .page-prev:hover .icon {
+    stroke: #ffffff;
   }
 }
 
