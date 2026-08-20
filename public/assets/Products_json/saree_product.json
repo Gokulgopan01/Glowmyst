@@ -195,7 +195,7 @@
         "category": "Zari Sarees",
         "price": 6999,
         "sellingPrice": 5999,
-        "image": "assets/Products/Saree/Zari Woven Tissue Saree.webp",
+        "image": "assets/Products/Saree/Zari Woven Tissue Saree.jpg",
         "badge": "PREMIUM",
         "OCCASION": "Festive",
         "description": "A premium tissue saree with intricate zari weaving, offering a radiant and elegant look for festive occasions."
@@ -206,8 +206,8 @@
         "category": "Crepe Sarees",
         "price": 2799,
         "sellingPrice": 2399,
-        "image": "assets/Products/Saree/elegant-crepe.jpg",
-        "image2": "assets/Products/Saree/elegant-crepe (2).jpeg",
+        "image": "assets/Products/Saree/Elegant Crepe Saree.jpg",
+        "image2": "assets/Products/Saree/Elegant Crepe Saree.jpg",
         "badge": "TRENDING",
         "OCCASION": "Party Wear",
         "description": "A stylish crepe saree with a smooth drape and elegant silhouette, perfect for contemporary party looks."
@@ -218,8 +218,8 @@
         "category": "Traditional Sarees",
         "price": 4999,
         "sellingPrice": 4299,
-        "image": "assets/Products/Saree/classic-gold-border.jpeg",
-        "image2": "assets/Products/Saree/classic-gold-border (2).jpeg",
+        "image": "assets/Products/Saree/Classic Gold Border Saree.webp",
+        "image2": "assets/Products/Saree/Classic Gold Border Saree.webp",
         "badge": "POPULAR",
         "OCCASION": "Festive",
         "description": "A timeless saree finished with a classic gold border, bringing traditional elegance to festive celebrations."
