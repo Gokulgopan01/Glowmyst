@@ -80,11 +80,11 @@ export class JewelleryComponent implements OnInit, OnDestroy {
   pages: (number | string)[] = [];
 
   // Accordion states
-  isCategoryOpen = false;
-  isPriceOpen = false;
-  isMaterialOpen = false;
-  isOccasionOpen = false;
-  isSortOpen = false;
+  isCategoryOpen = true;
+  isPriceOpen = true;
+  isMaterialOpen = true;
+  isOccasionOpen = true;
+  isSortOpen = true;
 
   // Filter selections
   selectedCategory = 'All Jewellery';

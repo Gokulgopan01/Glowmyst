@@ -80,11 +80,11 @@ export class SareeComponent implements OnInit {
   pages: (number | string)[] = [];
 
   // Accordion states
-  isCategoryOpen = false;
-  isPriceOpen = false;
-  isMaterialOpen = false;
-  isOccasionOpen = false;
-  isSortOpen = false;
+  isCategoryOpen = true;
+  isPriceOpen = true;
+  isMaterialOpen = true;
+  isOccasionOpen = true;
+  isSortOpen = true;
 
   // Filter selections
   selectedCategory = 'All Sarees';
@@ -182,7 +182,7 @@ export class SareeComponent implements OnInit {
       // Add a slight delay to allow the DOM to render the new products before scrolling
       setTimeout(() => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 1000);
+      }, 0);
     }
   }
 

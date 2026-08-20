@@ -24,39 +24,42 @@
       </div>
       <ul class="nav-menu">
         <li class="nav-item">
-          <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-            class="nav-link">Home</a>
+          <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link"
+            (click)="closeMobileMenu()">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a routerLink="/jewellery" routerLinkActive="active" class="nav-link">
+          <a routerLink="/jewellery" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
             Jewellery
           </a>
           <ul class="dropdown-menu">
-            <li><a routerLink="/jewellery/bridal">Bridal</a></li>
-            <li><a routerLink="/jewellery/antique">Antique</a></li>
-            <li><a routerLink="/jewellery/temple">Temple</a></li>
-            <li><a routerLink="/jewellery/casual">Casual</a></li>
+            <li><a routerLink="/jewellery/bridal" (click)="closeMobileMenu()">Bridal</a></li>
+            <li><a routerLink="/jewellery/antique" (click)="closeMobileMenu()">Antique</a></li>
+            <li><a routerLink="/jewellery/temple" (click)="closeMobileMenu()">Temple</a></li>
+            <li><a routerLink="/jewellery/casual" (click)="closeMobileMenu()">Casual</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a routerLink="/sarees" routerLinkActive="active" class="nav-link">
+          <a routerLink="/sarees" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
             Sarees
           </a>
           <ul class="dropdown-menu">
-            <li><a routerLink="/sarees/silk">Silk</a></li>
-            <li><a routerLink="/sarees/cotton">Cotton</a></li>
-            <li><a routerLink="/sarees/designer">Designer</a></li>
-            <li><a routerLink="/sarees/party-wear">Party Wear</a></li>
+            <li><a routerLink="/sarees/silk" (click)="closeMobileMenu()">Silk</a></li>
+            <li><a routerLink="/sarees/cotton" (click)="closeMobileMenu()">Cotton</a></li>
+            <li><a routerLink="/sarees/designer" (click)="closeMobileMenu()">Designer</a></li>
+            <li><a routerLink="/sarees/party-wear" (click)="closeMobileMenu()">Party Wear</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a routerLink="/new-arrivals" routerLinkActive="active" class="nav-link">New Arrivals</a>
+          <a routerLink="/new-arrivals" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">New
+            Arrivals</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/about-us" routerLinkActive="active" class="nav-link">About Us</a>
+          <a routerLink="/about-us" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">About
+            Us</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/contact-us" routerLinkActive="active" class="nav-link">Contact Us</a>
+          <a routerLink="/contact-us" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Contact
+            Us</a>
         </li>
       </ul>
     </div>
@@ -68,6 +71,6 @@
     </div>
   </div>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-overlay" *ngIf="isMobileMenuOpen" (click)="toggleMobileMenu()"></div>
+  <!-- Mobile Menu Overlay — always rendered so the closing fade can play (see .active class in SCSS) -->
+  <div class="mobile-overlay" [class.active]="isMobileMenuOpen" (click)="toggleMobileMenu()"></div>
 </nav>

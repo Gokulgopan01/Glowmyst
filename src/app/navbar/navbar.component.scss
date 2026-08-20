@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@400;500&display=swap');
 
 :host {
     --nav-primary-bg: #0B0908;
@@ -9,8 +9,12 @@
     --nav-text: #F5E6C8;
     --nav-border-gold: rgba(214, 164, 79, 0.22);
     --nav-bottom-border: rgba(203, 155, 74, 0.18);
-    --nav-height: 72px;
-    --nav-scrolled-height: 64px;
+    --nav-height: 88px;
+    --nav-scrolled-height: 68px;
+
+    /* shared premium easing — a slow-start, decisive-finish curve */
+    --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-luxury-slow: cubic-bezier(0.19, 1, 0.22, 1);
 
     display: block;
     width: 100%;
@@ -37,7 +41,7 @@
 
 @keyframes scaleUp {
     from {
-        transform: scale(0.95);
+        transform: scale(0.92);
         opacity: 0;
     }
 
@@ -80,7 +84,10 @@
     background: linear-gradient(180deg, #0B0908 0%, #0E0A08 40%, #0A0908 100%);
     border-bottom: 1px solid var(--nav-bottom-border);
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
-    transition: top 0.3s ease, height 0.3s ease, background 0.3s ease, transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    transition: top 0.5s var(--ease-luxury),
+        height 0.5s var(--ease-luxury),
+        background 0.5s ease,
+        transform 0.6s var(--ease-luxury);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     animation: fadeDown 0.8s ease-out forwards;
@@ -102,25 +109,26 @@
     padding: 0;
 }
 
-/* LOGO */
+/* LOGO — bigger, own breathing room, smooth scale on scroll */
 .logo-container {
-    padding-left: 32px;
+    padding-left: 40px;
     display: flex;
     align-items: center;
     height: 100%;
-    animation: scaleUp 0.8s ease-out forwards;
-    animation-delay: 0.2s;
+    animation: scaleUp 0.9s var(--ease-luxury) forwards;
+    animation-delay: 0.15s;
     opacity: 0;
 
     .logo-img {
-        height: 64px;
+        height: 88px;
         object-fit: contain;
-        transition: height 0.3s ease;
+        transition: height 0.5s var(--ease-luxury);
+        will-change: height;
     }
 }
 
 .navbar.scrolled .logo-container .logo-img {
-    height: 52px;
+    height: 60px;
 }
 
 /* NAVIGATION MENU */
@@ -137,16 +145,16 @@
     padding: 0;
     display: flex;
     align-items: center;
-    gap: 38px;
+    gap: 42px;
 }
 
 .nav-item {
     opacity: 0;
-    animation: fadeInItem 0.5s ease-out forwards;
+    animation: fadeInItem 0.6s ease-out forwards;
 
     @for $i from 1 through 6 {
         &:nth-child(#{$i}) {
-            animation-delay: #{0.3 + ($i * 0.1)}s;
+            animation-delay: #{0.35 + ($i * 0.08)}s;
         }
     }
 }
@@ -155,16 +163,20 @@
     font-family: 'Cinzel', serif;
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
     color: #FFFFFF;
     text-decoration: none;
-    opacity: 0.88;
-    transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.85;
+    transition: color 0.4s var(--ease-luxury),
+        transform 0.4s var(--ease-luxury),
+        opacity 0.4s var(--ease-luxury);
     display: flex;
     align-items: center;
     gap: 6px;
     position: relative;
-    padding: 8px 0;
+    padding: 10px 0;
+    line-height: 1;
 
     &::after {
         content: '';
@@ -172,9 +184,9 @@
         bottom: 0;
         left: 50%;
         width: 0;
-        height: 2px;
-        background-color: var(--nav-luxury-gold);
-        transition: width 0.3s ease, left 0.3s ease;
+        height: 1.5px;
+        background: linear-gradient(90deg, var(--nav-muted-gold), var(--nav-light-gold));
+        transition: width 0.45s var(--ease-luxury), left 0.45s var(--ease-luxury);
     }
 
     &:hover,
@@ -195,6 +207,23 @@
     }
 }
 
+/* subtle settle animation whenever the active route changes */
+.nav-link.active {
+    animation: activeSettle 0.5s var(--ease-luxury);
+}
+
+@keyframes activeSettle {
+    from {
+        letter-spacing: 3px;
+        opacity: 0.4;
+    }
+
+    to {
+        letter-spacing: 1.8px;
+        opacity: 1;
+    }
+}
+
 .dropdown {
     position: relative;
 
@@ -203,7 +232,9 @@
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
-            transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.5s var(--ease-luxury),
+                visibility 0.5s var(--ease-luxury),
+                transform 0.5s var(--ease-luxury);
         }
 
         .nav-link .dropdown-arrow {
@@ -216,86 +247,99 @@
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
-    min-width: 180px;
+    left: 50%;
+    transform: translate(-50%, -10px);
+    min-width: 200px;
     background: var(--nav-primary-bg);
     border: 1px solid var(--nav-border-gold);
-    border-top: none;
-    padding: 10px 0;
+    padding: 12px 0;
     list-style: none;
     margin: 0;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.4s var(--ease-luxury),
+        visibility 0.4s var(--ease-luxury),
+        transform 0.4s var(--ease-luxury);
     z-index: 100;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+    text-align: center;
 
     li {
         a {
             display: block;
-            padding: 12px 20px;
+            padding: 12px 24px;
             color: #FFFFFF;
             text-decoration: none;
             font-family: 'Cinzel', serif;
-            font-size: 13px;
-            transition: background 0.3s, color 0.3s;
+            font-size: 12.5px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            transition: background 0.35s ease, color 0.35s ease, padding-left 0.35s ease;
 
             &:hover {
                 background: rgba(214, 164, 79, 0.1);
                 color: var(--nav-light-gold);
+                padding-left: 30px;
             }
         }
     }
+}
+
+.dropdown:hover .dropdown-menu {
+    transform: translate(-50%, 0);
 }
 
 .dropdown-arrow {
     width: 14px;
     height: 14px;
     color: var(--nav-text);
-    transition: transform 1s ease;
+    transition: transform 0.6s var(--ease-luxury);
 }
 
 /* SEARCH */
 .search-container {
-    padding-right: 32px;
+    padding-right: 40px;
     display: flex;
     align-items: center;
     position: relative;
-    animation: fadeRight 0.8s ease-out forwards;
+    animation: fadeRight 0.9s var(--ease-luxury) forwards;
     animation-delay: 0.4s;
     opacity: 0;
 }
 
 .search-box {
-    width: 360px;
-    height: 42px;
+    width: 340px;
+    height: 44px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--nav-border-gold);
-    padding: 0 40px 0 20px;
+    padding: 0 42px 0 22px;
     color: var(--nav-text);
-    font-family: 'Cinzel', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 13px;
+    letter-spacing: 0.2px;
     outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.4s var(--ease-luxury),
+        box-shadow 0.4s var(--ease-luxury),
+        width 0.4s var(--ease-luxury);
 
     &::placeholder {
-        color: rgba(255, 255, 255, 0.45);
+        color: rgba(255, 255, 255, 0.4);
+        font-family: 'Inter', sans-serif;
     }
 
     &:focus,
     &:hover {
         border-color: var(--nav-light-gold);
-        box-shadow: 0 0 10px rgba(214, 164, 79, 0.1);
+        box-shadow: 0 0 14px rgba(214, 164, 79, 0.14);
     }
 }
 
 .search-icon {
     position: absolute;
-    right: 48px;
-    width: 18px;
-    height: 18px;
+    right: 50px;
+    width: 17px;
+    height: 17px;
     color: var(--nav-luxury-gold);
     opacity: 0.8;
     pointer-events: none;
@@ -310,24 +354,34 @@
     color: var(--nav-luxury-gold);
     cursor: pointer;
     padding: 8px;
+    transition: transform 0.4s var(--ease-luxury), color 0.3s ease;
+
+    &:hover {
+        color: var(--nav-light-gold);
+        transform: scale(1.08);
+    }
 }
 
 .mobile-close {
     display: none;
 }
 
-.mobile-overlay {
-    display: none;
-}
-
 /* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
     .nav-menu {
-        gap: 20px;
+        gap: 22px;
     }
 
     .logo-container {
         padding-left: 20px;
+
+        .logo-img {
+            height: 68px;
+        }
+    }
+
+    .navbar.scrolled .logo-container .logo-img {
+        height: 52px;
     }
 
     .search-container {
@@ -363,49 +417,81 @@
         transform: none;
         animation: none;
         opacity: 1;
+
+        .logo-img {
+            height: 56px;
+        }
+    }
+
+    .navbar.scrolled .logo-container .logo-img {
+        height: 48px;
     }
 
     .search-container {
         display: none;
     }
 
+    /* ===== PREMIUM SLIDE-IN PANEL =====
+       Slow, weighted entrance (ease-luxury-slow) and a matching,
+       equally deliberate close — no instant snap on either edge. */
     .nav-menu-wrapper {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 300px;
+        width: min(340px, 84vw);
         height: 100vh;
         background: var(--nav-secondary-bg);
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 80px 30px;
-        transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        padding: 90px 34px;
+        transition: right 1s var(--ease-luxury-slow);
         z-index: 1001;
         border-left: 1px solid var(--nav-border-gold);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        box-shadow: -20px 0 50px rgba(0, 0, 0, 0.55);
+        overflow-y: auto;
 
         &.mobile-open {
             right: 0;
+
+            .nav-item {
+                opacity: 0;
+                animation: fadeInItem 0.6s var(--ease-luxury) forwards;
+
+                @for $i from 1 through 6 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: #{0.35 + ($i * 0.07)}s;
+                    }
+                }
+            }
+        }
+
+        /* when closing, items should not replay their entrance animation —
+           they simply fade with the panel via opacity below */
+        &:not(.mobile-open) .nav-item {
+            animation: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
     }
 
     .mobile-close {
         display: block;
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 22px;
+        right: 22px;
     }
 
     .nav-menu {
         flex-direction: column;
-        gap: 24px;
+        gap: 26px;
         width: 100%;
         align-items: flex-start;
     }
 
     .nav-link {
-        font-size: 16px;
+        font-size: 15px;
+        letter-spacing: 1.5px;
         width: 100%;
 
         &::after {
@@ -413,6 +499,12 @@
         }
     }
 
+    .nav-link.active {
+        animation: none;
+    }
+
+    /* Overlay is always in the DOM; visibility is class-driven so the
+       fade-out plays instead of the element just vanishing. */
     .mobile-overlay {
         display: block;
         position: fixed;
@@ -424,45 +516,58 @@
         z-index: 1000;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.8s, visibility 0.8s;
+        pointer-events: none;
         backdrop-filter: blur(4px);
+        transition: opacity 0.9s var(--ease-luxury-slow),
+            visibility 0.9s var(--ease-luxury-slow);
 
-        .mobile-open~& {
+        &.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto;
         }
     }
 
-    /* MOBILE DROPDOWN - INLINE ACCORDION STYLE */
+    /* MOBILE DROPDOWN — INLINE ACCORDION STYLE */
     .dropdown {
         width: 100%;
 
         .dropdown-menu {
             position: static;
+            left: auto;
+            transform: none;
             max-height: 0;
             overflow: hidden;
             opacity: 0;
             visibility: hidden;
-            transform: none;
             background: transparent;
             border: none;
             box-shadow: none;
             padding: 0 0 0 20px;
             margin: 0;
             width: 100%;
-            transition: max-height 0.8s ease, opacity 0.8s ease, margin 0.8s ease, padding 0.8s ease;
+            text-align: left;
+            transition: max-height 0.6s var(--ease-luxury),
+                opacity 0.5s var(--ease-luxury),
+                margin 0.5s var(--ease-luxury),
+                padding 0.5s var(--ease-luxury);
 
             li a {
-                padding: 8px 0;
+                padding: 9px 0;
+
+                &:hover {
+                    padding-left: 8px;
+                }
             }
         }
 
-        &:hover .dropdown-menu {
+        &:hover .dropdown-menu,
+        &:focus-within .dropdown-menu {
             max-height: 300px;
             opacity: 1;
             visibility: visible;
-            margin-top: 10px;
-            padding: 5px 0 5px 20px;
+            margin-top: 12px;
+            padding: 6px 0 6px 20px;
         }
     }
 }
@@ -481,12 +586,12 @@
     font-family: 'Inter', sans-serif;
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.6px;
     z-index: 1001;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s var(--ease-luxury);
     border-bottom: 1px solid rgba(214, 164, 79, 0.22);
     overflow: hidden;
-    
+
     &.scrolled {
         transform: translateY(-100%);
     }
@@ -501,7 +606,7 @@
     .top-banner {
         justify-content: flex-start;
     }
-    
+
     .banner-text {
         padding-left: 100vw;
         animation: marquee 15s linear infinite;
@@ -509,6 +614,11 @@
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
