@@ -2363,3 +2363,191 @@ input:checked+.custom-checkbox+.label-text {
     gap: 40px;
   }
 }
+
+// Chat Banner Section
+.chat-banner-section {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  background-color: #080808;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.chat-banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+  }
+
+  .chat-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #080808 0%, #080808 40%, transparent 70%);
+  }
+}
+
+.chat-banner-content {
+  position: relative;
+  z-index: 2;
+  padding-left: 10%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+
+    .decor-line {
+      width: 30px;
+      height: 1px;
+      background-color: #D4AF37;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        right: -4px;
+        top: -3px;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+        background-color: #D4AF37;
+      }
+    }
+    
+    .decor-line:first-child::after {
+      left: -4px;
+      right: auto;
+    }
+
+    .chat-pretitle {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #D4AF37;
+      letter-spacing: 2px;
+    }
+  }
+
+  .chat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 700;
+    color: #F8F4EE;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+
+    .italic-serif {
+      font-style: italic;
+      color: #D4AF37;
+      font-weight: 400;
+    }
+  }
+
+  .chat-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: #bdb7ae;
+    line-height: 1.6;
+    margin: 0 0 40px 0;
+  }
+
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(90deg, #0B3A26 0%, #064E3B 100%);
+    border: 1px solid #10B981;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    padding: 14px 28px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    .wa-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+      transform: translateY(-2px);
+    }
+  }
+
+  .chat-timing {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    color: #D4AF37;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+
+    .clock-icon {
+      width: 18px;
+      height: 18px;
+      opacity: 0.8;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .chat-banner-section {
+    height: 400px;
+  }
+  .chat-banner-content {
+    padding-left: 5%;
+    .chat-title {
+      font-size: 42px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .chat-banner-section {
+    height: auto;
+    padding: 60px 20px;
+    justify-content: center;
+  }
+  
+  .chat-banner-bg .chat-banner-overlay {
+    background: linear-gradient(to top, #080808 0%, rgba(8, 8, 8, 0.8) 100%);
+  }
+
+  .chat-banner-content {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+    
+    .chat-title {
+      font-size: 32px;
+    }
+    
+    .chat-desc {
+      font-size: 15px;
+    }
+  }
+}

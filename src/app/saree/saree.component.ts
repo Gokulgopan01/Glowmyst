@@ -89,7 +89,7 @@ export class SareeComponent implements OnInit {
   // Filter selections
   selectedCategory = 'All Sarees';
   minPrice = 0;
-  maxPrice = 200000;
+  maxPrice = 5000;
   selectedOccasions: string[] = [];
   currentSort = 'Popular';
 
@@ -267,7 +267,7 @@ export class SareeComponent implements OnInit {
   clearAllFilters() {
     this.selectedCategory = 'All Sarees';
     this.minPrice = 0;
-    this.maxPrice = 200000;
+    this.maxPrice = 5000;
     this.selectedOccasions = [];
     this.currentSort = 'Popular';
     this.onFilterChange();
