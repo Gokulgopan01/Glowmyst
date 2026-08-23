@@ -1683,10 +1683,11 @@ input:checked+.custom-checkbox+.label-text {
 
 
           /* =============================================
-             CATEGORY / RADIO ITEM
+             CATEGORY / RADIO / CHECKBOX ITEM
              ============================================= */
 
-          .radio-label {
+          .radio-label,
+          .checkbox-label {
             display: flex;
             align-items: center;
 
@@ -1715,15 +1716,16 @@ input:checked+.custom-checkbox+.label-text {
               border-color: rgba(212, 175, 55, 0.22);
             }
 
-
-            .custom-radio {
+            .custom-radio,
+            .custom-checkbox {
               width: 13px;
               height: 13px;
 
               flex-shrink: 0;
             }
 
-            input:checked~.custom-radio::after {
+            input:checked~.custom-radio::after,
+            input:checked~.custom-checkbox::after {
               width: 5px;
               height: 5px;
             }
@@ -1926,11 +1928,6 @@ input:checked+.custom-checkbox+.label-text {
             input:checked~.label-text {
               color: #d8b45f;
             }
-
-
-            input:checked~.label-text {
-              color: #d8b45f;
-            }
           }
         }
       }
@@ -2066,64 +2063,68 @@ input:checked+.custom-checkbox+.label-text {
     .sidebar-footer {
       display: flex;
       align-items: center;
+      gap: 8px;
 
-      gap: 10px;
+      height: 48px;
+      min-height: 48px;
+      margin-bottom: 10px;
 
-      min-height: 60px;
+      padding: 6px 12px;
 
-      padding: 10px 14px;
+      box-sizing: border-box;
 
       border-top: 1px solid rgba(212, 175, 55, 0.10);
-
-      background: rgba(13, 13, 13, 0.98);
+      background: #0d0d0d;
 
       flex-shrink: 0;
-
 
       .remove-all-btn {
         flex: 0 0 auto;
 
-        padding: 7px 2px;
+        height: 30px;
+        min-height: 30px;
 
+        padding: 0 4px;
+
+        border: 0;
         background: transparent;
-        border: none;
 
         color: #817a72;
 
         font-family: 'Inter', sans-serif;
-
-        font-size: 10px;
-        line-height: 14px;
-
+        font-size: 9px;
         font-weight: 400;
+        line-height: 30px;
 
-        letter-spacing: 0;
-
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 3px;
+        white-space: nowrap;
+        word-break: keep-all;
 
         cursor: pointer;
       }
 
-
       .apply-btn {
-        flex: 1;
+        flex: 1 1 auto;
 
-        min-height: 38px;
+        width: auto;
+        min-width: 0;
+        max-width: none;
 
-        display: inline-flex;
+        height: 32px;
+        min-height: 32px;
+
+        padding: 0 10px;
+
+        display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
 
-        gap: 6px;
+        flex-wrap: nowrap;
 
-        margin: 0;
+        gap: 4px;
 
-        padding: 0 14px;
-
-        border: none;
-        border-radius: 7px;
+        border: 0;
+        border-radius: 6px;
 
         background: linear-gradient(90deg,
             #dfb25d 0%,
@@ -2132,27 +2133,120 @@ input:checked+.custom-checkbox+.label-text {
         color: #0d0d0d;
 
         font-family: 'Inter', sans-serif;
-
-        font-size: 11px;
-        line-height: 15px;
-
+        font-size: 9.5px;
         font-weight: 600;
+        line-height: 1;
 
-        letter-spacing: 0.1px;
+        white-space: nowrap;
+        word-break: keep-all;
+        overflow: hidden;
+
+        box-sizing: border-box;
 
         cursor: pointer;
 
-        box-shadow: 0 4px 14px rgba(189, 133, 51, 0.16);
-
         .icon {
-          width: 14px;
-          height: 14px;
+          flex: 0 0 auto;
 
-          flex-shrink: 0;
+          width: 12px !important;
+          height: 12px !important;
 
-          stroke: #0d0d0d;
+          min-width: 12px !important;
+          min-height: 12px !important;
 
-          stroke-width: 2;
+          margin: 0;
+          padding: 0;
+
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          line-height: 0;
+        }
+      }
+    }
+
+
+    /* ==========================================
+   APPLY BUTTON ANIMATIONS
+   ========================================== */
+
+    @keyframes applyButtonPulse {
+      0% {
+        transform: scale(1);
+      }
+
+      35% {
+        transform: scale(0.96);
+      }
+
+      65% {
+        transform: scale(1.015);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+
+    @keyframes applyButtonShine {
+      0% {
+        left: -120%;
+      }
+
+      100% {
+        left: 140%;
+      }
+    }
+
+
+    @keyframes filterSpin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    /* ==========================================
+   EXTRA SMALL DEVICES
+   ========================================== */
+
+    @media (max-width: 380px) {
+
+      .sidebar-footer {
+        min-height: 52px;
+
+        gap: 7px;
+
+        padding: 7px 10px;
+
+        .remove-all-btn {
+          min-height: 30px;
+
+          font-size: 9px;
+        }
+
+        .apply-btn {
+          min-height: 33px;
+
+          padding: 0 9px;
+
+          font-size: 10px;
+
+          gap: 4px;
+
+          .icon {
+            width: 12px;
+            height: 12px;
+
+            min-width: 12px;
+            min-height: 12px;
+          }
         }
       }
     }
