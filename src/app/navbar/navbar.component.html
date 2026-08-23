@@ -32,10 +32,54 @@
             Jewellery
           </a>
           <ul class="dropdown-menu">
-            <li><a routerLink="/jewellery/bridal" (click)="closeMobileMenu()">Bridal</a></li>
-            <li><a routerLink="/jewellery/antique" (click)="closeMobileMenu()">Antique</a></li>
-            <li><a routerLink="/jewellery/temple" (click)="closeMobileMenu()">Temple</a></li>
-            <li><a routerLink="/jewellery/casual" (click)="closeMobileMenu()">Casual</a></li>
+            <li>
+              <a routerLink="/jewellery/bridal" (click)="closeMobileMenu()" class="dropdown-item-content">
+                <div class="dropdown-icon-wrapper">
+                  <lucide-icon [img]="GemIcon" class="dropdown-item-icon"></lucide-icon>
+                </div>
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Bridal</span>
+                  <span class="dropdown-subtitle">Timeless pieces for your big day</span>
+                </div>
+                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/jewellery/antique" (click)="closeMobileMenu()" class="dropdown-item-content">
+                <div class="dropdown-icon-wrapper">
+                  <lucide-icon [img]="FlowerIcon" class="dropdown-item-icon"></lucide-icon>
+                </div>
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Antique</span>
+                  <span class="dropdown-subtitle">Vintage beauty, crafted to last</span>
+                </div>
+                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/jewellery/temple" (click)="closeMobileMenu()" class="dropdown-item-content">
+                <div class="dropdown-icon-wrapper">
+                  <lucide-icon [img]="LandmarkIcon" class="dropdown-item-icon"></lucide-icon>
+                </div>
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Temple</span>
+                  <span class="dropdown-subtitle">Tradition inspired by heritage</span>
+                </div>
+                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/jewellery/casual" (click)="closeMobileMenu()" class="dropdown-item-content">
+                <div class="dropdown-icon-wrapper">
+                  <lucide-icon [img]="SparklesIcon" class="dropdown-item-icon"></lucide-icon>
+                </div>
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Casual</span>
+                  <span class="dropdown-subtitle">Everyday elegance, effortlessly you</span>
+                </div>
+                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
+              </a>
+            </li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -43,16 +87,60 @@
             Sarees
           </a>
           <ul class="dropdown-menu">
-            <li><a routerLink="/sarees/silk" (click)="closeMobileMenu()">Silk</a></li>
-            <li><a routerLink="/sarees/cotton" (click)="closeMobileMenu()">Cotton</a></li>
-            <li><a routerLink="/sarees/designer" (click)="closeMobileMenu()">Designer</a></li>
-            <li><a routerLink="/sarees/party-wear" (click)="closeMobileMenu()">Party Wear</a></li>
+            <li>
+              <a routerLink="/sarees/silk" (click)="closeMobileMenu()" class="dropdown-item-content">
+                <div class="dropdown-icon-wrapper">
+                  <lucide-icon [img]="SparklesIcon" class="dropdown-item-icon"></lucide-icon>
+                </div>
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Silk</span>
+                  <span class="dropdown-subtitle">Rich & elegant drapes</span>
+                </div>
+                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/sarees/cotton" (click)="closeMobileMenu()" class="dropdown-item-content">
+                <div class="dropdown-icon-wrapper">
+                  <lucide-icon [img]="FlowerIcon" class="dropdown-item-icon"></lucide-icon>
+                </div>
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Cotton</span>
+                  <span class="dropdown-subtitle">Comfortable everyday wear</span>
+                </div>
+                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/sarees/designer" (click)="closeMobileMenu()" class="dropdown-item-content">
+                <div class="dropdown-icon-wrapper">
+                  <lucide-icon [img]="GemIcon" class="dropdown-item-icon"></lucide-icon>
+                </div>
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Designer</span>
+                  <span class="dropdown-subtitle">Exclusive contemporary pieces</span>
+                </div>
+                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/sarees/party-wear" (click)="closeMobileMenu()" class="dropdown-item-content">
+                <div class="dropdown-icon-wrapper">
+                  <lucide-icon [img]="LandmarkIcon" class="dropdown-item-icon"></lucide-icon>
+                </div>
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Party Wear</span>
+                  <span class="dropdown-subtitle">Stand out on your occasions</span>
+                </div>
+                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
+              </a>
+            </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a routerLink="/new-arrivals" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">New
             Arrivals</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a routerLink="/about-us" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">About
             Us</a>

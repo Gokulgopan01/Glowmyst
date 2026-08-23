@@ -2,7 +2,7 @@ import { Component, HostListener, HostBinding, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { LucideAngularModule, Search, ChevronDown, Menu, X, RotateCcw, Gem, ShieldCheck, Truck } from 'lucide-angular';
+import { LucideAngularModule, Search, ChevronDown, Menu, X, RotateCcw, Gem, ShieldCheck, Truck, ChevronRight, Flower2, Landmark, Sparkles } from 'lucide-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -26,6 +26,10 @@ export class NavbarComponent implements OnDestroy {
   readonly GemIcon = Gem;
   readonly ShieldCheckIcon = ShieldCheck;
   readonly TruckIcon = Truck;
+  readonly ChevronRightIcon = ChevronRight;
+  readonly FlowerIcon = Flower2;
+  readonly LandmarkIcon = Landmark;
+  readonly SparklesIcon = Sparkles;
 
   private routerSub: Subscription;
 
