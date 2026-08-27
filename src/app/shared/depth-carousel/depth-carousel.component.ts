@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy, Output, EventEmitter, ChangeDetectorRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, Output, EventEmitter, ChangeDetectorRef, HostListener, Inject, PLATFORM_ID, TemplateRef, ContentChild } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 
 export interface DepthCarouselItem {
@@ -29,22 +29,28 @@ export interface DepthCarouselItem {
              [style.border-radius.px]="radius"
              [style]="getCardStyle(i)">
           
-          <img [src]="item.image" [alt]="item.title" class="card-image" />
-          
-          <div class="card-tint" [style.background-color]="tint" [style.opacity]="getTintOpacity(i)"></div>
-          
-          <div class="card-content" [style.opacity]="getCardOpacity(i)">
-            <div class="sig-card-info-text">
-              <p class="sig-card-title">{{ item.title }}</p>
-              <p *ngIf="item.subtitle" class="sig-card-subtitle">
-                {{ item.subtitle }}
-                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                  <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </p>
+          <ng-container *ngIf="!customTemplate">
+            <img [src]="item.image" [alt]="item.title" class="card-image" />
+            
+            <div class="card-tint" [style.background-color]="tint" [style.opacity]="getTintOpacity(i)"></div>
+            
+            <div class="card-content" [style.opacity]="getCardOpacity(i)">
+              <div class="sig-card-info-text">
+                <p class="sig-card-title">{{ item.title }}</p>
+                <p *ngIf="item.subtitle" class="sig-card-subtitle">
+                  {{ item.subtitle }}
+                  <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </p>
+              </div>
             </div>
-          </div>
+          </ng-container>
+
+          <ng-container *ngIf="customTemplate">
+            <ng-container *ngTemplateOutlet="customTemplate; context: { $implicit: item, index: i, active: i === activeIndex, distance: getDistance(i) }"></ng-container>
+          </ng-container>
         </div>
       </div>
       
@@ -201,6 +207,7 @@ export class DepthCarouselComponent implements OnInit, OnDestroy {
   @Input() autoplayDelay = 3200;
   @Input() loop = true;
   @Input() showControls = true;
+  @ContentChild(TemplateRef) customTemplate?: TemplateRef<any>;
 
   @Output() onChange = new EventEmitter<number>();
 
@@ -306,14 +313,18 @@ export class DepthCarouselComponent implements OnInit, OnDestroy {
   }
 
   getTintOpacity(index: number): number {
-    const distance = Math.abs(index - this.activeIndex);
+    const distance = this.getDistance(index);
     if (distance === 0) return 0;
     return Math.min(distance * 0.25, 0.85);
   }
 
   getCardOpacity(index: number): number {
-    const distance = Math.abs(index - this.activeIndex);
+    const distance = this.getDistance(index);
     return distance === 0 ? 1 : 0;
+  }
+
+  getDistance(index: number): number {
+    return Math.abs(index - this.activeIndex);
   }
 
   private startAutoplay() {

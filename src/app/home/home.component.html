@@ -118,62 +118,70 @@
     <div class="tryon-left-model">
       <div class="tryon-model-frame">
         <img [src]="tryOnModelImage" alt="Model wearing earrings" class="tryon-model-img">
-        <div class="tryon-overlay-wrapper" #earOverlayTarget [class.tryon-crossfade]="tryOnAnimating"
-          [class.tryon-landed]="tryOnLanded">
-          <img *ngIf="selectedTryOnProduct" [src]="selectedTryOnProduct.image" alt="Earring Overlay"
-            class="tryon-overlay-img">
+        <div class="tryon-overlay-wrapper" #earOverlayTarget [class.tryon-crossfade]="tryOnAnimating" [class.tryon-landed]="tryOnLanded">
+          <img *ngIf="selectedTryOnProduct" [src]="selectedTryOnProduct.image" alt="Earring Overlay" class="tryon-overlay-img">
         </div>
       </div>
     </div>
 
     <!-- Right Column: Content & Selector -->
     <div class="tryon-right-content">
-      <div class="tryon-text-area">
-        <h2 class="tryon-heading">Earrings</h2>
-        <div class="tryon-heading-accent">
-          <span class="tryon-heading-dot"></span>
-          <span class="tryon-heading-accent-line"></span>
-        </div>
-        <p class="tryon-description">
-          Every bloom has the power to inspire us to love unconditionally. These earrings, in radiant bloom, are
-          certainly nothing short of that.
-        </p>
-      </div>
-
-      <div class="tryon-selector-area">
-        <div class="tryon-trynow-header" style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 24px;">
-          <button class="tryon-nav-btn prev-btn" (click)="prevTryOnCarousel()" style="position: static; transform: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-            <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
-          </button>
-          
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-            <span class="tryon-trynow-text">Try Now</span>
+      <div class="tryon-trynow-header">
+        <button class="tryon-nav-btn prev-btn" (click)="prevTryOnCarousel()">
+          <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
+        </button>
+        
+        <div class="tryon-trynow-title-wrapper">
+          <span class="tryon-trynow-text">Try Now</span>
+          <div class="tryon-trynow-line-wrapper">
+            <span class="tryon-trynow-line"></span>
+            <span class="tryon-trynow-diamond">◆</span>
             <span class="tryon-trynow-line"></span>
           </div>
-
-          <button class="tryon-nav-btn next-btn" (click)="nextTryOnCarousel()" style="position: static; transform: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-            <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
-          </button>
         </div>
 
-        <div class="tryon-carousel-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
-          <div class="tryon-carousel-viewport" style="display: flex; justify-content: center; align-items: center; width: 100%; min-height: 400px; padding: 20px 0;">
-            <app-depth-carousel #depthCarousel
-              [showControls]="false"
-              [items]="tryOnProductsForCarousel" 
-              (onChange)="onTryOnChange($event)"
-              [cardWidth]="220"
-              [cardHeight]="340"
-              [radius]="18"
-              [depth]="140"
-              [spread]="100"
-              [tilt]="15"
-              [perspective]="1200"
-              [visibleCards]="2"
-              [duration]="1200"
-              ease="cubic-bezier(0.16, 1, 0.3, 1)"
-            ></app-depth-carousel>
-          </div>
+        <button class="tryon-nav-btn next-btn" (click)="nextTryOnCarousel()">
+          <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
+        </button>
+      </div>
+
+      <div class="tryon-carousel-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+        <div class="tryon-carousel-viewport">
+          <app-depth-carousel #depthCarousel
+            [showControls]="false"
+            [items]="tryOnProductsForCarousel" 
+            (onChange)="onTryOnChange($event)"
+            [cardWidth]="250"
+            [cardHeight]="400"
+            [radius]="12"
+            [depth]="80"
+            [spread]="270"
+            [tilt]="0"
+            [perspective]="1200"
+            [visibleCards]="2"
+            [duration]="800"
+            ease="cubic-bezier(0.16, 1, 0.3, 1)">
+            
+            <ng-template let-item let-i="index" let-active="active" let-distance="distance">
+              <div class="tryon-card-inner" [class.active]="active" [class.inactive]="!active">
+                <div class="tryon-card-img-wrapper">
+                  <img [src]="item.image" [alt]="item.title || item.name" class="tryon-card-img">
+                </div>
+                
+                <div class="tryon-card-info">
+                  <h4 class="tryon-card-name">{{ item.title || item.name }}</h4>
+                  <div class="tryon-card-price">{{ item.subtitle || item.price || '₹1,299' }}</div>
+                  
+                  <!-- Using routerLink or an empty click handler for Buy Now since there isn't a known handler yet -->
+                  <button class="tryon-buy-btn" routerLink="/jewellery">
+                    Buy Now
+                    <lucide-icon [img]="ShoppingBagIcon" class="buy-bag-icon" size="14"></lucide-icon>
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+
+          </app-depth-carousel>
         </div>
       </div>
     </div>
@@ -259,7 +267,6 @@
   </div>
 </section>
 
-<!-- JEWELLERY SECTIONS -->
 <!-- JEWELLERY BANNER SECTION -->
 <section class="split-banner-section">
   <div class="split-banner">
