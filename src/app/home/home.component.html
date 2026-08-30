@@ -118,8 +118,10 @@
     <div class="tryon-left-model">
       <div class="tryon-model-frame">
         <img [src]="tryOnModelImage" alt="Model wearing earrings" class="tryon-model-img">
-        <div class="tryon-overlay-wrapper" #earOverlayTarget [class.tryon-crossfade]="tryOnAnimating" [class.tryon-landed]="tryOnLanded">
-          <img *ngIf="selectedTryOnProduct" [src]="selectedTryOnProduct.image" alt="Earring Overlay" class="tryon-overlay-img">
+        <div class="tryon-overlay-wrapper" #earOverlayTarget [class.tryon-crossfade]="tryOnAnimating"
+          [class.tryon-landed]="tryOnLanded">
+          <img *ngIf="selectedTryOnProduct" [src]="selectedTryOnProduct.image" alt="Earring Overlay"
+            class="tryon-overlay-img">
         </div>
       </div>
     </div>
@@ -130,7 +132,7 @@
         <button class="tryon-nav-btn prev-btn" (click)="prevTryOnCarousel()">
           <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
         </button>
-        
+
         <div class="tryon-trynow-title-wrapper">
           <span class="tryon-trynow-text">Try Now</span>
           <div class="tryon-trynow-line-wrapper">
@@ -147,31 +149,21 @@
 
       <div class="tryon-carousel-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
         <div class="tryon-carousel-viewport">
-          <app-depth-carousel #depthCarousel
-            [showControls]="false"
-            [items]="tryOnProductsForCarousel" 
-            (onChange)="onTryOnChange($event)"
-            [cardWidth]="250"
-            [cardHeight]="400"
-            [radius]="12"
-            [depth]="80"
-            [spread]="270"
-            [tilt]="0"
-            [perspective]="1200"
-            [visibleCards]="2"
-            [duration]="800"
+          <app-depth-carousel #depthCarousel [showControls]="false" [items]="tryOnProductsForCarousel"
+            (onChange)="onTryOnChange($event)" [cardWidth]="250" [cardHeight]="400" [radius]="12" [depth]="80"
+            [spread]="270" [tilt]="0" [perspective]="1200" [visibleCards]="2" [duration]="800"
             ease="cubic-bezier(0.16, 1, 0.3, 1)">
-            
+
             <ng-template let-item let-i="index" let-active="active" let-distance="distance">
               <div class="tryon-card-inner" [class.active]="active" [class.inactive]="!active">
                 <div class="tryon-card-img-wrapper">
                   <img [src]="item.image" [alt]="item.title || item.name" class="tryon-card-img">
                 </div>
-                
+
                 <div class="tryon-card-info">
                   <h4 class="tryon-card-name">{{ item.title || item.name }}</h4>
                   <div class="tryon-card-price">{{ item.subtitle || item.price || '₹1,299' }}</div>
-                  
+
                   <!-- Using routerLink or an empty click handler for Buy Now since there isn't a known handler yet -->
                   <button class="tryon-buy-btn" routerLink="/jewellery">
                     Buy Now
@@ -318,7 +310,7 @@
     </div>
 
     <div class="split-image">
-      <img src="assets/home/necklase.jpg" alt="Imitation Necklace Sets">
+      <img src="assets/home/necklase.png" alt="Imitation Necklace Sets">
     </div>
   </div>
 </section>
@@ -475,7 +467,7 @@
     </div>
 
     <div class="split-image">
-      <img src="assets/Products/Jewellery/ring2.jpeg" alt="Elegant Ring Sets">
+      <img src="assets/home/rings.png" alt="Elegant Ring Sets">
     </div>
   </div>
 </section>
@@ -554,7 +546,7 @@
     </div>
 
     <div class="split-image">
-      <img src="assets/Products/Jewellery/BridalGoldNecklaceSet.jpg" alt="Exquisite Jewellery Sets">
+      <img src="assets/home/earings.png" alt="Exquisite Jewellery Sets">
     </div>
   </div>
 </section>
@@ -693,16 +685,18 @@
       Get expert advice on jewellery & sarees,<br>
       bridal sets, styling, order tracking & more.
     </p>
-    
+
     <a href="#" class="whatsapp-btn">
       <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.66-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.292 5.292 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.98 1.005-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.886-9.888 9.886m8.412-18.307A11.859 11.859 0 0012.051 0C5.495 0 .16 5.333.158 11.893c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893a11.82 11.82 0 00-3.48-8.411"/>
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.66-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.292 5.292 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.98 1.005-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.886-9.888 9.886m8.412-18.307A11.859 11.859 0 0012.051 0C5.495 0 .16 5.333.158 11.893c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893a11.82 11.82 0 00-3.48-8.411" />
       </svg>
       Chat on WhatsApp
     </a>
-    
+
     <div class="chat-timing">
-      <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"></circle>
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>

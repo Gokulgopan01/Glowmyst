@@ -2356,24 +2356,9 @@ input:checked+.custom-checkbox {
     }
   }
 
-  // ---- toolbar (sort / view toggle row, if you still render it) ----
-  .toolbar-container {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-
-  .toolbar-left,
-  .toolbar-right {
-    justify-content: space-between;
-  }
-
-  .sort-dropdown {
-    flex: 1;
-
-    .sort-label {
-      display: none;
-    }
+  // ---- toolbar (hidden on mobile) ----
+  .toolbar-section {
+    display: none !important;
   }
 
   // ---- product grid ----

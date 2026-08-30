@@ -116,6 +116,10 @@
   background-position: center right;
   background-repeat: no-repeat;
   transform: scale(1);
+
+  @media (min-width: 769px) {
+    background-position: right 0%;
+  }
 }
 
 @keyframes slowZoom {
