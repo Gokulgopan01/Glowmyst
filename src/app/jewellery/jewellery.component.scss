@@ -561,8 +561,13 @@ $overlay-bg: rgba(0, 0, 0, 0.72);
 .checkbox-label {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 10px;
   cursor: pointer;
+  margin: 0;
+  padding: 4px 0;
+  width: 100%;
+  box-sizing: border-box;
 
   input {
     display: none;
@@ -574,12 +579,15 @@ $overlay-bg: rgba(0, 0, 0, 0.72);
     color: #9F978B;
     transition: color 0.3s ease;
     flex: 1;
+    margin: 0;
+    text-align: left;
   }
 
   .count {
     font-family: 'Inter', sans-serif;
     font-size: 13px;
     color: #9F978B;
+    margin: 0;
   }
 
   &:hover .label-text {
@@ -598,6 +606,8 @@ $overlay-bg: rgba(0, 0, 0, 0.72);
   position: relative;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  margin: 0 !important;
+  display: inline-block;
 }
 
 input:checked+.custom-radio {
@@ -631,6 +641,8 @@ input:checked+.custom-radio+.label-text {
   position: relative;
   flex-shrink: 0;
   transition: all 0.3s ease;
+  margin: 0 !important;
+  display: inline-block;
 }
 
 input:checked+.custom-checkbox {
@@ -1690,6 +1702,7 @@ input:checked+.custom-checkbox+.label-text {
           .checkbox-label {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
 
             min-height: 42px;
 
@@ -1698,6 +1711,8 @@ input:checked+.custom-checkbox+.label-text {
             gap: 8px;
 
             margin: 0;
+            width: 100%;
+            box-sizing: border-box;
 
             background: #111111;
 
@@ -1722,6 +1737,8 @@ input:checked+.custom-checkbox+.label-text {
               height: 13px;
 
               flex-shrink: 0;
+              margin: 0 !important;
+              display: inline-block;
             }
 
             input:checked~.custom-radio::after,

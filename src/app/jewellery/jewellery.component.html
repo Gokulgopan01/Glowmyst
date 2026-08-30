@@ -150,36 +150,29 @@
         </div>
 
         <!-- Categories Accordion -->
-        <div class="filter-section">
-          <div class="section-header categories-header" (click)="isCategoryOpen = !isCategoryOpen">
+        <div class="accordion">
+          <div class="accordion-header" (click)="isCategoryOpen = !isCategoryOpen">
             <span>CATEGORIES</span>
-            <div class="collapse-toggle">
-              <span>{{ isCategoryOpen ? 'Collapse' : 'Expand' }}</span>
-              <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isCategoryOpen"></lucide-icon>
-            </div>
+            <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isCategoryOpen"></lucide-icon>
           </div>
-          <div class="section-body radio-group" [class.closed]="!isCategoryOpen">
+          <div class="accordion-body" [class.closed]="!isCategoryOpen">
             <label class="radio-label" *ngFor="let cat of sidebarCategories">
               <input type="radio" name="category" [value]="cat.name" [checked]="selectedCategory === cat.name"
                 (change)="selectedCategory = cat.name; onFilterChange()">
               <span class="custom-radio"></span>
-              <!-- <div class="label-icon-wrapper"><lucide-icon [img]="GridIcon" class="icon"></lucide-icon></div> -->
               <span class="label-text">{{ cat.name }}</span>
-              <span class="count-badge" [class.active]="selectedCategory === cat.name">{{ cat.count }}</span>
+              <span class="count">({{ cat.count }})</span>
             </label>
           </div>
         </div>
 
         <!-- Price Range Accordion -->
-        <div class="filter-section">
-          <div class="section-header categories-header" (click)="isPriceOpen = !isPriceOpen">
+        <div class="accordion">
+          <div class="accordion-header" (click)="isPriceOpen = !isPriceOpen">
             <span>PRICE RANGE</span>
-            <div class="collapse-toggle">
-              <span>{{ isPriceOpen ? 'Collapse' : 'Expand' }}</span>
-              <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isPriceOpen"></lucide-icon>
-            </div>
+            <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isPriceOpen"></lucide-icon>
           </div>
-          <div class="section-body" [class.closed]="!isPriceOpen">
+          <div class="accordion-body" [class.closed]="!isPriceOpen">
             <div class="price-slider-container">
               <input type="range" class="price-slider" style="width: 100%" min="0" max="10000" step="100"
                 [style.background]="'linear-gradient(90deg, #D4AF37 0%, #D4AF37 ' + (maxPrice / 100) + '%, rgba(212, 175, 55, 0.15) ' + (maxPrice / 100) + '%, rgba(212, 175, 55, 0.15) 100%)'"
@@ -199,15 +192,12 @@
         </div>
 
         <!-- Material Accordion -->
-        <div class="filter-section">
-          <div class="section-header categories-header" (click)="isMaterialOpen = !isMaterialOpen">
+        <div class="accordion">
+          <div class="accordion-header" (click)="isMaterialOpen = !isMaterialOpen">
             <span>MATERIAL</span>
-            <div class="collapse-toggle">
-              <span>{{ isMaterialOpen ? 'Collapse' : 'Expand' }}</span>
-              <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isMaterialOpen"></lucide-icon>
-            </div>
+            <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isMaterialOpen"></lucide-icon>
           </div>
-          <div class="section-body checkbox-group" [class.closed]="!isMaterialOpen">
+          <div class="accordion-body" [class.closed]="!isMaterialOpen">
             <label class="checkbox-label" *ngFor="let mat of materials">
               <input type="checkbox" [value]="mat">
               <span class="custom-checkbox"></span>
@@ -217,15 +207,12 @@
         </div>
 
         <!-- Occasion Accordion -->
-        <div class="filter-section">
-          <div class="section-header categories-header" (click)="isOccasionOpen = !isOccasionOpen">
+        <div class="accordion">
+          <div class="accordion-header" (click)="isOccasionOpen = !isOccasionOpen">
             <span>OCCASION</span>
-            <div class="collapse-toggle">
-              <span>{{ isOccasionOpen ? 'Collapse' : 'Expand' }}</span>
-              <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isOccasionOpen"></lucide-icon>
-            </div>
+            <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isOccasionOpen"></lucide-icon>
           </div>
-          <div class="section-body checkbox-group" [class.closed]="!isOccasionOpen">
+          <div class="accordion-body" [class.closed]="!isOccasionOpen">
             <label class="checkbox-label" *ngFor="let occ of occasions">
               <input type="checkbox" [value]="occ" (change)="toggleOccasion(occ, $event)"
                 [checked]="selectedOccasions.includes(occ)">
