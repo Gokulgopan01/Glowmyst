@@ -97,10 +97,6 @@
     <aside class="sidebar" [class.open]="isMobileFilterOpen">
       <!-- Mobile header -->
       <div class="sidebar-header mobile-only">
-        <div class="header-titles">
-          <h3>Filter and sort</h3>
-          <span class="product-count">{{ allProducts.length }} products</span>
-        </div>
         <button class="close-btn" (click)="toggleMobileFilter()">
           <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close"
             fill="none" viewBox="0 0 18 17">
@@ -109,34 +105,47 @@
               fill="currentColor"></path>
           </svg>
         </button>
+        <div class="header-titles">
+          <h3>FILTER & SORT</h3>
+          <span class="product-count">{{ allProducts.length }} products</span>
+        </div>
+        <div class="header-logo">
+          <img src="assets/Glowmyst_logo.png" alt="Glowmyst" class="logo-img">
+        </div>
       </div>
 
       <div class="sidebar-scroll-area">
-        <!-- Sort Accordion (Mobile Only) -->
-        <div class="accordion mobile-only">
-          <div class="accordion-header" (click)="isSortOpen = !isSortOpen">
-            <span>Sort by:</span>
-            <span class="sort-selected-value">{{ currentSort }}</span>
-            <lucide-icon [img]="ChevronDownIcon" class="icon" [class.rotated]="!isSortOpen"></lucide-icon>
+        <!-- Sort Section -->
+        <div class="filter-section">
+          <div class="section-header">
+            <span>SORT BY</span>
           </div>
-          <div class="accordion-body" [class.closed]="!isSortOpen">
+          <div class="section-body radio-group">
             <label class="radio-label">
               <input type="radio" name="sort" value="Popular" (change)="onSortChange($event)"
                 [checked]="currentSort === 'Popular'">
               <span class="custom-radio"></span>
+              <div class="label-icon-wrapper"><lucide-icon [img]="StarIcon" class="icon"></lucide-icon></div>
               <span class="label-text">Popular</span>
+              <lucide-icon *ngIf="currentSort === 'Popular'" [img]="CheckIcon" class="check-icon"></lucide-icon>
             </label>
             <label class="radio-label">
               <input type="radio" name="sort" value="Price: Low to High" (change)="onSortChange($event)"
                 [checked]="currentSort === 'Price: Low to High'">
               <span class="custom-radio"></span>
+              <div class="label-icon-wrapper"><lucide-icon [img]="ArrowDownUpIcon" class="icon"></lucide-icon></div>
               <span class="label-text">Price: Low to High</span>
+              <lucide-icon *ngIf="currentSort === 'Price: Low to High'" [img]="CheckIcon"
+                class="check-icon"></lucide-icon>
             </label>
             <label class="radio-label">
               <input type="radio" name="sort" value="Price: High to Low" (change)="onSortChange($event)"
                 [checked]="currentSort === 'Price: High to Low'">
               <span class="custom-radio"></span>
+              <div class="label-icon-wrapper"><lucide-icon [img]="ArrowDownUpIcon" class="icon"></lucide-icon></div>
               <span class="label-text">Price: High to Low</span>
+              <lucide-icon *ngIf="currentSort === 'Price: High to Low'" [img]="CheckIcon"
+                class="check-icon"></lucide-icon>
             </label>
           </div>
         </div>

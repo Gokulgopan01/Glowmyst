@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight, Eye, ArrowDownUp, ShoppingBag, RotateCcw } from 'lucide-angular';
+import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight, Eye, ArrowDownUp, ShoppingBag, RotateCcw, Star, Check } from 'lucide-angular';
 
 export interface Product {
   id: number;
@@ -68,6 +68,8 @@ export class SareeComponent implements OnInit {
   readonly ArrowDownUpIcon = ArrowDownUp;
   readonly ShoppingBagIcon = ShoppingBag;
   readonly RotateCcwIcon = RotateCcw;
+  readonly StarIcon = Star;
+  readonly CheckIcon = Check;
 
   currentView: 'grid' | 'list' = 'grid';
   allProducts: Product[] = [];

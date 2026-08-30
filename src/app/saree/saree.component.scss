@@ -1996,6 +1996,8 @@ input:checked+.custom-checkbox {
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;
+    position: static !important;
+    z-index: auto !important;
   }
 
   .listing-container {
@@ -2084,47 +2086,87 @@ input:checked+.custom-checkbox {
     }
 
     .sidebar-header {
+      position: relative;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 16px 20px;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+      min-height: 58px;
+      padding: 0 14px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.10);
+      flex-shrink: 0;
 
-      .header-titles {
-        display: flex;
-        flex-direction: column;
+      .close-btn {
+        width: 30px;
+        height: 30px;
+        display: inline-flex;
         align-items: center;
-        flex: 1;
+        justify-content: center;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid rgba(212, 175, 55, 0.20);
+        border-radius: 50%;
+        color: #d4af37;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 
-        h3 {
-          color: $gold;
-          margin: 0 0 4px;
-          font-family: 'Inter', sans-serif;
-          font-weight: 500;
-          font-size: 16px;
+        &:active {
+          transform: scale(0.94);
         }
 
-        .product-count {
-          color: $muted;
-          font-size: 13px;
+        .icon {
+          width: 14px;
+          height: 14px;
+          stroke-width: 1.7;
+          fill: currentColor;
+          stroke: none;
         }
       }
 
-      .close-btn {
-        background: transparent;
-        border: none;
-        color: $white;
-        padding: 0;
-        cursor: pointer;
+      .header-titles {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        padding: 0 10px;
+
+        h3 {
+          margin: 0;
+          color: #e5be69;
+          font-family: 'Playfair Display', serif;
+          font-size: 15px;
+          line-height: 20px;
+          font-weight: 500;
+          letter-spacing: 0.15px;
+          white-space: nowrap;
+        }
+
+        .product-count {
+          margin-top: 1px;
+          color: #857e74;
+          font-family: 'Inter', sans-serif;
+          font-size: 9.5px;
+          line-height: 14px;
+          letter-spacing: 0.15px;
+        }
+      }
+
+      .header-logo {
+        width: 32px;
+        height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
 
-        .icon {
-          width: 20px;
-          height: 20px;
-          stroke: none;
-          fill: currentColor;
+        .logo-img {
+          width: 60px;
+          height: 60px;
+          max-width: none;
+          max-height: none;
+          object-fit: contain;
+          display: block;
         }
       }
     }
@@ -2135,6 +2177,117 @@ input:checked+.custom-checkbox {
       padding: 0;
       display: flex;
       flex-direction: column;
+
+      .filter-section {
+        padding: 13px 14px;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.09);
+
+        .section-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          min-height: 20px;
+          margin-bottom: 9px;
+          color: #807970;
+          font-family: 'Inter', sans-serif;
+          font-size: 9px;
+          line-height: 13px;
+          font-weight: 600;
+          letter-spacing: 0.9px;
+          text-transform: uppercase;
+        }
+
+        .section-body {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          
+          .radio-label {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 42px;
+            padding: 7px 9px;
+            gap: 8px;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+            background: #111111;
+            border: 1px solid rgba(255, 255, 255, 0.055);
+            border-radius: 7px;
+            cursor: pointer;
+
+            .custom-radio {
+              width: 13px;
+              height: 13px;
+              flex-shrink: 0;
+              margin: 0 !important;
+              display: inline-block;
+            }
+
+            input:checked~.custom-radio::after {
+              width: 5px;
+              height: 5px;
+            }
+
+            .label-icon-wrapper {
+              width: 24px;
+              height: 24px;
+              flex: 0 0 24px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 6px;
+              background: rgba(212, 175, 55, 0.055);
+              line-height: 0;
+
+              .icon {
+                width: 14px;
+                height: 14px;
+                min-width: 14px;
+                min-height: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 0 0 14px;
+                color: #cba454;
+                stroke-width: 1.7;
+              }
+            }
+
+            ::ng-deep .label-icon-wrapper .icon svg {
+              display: block;
+              width: 14px !important;
+              height: 14px !important;
+              min-width: 14px !important;
+              min-height: 14px !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              vertical-align: middle;
+            }
+
+            .label-text {
+              flex: 1;
+              color: #ddd6cc;
+              font-family: 'Inter', sans-serif;
+              font-size: 11.5px;
+              font-weight: 400;
+            }
+
+            .check-icon {
+              width: 14px;
+              height: 14px;
+              color: #d4af37;
+              stroke-width: 2;
+              flex-shrink: 0;
+            }
+            
+            input:checked~.label-text {
+              color: #D4AF37;
+            }
+          }
+        }
+      }
 
       .accordion {
         border-bottom: 1px solid rgba(212, 175, 55, 0.12);
