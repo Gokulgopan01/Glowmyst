@@ -139,10 +139,10 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg,
-      rgba(8, 5, 3, 0.78) 0%,
-      rgba(12, 8, 5, 0.72) 30%,
-      rgba(20, 12, 7, 0.42) 58%,
-      rgba(20, 15, 10, 0.18) 100%);
+      rgba(8, 5, 3, 0.35) 0%,
+      rgba(12, 8, 5, 0.22) 35%,
+      rgba(20, 12, 7, 0.10) 65%,
+      rgba(20, 15, 10, 0.02) 100%);
 }
 
 /* CONTENT */
@@ -524,7 +524,8 @@
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .hero-section {
-    height: 80vh;
+    height: 72vh;
+    min-height: 580px;
   }
 
   .slide-overlay {
@@ -535,9 +536,10 @@
   }
 
   .slide-bg {
-    background-position: 70% center;
-    /* Adjust to keep woman's face visible */
+    background-size: cover;
+    background-position: 55% center;
   }
+
 
   .hero-content {
     margin-left: 5%;
@@ -562,19 +564,26 @@
   .hero-actions {
     flex-direction: column;
     width: 100%;
-    gap: 14px;
+    gap: 10px;
   }
 
   .cta-button {
-    width: 100%;
+    width: 92%;
+    height: 42px;
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 11px;
   }
 
   .carousel-nav {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     top: auto;
-    bottom: 229px;
-    transform: translateY(50%);
+    bottom: 165px;
+    transform: none;
+    background: rgba(20, 15, 10, 0.55);
+    border: 1px solid rgba(201, 154, 69, 0.5);
+    color: #d3a45c;
 
     &.prev {
       left: 10px;
@@ -587,6 +596,11 @@
 
   .carousel-indicators {
     bottom: 20px;
+  }
+
+  .carousel-nav:hover {
+    background: #d3a45c;
+    color: #1a120b;
   }
 }
 
@@ -770,12 +784,13 @@
 @media (max-width: 1024px) {
   .signature-carousel-section {
     height: auto;
-    padding: 80px 0;
+    padding: 70px 0;
   }
 
   .sig-container {
     flex-direction: column;
     text-align: center;
+    gap: 12px;
   }
 
   .sig-left-content {
@@ -804,12 +819,22 @@
     width: min(360px, 70vw);
     height: 480px;
   }
+
+  .sig-right-carousel-wrapper {
+    align-items: flex-start;
+    height: 580px;
+  }
 }
 
 @media (max-width: 768px) {
   .sig-center-card-wrapper {
     width: min(320px, 78vw);
     height: 440px;
+  }
+
+  .sig-right-carousel-wrapper {
+    align-items: flex-start;
+    height: 460px;
   }
 
   .sig-card-info {
@@ -820,13 +845,13 @@
 /* ---- Fine-tuned small-phone range (350px - 450px) ---- */
 @media (max-width: 450px) {
   .signature-carousel-section {
-    padding: 56px 0;
+    padding: 20px 0;
     min-height: unset;
   }
 
   .sig-container {
     padding: 0 20px;
-    gap: 16px;
+    gap: 6px;
   }
 
   .sig-left-content {
@@ -864,6 +889,11 @@
     height: 380px;
   }
 
+  .sig-right-carousel-wrapper {
+    align-items: flex-start;
+    height: 440px;
+  }
+
   .sig-card {
     border-radius: 18px;
   }
@@ -882,11 +912,13 @@
 
   .sig-right-controls {
     gap: 12px;
+    margin-top: 12px;
   }
 
   .sig-nav-btn {
     width: 42px;
     height: 42px;
+    // margin-top: 12px;
   }
 
   .sig-nav-btn .icon {
@@ -937,15 +969,15 @@
 .celebrity-banner {
   background-image: url('/assets/home/saree_section_background.png');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
   border-radius: 0;
   min-height: 70vh;
   /* Increased height */
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* Center content */
+  justify-content: flex-start;
+  /* Left align content */
   position: relative;
 }
 
@@ -966,10 +998,10 @@
 .new-edition-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0;
-  /* Removed left padding */
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 10%;
+  /* Added left padding */
   max-width: 600px;
 }
 
