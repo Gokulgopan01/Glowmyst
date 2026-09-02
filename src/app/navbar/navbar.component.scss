@@ -18,8 +18,9 @@
 
     display: block;
     width: 100%;
-    position: relative;
-    height: var(--nav-height);
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1000;
 }
 
@@ -81,21 +82,27 @@
     left: 0;
     width: 100%;
     height: var(--nav-height);
-    background: linear-gradient(180deg, #0B0908 0%, #0E0A08 40%, #0A0908 100%);
-    border-bottom: 1px solid var(--nav-bottom-border);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
     transition: top 0.5s var(--ease-luxury),
         height 0.5s var(--ease-luxury),
         background 0.5s ease,
-        transform 0.6s var(--ease-luxury);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+        transform 0.6s var(--ease-luxury),
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     animation: fadeDown 0.8s ease-out forwards;
 
     &.scrolled {
         top: 0;
         height: var(--nav-scrolled-height);
         background: rgba(11, 9, 8, 0.95);
+        border-bottom: 1px solid var(--nav-bottom-border);
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 }
 
@@ -283,7 +290,7 @@
                 justify-content: center;
                 transition: background 0.3s ease, filter 0.3s ease;
                 flex-shrink: 0;
-                
+
                 .dropdown-item-icon {
                     width: 20px;
                     height: 20px;
@@ -297,7 +304,7 @@
                 flex-direction: column;
                 flex: 1;
                 justify-content: center;
-                
+
                 .dropdown-title {
                     font-family: 'Cormorant Garamond', serif;
                     font-size: 18px;
@@ -309,12 +316,12 @@
                     line-height: 1;
                     margin-top: 2px;
                 }
-                
+
                 .dropdown-subtitle {
                     display: none;
                 }
             }
-            
+
             .dropdown-arrow-right {
                 width: 18px;
                 height: 18px;
@@ -329,7 +336,7 @@
                 .dropdown-icon-wrapper {
                     filter: brightness(1.2);
                 }
-                
+
                 .dropdown-text {
                     .dropdown-title {
                         color: #d4a84f;
@@ -363,7 +370,7 @@
         .nav-link {
             color: #d4a84f;
             opacity: 1;
-            
+
             .dropdown-arrow {
                 transform: rotate(180deg);
                 color: #d4a84f;
@@ -677,7 +684,7 @@
 
             li {
                 border-bottom: 1px solid rgba(201, 154, 59, 0.10);
-                
+
                 &:last-child {
                     border-bottom: none;
                 }
@@ -687,11 +694,11 @@
                     min-height: 56px;
                     padding: 8px 0;
                     gap: 14px;
-                    
+
                     .dropdown-icon-wrapper {
                         width: 34px;
                         height: 34px;
-                        
+
                         .dropdown-item-icon {
                             width: 16px;
                             height: 16px;
@@ -710,7 +717,7 @@
 
                     &:hover {
                         background: transparent;
-                        
+
                         .dropdown-arrow-right {
                             transform: none;
                         }
@@ -731,20 +738,22 @@
             &.open .dropdown-menu {
                 padding: 4px 8px;
             }
+
             .dropdown-menu li .dropdown-item-content {
                 min-height: 48px;
                 padding: 6px 0;
                 gap: 12px;
-                
+
                 .dropdown-icon-wrapper {
                     width: 30px;
                     height: 30px;
+
                     .dropdown-item-icon {
                         width: 14px;
                         height: 14px;
                     }
                 }
-                
+
                 .dropdown-text .dropdown-title {
                     font-size: 14px;
                 }
