@@ -90,10 +90,12 @@ export class NavbarComponent implements OnDestroy {
   /** Prevent the page behind the mobile panel from scrolling while it's open. */
   private setBodyScrollLock(locked: boolean) {
     document.body.style.overflow = locked ? 'hidden' : '';
+    document.documentElement.style.overflow = locked ? 'hidden' : '';
   }
 
   ngOnDestroy() {
     this.routerSub?.unsubscribe();
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
   }
 }

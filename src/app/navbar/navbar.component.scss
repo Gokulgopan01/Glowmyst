@@ -534,18 +534,21 @@
         position: fixed;
         top: 0;
         right: -100%;
-        width: min(380px, 92vw);
+
+        width: min(410px, 94vw);
+        padding: 78px 30px 30px;
+        background: #0b0908;
+        border-left: 1px solid rgba(201, 154, 59, 0.25);
+        box-shadow: -18px 0 45px rgba(0, 0, 0, 0.75);
+
         height: 100vh;
-        background: #0B0908;
         display: flex;
         flex-direction: column;
         align-items: stretch;
         justify-content: flex-start;
-        padding: 100px 24px 30px;
         transition: right 0.7s var(--ease-luxury-slow);
         z-index: 1001;
-        border-left: 1px solid var(--nav-border-gold);
-        box-shadow: -20px 0 50px rgba(0, 0, 0, 0.75);
+
         overflow-y: auto;
         overflow-x: hidden;
 
@@ -558,18 +561,22 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 30px;
+        margin-bottom: 38px;
+        padding: 0 4px;
+
 
         .mobile-logo-img {
-            height: 48px;
+            height: 42px;
+            width: auto;
         }
 
         .close-menu-btn {
             background: none;
-            border: 1px solid rgba(201, 154, 59, 0.3);
+            width: 52px;
+            height: 52px;
+            border: 1px solid rgba(201, 154, 59, 0.35);
+            padding: 0;
             border-radius: 50%;
-            width: 44px;
-            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -582,8 +589,8 @@
             }
 
             lucide-icon {
-                width: 24px;
-                height: 24px;
+                width: 22px;
+                height: 22px;
             }
         }
     }
@@ -599,7 +606,7 @@
 
     .nav-item {
         width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.055);
 
         &:last-child {
             border-bottom: none;
@@ -607,10 +614,13 @@
     }
 
     .nav-link {
+        min-height: 88px;
+        padding: 0 10px;
+
         display: flex;
         align-items: center;
         width: 100%;
-        padding: 16px 12px;
+
         color: rgba(255, 255, 255, 0.7);
         text-decoration: none;
         transition: all 0.3s ease;
@@ -621,36 +631,49 @@
         }
 
         .mobile-icon-wrapper {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            margin-right: 20px;
+
             border-radius: 50%;
             border: 1px solid rgba(201, 154, 59, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 16px;
             background: rgba(10, 8, 6, 0.5);
 
             .mobile-nav-icon {
-                width: 18px;
-                height: 18px;
+                width: 20px;
+                height: 20px;
                 color: var(--hero-gold);
             }
         }
 
         .nav-text-span {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 500;
-            letter-spacing: 1.5px;
+            /* IMPORTANT */
+            line-height: 1;
+            letter-spacing: 1.2px;
+
             text-transform: uppercase;
+
+            display: flex;
+            align-items: center;
+
             flex: 1;
+
+            /* prevents Cormorant from looking vertically too tall */
+            transform: translateY(1px);
         }
 
         .mobile-nav-arrow {
-            width: 18px;
-            height: 18px;
-            color: rgba(255, 255, 255, 0.4);
+            width: 17px;
+            height: 17px;
+            color: rgba(255, 255, 255, 0.38);
+            flex-shrink: 0;
         }
 
         &.active {
@@ -667,6 +690,41 @@
             .mobile-nav-arrow {
                 color: var(--hero-gold);
             }
+        }
+    }
+
+    .nav-link.active {
+        min-height: 88px;
+
+        margin: 8px 0;
+
+        padding: 0 10px;
+
+        border-radius: 9px;
+
+        background: rgba(201, 154, 59, 0.075);
+
+        border: 1px solid rgba(201, 154, 59, 0.20);
+
+        .mobile-icon-wrapper {
+            width: 40px;
+            height: 40px;
+
+            background: rgba(201, 154, 59, 0.08);
+
+            border-color: rgba(201, 154, 59, 0.55);
+
+            .mobile-nav-icon {
+                color: var(--hero-gold);
+            }
+        }
+
+        .nav-text-span {
+            color: #e7c777;
+        }
+
+        .mobile-nav-arrow {
+            color: #e7c777;
         }
     }
 
