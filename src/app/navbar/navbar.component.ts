@@ -2,7 +2,7 @@ import { Component, HostListener, HostBinding, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { LucideAngularModule, Search, ChevronDown, Menu, X, RotateCcw, Gem, ShieldCheck, Truck, ChevronRight, Flower2, Landmark, Sparkles } from 'lucide-angular';
+import { LucideAngularModule, Search, ChevronDown, Menu, X, RotateCcw, Gem, ShieldCheck, Truck, ChevronRight, Flower2, Landmark, Sparkles, Home, User, Mail, Award, RefreshCw, Headphones, MessageCircle, Instagram, Facebook, Twitter } from 'lucide-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -30,6 +30,16 @@ export class NavbarComponent implements OnDestroy {
   readonly FlowerIcon = Flower2;
   readonly LandmarkIcon = Landmark;
   readonly SparklesIcon = Sparkles;
+  readonly HomeIcon = Home;
+  readonly UserIcon = User;
+  readonly MailIcon = Mail;
+  readonly AwardIcon = Award;
+  readonly RefreshCwIcon = RefreshCw;
+  readonly HeadphonesIcon = Headphones;
+  readonly MessageCircleIcon = MessageCircle;
+  readonly InstagramIcon = Instagram;
+  readonly FacebookIcon = Facebook;
+  readonly TwitterIcon = Twitter;
 
   private routerSub: Subscription;
 

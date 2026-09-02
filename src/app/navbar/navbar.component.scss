@@ -476,6 +476,19 @@
     }
 }
 
+/* --- Mobile Menu Elements (Hidden on Desktop) --- */
+@media (min-width: 769px) {
+
+    .mobile-menu-header,
+    .mobile-features-panel,
+    .mobile-chat-btn,
+    .mobile-follow-us,
+    .mobile-icon-wrapper,
+    .mobile-nav-arrow {
+        display: none !important;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
         animation: none !important;
@@ -521,75 +534,281 @@
         position: fixed;
         top: 0;
         right: -100%;
-        width: min(340px, 84vw);
+        width: min(380px, 92vw);
         height: 100vh;
-        background: var(--nav-secondary-bg);
+        background: #0B0908;
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         justify-content: flex-start;
-        /* clears the fixed top-banner (32px) + navbar comfortably, with room
-           to spare so the first item never sits under either */
-        padding: 148px 34px 40px;
-        transition: right 1s var(--ease-luxury-slow);
+        padding: 100px 24px 30px;
+        transition: right 0.7s var(--ease-luxury-slow);
         z-index: 1001;
         border-left: 1px solid var(--nav-border-gold);
-        box-shadow: -20px 0 50px rgba(0, 0, 0, 0.55);
+        box-shadow: -20px 0 50px rgba(0, 0, 0, 0.75);
         overflow-y: auto;
+        overflow-x: hidden;
 
         &.mobile-open {
             right: 0;
-
-            .nav-item {
-                opacity: 0;
-                animation: fadeInItem 0.6s var(--ease-luxury) forwards;
-
-                @for $i from 1 through 6 {
-                    &:nth-child(#{$i}) {
-                        animation-delay: #{0.35 + ($i * 0.07)}s;
-                    }
-                }
-            }
-        }
-
-        /* when closing, items should not replay their entrance animation —
-           they simply fade with the panel via opacity below */
-        &:not(.mobile-open) .nav-item {
-            animation: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
     }
 
-    .mobile-close {
-        display: block;
-        position: absolute;
-        top: 48px;
-        right: 22px;
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+
+        .mobile-logo-img {
+            height: 48px;
+        }
+
+        .close-menu-btn {
+            background: none;
+            border: 1px solid rgba(201, 154, 59, 0.3);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--hero-gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba(201, 154, 59, 0.1);
+            }
+
+            lucide-icon {
+                width: 24px;
+                height: 24px;
+            }
+        }
     }
 
     .nav-menu {
+        display: flex;
         flex-direction: column;
-        gap: 26px;
         width: 100%;
-        align-items: flex-start;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
 
-    .nav-link {
-        font-size: 15px;
-        letter-spacing: 1.5px;
+    .nav-item {
         width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
-        &::after {
-            left: 0;
+        &:last-child {
+            border-bottom: none;
         }
     }
 
-    .nav-link.active {
-        animation: none;
+    .nav-link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 16px 12px;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+
+        &::after {
+            display: none;
+        }
+
+        .mobile-icon-wrapper {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 154, 59, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            background: rgba(10, 8, 6, 0.5);
+
+            .mobile-nav-icon {
+                width: 18px;
+                height: 18px;
+                color: var(--hero-gold);
+            }
+        }
+
+        .nav-text-span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        .mobile-nav-arrow {
+            width: 18px;
+            height: 18px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        &.active {
+            background: rgba(201, 154, 59, 0.08);
+            color: var(--hero-gold);
+            border: 1px solid rgba(201, 154, 59, 0.15);
+            margin: 8px 0;
+
+            .mobile-icon-wrapper {
+                background: linear-gradient(145deg, rgba(201, 154, 59, 0.2), rgba(201, 154, 59, 0.05));
+                border-color: rgba(201, 154, 59, 0.5);
+            }
+
+            .mobile-nav-arrow {
+                color: var(--hero-gold);
+            }
+        }
     }
 
-    /* Overlay is always in the DOM; visibility is class-driven so the
-       fade-out plays instead of the element just vanishing. */
+    .dropdown-menu {
+        display: none;
+    }
+
+    /* Features */
+    .mobile-features-panel {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+        padding: 24px 16px;
+        border: 1px solid rgba(201, 154, 59, 0.2);
+        border-radius: 12px;
+        background: rgba(20, 16, 12, 0.4);
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+
+            &:last-child {
+                border-right: none;
+            }
+
+            .feature-icon {
+                width: 24px;
+                height: 24px;
+                color: var(--hero-gold);
+                margin-bottom: 8px;
+            }
+
+            span {
+                font-size: 8px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                color: rgba(255, 255, 255, 0.6);
+                line-height: 1.3;
+            }
+        }
+    }
+
+    /* Chat Button */
+    .mobile-chat-btn {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        background: rgba(20, 16, 12, 0.4);
+        border: 1px solid rgba(201, 154, 59, 0.2);
+        border-radius: 12px;
+        padding: 16px 20px;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+        transition: all 0.3s ease;
+
+        .chat-icon {
+            width: 32px;
+            height: 32px;
+            color: var(--hero-gold);
+            margin-right: 16px;
+        }
+
+        .chat-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .chat-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 1px;
+                color: var(--hero-gold);
+            }
+
+            .chat-subtitle {
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .chat-arrow {
+            width: 18px;
+            height: 18px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    /* Follow Us */
+    .mobile-follow-us {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .follow-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: var(--hero-gold);
+        }
+
+        .follow-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+
+            .social-btn {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                border: 1px solid rgba(201, 154, 59, 0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: rgba(255, 255, 255, 0.6);
+                transition: all 0.3s ease;
+
+                lucide-icon {
+                    width: 16px;
+                    height: 16px;
+                }
+
+                &:hover {
+                    color: var(--hero-gold);
+                    border-color: rgba(201, 154, 59, 0.5);
+                }
+            }
+        }
+    }
+
     .mobile-overlay {
         display: block;
         position: fixed;
@@ -791,6 +1010,7 @@
     display: inline-block;
     white-space: nowrap;
 }
+
 
 @media (max-width: 768px) {
     .top-banner {
