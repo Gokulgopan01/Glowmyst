@@ -110,7 +110,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       const response = await fetch('/assets/Products_json/jeweller_product.json');
       const data: Product[] = await response.json();
       this.featuredEarrings = data
-        .filter(p => p.category === 'Rings')
+        .filter(p => p.category === 'Earrings')
         .slice(0, 5);
     } catch (error) {
       console.error('Error loading featured earrings', error);

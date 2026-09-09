@@ -142,6 +142,88 @@
   </div>
 </section>
 
+<!-- EARRINGS SHOWCASE SECTION -->
+<section class="earrings-showcase-section">
+  <div class="earrings-showcase-inner">
+
+    <!-- Left: Text Content -->
+    <div class="earrings-showcase-text">
+      <div class="earrings-showcase-label">
+        <span class="earrings-label-line"></span>
+        <span class="earrings-label-text">EARRINGS COLLECTION</span>
+      </div>
+      <h2 class="earrings-showcase-heading">
+        Small Details,<br>
+        <span class="earrings-heading-gold">Big Elegance</span>
+      </h2>
+      <p class="earrings-showcase-desc">From timeless studs to statement jhumkas,<br>find earrings that complete your
+        story.</p>
+      <button class="earrings-explore-btn" routerLink="/jewellery">
+        EXPLORE EARRINGS
+        <lucide-icon [img]="ArrowRightIcon" size="16"></lucide-icon>
+      </button>
+
+      <!-- Floral SVG background for bottom left -->
+      <div class="earrings-floral-bg">
+        <img src="assets/home/floral_art.png" alt="floral" *ngIf="false">
+        <!-- Provide a fallback if needed, or CSS background -->
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="floral-svg">
+          <!-- Placeholder for floral art like the image -->
+          <path d="M10,190 Q30,150 80,180 T150,150" stroke="#C99A45" stroke-width="1" fill="none" opacity="0.4" />
+          <path d="M10,190 Q50,130 90,160 T180,120" stroke="#C99A45" stroke-width="0.5" fill="none" opacity="0.3" />
+          <!-- Adding some lotus like leaves -->
+          <path d="M50,180 Q60,150 80,170 Q70,185 50,180" stroke="#C99A45" stroke-width="1" fill="none" opacity="0.6" />
+          <path d="M30,160 Q40,120 70,140 Q50,165 30,160" stroke="#C99A45" stroke-width="0.8" fill="none"
+            opacity="0.5" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Right: Photo Collage / Masonry -->
+    <div class="earrings-showcase-photos" *ngIf="featuredEarrings.length >= 5">
+      <!-- 1. Main Large Image -->
+      <div class="earring-main-card">
+        <div class="earring-image-wrapper earring-main-bg">
+          <div class="earring-overlay"></div>
+        </div>
+      </div>
+
+      <!-- 2. Tall Jhumkas -->
+      <div class="earring-col jhumkas-col">
+        <div class="earring-item jhumkas-item" routerLink="/jewellery">
+          <img [src]="featuredEarrings[1].image" alt="Jhumkas">
+          <div class="earring-overlay"></div>
+          <span class="earring-label">JHUMKAS <lucide-icon [img]="ArrowRightIcon" size="14"></lucide-icon></span>
+        </div>
+      </div>
+
+      <!-- 3. Stacked Studs and Drops -->
+      <div class="earring-col stacked-col">
+        <div class="earring-item studs-item" routerLink="/jewellery">
+          <img [src]="featuredEarrings[2].image" alt="Studs">
+          <div class="earring-overlay"></div>
+          <span class="earring-label">STUDS <lucide-icon [img]="ArrowRightIcon" size="14"></lucide-icon></span>
+        </div>
+        <div class="earring-item drops-item" routerLink="/jewellery">
+          <img [src]="featuredEarrings[3].image" alt="Drops">
+          <div class="earring-overlay"></div>
+          <span class="earring-label">DROPS <lucide-icon [img]="ArrowRightIcon" size="14"></lucide-icon></span>
+        </div>
+      </div>
+
+      <!-- 4. Medium Hoops -->
+      <div class="earring-col hoops-col">
+        <div class="earring-item hoops-item" routerLink="/jewellery">
+          <img [src]="featuredEarrings[4].image" alt="Hoops">
+          <div class="earring-overlay"></div>
+          <span class="earring-label">HOOPS <lucide-icon [img]="ArrowRightIcon" size="14"></lucide-icon></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- JEWELLERY BANNER SECTION -->
 <section class="split-banner-section">
