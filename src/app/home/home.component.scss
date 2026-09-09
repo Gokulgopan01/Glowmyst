@@ -2805,199 +2805,518 @@
 }
 
 /* ==========================================================================
-   SAREE SHOWCASE SECTION
+   SAREE SHOWCASE — DARK LUXURY EDITORIAL
    ========================================================================== */
-.saree-showcase-section {
-  margin-top: 50px;
-  width: 100%;
-  height: 620px;
-  background-color: #080808;
-  background-image: url(/assets/home/saree_section_background.png);
-  overflow: hidden;
-  position: relative;
 
-  // Subtle gold corner ornament
-  &::before {
+.saree-showcase-section {
+  position: relative;
+  width: 100%;
+  min-height: 680px;
+  margin-top: 50px;
+  overflow: hidden;
+
+  background-color: #080808;
+  background-image:
+    linear-gradient(90deg,
+      rgba(8, 8, 8, 0.96) 0%,
+      rgba(8, 8, 8, 0.92) 28%,
+      rgba(8, 8, 8, 0.35) 58%,
+      rgba(8, 8, 8, 0.15) 100%),
+    url('/assets/home/saree_section_background.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* subtle luxury glow */
+  &::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 45% 80% at 10% 50%, rgba(201, 154, 69, 0.06) 0%, transparent 70%);
+    width: 600px;
+    height: 600px;
+    right: -250px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: radial-gradient(circle,
+        rgba(201, 154, 69, 0.08) 0%,
+        rgba(201, 154, 69, 0.025) 35%,
+        transparent 70%);
+
     pointer-events: none;
     z-index: 0;
   }
 }
 
+
+/* ==========================================================================
+   MAIN CONTAINER
+   ========================================================================== */
+
 .saree-showcase-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+
   display: grid;
-  grid-template-columns: 310px 1fr;
-  min-height: 520px;
-  max-width: 1400px;
+
+  /* More space for text */
+  grid-template-columns: 390px minmax(0, 1fr);
+
+  gap: 55px;
+
+  width: min(1400px, calc(100% - 100px));
+  min-height: 680px;
+
   margin: 0 auto;
+
+  align-items: center;
 }
 
-/* LEFT TEXT */
+
+/* ==========================================================================
+   LEFT CONTENT
+   ========================================================================== */
+
 .saree-showcase-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 64px 48px;
-  gap: 20px;
+
+  padding: 50px 0;
+
+  gap: 22px;
+
+  position: relative;
+  z-index: 3;
 }
+
+
+/* SMALL LABEL */
 
 .saree-showcase-label {
   display: flex;
   align-items: center;
-  gap: 12px;
+
+  gap: 14px;
+
+  margin-bottom: 4px;
 }
 
 .saree-label-line {
-  width: 32px;
+  width: 38px;
   height: 1px;
+
   background: var(--hero-gold);
-  display: block;
+
+  box-shadow:
+    0 0 8px rgba(201, 154, 69, 0.4);
+
   flex-shrink: 0;
 }
 
 .saree-label-text {
   font-family: 'Inter', sans-serif;
+
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 2.5px;
+
+  letter-spacing: 3.5px;
+
   color: var(--hero-gold);
+
   text-transform: uppercase;
 }
 
+
+/* ==========================================================================
+   HEADING
+   ========================================================================== */
+
 .saree-showcase-heading {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(34px, 3.5vw, 52px);
-  font-weight: 600;
-  color: #f5ede0;
-  line-height: 1.2;
   margin: 0;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(42px, 4vw, 62px);
+
+  font-weight: 500;
+
+  line-height: 1.02;
+
+  letter-spacing: -1px;
+
+  color: #f5ede0;
+
+  max-width: 430px;
 }
 
 .saree-heading-gold {
+  display: inline-block;
+
   color: var(--hero-gold);
+
   font-style: italic;
+
+  font-weight: 500;
 }
 
+
+/* ==========================================================================
+   DESCRIPTION
+   ========================================================================== */
+
 .saree-showcase-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  line-height: 1.75;
-  color: rgba(255, 245, 220, 0.65);
   margin: 0;
-  max-width: 220px;
+
+  max-width: 330px;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  letter-spacing: 0.2px;
+
+  color: rgba(255, 245, 220, 0.62);
 }
+
+
+/* ==========================================================================
+   EXPLORE BUTTON
+   ========================================================================== */
 
 .saree-explore-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 13px 24px;
-  border: 1px solid var(--hero-gold);
-  background: transparent;
-  color: var(--hero-gold);
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+  justify-content: center;
+
+  gap: 14px;
+
   width: fit-content;
 
+  margin-top: 8px;
+
+  padding: 15px 26px;
+
+  border: 1px solid var(--hero-gold);
+
+  background: rgba(201, 154, 69, 0.04);
+
+  color: var(--hero-gold);
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 1.8px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+
   lucide-icon {
-    transition: transform 0.3s ease;
+    transition: transform 0.35s ease;
   }
 
   &:hover {
     background: var(--hero-gold);
-    color: #000;
+
+    color: #080808;
+
+    box-shadow:
+      0 8px 30px rgba(201, 154, 69, 0.18);
+
+    transform: translateY(-2px);
 
     lucide-icon {
-      transform: translateX(4px);
+      transform: translateX(5px);
     }
   }
 }
 
-/* RIGHT PHOTO STRIPS */
+
+/* ==========================================================================
+   PHOTO AREA
+   ========================================================================== */
+
 .saree-showcase-photos {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-  height: 520px;
+
+  /*
+   * Large first image
+   * Medium second
+   * Medium third
+   * Slightly smaller fourth
+   */
+  grid-template-columns:
+    1.45fr 0.9fr 0.9fr 0.75fr;
+
+  gap: 7px;
+
+  width: 100%;
+
+  height: 590px;
+
   overflow: hidden;
+
+  align-items: stretch;
 }
 
+
+/* ==========================================================================
+   PHOTO STRIP
+   ========================================================================== */
+
 .saree-photo-strip {
-  overflow: hidden;
   position: relative;
 
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #111;
+
+  border: 1px solid rgba(201, 154, 69, 0.15);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.35);
+
+  transition:
+    border-color 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+
   &:first-child {
-    border-radius: 8px 0 0 8px;
+    border-radius: 12px 4px 4px 12px;
   }
 
   &:last-child {
-    border-radius: 0 8px 8px 0;
+    border-radius: 4px 12px 12px 4px;
+  }
+
+  &:hover {
+    border-color: rgba(201, 154, 69, 0.45);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+      0 18px 45px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(201, 154, 69, 0.06);
+  }
+
+  /* dark cinematic overlay */
+  &::after {
+    content: '';
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+      linear-gradient(180deg,
+        rgba(0, 0, 0, 0.03) 45%,
+        rgba(0, 0, 0, 0.28) 100%);
+
+    pointer-events: none;
+
+    z-index: 2;
   }
 }
+
+
+/* ==========================================================================
+   IMAGES
+   ========================================================================== */
 
 .saree-strip-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+
   display: block;
-  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-  animation: sareeStripReveal 0.9s var(--ease-premium) both;
+
+  object-fit: cover;
+
+  /*
+   * Keep faces/models visible
+   */
+  object-position: center top;
+
+  transform: scale(1.01);
+
+  transition:
+    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    filter 0.5s ease;
+
+  animation:
+    sareeStripReveal 1s var(--ease-premium) both;
 
   .saree-photo-strip:hover & {
-    transform: scale(1.06);
+    transform: scale(1.055);
+
+    filter: brightness(1.05);
   }
 }
+
+
+/* ==========================================================================
+   STAGGERED IMAGE ANIMATION
+   ========================================================================== */
+
+.saree-photo-strip:nth-child(1) {
+  .saree-strip-img {
+    animation-delay: 0.05s;
+  }
+}
+
+.saree-photo-strip:nth-child(2) {
+  .saree-strip-img {
+    animation-delay: 0.15s;
+  }
+}
+
+.saree-photo-strip:nth-child(3) {
+  .saree-strip-img {
+    animation-delay: 0.25s;
+  }
+}
+
+.saree-photo-strip:nth-child(4) {
+  .saree-strip-img {
+    animation-delay: 0.35s;
+  }
+}
+
 
 @keyframes sareeStripReveal {
   from {
     opacity: 0;
-    transform: scale(1.08) translateY(12px);
+
+    transform:
+      scale(1.08) translateY(18px);
   }
 
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
+
+    transform:
+      scale(1) translateY(0);
   }
 }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
+
+/* ==========================================================================
+   RESPONSIVE — TABLET
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+
   .saree-showcase-inner {
-    grid-template-columns: 260px 1fr;
-    min-height: 420px;
+    grid-template-columns: 330px minmax(0, 1fr);
+
+    gap: 35px;
+
+    width: min(1100px, calc(100% - 60px));
+  }
+
+  .saree-showcase-heading {
+    font-size: clamp(38px, 4vw, 52px);
   }
 
   .saree-showcase-photos {
-    height: 420px;
-  }
+    height: 540px;
 
-  .saree-showcase-text {
-    padding: 48px 32px;
+    grid-template-columns:
+      1.3fr 0.9fr 0.9fr 0.75fr;
   }
 }
 
-@media (max-width: 768px) {
+
+/* ==========================================================================
+   TABLET
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+  .saree-showcase-section {
+    min-height: 600px;
+  }
+
   .saree-showcase-inner {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    min-height: unset;
+    grid-template-columns: 300px 1fr;
+
+    gap: 25px;
+
+    width: calc(100% - 40px);
+
+    min-height: 600px;
   }
 
   .saree-showcase-text {
-    padding: 48px 24px 32px;
-    gap: 16px;
+    padding: 40px 0;
+  }
+
+  .saree-showcase-heading {
+    font-size: 42px;
+  }
+
+  .saree-showcase-desc {
+    max-width: 270px;
+  }
+
+  .saree-showcase-photos {
+    height: 500px;
+
+    gap: 5px;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .saree-showcase-section {
+    min-height: auto;
+
+    margin-top: 30px;
+
+    background-position: center;
+  }
+
+  .saree-showcase-inner {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    min-height: auto;
+
+    gap: 20px;
+
+    padding: 0 20px;
+  }
+
+  .saree-showcase-text {
+    padding: 55px 5px 20px;
+
+    gap: 18px;
+  }
+
+  .saree-showcase-heading {
+    max-width: 500px;
+
+    font-size: clamp(40px, 10vw, 52px);
   }
 
   .saree-showcase-desc {
@@ -3005,22 +3324,70 @@
   }
 
   .saree-showcase-photos {
-    height: 360px;
-    gap: 4px;
-  }
-}
+    width: 100%;
 
-@media (max-width: 480px) {
-  .saree-showcase-photos {
-    height: 300px;
-    gap: 3px;
+    height: 420px;
+
+    grid-template-columns:
+      1.35fr 0.9fr 0.9fr;
+
+    gap: 5px;
   }
 
   .saree-photo-strip:nth-child(4) {
     display: none;
   }
+}
+
+
+/* ==========================================================================
+   SMALL MOBILE
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+  .saree-showcase-inner {
+    padding: 0 15px;
+  }
+
+  .saree-showcase-text {
+    padding-top: 45px;
+  }
+
+  .saree-showcase-heading {
+    font-size: 38px;
+
+    line-height: 1.05;
+  }
+
+  .saree-showcase-desc {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+  .saree-explore-btn {
+    padding: 14px 20px;
+
+    font-size: 10px;
+  }
 
   .saree-showcase-photos {
-    grid-template-columns: repeat(3, 1fr);
+    height: 330px;
+
+    grid-template-columns:
+      1.25fr 0.9fr 0.9fr;
+
+    gap: 4px;
+  }
+
+  .saree-photo-strip {
+    &:first-child {
+      border-radius: 8px 3px 3px 8px;
+    }
+
+    &:last-child {
+      border-radius: 3px 8px 8px 3px;
+    }
   }
 }
