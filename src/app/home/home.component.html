@@ -110,154 +110,38 @@
   </div>
 </section>
 
-<!-- EARRINGS TRY-ON SECTION -->
-<section class="tryon-section">
-  <div class="tryon-container">
 
-    <!-- Left Column: Model Area -->
-    <div class="tryon-left-model">
-      <div class="tryon-model-frame">
-        <img [src]="tryOnModelImage" alt="Model wearing earrings" class="tryon-model-img">
-        <div class="tryon-overlay-wrapper" #earOverlayTarget [class.tryon-crossfade]="tryOnAnimating"
-          [class.tryon-landed]="tryOnLanded">
-          <img *ngIf="selectedTryOnProduct" [src]="selectedTryOnProduct.image" alt="Earring Overlay"
-            class="tryon-overlay-img">
-        </div>
+<!-- SAREE SHOWCASE SECTION -->
+<section class="saree-showcase-section">
+  <div class="saree-showcase-inner">
+
+    <!-- Left: Text Content -->
+    <div class="saree-showcase-text">
+      <div class="saree-showcase-label">
+        <span class="saree-label-line"></span>
+        <span class="saree-label-text">EXQUISITE SAREES</span>
       </div>
-    </div>
-
-    <!-- Right Column: Content & Selector -->
-    <div class="tryon-right-content">
-      <div class="tryon-trynow-header">
-        <button class="tryon-nav-btn prev-btn" (click)="prevTryOnCarousel()">
-          <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
-        </button>
-
-        <div class="tryon-trynow-title-wrapper">
-          <span class="tryon-trynow-text">Try Now</span>
-          <div class="tryon-trynow-line-wrapper">
-            <span class="tryon-trynow-line"></span>
-            <span class="tryon-trynow-diamond">◆</span>
-            <span class="tryon-trynow-line"></span>
-          </div>
-        </div>
-
-        <button class="tryon-nav-btn next-btn" (click)="nextTryOnCarousel()">
-          <lucide-icon [img]="ChevronRightIcon" class="icon"></lucide-icon>
-        </button>
-      </div>
-
-      <div class="tryon-carousel-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
-        <div class="tryon-carousel-viewport">
-          <app-depth-carousel #depthCarousel [showControls]="false" [items]="tryOnProductsForCarousel"
-            (onChange)="onTryOnChange($event)" [cardWidth]="250" [cardHeight]="400" [radius]="12" [depth]="80"
-            [spread]="270" [tilt]="0" [perspective]="1200" [visibleCards]="2" [duration]="800"
-            ease="cubic-bezier(0.16, 1, 0.3, 1)">
-
-            <ng-template let-item let-i="index" let-active="active" let-distance="distance">
-              <div class="tryon-card-inner" [class.active]="active" [class.inactive]="!active">
-                <div class="tryon-card-img-wrapper">
-                  <img [src]="item.image" [alt]="item.title || item.name" class="tryon-card-img">
-                </div>
-
-                <div class="tryon-card-info">
-                  <h4 class="tryon-card-name">{{ item.title || item.name }}</h4>
-                  <div class="tryon-card-price">{{ item.subtitle || item.price || '₹1,299' }}</div>
-
-                  <!-- Using routerLink or an empty click handler for Buy Now since there isn't a known handler yet -->
-                  <button class="tryon-buy-btn" routerLink="/jewellery">
-                    Buy Now
-                    <lucide-icon [img]="ShoppingBagIcon" class="buy-bag-icon" size="14"></lucide-icon>
-                  </button>
-                </div>
-              </div>
-            </ng-template>
-
-          </app-depth-carousel>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- LOVED BY CELEBRITIES SECTION -->
-<section class="celebrity-section">
-  <div class="celebrity-banner">
-    <div class="celebrity-content new-edition-content">
-      <div class="special-edition-wrapper">
-        <span class="se-line"></span>
-        <!-- <span class="se-text">SPECIAL EDITION</span> -->
-        <span class="se-line"></span>
-      </div>
-      <h2 class="ethereal-title">
-        <span class="ethereal-caps">ETHEREAL</span><br>
-        <span class="elegance-script">Elegance</span>
+      <h2 class="saree-showcase-heading">
+        Timeless Drapes,<br>
+        <span class="saree-heading-gold">Endless Grace</span>
       </h2>
-      <p class="timeless-text">For the moments that<br>deserve to be timeless.</p>
-      <button class="discover-btn" routerLink="/sarees">
-        DISCOVER COLLECTION
+      <p class="saree-showcase-desc">Discover handcrafted sarees that celebrate tradition, elegance and you.</p>
+      <button class="saree-explore-btn" routerLink="/sarees">
+        EXPLORE SAREE COLLECTION
+        <lucide-icon [img]="ArrowRightIcon" size="16"></lucide-icon>
       </button>
     </div>
+
+    <!-- Right: Vertical Photo Strips -->
+    <div class="saree-showcase-photos" *ngIf="sareeImages.length > 0">
+      <div class="saree-photo-strip" *ngFor="let img of sareeImages; let i = index">
+        <img [src]="img" alt="Saree {{i + 1}}" class="saree-strip-img" [style.animation-delay]="(i * 0.12) + 's'">
+      </div>
+    </div>
+
   </div>
 </section>
 
-
-<!-- TRENDING NOW SECTION -->
-<section class="trending-section">
-  <!-- Cut-out Heading style matching the image -->
-  <div class="trending-heading-wrapper">
-    <div class="heading-line-left"></div>
-    <div class="heading-content">
-      <!-- <svg class="heading-ornament" width="24" height="12" viewBox="0 0 24 12" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
-      </svg> -->
-      <h2 class="category-title">TRENDING SAREES</h2>
-      <!-- <svg class="heading-ornament" width="24" height="12" viewBox="0 0 24 12" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0L14 4L24 6L14 8L12 12L10 8L0 6L10 4L12 0Z" fill="rgba(201,154,69,0.8)" />
-      </svg> -->
-    </div>
-    <div class="heading-line-right"></div>
-  </div>
-
-  <div class="trending-grid">
-    <div *ngFor="let product of trendingProducts" class="product-card">
-      <div class="product-image-container">
-        <span *ngIf="product.badge" class="product-badge">{{ product.badge }}</span>
-        <!-- <button class="wishlist-btn" aria-label="Add to Wishlist">
-          <lucide-icon [img]="HeartIcon" class="heart-icon"></lucide-icon>
-        </button> -->
-        <img [src]="product.image" [alt]="product.name" class="product-image">
-      </div>
-      <div class="product-info">
-        <div class="title-rating-row">
-          <h3 class="product-name">{{ product.name }}</h3>
-          <div class="product-rating">
-            <lucide-icon [img]="StarIcon" class="star-icon" size="14"></lucide-icon>
-            <span class="rating-value">{{ product.rating | number:'1.1-1' }}</span>
-          </div>
-        </div>
-        <div class="product-pricing">
-          <span class="current-price">₹{{ product.price | number:'1.0-0' }}</span>
-          <span class="original-price">₹{{ product.originalPrice | number:'1.0-0' }}</span>
-        </div>
-        <button class="buy-now-btn" routerLink="/sarees">
-          <lucide-icon [img]="ShoppingBagIcon" class="bag-icon" size="14"></lucide-icon>
-          BUY NOW
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="view-all-container">
-    <button class="view-all-btn" routerLink="/sarees">
-      VIEW ALL
-      <lucide-icon [img]="ArrowRightIcon" class="arrow-icon" size="16"></lucide-icon>
-    </button>
-  </div>
-</section>
 
 <!-- JEWELLERY BANNER SECTION -->
 <section class="split-banner-section">
