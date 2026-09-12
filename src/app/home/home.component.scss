@@ -3402,121 +3402,151 @@
 
 .earrings-showcase-section {
   position: relative;
-  background-color: var(--hero-bg, #0A0807);
-  padding: 80px 0;
+  background: #090706;
+  padding: 70px 0;
   overflow: hidden;
 }
 
 .earrings-showcase-inner {
   max-width: 1400px;
+  height: 560px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 60px);
+  padding: 0 clamp(20px, 4vw, 60px);
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(40px, 6vw, 100px);
+
+  position: relative;
 }
 
-/* Left: Text Content */
 .earrings-showcase-text {
-  flex: 1;
-  max-width: 500px;
+  width: 47%;
+  max-width: 560px;
   position: relative;
-  z-index: 2;
+  z-index: 5;
+  padding-left: 5px;
 }
 
 .earrings-showcase-label {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 14px;
+  margin-bottom: 18px;
 }
 
 .earrings-label-line {
-  width: 40px;
+  width: 34px;
   height: 1px;
-  background-color: var(--hero-gold, #C99A45);
+  background: #c99a45;
 }
 
 .earrings-label-text {
-  color: var(--hero-gold, #C99A45);
+  color: #c99a45;
   font-family: "Inter", sans-serif;
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
+
 .earrings-showcase-heading {
+  margin: 0 0 18px;
+
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(40px, 4.5vw, 64px);
+  font-size: clamp(42px, 4.3vw, 62px);
   font-weight: 400;
-  line-height: 1.1;
-  color: #F5E5C5;
-  margin-bottom: 24px;
+  line-height: 0.98;
+
+  color: #f4e8d2;
 }
 
 .earrings-heading-gold {
-  color: var(--hero-gold, #C99A45);
+  color: #c99a45;
 }
 
 .earrings-showcase-desc {
-  font-family: "Inter", sans-serif;
-  font-size: clamp(14px, 1.2vw, 16px);
-  color: rgba(245, 228, 194, 0.7);
-  line-height: 1.6;
-  margin-bottom: 40px;
-}
+  margin: 0 0 28px;
 
-.earrings-explore-btn {
-  background: transparent;
-  border: 1px solid rgba(201, 154, 69, 0.5);
-  border-radius: 4px;
-  padding: 14px 28px;
-  color: #f5f5f5;
   font-family: "Inter", sans-serif;
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
+  line-height: 1.6;
+
+  color: rgba(245, 232, 210, 0.62);
+}
+
+
+.earrings-explore-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: 10px 14px;
+
+  background: transparent;
+  border: 1px solid rgba(201, 154, 69, 0.55);
+  border-radius: 2px;
+
+  color: #eee7da;
+
+  font-family: "Inter", sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .earrings-explore-btn:hover {
-  background: rgba(201, 154, 69, 0.1);
-  border-color: var(--hero-gold, #C99A45);
+  background: rgba(201, 154, 69, 0.08);
+  border-color: #c99a45;
+}
+
+.earrings-explore-btn lucide-icon {
+  color: #c99a45;
 }
 
 .earrings-floral-bg {
   position: absolute;
-  bottom: -150px;
-  left: -100px;
-  width: 300px;
-  height: 300px;
+
+  left: -70px;
+  bottom: -120px;
+
+  width: 260px;
+  height: 260px;
+
+  opacity: 0.55;
+
   z-index: -1;
   pointer-events: none;
 }
 
-/* Right: Masonry */
+
 .earrings-showcase-photos {
-  flex: 1.5;
-  display: flex;
-  gap: 16px;
-  height: clamp(400px, 60vh, 600px);
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 61%;
+  height: 100%;
+
+  display: block;
 }
 
 .earring-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+
+  inset: 0;
+
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.02) 35%,
+      rgba(0, 0, 0, 0.78) 100%);
+
   z-index: 1;
 }
+
 
 .earring-image-wrapper {
   position: relative;
@@ -3532,75 +3562,199 @@
   transition: transform 0.6s ease;
 }
 
+
 .earring-main-card {
-  flex: 0 0 35%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 54%;
   height: 100%;
-  border-radius: 140px 12px 12px 12px;
+
   overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(201, 154, 69, 0.2);
+
+  border-radius: 150px 0 0 0;
+  border: none;
+
+  z-index: 1;
+}
+
+.earring-main-bg {
+  width: 100%;
+  height: 100%;
+
+  background-image: url('/assets/home/earings_model.jpeg');
+  background-size: cover;
+  background-position: center top;
+
+  transition: transform 0.6s ease;
+}
+
+.earring-main-card:hover .earring-main-bg {
+  transform: scale(1.025);
+}
+
+.earring-main-card .earring-overlay {
+  display: none;
 }
 
 .earring-col {
+  position: absolute;
+
+  top: 0;
+
   display: flex;
   flex-direction: column;
-  gap: 16px;
+
+  gap: 6px;
+
+  z-index: 3;
 }
+
+
+
+/* JHUMKAS */
 
 .jhumkas-col {
-  flex: 0 0 20%;
+  left: 54.7%;
+  width: 14%;
+  height: 100%;
 }
+
+
+/* STUDS + DROPS */
 
 .stacked-col {
-  flex: 0 0 20%;
+  left: 69%;
+  width: 14%;
+  height: 100%;
 }
 
+
+/* HOOPS */
+
 .hoops-col {
-  flex: 0 0 20%;
-  justify-content: center;
+  left: 83.3%;
+  width: 14%;
+  height: 100%;
 }
+
 
 .earring-item {
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(201, 154, 69, 0.2);
-  cursor: pointer;
+
   width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 3px;
+  border: 1px solid rgba(201, 154, 69, 0.25);
+
+  cursor: pointer;
 }
 
-.earring-item:hover img,
-.earring-main-card:hover img {
-  transform: scale(1.05);
+.earring-item img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.earring-item:hover img {
+  transform: scale(1.04);
 }
 
 .jhumkas-item {
   height: 100%;
 }
 
+.stacked-col {
+  gap: 6px;
+}
+
 .studs-item,
 .drops-item {
-  height: calc(50% - 8px);
+  height: calc(50% - 3px);
 }
 
 .hoops-item {
-  height: 70%;
+  height: 100%;
 }
+
 
 .earring-label {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
+
+  left: 9px;
+  right: 9px;
+  bottom: 9px;
+
   z-index: 2;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
   color: #fff;
+
   font-family: "Inter", sans-serif;
-  font-size: 11px;
+  font-size: 7px;
   font-weight: 500;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.3px;
+}
+
+
+.earring-label lucide-icon {
+  color: #d4af67;
+}
+
+.jhumkas-item {
+  height: 100%;
+}
+
+.stacked-col {
+  gap: 6px;
+}
+
+.studs-item,
+.drops-item {
+  height: calc(50% - 3px);
+}
+
+.hoops-item {
+  height: 100%;
+}
+
+
+@media (min-width: 1200px) {
+
+  .earrings-showcase-photos {
+    right: 0;
+  }
+
+  .earring-main-card {
+    width: 67%;
+  }
+
+  .jhumkas-col {
+    left: 66%;
+    width: 15%;
+  }
+
+  .stacked-col {
+    left: 81.5%;
+    width: 15%;
+  }
+
+  .hoops-col {
+    left: 97%;
+    width: 15%;
+  }
 }
 
 @media (max-width: 1024px) {
