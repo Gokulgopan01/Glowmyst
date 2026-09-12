@@ -70,7 +70,7 @@
 </section>
 
 <!-- SIGNATURE JEWELRY VERTICAL CAROUSEL -->
-<section class="signature-carousel-section" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+<section #animatedElement class="reveal-section signature-carousel-section" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
   <!-- Background Image with Overlay -->
   <div class="sig-bg-layer">
     <div class="sig-bg-overlay"></div>
@@ -112,7 +112,7 @@
 
 
 <!-- SAREE SHOWCASE SECTION -->
-<section class="saree-showcase-section">
+<section #animatedElement class="reveal-section saree-showcase-section">
   <div class="saree-showcase-inner">
 
     <!-- Left: Text Content -->
@@ -143,7 +143,7 @@
 </section>
 
 <!-- EARRINGS SHOWCASE SECTION -->
-<section class="earrings-showcase-section">
+<section #animatedElement class="reveal-section earrings-showcase-section">
   <div class="earrings-showcase-inner">
 
     <!-- Left: Text Content -->
@@ -226,7 +226,7 @@
 
 
 <!-- JEWELLERY BANNER SECTION -->
-<section class="split-banner-section">
+<section #animatedElement class="reveal-section split-banner-section">
   <div class="split-banner">
     <div class="split-content">
       <div class="split-tag">
@@ -281,7 +281,7 @@
   </div>
 </section>
 
-<section class="featured-necklaces-section">
+<section #animatedElement class="reveal-section featured-necklaces-section">
   <div class="featured-necklaces-grid">
     <div *ngFor="let product of featuredNecklaces" class="featured-necklace-card">
       <div class="fn-image-container">
@@ -298,7 +298,7 @@
 </section>
 
 <!-- BANGLES BANNER SECTION -->
-<section class="split-banner-section reverse">
+<section #animatedElement class="reveal-section split-banner-section reverse">
   <div class="split-banner reverse">
     <div class="split-content">
       <div class="split-tag">
@@ -360,7 +360,7 @@
   </div>
 </section>
 
-<section class="featured-necklaces-section">
+<section #animatedElement class="reveal-section featured-necklaces-section">
   <div class="featured-necklaces-grid">
     <div *ngFor="let product of featuredBangles" class="featured-necklace-card">
       <div class="fn-image-container">
@@ -376,7 +376,7 @@
 </section>
 
 <!-- RINGS BANNER SECTION -->
-<section class="split-banner-section">
+<section #animatedElement class="reveal-section split-banner-section">
   <div class="split-banner">
     <div class="split-content">
       <div class="split-tag">
@@ -439,7 +439,7 @@
 </section>
 
 <!-- EARRINGS GRID SECTION -->
-<section class="featured-necklaces-section">
+<section #animatedElement class="reveal-section featured-necklaces-section">
   <div class="featured-necklaces-grid">
     <div *ngFor="let product of featuredEarrings" class="featured-necklace-card">
       <div class="fn-image-container">
@@ -455,7 +455,7 @@
 </section>
 
 <!-- EXQUISITE JEWELLERY BANNER SECTION -->
-<section class="split-banner-section reverse">
+<section #animatedElement class="reveal-section split-banner-section reverse">
   <div class="split-banner reverse">
     <div class="split-content">
       <div class="split-tag">
@@ -518,7 +518,7 @@
 </section>
 
 <!-- EXQUISITE JEWELLERY GRID SECTION -->
-<section class="featured-necklaces-section">
+<section #animatedElement class="reveal-section featured-necklaces-section">
   <div class="featured-necklaces-grid">
     <div *ngFor="let product of jewelleryProducts" class="featured-necklace-card">
       <div class="fn-image-container">
@@ -534,7 +534,7 @@
 </section>
 
 <!-- REVIEWS SECTION -->
-<section class="reviews-section">
+<section #animatedElement class="reveal-section reviews-section">
   <div class="reviews-header-container">
     <div class="reviews-header-left">
       <div class="reviews-tag">REAL WOMEN, REAL MOMENTS.</div>
@@ -599,7 +599,7 @@
 </section>
 
 <!-- COMMUNITY SECTION -->
-<section class="community-section">
+<section #animatedElement class="reveal-section community-section">
   <div class="community-header">
     <!-- <div class="community-dots">
       <span></span><span></span><span></span>
@@ -632,7 +632,7 @@
 </section>
 
 <!-- Chat Banner Section -->
-<section class="chat-banner-section">
+<section #animatedElement class="reveal-section chat-banner-section">
   <div class="chat-banner-bg">
     <img src="assets/chat_banner_bg.png" alt="Chat Banner Background">
     <div class="chat-banner-overlay"></div>
