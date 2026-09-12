@@ -3568,7 +3568,8 @@
   top: 0;
   left: 0;
 
-  width: 54%;
+  width: 42%;
+  /* was 54% — narrower so it doesn't sit under the side columns */
   height: 100%;
 
   overflow: hidden;
@@ -3601,44 +3602,45 @@
 .earring-col {
   position: absolute;
 
-  top: 0;
-
   display: flex;
   flex-direction: column;
 
   gap: 6px;
 
   z-index: 3;
+  /* top/height now set per-column below, not fixed to 0/100% */
 }
 
 
 
-/* JHUMKAS */
 
+/* JHUMKAS — tall card, starts a bit down from the top */
 .jhumkas-col {
-  left: 54.7%;
-  width: 14%;
-  height: 100%;
+  left: 44%;
+  width: 16%;
+  top: 17%;
+  height: 68%;
 }
 
 
-/* STUDS + DROPS */
-
+/* STUDS + DROPS — stacked pair, spans taller than jhumkas alone */
 .stacked-col {
-  left: 69%;
-  width: 14%;
-  height: 100%;
+  left: 62%;
+  width: 16%;
+  top: 11%;
+  height: 79%;
+  gap: 6px;
 }
 
 
-/* HOOPS */
 
+/* HOOPS — shortest, starts lowest/most offset */
 .hoops-col {
-  left: 83.3%;
-  width: 14%;
-  height: 100%;
+  left: 80%;
+  width: 16%;
+  top: 31%;
+  height: 50%;
 }
-
 
 .earring-item {
   position: relative;
@@ -3738,22 +3740,22 @@
   }
 
   .earring-main-card {
-    width: 67%;
+    width: 42%;
   }
 
   .jhumkas-col {
-    left: 66%;
-    width: 15%;
+    left: 44%;
+    width: 16%;
   }
 
   .stacked-col {
-    left: 81.5%;
-    width: 15%;
+    left: 62%;
+    width: 16%;
   }
 
   .hoops-col {
-    left: 97%;
-    width: 15%;
+    left: 80%;
+    width: 16%;
   }
 }
 
