@@ -62,6 +62,10 @@ export interface DepthCarouselItem {
     </div>
   `,
   styles: [`
+    :host {
+      display: block;
+      width: 100%;
+    }
     .depth-carousel-container {
       position: relative;
       width: 100%;
@@ -182,8 +186,25 @@ export interface DepthCarouselItem {
     }
     
     @media (max-width: 768px) {
-      .prev-btn { left: calc(50% - 60px); bottom: -45px; }
-      .next-btn { right: calc(50% - 60px); bottom: -45px; }
+      .nav-button {
+        width: 40px !important;
+        height: 40px !important;
+        bottom: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        z-index: 100 !important;
+      }
+      .nav-button:active {
+        transform: translateY(-50%) scale(0.94) !important;
+      }
+      .nav-button svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+      .prev-btn { left: 0px !important; }
+      .next-btn { right: 0px !important; }
     }
   `]
 })
