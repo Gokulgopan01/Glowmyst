@@ -536,7 +536,7 @@
         right: -100%;
 
         width: min(410px, 94vw);
-        padding: 78px 30px 30px;
+        padding: 34px 24px 24px;
         background: #0b0908;
         border-left: 1px solid rgba(201, 154, 59, 0.25);
         box-shadow: -18px 0 45px rgba(0, 0, 0, 0.75);
@@ -561,19 +561,19 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 38px;
+        margin-bottom: 24px;
         padding: 0 4px;
 
 
         .mobile-logo-img {
-            height: 42px;
+            height: 82px;
             width: auto;
         }
 
         .close-menu-btn {
             background: none;
-            width: 52px;
-            height: 52px;
+            width: 42px;
+            height: 42px;
             border: 1px solid rgba(201, 154, 59, 0.35);
             padding: 0;
             border-radius: 50%;
@@ -589,8 +589,13 @@
             }
 
             lucide-icon {
-                width: 22px;
-                height: 22px;
+                width: 19px;
+                height: 19px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                line-height: 0;
             }
         }
     }
@@ -614,8 +619,8 @@
     }
 
     .nav-link {
-        min-height: 88px;
-        padding: 0 10px;
+        min-height: 58px;
+        padding: 0 6px;
 
         display: flex;
         align-items: center;
@@ -631,10 +636,10 @@
         }
 
         .mobile-icon-wrapper {
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            margin-right: 20px;
+            width: 28px;
+            height: 28px;
+            min-width: 32px;
+            margin-right: 14px;
 
             border-radius: 50%;
             border: 1px solid rgba(201, 154, 59, 0.2);
@@ -644,19 +649,23 @@
             background: rgba(10, 8, 6, 0.5);
 
             .mobile-nav-icon {
-                width: 20px;
-                height: 20px;
-                color: var(--hero-gold);
+                width: 17px;
+                height: 17px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                line-height: 0;
             }
         }
 
         .nav-text-span {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 17px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
             font-weight: 500;
-            /* IMPORTANT */
+            /* Compact mobile navigation */
             line-height: 1;
-            letter-spacing: 1.2px;
+            letter-spacing: 0.5px;
 
             text-transform: uppercase;
 
@@ -670,8 +679,8 @@
         }
 
         .mobile-nav-arrow {
-            width: 17px;
-            height: 17px;
+            width: 15px;
+            height: 15px;
             color: rgba(255, 255, 255, 0.38);
             flex-shrink: 0;
         }
@@ -680,7 +689,7 @@
             background: rgba(201, 154, 59, 0.08);
             color: var(--hero-gold);
             border: 1px solid rgba(201, 154, 59, 0.15);
-            margin: 8px 0;
+            margin: 0;
 
             .mobile-icon-wrapper {
                 background: linear-gradient(145deg, rgba(201, 154, 59, 0.2), rgba(201, 154, 59, 0.05));
@@ -694,11 +703,11 @@
     }
 
     .nav-link.active {
-        min-height: 88px;
+        min-height: 58px;
 
-        margin: 8px 0;
+        margin: 0;
 
-        padding: 0 10px;
+        padding: 0 6px;
 
         border-radius: 9px;
 
@@ -707,8 +716,8 @@
         border: 1px solid rgba(201, 154, 59, 0.20);
 
         .mobile-icon-wrapper {
-            width: 40px;
-            height: 40px;
+            width: 28px;
+            height: 28px;
 
             background: rgba(201, 154, 59, 0.08);
 
@@ -736,8 +745,8 @@
     .mobile-features-panel {
         display: flex;
         justify-content: space-between;
-        margin-top: 32px;
-        padding: 24px 16px;
+        margin-top: 20px;
+        padding: 18px 12px;
         border: 1px solid rgba(201, 154, 59, 0.2);
         border-radius: 12px;
         background: rgba(20, 16, 12, 0.4);
@@ -755,10 +764,10 @@
             }
 
             .feature-icon {
-                width: 24px;
-                height: 24px;
+                width: 20px;
+                height: 20px;
                 color: var(--hero-gold);
-                margin-bottom: 8px;
+                margin-bottom: 6px;
             }
 
             span {
@@ -773,23 +782,23 @@
 
     /* Chat Button */
     .mobile-chat-btn {
-        margin-top: 24px;
+        margin-top: 16px;
         display: flex;
         align-items: center;
         background: rgba(20, 16, 12, 0.4);
         border: 1px solid rgba(201, 154, 59, 0.2);
         border-radius: 12px;
-        padding: 16px 20px;
+        padding: 12px 16px;
         cursor: pointer;
         width: 100%;
         text-align: left;
         transition: all 0.3s ease;
 
         .chat-icon {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             color: var(--hero-gold);
-            margin-right: 16px;
+            margin-right: 12px;
         }
 
         .chat-text {
@@ -798,10 +807,10 @@
             flex-direction: column;
 
             .chat-title {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 16px;
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
                 font-weight: 500;
-                letter-spacing: 1px;
+                letter-spacing: 0.5px;
                 color: var(--hero-gold);
             }
 
@@ -820,15 +829,15 @@
 
     /* Follow Us */
     .mobile-follow-us {
-        margin-top: 40px;
+        margin-top: 24px;
         margin-bottom: 20px;
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 12px;
 
         .follow-label {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
             letter-spacing: 2px;
             color: var(--hero-gold);
         }
@@ -841,11 +850,11 @@
 
         .social-icons {
             display: flex;
-            gap: 12px;
+            gap: 8px;
 
             .social-btn {
-                width: 36px;
-                height: 36px;
+                width: 32px;
+                height: 32px;
                 border-radius: 50%;
                 border: 1px solid rgba(201, 154, 59, 0.2);
                 display: flex;
@@ -968,23 +977,23 @@
 
                 .dropdown-item-content {
                     height: auto;
-                    min-height: 56px;
-                    padding: 8px 0;
-                    gap: 14px;
+                    min-height: 44px;
+                    padding: 5px 0;
+                    gap: 10px;
 
                     .dropdown-icon-wrapper {
-                        width: 34px;
-                        height: 34px;
+                        width: 28px;
+                        height: 28px;
 
                         .dropdown-item-icon {
-                            width: 16px;
-                            height: 16px;
+                            width: 14px;
+                            height: 14px;
                         }
                     }
 
                     .dropdown-text .dropdown-title {
-                        font-size: 15px;
-                        letter-spacing: 1.2px;
+                        font-size: 14px;
+                        letter-spacing: 0.5px;
                     }
 
                     .dropdown-arrow-right {
@@ -1007,7 +1016,7 @@
             max-height: 350px;
             opacity: 1;
             visibility: visible;
-            margin-top: 12px;
+            margin-top: 8px;
             padding: 4px 12px;
         }
 
