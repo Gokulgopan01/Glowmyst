@@ -31,8 +31,10 @@ $overlay-bg: rgba(0, 0, 0, 0.72);
   width: 100%;
   height: 450px;
   background: $bg-black;
+  height: min(850px, 90vh);
   display: flex;
   flex-direction: column;
+  isolation: isolate;
 }
 
 .hero-bg-effects {
