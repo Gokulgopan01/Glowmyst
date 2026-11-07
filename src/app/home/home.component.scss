@@ -46,29 +46,17 @@
   height: 100%;
   opacity: 0;
   pointer-events: none;
-  transform: scale(1.08);
-  transition: opacity 2s ease-in-out, transform 2.5s ease-in-out;
+  z-index: 1;
+  transform: scale(1.04) translateX(24px);
+  transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
   overflow: hidden;
 
   &.active {
     opacity: 1;
     pointer-events: auto;
-    transform: scale(1);
     z-index: 2;
-
-    .slide-bg {
-      animation: heroDrift 9s var(--ease-soft) forwards;
-    }
-  }
-}
-
-@keyframes heroDrift {
-  0% {
     transform: scale(1) translateX(0);
-  }
-
-  100% {
-    transform: scale(1.08) translateX(-1.5%);
   }
 }
 
@@ -367,33 +355,47 @@
     border-color 0.3s ease,
     transform 0.35s ease;
 
-  /* Sweeping gold background */
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-
-    background: linear-gradient(90deg,
-        #d3a45c 0%,
-        #c99a45 100%);
-
+    background: linear-gradient(90deg, #d3a45c 0%, #c99a45 100%);
     transform: scaleX(0);
     transform-origin: left center;
-
     z-index: -1;
-
-    transition:
-      transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+    transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
   }
 
+  // Lucide icon alignment
   .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     width: 16px;
     height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    line-height: 0;
+
+    color: currentColor;
     stroke-width: 1.5px;
 
     transition:
       transform 0.35s ease,
       color 0.35s ease;
+
+    svg {
+      display: block;
+      width: 16px !important;
+      height: 16px !important;
+      margin: 0;
+      flex-shrink: 0;
+    }
   }
 
   &:hover {
@@ -410,28 +412,23 @@
     }
   }
 
-  /* --------------------------------
-     PRIMARY BUTTON
-     -------------------------------- */
-
+  /* PRIMARY BUTTON */
   &.primary {
     background: transparent;
     border: 1px solid #c99a45;
-    color: #0a0605; /* Dark text on gold */
+    color: #0a0605;
     box-shadow: 0 4px 12px rgba(211, 164, 92, 0.15);
 
-    /* Make it gold by default using the pseudo element */
     &::before {
       transform: scaleX(1);
       transform-origin: right center;
     }
 
     &:hover {
-      color: #f5f5f5; /* Light text on transparent */
+      color: #f5f5f5;
       border-color: #c99a45;
       box-shadow: 0 8px 24px rgba(211, 164, 92, 0.25);
 
-      /* Sweep out to transparent */
       &::before {
         transform: scaleX(0);
         transform-origin: right center;
@@ -439,16 +436,12 @@
     }
   }
 
-  /* --------------------------------
-     SECONDARY BUTTON
-     -------------------------------- */
-
+  /* SECONDARY BUTTON */
   &.secondary {
     background: transparent;
     border: 1px solid rgba(201, 154, 69, 0.75);
-    color: #f5f5f5; /* Light text on transparent */
-    
-    /* Sweep in to gold */
+    color: #f5f5f5;
+
     &::before {
       transform: scaleX(0);
       transform-origin: left center;
@@ -456,7 +449,7 @@
 
     &:hover {
       background: transparent;
-      color: #0a0605; /* Dark text on gold */
+      color: #0a0605;
       border-color: #d3a45c;
 
       &::before {
@@ -743,14 +736,12 @@
 
 .sig-shop-btn {
   position: relative;
-
   height: 46px;
   padding: 0 24px;
 
   background: transparent;
   border: 1px solid rgba(201, 154, 69, 0.7);
   border-radius: 2px;
-
   color: #f4e8d2;
 
   font-family: 'Inter', sans-serif;
@@ -761,22 +752,19 @@
 
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
 
   cursor: pointer;
   overflow: hidden;
   isolation: isolate;
 
-  transition:
-    color 0.35s ease,
-    border-color 0.35s ease;
+  transition: color 0.35s ease, border-color 0.35s ease;
 
-  /* sweeping fill layer */
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     background: var(--hero-gold);
@@ -793,15 +781,37 @@
       transform: scaleX(1);
     }
 
-    .icon {
+    lucide-icon {
       transform: translateX(4px);
     }
   }
 
+  lucide-icon,
   .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     width: 16px;
     height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    flex-shrink: 0;
+
+    color: currentColor;
     transition: transform 0.3s ease;
+
+    svg {
+      display: block;
+      width: 16px !important;
+      height: 16px !important;
+      margin: 0;
+      flex-shrink: 0;
+    }
   }
 }
 
@@ -2804,7 +2814,11 @@
 .cta-button.primary {
   position: relative;
   overflow: hidden;
-  transition: transform 0.4s var(--ease-snap), box-shadow 0.4s var(--ease-premium);
+  isolation: isolate;
+
+  transition:
+    transform 0.4s var(--ease-snap),
+    box-shadow 0.4s var(--ease-premium);
 
   &::after {
     content: '';
@@ -2813,28 +2827,53 @@
     left: -60%;
     width: 40%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+
+    background: linear-gradient(120deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent);
+
     transform: skewX(-20deg);
     transition: left 0.7s var(--ease-premium);
+    pointer-events: none;
+    z-index: -1;
   }
 
   &:hover::after {
     left: 130%;
   }
 
+  &:hover {
+    transform: translateY(-2px);
+  }
+
   &:active {
-    transform: translateY(-1px) scale(0.98);
+    transform: translateY(0) scale(0.98);
   }
 }
 
 .cta-button.secondary {
-  transition: background 0.45s var(--ease-premium),
+  transition:
+    background 0.45s var(--ease-premium),
     color 0.45s var(--ease-premium),
     transform 0.4s var(--ease-snap),
     border-color 0.4s ease;
 
+  &:hover {
+    transform: translateY(-2px);
+  }
+
   &:active {
-    transform: translateY(-1px) scale(0.98);
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cta-button.primary,
+  .cta-button.secondary,
+  .cta-button.primary::after {
+    transition: none;
   }
 }
 
@@ -3145,7 +3184,7 @@
   background: transparent;
   border: 1px solid #c99a45;
   border-radius: 4px;
-  color: #0a0605; /* Dark text on gold */
+  color: #0a0605;
   box-shadow: 0 4px 12px rgba(211, 164, 92, 0.15);
 
   font-family: 'Inter', sans-serif;
@@ -3176,9 +3215,32 @@
     transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
   }
 
+  // Lucide icon alignment
   lucide-icon {
-    transition: transform 0.35s ease, color 0.4s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    flex-shrink: 0;
+
     color: #0a0605;
+    transition: transform 0.35s ease, color 0.4s ease;
+
+    svg {
+      display: block;
+      width: 16px !important;
+      height: 16px !important;
+      margin: 0;
+      flex-shrink: 0;
+    }
   }
 
   &:hover {
@@ -3198,7 +3260,6 @@
     }
   }
 }
-
 
 /* ==========================================================================
    PHOTO AREA
@@ -3738,8 +3799,8 @@
   cursor: pointer;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
-              border-color 0.35s ease,
-              box-shadow 0.35s ease;
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 
   img {
     width: 100%;

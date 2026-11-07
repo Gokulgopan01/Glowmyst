@@ -164,35 +164,47 @@
   <h2 class="faq-title">FREQUENTLY ASKED QUESTIONS</h2>
   <div class="faq-grid">
     <div class="faq-column">
-      <div class="faq-item" *ngFor="let f of faqs.slice(0, 2); let i = index" (click)="toggleFaq(i)">
+      <div class="faq-item" [class.active]="f.open" *ngFor="let f of faqs.slice(0, 2); let i = index" (click)="toggleFaq(i)">
         <div class="faq-header">
           <span>{{ f.question }}</span>
           <lucide-icon [img]="f.open ? MinusIcon : PlusIcon" class="icon"></lucide-icon>
         </div>
-        <div class="faq-body" *ngIf="f.open">
-          {{ f.answer }}
+        <div class="faq-collapse" [class.open]="f.open">
+          <div class="faq-body-inner">
+            <div class="faq-body">
+              {{ f.answer }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="faq-column">
-      <div class="faq-item" *ngFor="let f of faqs.slice(2, 4); let i = index" (click)="toggleFaq(i + 2)">
+      <div class="faq-item" [class.active]="f.open" *ngFor="let f of faqs.slice(2, 4); let i = index" (click)="toggleFaq(i + 2)">
         <div class="faq-header">
           <span>{{ f.question }}</span>
           <lucide-icon [img]="f.open ? MinusIcon : PlusIcon" class="icon"></lucide-icon>
         </div>
-        <div class="faq-body" *ngIf="f.open">
-          {{ f.answer }}
+        <div class="faq-collapse" [class.open]="f.open">
+          <div class="faq-body-inner">
+            <div class="faq-body">
+              {{ f.answer }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="faq-column">
-      <div class="faq-item" *ngFor="let f of faqs.slice(4, 5); let i = index" (click)="toggleFaq(i + 4)">
+      <div class="faq-item" [class.active]="f.open" *ngFor="let f of faqs.slice(4, 5); let i = index" (click)="toggleFaq(i + 4)">
         <div class="faq-header">
           <span>{{ f.question }}</span>
           <lucide-icon [img]="f.open ? MinusIcon : PlusIcon" class="icon"></lucide-icon>
         </div>
-        <div class="faq-body" *ngIf="f.open">
-          {{ f.answer }}
+        <div class="faq-collapse" [class.open]="f.open">
+          <div class="faq-body-inner">
+            <div class="faq-body">
+              {{ f.answer }}
+            </div>
+          </div>
         </div>
       </div>
     </div>

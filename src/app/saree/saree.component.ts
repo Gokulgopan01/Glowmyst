@@ -1,9 +1,9 @@
-import { Component, OnInit, inject, Directive, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, inject, Directive, ElementRef, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight, Eye, ArrowDownUp, ShoppingBag, RotateCcw, Star, Check } from 'lucide-angular';
+import { LucideAngularModule, Filter, ChevronDown, LayoutGrid, List, ShieldCheck, Award, Package, Lock, ChevronLeft, ChevronRight, Eye, ArrowDownUp, ShoppingBag, RotateCcw, Star, Check, Sparkles } from 'lucide-angular';
 
 export interface Product {
   id: number;
@@ -51,7 +51,7 @@ export class FadeInDirective implements OnInit, OnDestroy {
   templateUrl: './saree.component.html',
   styleUrl: './saree.component.scss'
 })
-export class SareeComponent implements OnInit {
+export class SareeComponent implements OnInit, OnDestroy {
   private http = inject(HttpClient);
 
   readonly FilterIcon = Filter;
@@ -70,10 +70,15 @@ export class SareeComponent implements OnInit {
   readonly RotateCcwIcon = RotateCcw;
   readonly StarIcon = Star;
   readonly CheckIcon = Check;
+  readonly SparklesIcon = Sparkles;
 
   currentView: 'grid' | 'list' = 'grid';
   allProducts: Product[] = [];
   products: Product[] = [];
+
+  // Dropdown states
+  isSortDropdownOpen = false;
+  sortOptions: string[] = ['Popular', 'New Arrivals', 'Price: Low to High', 'Price: High to Low'];
 
   // Pagination
   currentPage = 1;
@@ -203,6 +208,34 @@ export class SareeComponent implements OnInit {
     this.onFilterChange();
   }
 
+  toggleSortDropdown(event?: Event) {
+    if (event) {
+      event.stopPropagation();
+    }
+    this.isSortDropdownOpen = !this.isSortDropdownOpen;
+  }
+
+  selectSort(option: string, event?: Event) {
+    if (event) {
+      event.stopPropagation();
+    }
+    this.currentSort = option;
+    this.isSortDropdownOpen = false;
+    this.currentPage = 1;
+    this.updateDisplayedProducts();
+    this.updatePagination();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (this.isSortDropdownOpen) {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.sort-dropdown')) {
+        this.isSortDropdownOpen = false;
+      }
+    }
+  }
+
   onSortChange(event: any) {
     this.currentSort = event.target.value;
     this.currentPage = 1;
@@ -222,6 +255,26 @@ export class SareeComponent implements OnInit {
       filtered.sort((a, b) => a.price - b.price);
     } else if (this.currentSort === 'Price: High to Low') {
       filtered.sort((a, b) => b.price - a.price);
+    } else if (this.currentSort === 'New Arrivals') {
+      filtered.sort((a, b) => {
+        const isNewA = a.badge === 'NEW' ? 1 : 0;
+        const isNewB = b.badge === 'NEW' ? 1 : 0;
+        if (isNewB !== isNewA) return isNewB - isNewA;
+        return b.id - a.id;
+      });
+    } else if (this.currentSort === 'Popular') {
+      filtered.sort((a, b) => {
+        const score = (badge?: string) => {
+          if (!badge) return 0;
+          const upper = badge.toUpperCase();
+          if (upper === 'BESTSELLER') return 4;
+          if (upper === 'POPULAR') return 3;
+          if (upper === 'HOT' || upper === 'TRENDING') return 2;
+          return 0;
+        };
+        const diff = score(b.badge) - score(a.badge);
+        return diff !== 0 ? diff : a.id - b.id;
+      });
     }
 
     this.totalPages = Math.ceil(filtered.length / this.itemsPerPage) || 1;
@@ -272,6 +325,7 @@ export class SareeComponent implements OnInit {
     this.maxPrice = 5000;
     this.selectedOccasions = [];
     this.currentSort = 'Popular';
+    this.isSortDropdownOpen = false;
     this.onFilterChange();
   }
 

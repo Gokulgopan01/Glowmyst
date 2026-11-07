@@ -201,7 +201,8 @@
 
 <section #animatedElement class="reveal-section featured-necklaces-section">
   <div class="featured-necklaces-grid">
-    <div *ngFor="let product of featuredNecklaces" class="featured-necklace-card" [routerLink]="['/product', product.id]" [queryParams]="{ type: 'jewellery' }">
+    <div *ngFor="let product of featuredNecklaces" class="featured-necklace-card"
+      [routerLink]="['/product', product.id]" [queryParams]="{ type: 'jewellery' }">
       <div class="fn-image-container">
         <span *ngIf="product.badge" class="fn-badge" [class.sale]="product.badge === 'SALE'">{{ product.badge }}</span>
         <img [src]="product.image" [alt]="product.name" class="fn-image">
@@ -260,7 +261,7 @@
       <div class="split-actions">
         <div class="hero-actions">
           <button class="cta-button primary" routerLink="/jewellery">
-            SHOP MASTERPIECE COLLECTION
+            SHOP MASTERPIECE
             <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
           </button>
           <button class="cta-button secondary" routerLink="/jewellery">
@@ -279,7 +280,8 @@
 
 <section #animatedElement class="reveal-section featured-necklaces-section">
   <div class="featured-necklaces-grid">
-    <div *ngFor="let product of featuredEarrings" class="featured-necklace-card" [routerLink]="['/product', product.id]" [queryParams]="{ type: 'jewellery' }">
+    <div *ngFor="let product of featuredEarrings" class="featured-necklace-card" [routerLink]="['/product', product.id]"
+      [queryParams]="{ type: 'jewellery' }">
       <div class="fn-image-container">
         <span *ngIf="product.badge" class="fn-badge" [class.sale]="product.badge === 'SALE'">{{ product.badge }}</span>
         <img [src]="product.image" [alt]="product.name" class="fn-image">
@@ -350,14 +352,15 @@
     </div>
 
     <div class="split-image">
-      <img src="assets/home/bangles.png" alt="The Perfect Pair Combo Sets">
+      <img src="assets/home/necklaces.png" alt="The Perfect Pair Combo Sets">
     </div>
   </div>
 </section>
 
 <section #animatedElement class="reveal-section featured-necklaces-section">
   <div class="featured-necklaces-grid">
-    <div *ngFor="let product of featuredComboSets" class="featured-necklace-card" [routerLink]="['/product', product.id]" [queryParams]="{ type: 'jewellery' }">
+    <div *ngFor="let product of featuredComboSets" class="featured-necklace-card"
+      [routerLink]="['/product', product.id]" [queryParams]="{ type: 'jewellery' }">
       <div class="fn-image-container">
         <span *ngIf="product.badge" class="fn-badge" [class.sale]="product.badge === 'SALE'">{{ product.badge }}</span>
         <img [src]="product.image" [alt]="product.name" class="fn-image">
@@ -451,7 +454,7 @@
     <div class="community-img-wrapper"><img src="assets/home/community_1.jpg" alt="Community Style"></div>
     <div class="community-img-wrapper"><img src="assets/home/community_2.jpg" alt="Community Style"></div>
     <div class="community-img-wrapper"><img src="assets/home/community_3.jpg" alt="Community Style"></div>
-    <div class="community-img-wrapper"><img src="assets/home/community_4.webp" alt="Community Style"></div>
+    <div class="community-img-wrapper"><img src="assets/home/community_4.jpg" alt="Community Style"></div>
     <div class="community-img-wrapper"><img src="assets/home/community_5.jpg" alt="Community Style"></div>
     <div class="community-img-wrapper"><img src="assets/home/community_6.jpg" alt="Community Style"></div>
   </div>

@@ -64,16 +64,30 @@
     </div>
 
     <div class="toolbar-right">
-      <div class="sort-dropdown">
-        <span class="sort-label desktop-only">Sort by:</span>
-        <lucide-icon [img]="ArrowDownUpIcon" class="icon mobile-only-icon"></lucide-icon>
-        <span class="sort-text mobile-only-text">SORT</span>
-        <select class="sort-select" (change)="onSortChange($event)">
-          <option value="Popular">Popular</option>
-          <option value="Price: Low to High">Price: Low to High</option>
-          <option value="Price: High to Low">Price: High to Low</option>
-        </select>
-        <lucide-icon [img]="ChevronDownIcon" class="icon desktop-only-icon"></lucide-icon>
+      <div class="sort-dropdown" [class.open]="isSortDropdownOpen">
+        <button type="button" 
+                class="sort-dropdown-trigger" 
+                (click)="toggleSortDropdown($event)"
+                aria-haspopup="listbox" 
+                [attr.aria-expanded]="isSortDropdownOpen">
+          <span class="sort-label desktop-only">Sort by:</span>
+          <lucide-icon [img]="ArrowDownUpIcon" class="icon mobile-only-icon"></lucide-icon>
+          <span class="sort-value">{{ currentSort }}</span>
+          <lucide-icon [img]="ChevronDownIcon" class="icon chevron-icon" [class.rotated]="isSortDropdownOpen"></lucide-icon>
+        </button>
+
+        <div class="sort-dropdown-menu" *ngIf="isSortDropdownOpen" role="listbox">
+          <button type="button" 
+                  role="option" 
+                  [attr.aria-selected]="currentSort === opt"
+                  *ngFor="let opt of sortOptions" 
+                  class="sort-dropdown-item" 
+                  [class.active]="currentSort === opt"
+                  (click)="selectSort(opt, $event)">
+            <span class="sort-item-text">{{ opt }}</span>
+            <lucide-icon *ngIf="currentSort === opt" [img]="CheckIcon" class="sort-check-icon"></lucide-icon>
+          </button>
+        </div>
       </div>
 
       <div class="view-toggle">
@@ -127,6 +141,14 @@
               <div class="label-icon-wrapper"><lucide-icon [img]="StarIcon" class="icon"></lucide-icon></div>
               <span class="label-text">Popular</span>
               <lucide-icon *ngIf="currentSort === 'Popular'" [img]="CheckIcon" class="check-icon"></lucide-icon>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="sort" value="New Arrivals" (change)="onSortChange($event)"
+                [checked]="currentSort === 'New Arrivals'">
+              <span class="custom-radio"></span>
+              <div class="label-icon-wrapper"><lucide-icon [img]="SparklesIcon" class="icon"></lucide-icon></div>
+              <span class="label-text">New Arrivals</span>
+              <lucide-icon *ngIf="currentSort === 'New Arrivals'" [img]="CheckIcon" class="check-icon"></lucide-icon>
             </label>
             <label class="radio-label">
               <input type="radio" name="sort" value="Price: Low to High" (change)="onSortChange($event)"
