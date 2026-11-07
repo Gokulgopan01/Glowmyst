@@ -1,4 +1,4 @@
-import { Component, HostListener, HostBinding, OnDestroy } from '@angular/core';
+import { Component, HostListener, HostBinding, OnInit, OnDestroy, inject, NgZone, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { LucideAngularModule, Search, ChevronDown, Menu, X, RotateCcw, Gem, Shie
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements OnDestroy {
+export class NavbarComponent implements OnInit, OnDestroy {
   isScrolled = false;
   isMobileMenuOpen = false;
   lastScrollY = 0;
@@ -42,6 +42,9 @@ export class NavbarComponent implements OnDestroy {
   readonly TwitterIcon = Twitter;
 
   private routerSub: Subscription;
+  private unlistenScroll?: () => void;
+  private ngZone = inject(NgZone);
+  private cdr = inject(ChangeDetectorRef);
 
   constructor(private router: Router) {
     // Auto-close the mobile panel the moment a new route starts loading,
@@ -53,20 +56,25 @@ export class NavbarComponent implements OnDestroy {
     });
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const currentScrollY = window.scrollY;
+  ngOnInit() {
+    this.ngZone.runOutsideAngular(() => {
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        const newIsScrolled = currentScrollY > 20;
+        const newIsHidden = currentScrollY > this.lastScrollY && currentScrollY > 150;
 
-    this.isScrolled = currentScrollY > 20;
+        if (this.isScrolled !== newIsScrolled || this.isHidden !== newIsHidden) {
+          this.isScrolled = newIsScrolled;
+          this.isHidden = newIsHidden;
+          this.cdr.detectChanges();
+        }
 
-    // Hide navbar on scroll down, show on scroll up
-    if (currentScrollY > this.lastScrollY && currentScrollY > 150) {
-      this.isHidden = true;
-    } else {
-      this.isHidden = false;
-    }
+        this.lastScrollY = currentScrollY;
+      };
 
-    this.lastScrollY = currentScrollY;
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      this.unlistenScroll = () => window.removeEventListener('scroll', handleScroll);
+    });
   }
 
   @HostListener('window:keydown.escape')
@@ -94,6 +102,7 @@ export class NavbarComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
+    this.unlistenScroll?.();
     this.routerSub?.unsubscribe();
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';

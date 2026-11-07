@@ -21,11 +21,14 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.ngZone.runOutsideAngular(() => {
       this.lenis = new Lenis({
-        duration: 0.75,
-        easing: (t) => 1 - Math.pow(1 - t, 3),
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-        wheelMultiplier: 1.15,
-        touchMultiplier: 1.5,
+        wheelMultiplier: 1.0,
+        syncTouch: true,
+        syncTouchLerp: 0.065,
+        touchInertiaExponent: 1.4,
+        touchMultiplier: 0.95,
         infinite: false,
       });
 

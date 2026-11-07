@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, ViewChildren, QueryList, HostListener } from '@angular/core'; import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, ViewChildren, QueryList, HostListener, inject, NgZone } from '@angular/core'; import { CommonModule } from '@angular/common';
 import { LucideAngularModule, ChevronLeft, ChevronRight, ArrowRight, Star, Heart, ShoppingBag, ArrowUp, ArrowDown } from 'lucide-angular';
 import { RouterLink } from '@angular/router';
 
@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChildren('animatedElement') animatedElements!: QueryList<ElementRef>;
   private observer: IntersectionObserver | null = null;
+  private ngZone = inject(NgZone);
 
   slides: Slide[] = [
     { id: 0, image: 'assets/home/hero_1.png' },
