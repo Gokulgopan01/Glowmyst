@@ -2992,7 +2992,7 @@
 }
 
 /* ==========================================================================
-   SAREE SHOWCASE — DARK LUXURY EDITORIAL
+   SAREE SHOWCASE — WARM WHITE LUXURY EDITORIAL
    ========================================================================== */
 
 .saree-showcase-section {
@@ -3002,20 +3002,15 @@
   margin-top: 50px;
   overflow: hidden;
 
-  background-color: #080808;
+  background-color: #FAF7F2;
   background-image:
-    linear-gradient(90deg,
-      rgba(8, 8, 8, 0.96) 0%,
-      rgba(8, 8, 8, 0.92) 28%,
-      rgba(8, 8, 8, 0.35) 58%,
-      rgba(8, 8, 8, 0.15) 100%),
-    url('/assets/home/saree_section_background.png');
+    radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 90% 85%, rgba(201, 154, 69, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #FDFBF7 0%, #F5EFE6 50%, #FAF6F0 100%);
+  border-top: 1px solid rgba(201, 154, 69, 0.22);
+  border-bottom: 1px solid rgba(201, 154, 69, 0.22);
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* subtle luxury glow */
+  /* subtle luxury warm gold glow */
   &::after {
     content: '';
     position: absolute;
@@ -3026,8 +3021,8 @@
     transform: translateY(-50%);
 
     background: radial-gradient(circle,
-        rgba(201, 154, 69, 0.08) 0%,
-        rgba(201, 154, 69, 0.025) 35%,
+        rgba(201, 154, 69, 0.1) 0%,
+        rgba(201, 154, 69, 0.03) 40%,
         transparent 70%);
 
     pointer-events: none;
@@ -3090,12 +3085,12 @@
 
 .saree-label-line {
   width: 38px;
-  height: 1px;
+  height: 1.5px;
 
-  background: var(--hero-gold);
+  background: #A67B28;
 
   box-shadow:
-    0 0 8px rgba(201, 154, 69, 0.4);
+    0 0 6px rgba(166, 123, 40, 0.35);
 
   flex-shrink: 0;
 }
@@ -3104,11 +3099,11 @@
   font-family: 'Inter', sans-serif;
 
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
 
   letter-spacing: 3.5px;
 
-  color: var(--hero-gold);
+  color: #8C651E;
 
   text-transform: uppercase;
 }
@@ -3131,7 +3126,7 @@
 
   letter-spacing: -1px;
 
-  color: #f5ede0;
+  color: #1A1512;
 
   max-width: 430px;
 }
@@ -3139,11 +3134,11 @@
 .saree-heading-gold {
   display: inline-block;
 
-  color: var(--hero-gold);
+  color: #9C7226;
 
   font-style: italic;
 
-  font-weight: 500;
+  font-weight: 600;
 }
 
 
@@ -3164,7 +3159,7 @@
 
   letter-spacing: 0.2px;
 
-  color: rgba(255, 245, 220, 0.62);
+  color: #5C5247;
 }
 
 
@@ -3179,13 +3174,13 @@
   gap: 14px;
   width: fit-content;
   margin-top: 8px;
-  padding: 15px 26px;
+  padding: 15px 28px;
 
-  background: transparent;
-  border: 1px solid #c99a45;
+  background: #1A1512;
+  border: 1px solid #1A1512;
   border-radius: 4px;
-  color: #0a0605;
-  box-shadow: 0 4px 12px rgba(211, 164, 92, 0.15);
+  color: #FAF7F2;
+  box-shadow: 0 6px 20px rgba(26, 21, 18, 0.16);
 
   font-family: 'Inter', sans-serif;
   font-size: 11px;
@@ -3199,20 +3194,17 @@
   isolation: isolate;
   z-index: 1;
 
-  transition:
-    color 0.4s ease,
-    border-color 0.3s ease,
-    transform 0.35s ease;
+  transition: all 0.4s ease;
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, #d3a45c 0%, #c99a45 100%);
-    transform: scaleX(1);
+    background: linear-gradient(90deg, #D4AF37 0%, #C99A45 100%);
+    transform: scaleX(0);
     transform-origin: right center;
     z-index: -1;
-    transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+    transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
   }
 
   // Lucide icon alignment
@@ -3231,7 +3223,7 @@
     line-height: 0;
     flex-shrink: 0;
 
-    color: #0a0605;
+    color: #D4AF37;
     transition: transform 0.35s ease, color 0.4s ease;
 
     svg {
@@ -3244,19 +3236,19 @@
   }
 
   &:hover {
-    color: #f5f5f5;
-    border-color: #c99a45;
-    box-shadow: 0 8px 24px rgba(211, 164, 92, 0.25);
+    color: #0E0B09;
+    border-color: #D4AF37;
+    box-shadow: 0 10px 28px rgba(201, 154, 69, 0.35);
     transform: translateY(-2px);
 
     &::before {
-      transform: scaleX(0);
-      transform-origin: right center;
+      transform: scaleX(1);
+      transform-origin: left center;
     }
 
     lucide-icon {
       transform: translateX(5px);
-      color: #f5f5f5;
+      color: #0E0B09;
     }
   }
 }
@@ -3300,14 +3292,13 @@
 
   overflow: hidden;
 
-  background: #111;
+  background: #FFFFFF;
   gap: 8px;
-  border: 1px solid rgba(244, 232, 210, .08);
-
-  // border: 1px solid rgba(201, 154, 69, 0.15);
+  border: 1px solid rgba(201, 154, 69, 0.22);
 
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.35);
+    0 12px 35px rgba(60, 45, 25, 0.09),
+    0 2px 8px rgba(0, 0, 0, 0.03);
 
   transition:
     border-color 0.4s ease,
@@ -3323,13 +3314,13 @@
   }
 
   &:hover {
-    border-color: rgba(201, 154, 69, 0.45);
+    border-color: rgba(201, 154, 69, 0.6);
 
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 
     box-shadow:
-      0 18px 45px rgba(0, 0, 0, 0.5),
-      0 0 20px rgba(201, 154, 69, 0.06);
+      0 20px 48px rgba(60, 45, 25, 0.16),
+      0 0 15px rgba(201, 154, 69, 0.15);
   }
 
   /* dark cinematic overlay */
