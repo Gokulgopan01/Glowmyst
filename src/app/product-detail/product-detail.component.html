@@ -3,30 +3,39 @@
   <!-- Breadcrumb -->
   <div class="breadcrumb-nav">
     <a routerLink="/">Home</a>
-    <span class="crumb-sep">/</span>
+    <span class="crumb-sep">&gt;</span>
     <a [routerLink]="'/' + (currentType === 'saree' ? 'sarees' : 'jewellery')">
       {{ currentType === 'saree' ? 'Sarees' : 'Jewellery' }}
     </a>
     <ng-container *ngIf="product.category">
-      <span class="crumb-sep">/</span>
+      <span class="crumb-sep">&gt;</span>
       <span class="crumb-item">{{ product.category }}</span>
     </ng-container>
-    <span class="crumb-sep">/</span>
+    <span class="crumb-sep">&gt;</span>
     <span class="crumb-current">{{ product.name }}</span>
   </div>
 
   <div class="content-wrapper">
-    <!-- Left Column: Image Gallery -->
+    <!-- Left Column: Image Gallery with Side Thumbnails -->
     <div class="gallery-section">
 
-      <!-- Main Image with inline arrows -->
+      <!-- Thumbnails on the SIDE of main image -->
+      <div class="thumbnails-container" *ngIf="images.length > 0">
+        <div class="thumbnail" *ngFor="let img of images; let i = index"
+          [class.active]="activeImage === img"
+          (click)="setActiveImage(img)">
+          <img [src]="img" [alt]="product.name + ' thumbnail ' + (i + 1)">
+        </div>
+      </div>
+
+      <!-- Main Image Container -->
       <div class="main-image-container">
         <img [src]="activeImage" [alt]="product.name" class="main-image">
         <span class="badge" *ngIf="product.badge">{{ product.badge }}</span>
-        <!-- 
-                <button class="wishlist-btn" (click)="toggleWishlist()" *ngIf="images.length">
-                    <lucide-icon [img]="HeartIcon" class="icon"></lucide-icon>
-                </button> -->
+
+        <button class="expand-btn" (click)="toggleZoom()" title="Expand image">
+          <lucide-icon [img]="Maximize2Icon" class="icon"></lucide-icon>
+        </button>
 
         <button class="nav-arrow prev-arrow" (click)="prevImage()" *ngIf="images.length > 1">
           <lucide-icon [img]="ChevronLeftIcon" class="icon"></lucide-icon>
@@ -37,19 +46,15 @@
 
         <div class="vignette-overlay"></div>
       </div>
-
-      <!-- Thumbnails below main image -->
-      <div class="thumbnails-container" *ngIf="images.length > 1">
-        <div class="thumbnail" *ngFor="let img of images" [class.active]="activeImage === img"
-          (click)="setActiveImage(img)">
-          <img [src]="img" [alt]="product.name">
-        </div>
-      </div>
     </div>
 
     <!-- Right Column: Product Details -->
     <div class="details-section">
-      <div class="category-tag" *ngIf="product.category">{{ product.category }}</div>
+      <!-- Category with Accent Line -->
+      <div class="category-row" *ngIf="product.category">
+        <span class="category-tag">{{ product.category }}</span>
+        <span class="category-line"></span>
+      </div>
 
       <h1 class="product-title">{{ product.name }}</h1>
 
@@ -62,13 +67,64 @@
         <div class="tax-info">Price inclusive of all taxes. Shipping calculated at checkout.</div>
       </div>
 
-      <p class="product-description" *ngIf="product.description">{{ product.description }}</p>
+      <div class="detail-divider"></div>
 
-      <button class="buy-now-btn" (click)="buyNow()">
-        <lucide-icon [img]="BagIcon" class="icon"></lucide-icon>
-        <span class="btn-text">BUY NOW</span>
-        <div class="shine-effect"></div>
-      </button>
+      <!-- Description Block with Gem Icon -->
+      <div class="description-block">
+        <div class="desc-icon-wrap">
+          <lucide-icon [img]="GemIcon" class="gem-icon"></lucide-icon>
+        </div>
+        <p class="product-description">
+          {{ product.description || 'Classic traditional jewellery featuring an elegant design that pairs beautifully with ethnic and festive wear.' }}
+        </p>
+      </div>
+
+      <div class="detail-divider"></div>
+
+      <!-- Trust Badges Row (3 in a row with dividers) -->
+      <div class="trust-badges-row">
+        <div class="trust-badge-item">
+          <lucide-icon [img]="ShieldCheckIcon" class="badge-icon"></lucide-icon>
+          <div class="badge-text">
+            <span>Secure</span>
+            <span>Payments</span>
+          </div>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="trust-badge-item">
+          <lucide-icon [img]="TruckIcon" class="badge-icon"></lucide-icon>
+          <div class="badge-text">
+            <span>Fast &amp; Reliable</span>
+            <span>Delivery</span>
+          </div>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="trust-badge-item">
+          <lucide-icon [img]="RotateCcwIcon" class="badge-icon"></lucide-icon>
+          <div class="badge-text">
+            <span>Easy</span>
+            <span>Returns</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button (No Wishlist button as requested) -->
+      <div class="action-buttons-wrap">
+        <button class="buy-now-btn" (click)="buyNow()">
+          <lucide-icon [img]="BagIcon" class="icon"></lucide-icon>
+          <span class="btn-text">BUY NOW</span>
+          <div class="shine-effect"></div>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Full Image Zoom Modal -->
+  <div class="zoom-modal-backdrop" *ngIf="isZoomed" (click)="toggleZoom()">
+    <div class="zoom-modal-content" (click)="$event.stopPropagation()">
+      <button class="close-zoom-btn" (click)="toggleZoom()">✕</button>
+      <img [src]="activeImage" [alt]="product.name">
     </div>
   </div>
 </div>

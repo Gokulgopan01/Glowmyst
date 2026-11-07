@@ -2,7 +2,25 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LucideAngularModule, ChevronLeft, ChevronRightIcon, Star, MapPin, ShoppingBag, Gem, ShieldCheck, Undo2, Crown, Heart, Mail, Plus, Minus } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  ChevronLeft,
+  ChevronRightIcon,
+  Star,
+  MapPin,
+  ShoppingBag,
+  Gem,
+  ShieldCheck,
+  Undo2,
+  RotateCcw,
+  Truck,
+  Maximize2,
+  Crown,
+  Heart,
+  Mail,
+  Plus,
+  Minus
+} from 'lucide-angular';
 import { WhatsappService } from '../services/whatsapp.service';
 
 export interface ProductDetail {
@@ -10,9 +28,11 @@ export interface ProductDetail {
   name: string;
   category: string;
   price: number;
+  sellingPrice?: number;
   image: string;
   image2?: string;
   image3?: string;
+  image4?: string;
   badge: string;
   OCCASION?: string;
   description: string;
@@ -38,6 +58,9 @@ export class ProductDetailComponent implements OnInit {
   readonly GemIcon = Gem;
   readonly ShieldCheckIcon = ShieldCheck;
   readonly Undo2Icon = Undo2;
+  readonly RotateCcwIcon = RotateCcw;
+  readonly TruckIcon = Truck;
+  readonly Maximize2Icon = Maximize2;
   readonly CrownIcon = Crown;
   readonly HeartIcon = Heart;
   readonly MailIcon = Mail;
@@ -46,6 +69,7 @@ export class ProductDetailComponent implements OnInit {
 
   product: ProductDetail | null = null;
   relatedProducts: ProductDetail[] = [];
+  isZoomed: boolean = false;
 
   faqs = [
     { question: 'Is the jewellery real gold plated?', answer: 'Yes, our jewellery is plated with high-quality 18k or 24k gold.', open: false },
@@ -58,6 +82,11 @@ export class ProductDetailComponent implements OnInit {
   toggleFaq(index: number) {
     this.faqs[index].open = !this.faqs[index].open;
   }
+
+  toggleZoom() {
+    this.isZoomed = !this.isZoomed;
+  }
+
   images: string[] = [];
   activeImage: string = '';
   description: string = '';
@@ -105,14 +134,14 @@ export class ProductDetailComponent implements OnInit {
         this.images = [this.product.image];
         if (this.product.image2) this.images.push(this.product.image2);
         if (this.product.image3) this.images.push(this.product.image3);
+        if ((this.product as any).image4) this.images.push((this.product as any).image4);
 
         this.activeImage = this.images[0];
 
         this.mrp = Math.round(this.product.price * (100 / (100 - this.discountPercentage)));
 
-        // Get 4 related products (excluding current one, maybe from same category or random)
+        // Get 4 related products (excluding current one)
         const others = data.filter(p => p.id !== id);
-        // Let's just take the first 4 for simplicity
         this.relatedProducts = others.slice(-4).reverse();
         this.description = this.product.description;
       }

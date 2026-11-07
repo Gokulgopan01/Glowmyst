@@ -59,10 +59,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // Signature Carousel State
   signatureCategories = [
-    { title: 'Necklaces', subtitle: 'Explore Collection', image: 'assets/home/necklaces.png' },
-    { title: 'Bangles', subtitle: 'Explore Collection', image: 'assets/home/bangles.png' },
-    { title: 'Earrings', subtitle: 'Explore Collection', image: 'assets/home/earrings.png' },
-    { title: 'Sarees', subtitle: 'Explore Collection', image: 'assets/home/sarees.png' }
+    { title: 'Necklaces', subtitle: 'Explore Collection', image: 'assets/Products/Jewellery/IMG_4094.PNG' },
+    { title: 'Jhumka', subtitle: 'Explore Collection', image: 'assets/Products/Jewellery/Green Ruby-Pearl Jhumka.PNG' },
+    { title: 'Perfect Pair', subtitle: 'Explore Collection', image: 'assets/Products/Jewellery/IMG_4112.PNG' },
+    { title: 'Earings', subtitle: 'Explore Collection', image: 'assets/Products/Jewellery/IMG_4170.PNG' }
   ];
   currentSignatureIndex = 0;
   isAnimating = false;
