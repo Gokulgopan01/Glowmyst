@@ -188,11 +188,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          this.observer?.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.05,
+      rootMargin: '0px 0px -20px 0px'
     });
 
     this.animatedElements.forEach(el => {
