@@ -156,28 +156,47 @@
     top: 18px;
     right: 18px;
     z-index: 3;
+
     width: 36px;
     height: 36px;
+    min-width: 36px;
+    padding: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #f5ede0;
-    transition: all 0.3s ease;
 
-    .icon {
-      width: 16px;
-      height: 16px;
-    }
+    color: #f5ede0;
+    cursor: pointer;
+    line-height: 0;
 
     &:hover {
       color: #d3a45c;
       border-color: #d3a45c;
-      transform: scale(1.08);
+    }
+
+    lucide-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 18px;
+      height: 18px;
+      line-height: 0;
+
+      svg {
+        display: block;
+        width: 18px !important;
+        height: 18px !important;
+        margin: 0;
+        flex-shrink: 0;
+      }
     }
   }
 
@@ -186,23 +205,44 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
+
     width: 38px;
     height: 38px;
+    min-width: 38px;
+    padding: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     cursor: pointer;
     color: #f5ede0;
     transition: all 0.3s ease;
     opacity: 0;
+    line-height: 0;
 
-    .icon {
+    lucide-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       width: 18px;
       height: 18px;
+      line-height: 0;
+
+      svg {
+        display: block;
+        width: 18px !important;
+        height: 18px !important;
+        margin: 0;
+        flex-shrink: 0;
+      }
     }
 
     &:hover {
@@ -223,6 +263,10 @@
   &:hover .nav-arrow {
     opacity: 1;
   }
+
+  // &:hover .nav-arrow {
+  //   opacity: 1;
+  // }
 
   .vignette-overlay {
     position: absolute;
@@ -490,8 +534,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes shine {
@@ -984,7 +1033,7 @@
 
 @media (max-width: 640px) {
   .product-detail-container {
-    padding: 85px 4% 40px;
+    padding: 105px 4% 40px;
   }
 
   .breadcrumb-nav {

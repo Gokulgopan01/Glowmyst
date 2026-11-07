@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   featuredNecklaces: Product[] = [];
   featuredBangles: Product[] = [];
   featuredEarrings: Product[] = [];
+  featuredComboSets: Product[] = [];
 
   // Signature Carousel State
   signatureCategories = [
@@ -86,7 +87,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       const response = await fetch('/assets/Products_json/jeweller_product.json');
       const data: Product[] = await response.json();
       this.featuredNecklaces = data
-        .filter(p => p.category === 'Necklaces')
+        .filter(p => p.category?.toLowerCase() === 'necklaces' || p.category?.toLowerCase() === 'necklace')
         .slice(0, 5);
     } catch (error) {
       console.error('Error loading featured necklaces', error);
@@ -97,11 +98,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     try {
       const response = await fetch('/assets/Products_json/jeweller_product.json');
       const data: Product[] = await response.json();
-      this.featuredBangles = data
-        .filter(p => p.category === 'Bangles')
+      this.featuredComboSets = data
+        .filter(p => p.category?.toLowerCase() === 'combo set' || p.category?.toLowerCase() === 'combos' || p.category?.toLowerCase() === 'bangles')
         .slice(0, 5);
+      this.featuredBangles = this.featuredComboSets;
     } catch (error) {
-      console.error('Error loading featured bangles', error);
+      console.error('Error loading featured combo sets', error);
     }
   }
 
@@ -110,7 +112,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       const response = await fetch('/assets/Products_json/jeweller_product.json');
       const data: Product[] = await response.json();
       this.featuredEarrings = data
-        .filter(p => p.category === 'Earrings')
+        .filter(p => p.category?.toLowerCase() === 'earrings' || p.category?.toLowerCase() === 'earings')
         .slice(0, 5);
     } catch (error) {
       console.error('Error loading featured earrings', error);

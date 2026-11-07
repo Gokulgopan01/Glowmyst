@@ -135,12 +135,12 @@
         "category": "Necklaces",
         "price": 599,
         "sellingPrice": 499,
-        "image": "assets/Products/Jewellery/IMG_3966.JPG.PNG",
+        "image": "assets/Products/Jewellery/IMG_3966.JPG.jpeg",
         "badge": "NEW",
         "OCCASION": "Daily Wear",
         "description": "A necklace piece with an elegant traditional look, suited to styling with ethnic outfits for everyday occasions and celebrations.",
-        "image2": "assets/Products/Jewellery/IMG_3966.JPG.PNG",
-        "image3": "assets/Products/Jewellery/IMG_3966.JPG.PNG"
+        "image2": "assets/Products/Jewellery/IMG_3966.JPG.jpeg",
+        "image3": "assets/Products/Jewellery/IMG_3966.JPG.jpeg"
     },
     {
         "id": 13,
@@ -343,12 +343,12 @@
         "category": "Combo Set",
         "price": 599,
         "sellingPrice": 499,
-        "image": "assets/Products/Jewellery/IMG_4204.JPG.PNG",
-        "image2": "assets/Products/Jewellery/IMG_4204.JPG.PNG",
+        "image": "assets/Products/Jewellery/IMG_4204.JPG.jpeg",
+        "image2": "assets/Products/Jewellery/IMG_4204.JPG.jpeg",
         "badge": "PREMIUM",
         "OCCASION": "Wedding",
         "description": "A coordinated jewellery combo set with an ornate, occasion-ready appearance, ideal for adding traditional elegance to wedding and festive styling.",
-        "image3": "assets/Products/Jewellery/IMG_4204.JPG.PNG"
+        "image3": "assets/Products/Jewellery/IMG_4204.JPG.jpeg"
     },
     {
         "id": 23,
