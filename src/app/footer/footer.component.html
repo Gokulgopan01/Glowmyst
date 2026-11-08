@@ -1,0 +1,217 @@
+<footer class="glowmyst-footer">
+  <!-- Pre-Footer: Luxury Brand Pillars / Trust Bar -->
+  <div class="footer-perks-bar">
+    <div class="footer-perks-container">
+      <div class="perk-card">
+        <div class="perk-icon-wrapper">
+          <lucide-icon [img]="TruckIcon"></lucide-icon>
+        </div>
+        <div class="perk-text">
+          <h4 class="perk-title">Free Insured Shipping</h4>
+          <p class="perk-sub">Across all India &bull; Tamper-proof luxury boxes</p>
+        </div>
+      </div>
+
+      <div class="perk-divider"></div>
+
+      <div class="perk-card">
+        <div class="perk-icon-wrapper">
+          <lucide-icon [img]="ShieldCheckIcon"></lucide-icon>
+        </div>
+        <div class="perk-text">
+          <h4 class="perk-title">100% Certified Authentic</h4>
+          <p class="perk-sub">22k gold plated finishes & pure handloom silks</p>
+        </div>
+      </div>
+
+      <div class="perk-divider"></div>
+
+      <div class="perk-card">
+        <div class="perk-icon-wrapper">
+          <lucide-icon [img]="RotateCcwIcon"></lucide-icon>
+        </div>
+        <div class="perk-text">
+          <h4 class="perk-title">15-Day Easy Returns</h4>
+          <p class="perk-sub">Hassle-free exchange & money back assurance</p>
+        </div>
+      </div>
+
+      <div class="perk-divider"></div>
+
+      <div class="perk-card">
+        <div class="perk-icon-wrapper">
+          <lucide-icon [img]="SparklesIcon"></lucide-icon>
+        </div>
+        <div class="perk-text">
+          <h4 class="perk-title">Personal Concierge</h4>
+          <p class="perk-sub">Bridal styling advice & bespoke custom curations</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer Grid -->
+  <div class="footer-main">
+    <div class="footer-main-container">
+      <!-- Col 1: Brand & Identity -->
+      <div class="footer-col brand-col">
+        <div class="footer-logo-wrapper" routerLink="/home">
+          <img src="assets/Glowmyst_logo.png" alt="Glowmyst Logo" class="footer-logo-img">
+        </div>
+        <p class="brand-tagline">
+          Crafting timeless elegance and illuminating your grand celebrations with heirloom imitation jewellery and handcrafted South Indian heritage silks.
+        </p>
+
+        <div class="brand-contacts">
+          <a href="tel:+919876543210" class="contact-item">
+            <div class="contact-icon-box">
+              <lucide-icon [img]="PhoneIcon"></lucide-icon>
+            </div>
+            <span>+91 98765 43210</span>
+          </a>
+          <a href="mailto:support@glowmyst.com" class="contact-item">
+            <div class="contact-icon-box">
+              <lucide-icon [img]="MailIcon"></lucide-icon>
+            </div>
+            <span>support&#64;glowmyst.com</span>
+          </a>
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <lucide-icon [img]="MapPinIcon"></lucide-icon>
+            </div>
+            <span>Chennai &bull; Kochi &bull; Bangalore</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Jewellery Collections -->
+      <div class="footer-col links-col">
+        <h3 class="col-title">
+          <span>Jewellery</span>
+          <span class="gold-line"></span>
+        </h3>
+        <ul class="footer-links">
+          <li><a routerLink="/jewellery">All Jewellery</a></li>
+          <li><a routerLink="/jewellery" [queryParams]="{ category: 'Necklaces' }">Necklace Sets</a></li>
+          <li><a routerLink="/jewellery" [queryParams]="{ category: 'Earrings' }">Exquisite Jhumkas</a></li>
+          <li><a routerLink="/jewellery" [queryParams]="{ category: 'Combo Set' }">The Perfect Pair</a></li>
+          <li><a routerLink="/jewellery">Temple & Antique</a></li>
+          <li><a routerLink="/jewellery">Bridal Heritage Sets</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Heritage Sarees -->
+      <div class="footer-col links-col">
+        <h3 class="col-title">
+          <span>Heritage Sarees</span>
+          <span class="gold-line"></span>
+        </h3>
+        <ul class="footer-links">
+          <li><a routerLink="/sarees">All Sarees</a></li>
+          <li><a routerLink="/sarees" [queryParams]="{ category: 'Silk Sarees' }">Kanchipuram Silks</a></li>
+          <li><a routerLink="/sarees" [queryParams]="{ category: 'Banarasi Sarees' }">Banarasi Zari Weaves</a></li>
+          <li><a routerLink="/sarees" [queryParams]="{ category: 'Organza Sarees' }">Tissue & Organza</a></li>
+          <li><a routerLink="/sarees" [queryParams]="{ category: 'Designer Sarees' }">Festive & Bridal Sarees</a></li>
+          <li><a routerLink="/sarees" [queryParams]="{ category: 'Cotton Sarees' }">Handloom Cotton</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Customer Care & Concierge -->
+      <div class="footer-col links-col">
+        <h3 class="col-title">
+          <span>Customer Care</span>
+          <span class="gold-line"></span>
+        </h3>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)" (click)="scrollToTop()">Track Your Order</a></li>
+          <li><a href="javascript:void(0)" (click)="scrollToTop()">Shipping & Delivery</a></li>
+          <li><a href="javascript:void(0)" (click)="scrollToTop()">Returns & Exchange Policy</a></li>
+          <li><a href="javascript:void(0)" (click)="scrollToTop()">Jewellery Care Guide</a></li>
+          <li><a href="javascript:void(0)" (click)="scrollToTop()">Saree Styling & Maintenance</a></li>
+          <li><a href="javascript:void(0)" (click)="scrollToTop()">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Newsletter & Social -->
+      <div class="footer-col newsletter-col">
+        <h3 class="col-title">
+          <span>Join The Inner Circle</span>
+          <span class="gold-line"></span>
+        </h3>
+        <p class="newsletter-desc">
+          Subscribe for early access to private festive edits, bespoke bridal offers & exclusive styling previews.
+        </p>
+
+        <form (submit)="onSubscribe($event)" class="newsletter-form">
+          <div class="input-wrap" [class.success]="isSubscribed">
+            <input 
+              type="email" 
+              name="email"
+              [(ngModel)]="newsletterEmail" 
+              placeholder="Enter your email address..."
+              [disabled]="isSubscribed"
+              required>
+            <button type="submit" class="newsletter-submit-btn" [disabled]="isSubscribed" aria-label="Subscribe to newsletter">
+              <span *ngIf="!isSubscribed">JOIN</span>
+              <span *ngIf="isSubscribed">✓</span>
+            </button>
+          </div>
+          <p class="subscription-msg" *ngIf="isSubscribed">
+            ✨ Welcome to the Glowmyst Inner Circle!
+          </p>
+        </form>
+
+        <div class="social-wrapper">
+          <span class="social-heading">FOLLOW OUR JOURNEY</span>
+          <div class="social-icons">
+            <a href="https://instagram.com/glowmyst" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+              <lucide-icon [img]="InstagramIcon"></lucide-icon>
+            </a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
+              <lucide-icon [img]="MessageCircleIcon"></lucide-icon>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+              <lucide-icon [img]="FacebookIcon"></lucide-icon>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube">
+              <lucide-icon [img]="YoutubeIcon"></lucide-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-container">
+      <div class="footer-ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-diamond">✦</span>
+        <span class="ornament-line"></span>
+      </div>
+
+      <div class="bottom-row">
+        <div class="copyright">
+          &copy; {{ currentYear }} Glowmyst Luxury Collections Pvt. Ltd. All Rights Reserved.
+        </div>
+
+        <div class="legal-links">
+          <a href="javascript:void(0)">Privacy Policy</a>
+          <span class="dot">&bull;</span>
+          <a href="javascript:void(0)">Terms of Service</a>
+          <span class="dot">&bull;</span>
+          <a href="javascript:void(0)">Shipping Policy</a>
+          <span class="dot">&bull;</span>
+          <a href="javascript:void(0)">Authenticity Guarantee</a>
+        </div>
+
+        <div class="security-badge">
+          <lucide-icon [img]="LockIcon" class="sec-icon"></lucide-icon>
+          <span>100% Secure Checkout &bull; UPI &bull; Cards &bull; NetBanking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+

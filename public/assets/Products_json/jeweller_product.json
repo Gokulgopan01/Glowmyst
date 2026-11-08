@@ -299,19 +299,6 @@
         "image3": "assets/Products/Jewellery/IMG_4173.PNG"
     },
     {
-        "id": 19,
-        "name": "Diamond Tennis Bracelet",
-        "category": "Diamond",
-        "price": 599,
-        "sellingPrice": 499,
-        "image": "assets/Products/Jewellery/DiamondTennisBracelet.jpg",
-        "image2": "assets/Products/Jewellery/DiamondTennisBracelet.jpg",
-        "badge": "PREMIUM",
-        "OCCASION": "Daily Wear",
-        "description": "A sleek tennis bracelet with a continuous line of diamond-inspired sparkle, adding a refined finish to both everyday and occasion looks.",
-        "image3": "assets/Products/Jewellery/DiamondTennisBracelet.jpg"
-    },
-    {
         "id": 20,
         "name": "IMG_4180",
         "category": "Necklaces",

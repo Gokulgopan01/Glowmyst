@@ -30,24 +30,25 @@ html.lenis {
 
 /* Global Styles */
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #0A0807;
-    /* Dark luxury theme background */
-    color: #F5E5C5;
-    /* Default text color */
-    overflow-x: hidden;
-    width: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0A0807;
+  /* Dark luxury theme background */
+  color: #F5E5C5;
+  /* Default text color */
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 html {
-    background-color: #0A0807;
+  background-color: #0A0807;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }

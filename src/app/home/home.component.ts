@@ -185,20 +185,22 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private setupIntersectionObserver(): void {
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          this.observer?.unobserve(entry.target);
-        }
+    this.ngZone.runOutsideAngular(() => {
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            this.observer?.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.01,
+        rootMargin: '0px 0px 150px 0px'
       });
-    }, {
-      threshold: 0.05,
-      rootMargin: '0px 0px -20px 0px'
-    });
 
-    this.animatedElements.forEach(el => {
-      this.observer?.observe(el.nativeElement);
+      this.animatedElements.forEach(el => {
+        this.observer?.observe(el.nativeElement);
+      });
     });
   }
 
