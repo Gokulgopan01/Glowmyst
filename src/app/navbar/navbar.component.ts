@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LucideAngularModule, Search, ChevronDown, Menu, X, RotateCcw, Gem, ShieldCheck, Truck, ChevronRight, Flower2, Landmark, Sparkles, Home, User, Mail, Award, RefreshCw, Headphones, MessageCircle, Instagram, Facebook, Twitter } from 'lucide-angular';
+import { ScrollLockService } from '../services/scroll-lock.service';
+import { WhatsappService } from '../services/whatsapp.service';
 
 @Component({
   selector: 'app-navbar',
@@ -45,6 +47,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private unlistenScroll?: () => void;
   private ngZone = inject(NgZone);
   private cdr = inject(ChangeDetectorRef);
+  private scrollLockService = inject(ScrollLockService);
+  whatsappService = inject(WhatsappService);
 
   constructor(private router: Router) {
     // Auto-close the mobile panel the moment a new route starts loading,
@@ -99,11 +103,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private setBodyScrollLock(locked: boolean) {
     document.body.style.overflow = locked ? 'hidden' : '';
     document.documentElement.style.overflow = locked ? 'hidden' : '';
+    this.scrollLockService.setLock(locked);
   }
 
   ngOnDestroy() {
     this.unlistenScroll?.();
     this.routerSub?.unsubscribe();
+    this.scrollLockService.setLock(false);
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';
   }

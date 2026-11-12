@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy, inject, NgZone } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
-import { filter } from 'rxjs';
+import { filter, Subscription } from 'rxjs';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ScrollLockService } from './services/scroll-lock.service';
 import Lenis from 'lenis';
 
 @Component({
@@ -18,6 +19,8 @@ export class AppComponent implements OnInit, OnDestroy {
   private rafId: number | undefined;
   private router = inject(Router);
   private ngZone = inject(NgZone);
+  private scrollLockService = inject(ScrollLockService);
+  private scrollLockSub?: Subscription;
 
   ngOnInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -49,9 +52,20 @@ export class AppComponent implements OnInit, OnDestroy {
       }
       window.scrollTo(0, 0);
     });
+
+    this.scrollLockSub = this.scrollLockService.isLocked$.subscribe(isLocked => {
+      if (this.lenis) {
+        if (isLocked) {
+          this.lenis.stop();
+        } else {
+          this.lenis.start();
+        }
+      }
+    });
   }
 
   ngOnDestroy() {
+    this.scrollLockSub?.unsubscribe();
     if (this.lenis) {
       this.lenis.destroy();
     }

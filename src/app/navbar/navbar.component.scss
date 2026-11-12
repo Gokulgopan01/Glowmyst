@@ -595,13 +595,14 @@
         top: 0;
         right: -100%;
 
-        width: min(410px, 94vw);
-        padding: 34px 24px 24px;
-        background: #0b0908;
-        border-left: 1px solid rgba(201, 154, 59, 0.25);
-        box-shadow: -18px 0 45px rgba(0, 0, 0, 0.75);
+        width: min(390px, 92vw);
+        padding: 24px 22px 28px;
+        background: #090706;
+        border-left: 1px solid rgba(214, 164, 79, 0.25);
+        box-shadow: -18px 0 45px rgba(0, 0, 0, 0.85);
 
         height: 100vh;
+        height: 100dvh;
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -611,6 +612,9 @@
 
         overflow-y: auto;
         overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        touch-action: pan-y;
 
         &.mobile-open {
             right: 0;
@@ -622,35 +626,45 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 24px;
-        padding: 0 4px;
+        padding: 4px 0 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
+        .mobile-logo-container {
+            display: flex;
+            align-items: center;
+        }
 
         .mobile-logo-img {
-            height: 82px;
+            height: 64px;
+            max-width: 175px;
             width: auto;
+            object-fit: contain;
+            display: block;
         }
 
         .close-menu-btn {
-            background: none;
-            width: 42px;
-            height: 42px;
-            border: 1px solid rgba(201, 154, 59, 0.35);
+            background: rgba(20, 16, 12, 0.4);
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(214, 164, 79, 0.45);
             padding: 0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--hero-gold);
+            color: #F5E6C8;
             cursor: pointer;
             transition: all 0.3s ease;
 
             &:hover {
-                background: rgba(201, 154, 59, 0.1);
+                background: rgba(214, 164, 79, 0.15);
+                border-color: #D6A44F;
+                color: #D6A44F;
             }
 
             lucide-icon {
-                width: 19px;
-                height: 19px;
+                width: 20px;
+                height: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -667,223 +681,185 @@
         margin: 0;
         padding: 0;
         list-style: none;
+        gap: 4px;
     }
 
     .nav-item {
         width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.055);
-
-        &:last-child {
-            border-bottom: none;
-        }
+        border-bottom: none;
     }
 
     .nav-link {
-        min-height: 58px;
-        padding: 0 6px;
-
+        min-height: 54px;
+        padding: 12px 18px;
         display: flex;
         align-items: center;
         width: 100%;
-
-        color: rgba(255, 255, 255, 0.7);
+        color: #F5E6C8;
         text-decoration: none;
         transition: all 0.3s ease;
-        border-radius: 8px;
+        border-radius: 20px;
+        border: 1px solid transparent;
 
         &::after {
             display: none;
         }
 
         .mobile-icon-wrapper {
-            width: 28px;
-            height: 28px;
-            min-width: 32px;
-            margin-right: 14px;
-
-            border-radius: 50%;
-            border: 1px solid rgba(201, 154, 59, 0.2);
+            width: 26px;
+            height: 26px;
+            margin-right: 18px;
+            border-radius: 0;
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(10, 8, 6, 0.5);
+            background: transparent;
 
             .mobile-nav-icon {
-                width: 17px;
-                height: 17px;
+                width: 22px;
+                height: 22px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-shrink: 0;
                 line-height: 0;
+                color: #D6A44F;
+
+                svg {
+                    width: 22px;
+                    height: 22px;
+                    stroke: #D6A44F;
+                }
             }
         }
 
         .nav-text-span {
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
             font-weight: 500;
-            /* Compact mobile navigation */
-            line-height: 1;
+            line-height: 1.2;
             letter-spacing: 0.5px;
-
-            text-transform: uppercase;
-
+            text-transform: none;
             display: flex;
             align-items: center;
-
             flex: 1;
-
-            /* prevents Cormorant from looking vertically too tall */
-            transform: translateY(1px);
+            color: #F5E6C8;
         }
 
         .mobile-nav-arrow {
-            width: 15px;
-            height: 15px;
-            color: rgba(255, 255, 255, 0.38);
+            width: 18px;
+            height: 18px;
+            color: #D6A44F;
             flex-shrink: 0;
         }
 
+        &:hover {
+            color: #F5E6C8;
+        }
+
         &.active {
-            background: rgba(201, 154, 59, 0.08);
-            color: var(--hero-gold);
-            border: 1px solid rgba(201, 154, 59, 0.15);
-            margin: 0;
+            background: linear-gradient(90deg, #382414 0%, #2A1A0E 50%, #1A1109 100%);
+            border: 1px solid rgba(214, 164, 79, 0.45);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
 
             .mobile-icon-wrapper {
-                background: linear-gradient(145deg, rgba(201, 154, 59, 0.2), rgba(201, 154, 59, 0.05));
-                border-color: rgba(201, 154, 59, 0.5);
+                background: transparent;
+                border: none;
+
+                .mobile-nav-icon {
+                    color: #F5E6C8;
+
+                    svg {
+                        stroke: #F5E6C8;
+                    }
+                }
+            }
+
+            .nav-text-span {
+                color: #F5E6C8;
             }
 
             .mobile-nav-arrow {
-                color: var(--hero-gold);
+                color: #D6A44F;
             }
         }
     }
 
-    .nav-link.active {
-        min-height: 58px;
-
-        margin: 0;
-
-        padding: 0 6px;
-
-        border-radius: 9px;
-
-        background: rgba(201, 154, 59, 0.075);
-
-        border: 1px solid rgba(201, 154, 59, 0.20);
-
-        .mobile-icon-wrapper {
-            width: 28px;
-            height: 28px;
-
-            background: rgba(201, 154, 59, 0.08);
-
-            border-color: rgba(201, 154, 59, 0.55);
-
-            .mobile-nav-icon {
-                color: var(--hero-gold);
-            }
-        }
-
-        .nav-text-span {
-            color: #e7c777;
-        }
-
-        .mobile-nav-arrow {
-            color: #e7c777;
-        }
-    }
-
-    .dropdown-menu {
-        display: none;
-    }
-
-    /* Features */
-    .mobile-features-panel {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-        padding: 18px 12px;
-        border: 1px solid rgba(201, 154, 59, 0.2);
-        border-radius: 12px;
-        background: rgba(20, 16, 12, 0.4);
-
-        .feature-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            flex: 1;
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
-
-            &:last-child {
-                border-right: none;
-            }
-
-            .feature-icon {
-                width: 20px;
-                height: 20px;
-                color: var(--hero-gold);
-                margin-bottom: 6px;
-            }
-
-            span {
-                font-size: 8px;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                color: rgba(255, 255, 255, 0.6);
-                line-height: 1.3;
-            }
-        }
-    }
-
-    /* Chat Button */
+    /* Chat Button (Chat With Us) */
     .mobile-chat-btn {
-        margin-top: 16px;
+        margin-top: 24px;
         display: flex;
         align-items: center;
-        background: rgba(20, 16, 12, 0.4);
-        border: 1px solid rgba(201, 154, 59, 0.2);
-        border-radius: 12px;
-        padding: 12px 16px;
+        background: #120E0B;
+        border: 1px solid rgba(214, 164, 79, 0.28);
+        border-radius: 20px;
+        padding: 16px 20px;
         cursor: pointer;
         width: 100%;
         text-align: left;
         transition: all 0.3s ease;
+        position: relative;
+
+        &:hover, &:active {
+            border-color: rgba(214, 164, 79, 0.55);
+            background: #17120E;
+            transform: translateY(-1px);
+        }
 
         .chat-icon {
-            width: 28px;
-            height: 28px;
-            color: var(--hero-gold);
-            margin-right: 12px;
+            width: 32px;
+            height: 32px;
+            color: #D6A44F;
+            margin-right: 18px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                width: 32px;
+                height: 32px;
+                stroke: #D6A44F;
+            }
         }
 
         .chat-text {
             flex: 1;
             display: flex;
             flex-direction: column;
+            gap: 3px;
+            min-width: 0;
 
             .chat-title {
-                font-family: 'Inter', sans-serif;
-                font-size: 14px;
-                font-weight: 500;
+                font-family: 'Cinzel', serif;
+                font-size: 15px;
+                font-weight: 600;
                 letter-spacing: 0.5px;
-                color: var(--hero-gold);
+                color: #F5E6C8;
+                white-space: nowrap;
             }
 
             .chat-subtitle {
-                font-size: 11px;
-                color: rgba(255, 255, 255, 0.5);
+                font-family: 'Inter', sans-serif;
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba(245, 230, 200, 0.65);
+                white-space: nowrap;
             }
         }
 
         .chat-arrow {
             width: 18px;
             height: 18px;
-            color: rgba(255, 255, 255, 0.4);
+            color: #D6A44F;
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+
+        &:hover .chat-arrow {
+            transform: translateX(3px);
         }
     }
 
@@ -910,27 +886,63 @@
 
         .social-icons {
             display: flex;
-            gap: 8px;
+            align-items: center;
+            gap: 10px;
 
             .social-btn {
-                width: 32px;
-                height: 32px;
+                width: 38px;
+                height: 38px;
+                min-width: 38px;
+                min-height: 38px;
+                flex: 0 0 38px;
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
                 border-radius: 50%;
-                border: 1px solid rgba(201, 154, 59, 0.2);
+                border: 1px solid rgba(201, 154, 59, 0.3);
+                background: rgba(201, 154, 59, 0.06);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: rgba(255, 255, 255, 0.6);
+                line-height: 0;
+                text-decoration: none;
+                color: rgba(245, 230, 200, 0.75);
                 transition: all 0.3s ease;
 
                 lucide-icon {
-                    width: 16px;
-                    height: 16px;
+                    width: 17px;
+                    height: 17px;
+                    flex: 0 0 17px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    line-height: 0;
+                    margin: 0;
+                    padding: 0;
+
+                    svg {
+                        display: block;
+                        width: 17px;
+                        height: 17px;
+                        margin: 0;
+                        padding: 0;
+                    }
                 }
 
-                &:hover {
-                    color: var(--hero-gold);
-                    border-color: rgba(201, 154, 59, 0.5);
+                &:hover, &:active {
+                    color: #0b0908;
+                    background: var(--hero-gold);
+                    border-color: var(--hero-gold);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 14px rgba(214, 164, 79, 0.35);
+
+                    lucide-icon {
+                        color: #0b0908;
+
+                        svg {
+                            stroke: #0b0908;
+                        }
+                    }
                 }
             }
         }

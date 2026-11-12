@@ -16,7 +16,7 @@
     </div>
 
     <!-- Navigation Links -->
-    <div class="nav-menu-wrapper" [class.mobile-open]="isMobileMenuOpen">
+    <div class="nav-menu-wrapper" [class.mobile-open]="isMobileMenuOpen" data-lenis-prevent>
       
       <!-- Mobile Header -->
       <div class="mobile-menu-header">
@@ -36,111 +36,19 @@
             <lucide-icon [img]="ChevronRightIcon" class="mobile-nav-arrow"></lucide-icon>
           </a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
           <a routerLink="/jewellery" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
             <div class="mobile-icon-wrapper"><lucide-icon [img]="GemIcon" class="mobile-nav-icon"></lucide-icon></div>
             <span class="nav-text-span">Jewellery</span>
             <lucide-icon [img]="ChevronRightIcon" class="mobile-nav-arrow"></lucide-icon>
           </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a routerLink="/jewellery/bridal" (click)="closeMobileMenu()" class="dropdown-item-content">
-                <div class="dropdown-icon-wrapper">
-                  <lucide-icon [img]="GemIcon" class="dropdown-item-icon"></lucide-icon>
-                </div>
-                <div class="dropdown-text">
-                  <span class="dropdown-title">Bridal</span>
-                </div>
-                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
-              </a>
-            </li>
-            <li>
-              <a routerLink="/jewellery/antique" (click)="closeMobileMenu()" class="dropdown-item-content">
-                <div class="dropdown-icon-wrapper">
-                  <lucide-icon [img]="FlowerIcon" class="dropdown-item-icon"></lucide-icon>
-                </div>
-                <div class="dropdown-text">
-                  <span class="dropdown-title">Antique</span>
-                </div>
-                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
-              </a>
-            </li>
-            <li>
-              <a routerLink="/jewellery/temple" (click)="closeMobileMenu()" class="dropdown-item-content">
-                <div class="dropdown-icon-wrapper">
-                  <lucide-icon [img]="LandmarkIcon" class="dropdown-item-icon"></lucide-icon>
-                </div>
-                <div class="dropdown-text">
-                  <span class="dropdown-title">Temple</span>
-                </div>
-                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
-              </a>
-            </li>
-            <li>
-              <a routerLink="/jewellery/casual" (click)="closeMobileMenu()" class="dropdown-item-content">
-                <div class="dropdown-icon-wrapper">
-                  <lucide-icon [img]="SparklesIcon" class="dropdown-item-icon"></lucide-icon>
-                </div>
-                <div class="dropdown-text">
-                  <span class="dropdown-title">Casual</span>
-                </div>
-                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
-              </a>
-            </li>
-          </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
           <a routerLink="/sarees" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
             <div class="mobile-icon-wrapper"><lucide-icon [img]="SparklesIcon" class="mobile-nav-icon"></lucide-icon></div>
             <span class="nav-text-span">Sarees</span>
             <lucide-icon [img]="ChevronRightIcon" class="mobile-nav-arrow"></lucide-icon>
           </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a routerLink="/sarees/silk" (click)="closeMobileMenu()" class="dropdown-item-content">
-                <div class="dropdown-icon-wrapper">
-                  <lucide-icon [img]="SparklesIcon" class="dropdown-item-icon"></lucide-icon>
-                </div>
-                <div class="dropdown-text">
-                  <span class="dropdown-title">Silk</span>
-                </div>
-                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
-              </a>
-            </li>
-            <li>
-              <a routerLink="/sarees/cotton" (click)="closeMobileMenu()" class="dropdown-item-content">
-                <div class="dropdown-icon-wrapper">
-                  <lucide-icon [img]="FlowerIcon" class="dropdown-item-icon"></lucide-icon>
-                </div>
-                <div class="dropdown-text">
-                  <span class="dropdown-title">Cotton</span>
-                </div>
-                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
-              </a>
-            </li>
-            <li>
-              <a routerLink="/sarees/designer" (click)="closeMobileMenu()" class="dropdown-item-content">
-                <div class="dropdown-icon-wrapper">
-                  <lucide-icon [img]="GemIcon" class="dropdown-item-icon"></lucide-icon>
-                </div>
-                <div class="dropdown-text">
-                  <span class="dropdown-title">Designer</span>
-                </div>
-                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
-              </a>
-            </li>
-            <li>
-              <a routerLink="/sarees/party-wear" (click)="closeMobileMenu()" class="dropdown-item-content">
-                <div class="dropdown-icon-wrapper">
-                  <lucide-icon [img]="LandmarkIcon" class="dropdown-item-icon"></lucide-icon>
-                </div>
-                <div class="dropdown-text">
-                  <span class="dropdown-title">Party Wear</span>
-                </div>
-                <lucide-icon [img]="ChevronRightIcon" class="dropdown-arrow-right"></lucide-icon>
-              </a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item">
           <a routerLink="/about-us" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
@@ -158,31 +66,11 @@
         </li>
       </ul>
 
-      <!-- Mobile Features Panel -->
-      <div class="mobile-features-panel">
-        <div class="feature-item">
-          <lucide-icon [img]="ShieldCheckIcon" class="feature-icon"></lucide-icon>
-          <span>FREE INSURED<br>SHIPPING</span>
-        </div>
-        <div class="feature-item">
-          <lucide-icon [img]="AwardIcon" class="feature-icon"></lucide-icon>
-          <span>LIFETIME<br>WARRANTY</span>
-        </div>
-        <div class="feature-item">
-          <lucide-icon [img]="RefreshCwIcon" class="feature-icon"></lucide-icon>
-          <span>EASY<br>RETURNS</span>
-        </div>
-        <div class="feature-item">
-          <lucide-icon [img]="HeadphonesIcon" class="feature-icon"></lucide-icon>
-          <span>24/7<br>SUPPORT</span>
-        </div>
-      </div>
-
       <!-- Chat With Us Button -->
-      <button class="mobile-chat-btn">
-        <lucide-icon [img]="MessageCircleIcon" class="chat-icon"></lucide-icon>
+      <button class="mobile-chat-btn" (click)="whatsappService.openGeneralChat()" type="button" aria-label="Chat with us on WhatsApp">
+        <lucide-icon [img]="HeadphonesIcon" class="chat-icon"></lucide-icon>
         <div class="chat-text">
-          <span class="chat-title">CHAT WITH US</span>
+          <span class="chat-title">Chat With Us</span>
           <span class="chat-subtitle">We're here to help!</span>
         </div>
         <lucide-icon [img]="ChevronRightIcon" class="chat-arrow"></lucide-icon>

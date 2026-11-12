@@ -4,19 +4,13 @@ import { RouterModule, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {
   LucideAngularModule,
-  Truck,
-  ShieldCheck,
-  RotateCcw,
-  Sparkles,
   Phone,
   Mail,
   MapPin,
   Instagram,
   Facebook,
   Youtube,
-  MessageCircle,
-  Lock,
-  ArrowRight
+  ChevronRight
 } from 'lucide-angular';
 
 @Component({
@@ -27,19 +21,13 @@ import {
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  readonly TruckIcon = Truck;
-  readonly ShieldCheckIcon = ShieldCheck;
-  readonly RotateCcwIcon = RotateCcw;
-  readonly SparklesIcon = Sparkles;
   readonly PhoneIcon = Phone;
   readonly MailIcon = Mail;
   readonly MapPinIcon = MapPin;
   readonly InstagramIcon = Instagram;
   readonly FacebookIcon = Facebook;
   readonly YoutubeIcon = Youtube;
-  readonly MessageCircleIcon = MessageCircle;
-  readonly LockIcon = Lock;
-  readonly ArrowRightIcon = ArrowRight;
+  readonly ChevronRightIcon = ChevronRight;
 
   currentYear: number = new Date().getFullYear();
   newsletterEmail: string = '';
@@ -56,4 +44,3 @@ export class FooterComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
-

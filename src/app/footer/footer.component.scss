@@ -1,687 +1,568 @@
-// ==========================================================================
-// GLOWMYST SIGNATURE LUXURY FOOTER
-// ==========================================================================
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 
-:host {
-  display: block;
-  width: 100%;
-}
-
-.glowmyst-footer {
-  width: 100%;
-  background-color: #070605;
-  background-image:
-    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.09) 0%, transparent 55%),
-    radial-gradient(circle at 10% 40%, rgba(201, 154, 69, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 90% 70%, rgba(201, 154, 69, 0.03) 0%, transparent 40%),
-    linear-gradient(180deg, #090706 0%, #060504 50%, #030302 100%);
-  border-top: 1px solid rgba(201, 154, 69, 0.25);
-  color: #9F978B;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+.gm-luxury-footer {
   position: relative;
+  background-color: #080808;
+  background-image:
+    linear-gradient(to right, transparent 0%, transparent 10%, rgba(8, 8, 8, 0.3) 20%, rgba(8, 8, 8, 0.65) 32%, rgba(8, 8, 8, 0.85) 50%, rgba(8, 8, 8, 0.7) 75%, transparent 92%, transparent 100%),
+    linear-gradient(to bottom, rgba(8, 8, 8, 0.3) 0%, rgba(8, 8, 8, 0.1) 30%, rgba(8, 8, 8, 0.6) 80%, rgba(8, 8, 8, 0.95) 100%),
+    url('/assets/footer_bg_v2.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #F5F0EB;
+  padding: 56px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
 }
 
-// --------------------------------------------------------------------------
-// 1. PRE-FOOTER PERKS / TRUST BAR
-// --------------------------------------------------------------------------
-
-.footer-perks-bar {
-  width: 100%;
-  border-bottom: 1px solid rgba(201, 154, 69, 0.15);
-  background: rgba(14, 11, 9, 0.65);
-  backdrop-filter: blur(8px);
-}
-
-.footer-perks-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 32px 5%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  gap: 24px;
+.footer-container {
   position: relative;
-}
-
-.perk-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: transform 0.35s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-
-    .perk-icon-wrapper {
-      border-color: #D4AF37;
-      background: rgba(201, 154, 69, 0.15);
-      box-shadow: 0 0 16px rgba(201, 154, 69, 0.25);
-      color: #F5D67F;
-    }
-
-    .perk-title {
-      color: #F5D67F;
-    }
-  }
-}
-
-.perk-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  flex: 0 0 48px;
-
-  border-radius: 50%;
-  border: 1px solid rgba(201, 154, 69, 0.3);
-  background: rgba(201, 154, 69, 0.06);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #C99A45;
-  box-sizing: border-box;
-
-  transition: all 0.35s ease;
-
-  lucide-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 22px;
-    height: 22px;
-    flex: 0 0 22px;
-    line-height: 0;
-
-    svg {
-      display: block;
-      width: 100%;
-      height: 100%;
-      stroke: currentColor;
-    }
-  }
-}
-
-.perk-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.perk-title {
-  margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 17px;
-  font-weight: 600;
-  color: #F4E5C3;
-  letter-spacing: 0.3px;
-  transition: color 0.3s ease;
-}
-
-.perk-sub {
-  margin: 0;
-  font-size: 12px;
-  color: #8C8477;
-  line-height: 1.4;
-}
-
-.perk-divider {
-  display: none; // Managed cleanly via grid gap
-}
-
-// --------------------------------------------------------------------------
-// 2. MAIN FOOTER CONTENT
-// --------------------------------------------------------------------------
-
-.footer-main {
-  padding: 70px 0 50px;
-}
-
-.footer-main-container {
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 40px;
+  z-index: 2;
+}
+
+.footer-grid {
   display: grid;
-  grid-template-columns: 2.2fr 1.2fr 1.2fr 1.2fr 1.8fr;
+  grid-template-columns: 260px 180px 220px 1fr;
   gap: 40px;
+  align-items: start;
 }
 
-.footer-col {
-  display: flex;
-  flex-direction: column;
-}
-
-// Col Titles
-.col-title {
-  margin: 0 0 24px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 19px;
-  font-weight: 600;
-  color: #F4E5C3;
-  letter-spacing: 0.5px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  .gold-line {
-    width: 24px;
-    height: 1.5px;
-    background: linear-gradient(90deg, #C99A45 0%, transparent 100%);
-  }
-}
-
-// Links List
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-
-  li {
-    a {
-      color: #9F978B;
-      text-decoration: none;
-      font-size: 13.5px;
-      line-height: 1.5;
-      display: inline-flex;
-      align-items: center;
-      transition: color 0.3s ease, transform 0.3s ease;
-      cursor: pointer;
-
-      &:hover {
-        color: #E5BE69;
-        transform: translateX(4px);
-      }
-    }
-  }
-}
-
-// --------------------------------------------------------------------------
-// BRAND COLUMN
-// --------------------------------------------------------------------------
-
+/* ============================================
+   Col 1: Brand / Identity
+   ============================================ */
 .brand-col {
-  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 
-  .footer-logo-wrapper {
-    display: inline-block;
-    margin-bottom: 20px;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-
-    &:hover {
-      opacity: 0.88;
-    }
-  }
-
-  .footer-logo-img {
-    height: 48px;
-    width: auto;
-    object-fit: contain;
-    display: block;
-    filter: drop-shadow(0 2px 10px rgba(201, 154, 69, 0.2));
-  }
-
-  .brand-tagline {
-    margin: 0 0 24px;
-    font-size: 13.5px;
-    line-height: 1.7;
-    color: #A39B8E;
-  }
-
-  .brand-contacts {
+  .brand-identity {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 16px;
   }
 
-  .contact-item {
+  .lotus-emblem {
+    width: 72px;
+    height: 52px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.15));
+  }
+
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    margin: 0 0 8px;
+    line-height: 1.1;
+  }
+
+  .brand-subtext {
     display: flex;
     align-items: center;
-    gap: 12px;
-    color: #9F978B;
-    text-decoration: none;
+    gap: 8px;
+    width: 100%;
+
+    .subtext-line {
+      width: 22px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .subtext-words {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, 0.7);
+      white-space: nowrap;
+    }
+  }
+
+  .brand-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* ============================================
+   Common Column Titles
+   ============================================ */
+.col-title {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0 0 22px;
+  position: relative;
+  letter-spacing: 1.5px;
+}
+
+/* ============================================
+   Col 2: Quick Links
+   ============================================ */
+.links-col {
+  padding-top: 2px;
+
+  .nav-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.78);
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.25s ease, transform 0.25s ease;
+
+      .chevron {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 600;
+        transition: transform 0.25s ease, color 0.25s ease;
+      }
+
+      &:hover {
+        color: #FFFFFF;
+        transform: translateX(3px);
+
+        .chevron {
+          color: #FFFFFF;
+          transform: translateX(2px);
+        }
+      }
+    }
+  }
+}
+
+/* ============================================
+   Col 3: Customer Care
+   ============================================ */
+.care-col {
+  padding-top: 2px;
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      line-height: 1.5;
+      transition: color 0.25s ease;
+
+      .icon-circle {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(255, 255, 255, 0.45);
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: border-color 0.25s ease, background 0.25s ease;
+        line-height: 0;
+
+        .row-icon {
+          width: 16px;
+          height: 16px;
+          color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          line-height: 0;
+
+          svg {
+            display: block;
+            width: 16px;
+            height: 16px;
+            margin: 0;
+          }
+        }
+      }
+
+      &.address-row {
+        align-items: flex-start;
+
+        .icon-circle {
+          margin-top: 0;
+        }
+      }
+
+      &:hover {
+        color: #FFFFFF;
+
+        .icon-circle {
+          border-color: rgba(255, 255, 255, 0.7);
+        }
+      }
+    }
+  }
+}
+
+/* ============================================
+   Col 4: Stay Connected
+   ============================================ */
+.connect-col {
+  padding-top: 2px;
+
+  .connect-desc {
+    font-family: 'Inter', sans-serif;
     font-size: 13px;
-    transition: color 0.3s ease;
+    color: rgba(255, 255, 255, 0.65);
+    margin: -10px 0 18px;
+    line-height: 1.5;
+  }
 
-    &:hover {
-      color: #E5BE69;
+  .newsletter-pill-form {
+    margin-bottom: 22px;
+    max-width: 320px;
 
-      .contact-icon-box {
-        border-color: #C99A45;
-        color: #F5D67F;
-        background: rgba(201, 154, 69, 0.12);
+    .pill-input-wrapper {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: 30px;
+      padding: 4px 5px 4px 14px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:focus-within {
+        border-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+      }
+
+      .input-mail-icon {
+        width: 16px;
+        height: 16px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-right: 8px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
+      }
+
+      input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #FFFFFF;
+        font-family: 'Inter', sans-serif;
+        font-size: 12.5px;
+        min-width: 0;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.4);
+        }
+      }
+
+      .pill-send-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #FFFFFF;
+        flex-shrink: 0;
+        transition: transform 0.25s ease, background 0.25s ease;
+        font-size: 18px;
+        line-height: 1;
+
+        .arrow-icon {
+          font-size: 18px;
+          line-height: 1;
+          display: block;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+          transform: scale(1.06);
+        }
+
+        .check-mark {
+          font-weight: 700;
+          font-size: 14px;
+        }
+      }
+
+      &.success {
+        border-color: rgba(100, 200, 100, 0.5);
       }
     }
   }
 
-  .contact-icon-box {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
-    flex: 0 0 30px;
-
-    border-radius: 6px;
-    border: 1px solid rgba(201, 154, 69, 0.22);
-    background: rgba(201, 154, 69, 0.04);
-
+  .social-links-row {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 12px;
 
-    color: #C99A45;
-    box-sizing: border-box;
-
-    lucide-icon {
+    .social-circle {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      width: 14px;
-      height: 14px;
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: all 0.3s ease;
       line-height: 0;
+      box-sizing: border-box;
+
+      lucide-icon {
+        width: 17px;
+        height: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
+
+        svg {
+          display: block;
+          width: 17px;
+          height: 17px;
+          margin: 0;
+        }
+      }
 
       svg {
         display: block;
-        width: 100%;
-        height: 100%;
+        margin: 0;
+      }
+
+      &:hover {
+        background: #FFFFFF;
+        color: #080808;
+        border-color: #FFFFFF;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+
+        lucide-icon {
+          color: #080808;
+
+          svg {
+            stroke: #080808;
+          }
+        }
+
+        svg {
+          fill: #080808;
+        }
       }
     }
   }
 }
 
-// --------------------------------------------------------------------------
-// NEWSLETTER & SOCIAL COLUMN
-// --------------------------------------------------------------------------
-
-.newsletter-col {
-  .newsletter-desc {
-    margin: 0 0 20px;
-    font-size: 13px;
-    line-height: 1.6;
-    color: #A39B8E;
-  }
-
-  .newsletter-form {
-    margin-bottom: 28px;
-  }
-
-  .input-wrap {
-    display: flex;
-    position: relative;
-    border: 1px solid rgba(201, 154, 69, 0.32);
-    border-radius: 6px;
-    background: rgba(14, 11, 9, 0.8);
-    overflow: hidden;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-
-    &:focus-within {
-      border-color: #D4AF37;
-      box-shadow: 0 0 14px rgba(201, 154, 69, 0.2);
-    }
-
-    &.success {
-      border-color: #4CAF50;
-    }
-
-    input {
-      flex: 1;
-      height: 44px;
-      padding: 0 16px;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #FAF7F2;
-      font-size: 13px;
-      font-family: inherit;
-
-      &::placeholder {
-        color: #7A7266;
-      }
-    }
-
-    .newsletter-submit-btn {
-      height: 44px;
-      padding: 0 20px;
-      background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-      border: none;
-      color: #0E0B09;
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      transition: all 0.35s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover:not(:disabled) {
-        background: linear-gradient(135deg, #F5D67F 0%, #D4AF37 100%);
-        box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
-      }
-
-      &:disabled {
-        opacity: 0.8;
-        cursor: default;
-      }
-    }
-  }
-
-  .subscription-msg {
-    margin: 8px 0 0;
-    font-size: 12px;
-    color: #E5BE69;
-    font-weight: 500;
-  }
-
-  .social-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .social-heading {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #8C8477;
-    text-transform: uppercase;
-  }
-
-  .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .social-btn {
-    width: 46px;
-    height: 46px;
-    min-width: 46px;
-    flex: 0 0 46px;
-
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-
-    border-radius: 50%;
-    border: 1px solid rgba(201, 154, 69, 0.28);
-    background: rgba(201, 154, 69, 0.05);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    line-height: 0;
-    color: #C99A45;
-    text-decoration: none;
-
-    transition: all 0.35s ease;
-
-    // Angular Lucide component
-    lucide-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: 19px;
-      height: 19px;
-      flex: 0 0 19px;
-      margin: 0;
-      padding: 0;
-      line-height: 0;
-    }
-
-    // Direct SVG alignment
-    >svg {
-      display: block;
-      width: 19px;
-      height: 19px;
-      flex: 0 0 19px;
-      margin: 0;
-    }
-
-    &:hover {
-      background: #C99A45;
-      color: #0E0B09;
-      border-color: #C99A45;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(201, 154, 69, 0.35);
-    }
-  }
-}
-
-// --------------------------------------------------------------------------
-// 3. FOOTER BOTTOM
-// --------------------------------------------------------------------------
-
-.footer-bottom {
-  border-top: 1px solid rgba(201, 154, 69, 0.15);
-  background: rgba(4, 3, 2, 0.8);
-  padding: 24px 0 32px;
-}
-
-.footer-bottom-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 5%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.footer-ornament {
+/* ============================================
+   Centered Lotus Bottom Divider
+   ============================================ */
+.bottom-ornament-divider {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  color: #C99A45;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 40px;
+  z-index: 2;
 
   .ornament-line {
-    width: 60px;
+    flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201, 154, 69, 0.4), transparent);
+    background: rgba(255, 255, 255, 0.15);
   }
 
-  .ornament-diamond {
-    font-size: 11px;
-    color: #D4AF37;
-    text-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
-  }
-}
+  .center-lotus-wrap {
+    padding: 0 16px;
 
-.bottom-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 12px;
-  color: #7E776D;
-}
-
-.copyright {
-  color: #7E776D;
-}
-
-.legal-links {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  a {
-    color: #7E776D;
-    text-decoration: none;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: #D4AF37;
+    .center-lotus {
+      width: 32px;
+      height: 22px;
+      display: block;
+      filter: drop-shadow(0 1px 4px rgba(255, 255, 255, 0.15));
     }
   }
-
-  .dot {
-    color: rgba(201, 154, 69, 0.3);
-  }
 }
 
-.security-badge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
+/* ============================================
+   Legal & Copyright Bar
+   ============================================ */
+.footer-legal-bar {
+  position: relative;
+  background: rgba(0, 0, 0, 0.4);
+  margin-top: 18px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 2;
 
-  color: #8C8477;
-  font-size: 10.5px;
-  line-height: 1.4;
-
-  .sec-icon {
+  .legal-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.6);
 
-    width: 12px;
-    height: 12px;
-    flex: 0 0 12px;
+    .copyright-text {
+      letter-spacing: 0.3px;
+    }
 
-    color: #C99A45;
-    margin: 0;
-    padding: 0;
-    line-height: 0;
+    .center-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.3px;
+
+      .heart {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+      }
+    }
+
+    .back-to-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.65);
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      cursor: pointer;
+      transition: color 0.25s ease;
+      padding: 0;
+
+      .top-arrow-circle {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(255, 255, 255, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s ease;
+        line-height: 0;
+      }
+
+      &:hover {
+        color: #FFFFFF;
+
+        .top-arrow-circle {
+          border-color: #FFFFFF;
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
   }
 }
 
-// --------------------------------------------------------------------------
-// RESPONSIVE BREAKPOINTS
-// --------------------------------------------------------------------------
-
-@media (max-width: 1200px) {
-  .footer-perks-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+/* ============================================
+   Responsive Breakpoints
+   ============================================ */
+@media (max-width: 1024px) {
+  .footer-container {
+    padding: 0 28px;
   }
 
-  .footer-main-container {
-    grid-template-columns: 2fr 1fr 1fr 1.8fr;
-  }
-
-  .footer-col.links-col:nth-child(4) {
-    grid-column: span 1;
-  }
-}
-
-@media (max-width: 960px) {
-  .footer-main-container {
+  .footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 40px 30px;
+    gap: 36px;
   }
 
   .brand-col {
-    grid-column: span 2;
-    padding-right: 0;
-    max-width: 600px;
-  }
-
-  .newsletter-col {
-    grid-column: span 2;
-    max-width: 520px;
-  }
-
-  .bottom-row {
-    flex-direction: column;
+    grid-column: 1 / -1;
+    align-items: center;
     text-align: center;
-    gap: 14px;
-  }
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-  .legal-links {
-    flex-wrap: wrap;
-    justify-content: center;
+    .brand-identity {
+      align-items: center;
+    }
   }
 }
 
 @media (max-width: 640px) {
-  .footer-perks-container {
+  .gm-luxury-footer {
+    padding: 44px 0 0;
+  }
+
+  .footer-container {
+    padding: 0 20px;
+  }
+
+  .footer-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 24px 16px;
+    gap: 28px;
   }
 
-  .perk-card {
-    gap: 14px;
+  .brand-col {
+    padding-right: 0;
   }
 
-  .perk-icon-wrapper {
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
-    flex: 0 0 42px;
-
-    lucide-icon {
-      width: 19px;
-      height: 19px;
-      flex: 0 0 19px;
-    }
+  .links-col,
+  .care-col,
+  .connect-col {
+    padding-left: 0;
   }
 
-  .footer-main {
-    padding: 50px 0 36px;
+  .bottom-ornament-divider {
+    padding: 0 20px;
+    margin-top: 32px;
   }
 
-  .footer-main-container {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    padding: 0 18px;
-  }
-
-  .brand-col,
-  .newsletter-col {
-    grid-column: span 1;
-  }
-
-  .col-title {
-    margin-bottom: 16px;
-    font-size: 18px;
-  }
-
-  .footer-links {
-    gap: 11px;
-  }
-
-  .input-wrap {
-    flex-direction: row;
-
-    input {
-      height: 42px;
-      font-size: 12px;
-      padding: 0 12px;
-    }
-
-    .newsletter-submit-btn {
-      height: 42px;
-      padding: 0 16px;
-      font-size: 10px;
-    }
-  }
-
-  .footer-bottom {
-    padding: 20px 0 28px;
-  }
-
-  .footer-bottom-container {
-    padding: 0 16px;
-    gap: 16px;
-  }
-
-  .bottom-row {
-    font-size: 11px;
-    gap: 12px;
-  }
-
-  .security-badge {
-    font-size: 10.5px;
+  .footer-legal-bar .legal-container {
+    padding: 0 20px;
+    flex-direction: column;
     text-align: center;
+    gap: 10px;
+
+    .back-to-top {
+      order: -1;
+    }
   }
 }
