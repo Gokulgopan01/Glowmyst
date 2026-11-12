@@ -4,48 +4,42 @@
     <div class="footer-grid">
       <!-- Col 1: Brand / Logo Identity -->
       <div class="footer-col brand-col">
-        <div class="brand-header">
-          <!-- Lotus Emblem SVG -->
-          <svg class="lotus-emblem" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="brand-identity">
+          <!-- Lotus SVG Emblem -->
+          <svg class="lotus-emblem" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Center petal -->
-            <path d="M50 4 C43 20 40 38 50 56 C60 38 57 20 50 4 Z" stroke="#F5E6C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M60 6 C52 24 48 44 60 64 C72 44 68 24 60 6 Z" fill="rgba(255,255,255,0.08)" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <!-- Inner Left petal -->
-            <path d="M50 56 C34 48 24 30 35 15 C44 26 48 42 50 56 Z" stroke="#F5E6C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M60 64 C42 54 30 34 42 16 C52 30 56 48 60 64 Z" fill="rgba(255,255,255,0.06)" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <!-- Inner Right petal -->
-            <path d="M50 56 C66 48 76 30 65 15 C56 26 52 42 50 56 Z" stroke="#F5E6C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M60 64 C78 54 90 34 78 16 C68 30 64 48 60 64 Z" fill="rgba(255,255,255,0.06)" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <!-- Outer Left petal -->
-            <path d="M47 57 C26 55 12 42 16 28 C26 35 38 48 47 57 Z" stroke="#F5E6C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M56 66 C32 62 14 48 20 32 C32 40 46 54 56 66 Z" fill="rgba(255,255,255,0.04)" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <!-- Outer Right petal -->
-            <path d="M53 57 C74 55 88 42 84 28 C74 35 62 48 53 57 Z" stroke="#F5E6C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M64 66 C88 62 106 48 100 32 C88 40 74 54 64 66 Z" fill="rgba(255,255,255,0.04)" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <!-- Base curve -->
-            <path d="M38 59 C44 63 56 63 62 59" stroke="#F5E6C8" stroke-width="2" stroke-linecap="round"/>
+            <path d="M46 68 C52 73 68 73 74 68" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Water reflection lines -->
+            <path d="M48 74 C54 76 66 76 72 74" stroke="rgba(245,230,200,0.3)" stroke-width="0.8" stroke-linecap="round"/>
+            <path d="M52 77 C56 78 64 78 68 77" stroke="rgba(245,230,200,0.15)" stroke-width="0.6" stroke-linecap="round"/>
           </svg>
 
-          <h2 class="brand-name">Glowmyst</h2>
+          <h2 class="brand-name">GlowMyst</h2>
           <div class="brand-subtext">
             <span class="subtext-line"></span>
-            <span class="subtext-words">JEWELLERS &bull; SAREES</span>
+            <span class="subtext-words">JEWELLERY &bull; SAREES</span>
             <span class="subtext-line"></span>
           </div>
         </div>
 
         <p class="brand-quote">
-          Timeless Elegance,<br>Forever Yours
+          Timeless Elegance,<br>Always Yours...
         </p>
-
-        <div class="quote-star-divider">
-          <span class="divider-line"></span>
-          <span class="star-icon">✦</span>
-          <span class="divider-line"></span>
-        </div>
       </div>
 
       <!-- Col 2: Quick Links -->
       <div class="footer-col links-col">
-        <h3 class="col-title">
-          <span>Quick Links</span>
-          <span class="title-underline"></span>
-        </h3>
+        <h3 class="col-title">Quick Links</h3>
         <ul class="nav-links-list">
           <li>
             <a routerLink="/home" (click)="scrollToTop()">
@@ -72,9 +66,9 @@
             </a>
           </li>
           <li>
-            <a routerLink="/about-us" (click)="scrollToTop()">
+            <a routerLink="/jewellery" (click)="scrollToTop()">
               <span class="chevron">&gt;</span>
-              <span>Blog</span>
+              <span>Collections</span>
             </a>
           </li>
           <li>
@@ -88,34 +82,35 @@
 
       <!-- Col 3: Customer Care -->
       <div class="footer-col care-col">
-        <h3 class="col-title">
-          <span>Customer Care</span>
-          <span class="title-underline"></span>
-        </h3>
+        <h3 class="col-title">Customer Care</h3>
         <div class="contact-list">
           <a href="tel:+919876543210" class="contact-row">
-            <lucide-icon [img]="PhoneIcon" class="row-icon"></lucide-icon>
+            <div class="icon-circle">
+              <lucide-icon [img]="PhoneIcon" class="row-icon"></lucide-icon>
+            </div>
             <span>+91 98765 43210</span>
           </a>
 
-          <a href="mailto:care@glowmyst.com" class="contact-row">
-            <lucide-icon [img]="MailIcon" class="row-icon"></lucide-icon>
-            <span>care&#64;glowmyst.com</span>
+          <a href="mailto:support@glowmyst.com" class="contact-row">
+            <div class="icon-circle">
+              <lucide-icon [img]="MailIcon" class="row-icon"></lucide-icon>
+            </div>
+            <span>support&#64;glowmyst.com</span>
           </a>
 
           <div class="contact-row address-row">
-            <lucide-icon [img]="MapPinIcon" class="row-icon"></lucide-icon>
-            <span>123 Heritage Street,<br>Kochi, Kerala &ndash; 682001</span>
+            <div class="icon-circle">
+              <lucide-icon [img]="MapPinIcon" class="row-icon"></lucide-icon>
+            </div>
+            <span>123 Elegance Street,<br>Fashion City, ST 12345</span>
           </div>
         </div>
       </div>
 
       <!-- Col 4: Stay Connected -->
       <div class="footer-col connect-col">
-        <h3 class="col-title">
-          <span>Stay Connected</span>
-        </h3>
-        <p class="connect-desc">Get the latest trends &amp; offers</p>
+        <h3 class="col-title">Stay Connected</h3>
+        <p class="connect-desc">Get exclusive updates, new arrivals and special offers.</p>
 
         <!-- Newsletter Subscription Pill -->
         <form (submit)="onSubscribe($event)" class="newsletter-pill-form">
@@ -129,7 +124,7 @@
               [disabled]="isSubscribed"
               required>
             <button type="submit" class="pill-send-btn" [disabled]="isSubscribed" aria-label="Submit newsletter">
-              <lucide-icon [img]="SendIcon" *ngIf="!isSubscribed"></lucide-icon>
+              <span *ngIf="!isSubscribed" class="arrow-icon">&rarr;</span>
               <span *ngIf="isSubscribed" class="check-mark">&#10003;</span>
             </button>
           </div>
@@ -162,12 +157,12 @@
     <div class="ornament-line left-line"></div>
     <div class="center-lotus-wrap">
       <svg class="center-lotus" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 4 C43 20 40 38 50 56 C60 38 57 20 50 4 Z" stroke="#F5E6C8" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M50 56 C34 48 24 30 35 15 C44 26 48 42 50 56 Z" stroke="#F5E6C8" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M50 56 C66 48 76 30 65 15 C56 26 52 42 50 56 Z" stroke="#F5E6C8" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M47 57 C26 55 12 42 16 28 C26 35 38 48 47 57 Z" stroke="#F5E6C8" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M53 57 C74 55 88 42 84 28 C74 35 62 48 53 57 Z" stroke="#F5E6C8" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M38 59 C44 63 56 63 62 59" stroke="#F5E6C8" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M50 4 C43 20 40 38 50 56 C60 38 57 20 50 4 Z" fill="rgba(255,255,255,0.06)" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M50 56 C34 48 24 30 35 15 C44 26 48 42 50 56 Z" fill="rgba(255,255,255,0.04)" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M50 56 C66 48 76 30 65 15 C56 26 52 42 50 56 Z" fill="rgba(255,255,255,0.04)" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M47 57 C26 55 12 42 16 28 C26 35 38 48 47 57 Z" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M53 57 C74 55 88 42 84 28 C74 35 62 48 53 57 Z" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M38 59 C44 63 56 63 62 59" stroke="#F5E6C8" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </div>
     <div class="ornament-line right-line"></div>
@@ -177,15 +172,19 @@
   <div class="footer-legal-bar">
     <div class="legal-container">
       <div class="copyright-text">
-        &copy; {{ currentYear }} Glowmyst. All Rights Reserved.
+        &copy; {{ currentYear }} GlowMyst. All Rights Reserved.
       </div>
-      <div class="legal-nav">
-        <a href="javascript:void(0)" (click)="scrollToTop()">Privacy Policy</a>
-        <span class="sep">|</span>
-        <a href="javascript:void(0)" (click)="scrollToTop()">Terms &amp; Conditions</a>
-        <span class="sep">|</span>
-        <a href="javascript:void(0)" (click)="scrollToTop()">Return Policy</a>
+      <div class="center-tagline">
+        Crafted with <span class="heart">&hearts;</span> for timeless beauty
       </div>
+      <button class="back-to-top" (click)="scrollToTop()" aria-label="Back to top">
+        Back to Top
+        <span class="top-arrow-circle">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
 </footer>

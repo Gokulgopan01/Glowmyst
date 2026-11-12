@@ -10,7 +10,6 @@ import {
   Instagram,
   Facebook,
   Youtube,
-  Send,
   ChevronRight
 } from 'lucide-angular';
 
@@ -28,7 +27,6 @@ export class FooterComponent {
   readonly InstagramIcon = Instagram;
   readonly FacebookIcon = Facebook;
   readonly YoutubeIcon = Youtube;
-  readonly SendIcon = Send;
   readonly ChevronRightIcon = ChevronRight;
 
   currentYear: number = new Date().getFullYear();
@@ -46,4 +44,3 @@ export class FooterComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
-
