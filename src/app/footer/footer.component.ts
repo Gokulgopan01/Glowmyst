@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ComingSoonService } from '../services/coming-soon.service';
+import { WhatsappService } from '../services/whatsapp.service';
 import {
   LucideAngularModule,
   Phone,
@@ -11,7 +12,8 @@ import {
   Instagram,
   Facebook,
   Youtube,
-  ChevronRight
+  ChevronRight,
+  MessageCircle
 } from 'lucide-angular';
 
 @Component({
@@ -29,11 +31,13 @@ export class FooterComponent {
   readonly FacebookIcon = Facebook;
   readonly YoutubeIcon = Youtube;
   readonly ChevronRightIcon = ChevronRight;
+  readonly MessageCircleIcon = MessageCircle;
 
   currentYear: number = new Date().getFullYear();
   newsletterEmail: string = '';
   isSubscribed: boolean = false;
   comingSoonService = inject(ComingSoonService);
+  whatsappService = inject(WhatsappService);
 
   openSareeComingSoon(event: Event): void {
     event.preventDefault();

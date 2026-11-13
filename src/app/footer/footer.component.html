@@ -84,11 +84,18 @@
       <div class="footer-col care-col">
         <h3 class="col-title">Customer Care</h3>
         <div class="contact-list">
-          <a href="tel:+919876543210" class="contact-row">
+          <a href="tel:+15169128424" class="contact-row">
             <div class="icon-circle">
               <lucide-icon [img]="PhoneIcon" class="row-icon"></lucide-icon>
             </div>
-            <span>+91 98765 43210</span>
+            <span>+1 516-912-8424</span>
+          </a>
+
+          <a href="javascript:void(0)" (click)="whatsappService.openGeneralChat()" class="contact-row" title="Chat on WhatsApp">
+            <div class="icon-circle">
+              <lucide-icon [img]="MessageCircleIcon" class="row-icon"></lucide-icon>
+            </div>
+            <span>WhatsApp (+1 516-912-8424)</span>
           </a>
 
           <a href="mailto:support@glowmyst.com" class="contact-row">
