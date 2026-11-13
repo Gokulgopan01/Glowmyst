@@ -3,13 +3,14 @@ import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ComingSoonModalComponent } from './shared/coming-soon-modal/coming-soon-modal.component';
 import { ScrollLockService } from './services/scroll-lock.service';
 import Lenis from 'lenis';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, ComingSoonModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

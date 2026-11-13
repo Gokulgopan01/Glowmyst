@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { LucideAngularModule, Search, ChevronDown, Menu, X, RotateCcw, Gem, ShieldCheck, Truck, ChevronRight, Flower2, Landmark, Sparkles, Home, User, Mail, Award, RefreshCw, Headphones, MessageCircle, Instagram, Facebook, Twitter } from 'lucide-angular';
 import { ScrollLockService } from '../services/scroll-lock.service';
 import { WhatsappService } from '../services/whatsapp.service';
+import { ComingSoonService } from '../services/coming-soon.service';
 
 @Component({
   selector: 'app-navbar',
@@ -49,6 +50,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private cdr = inject(ChangeDetectorRef);
   private scrollLockService = inject(ScrollLockService);
   whatsappService = inject(WhatsappService);
+  comingSoonService = inject(ComingSoonService);
+
+  onSareeClick(event: Event): void {
+    event.preventDefault();
+    this.closeMobileMenu();
+    this.comingSoonService.open();
+  }
 
   constructor(private router: Router) {
     // Auto-close the mobile panel the moment a new route starts loading,

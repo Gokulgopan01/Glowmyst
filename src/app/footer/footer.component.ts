@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ComingSoonService } from '../services/coming-soon.service';
 import {
   LucideAngularModule,
   Phone,
@@ -32,6 +33,12 @@ export class FooterComponent {
   currentYear: number = new Date().getFullYear();
   newsletterEmail: string = '';
   isSubscribed: boolean = false;
+  comingSoonService = inject(ComingSoonService);
+
+  openSareeComingSoon(event: Event): void {
+    event.preventDefault();
+    this.comingSoonService.open();
+  }
 
   onSubscribe(event: Event) {
     event.preventDefault();
