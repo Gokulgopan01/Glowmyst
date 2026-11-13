@@ -47,7 +47,7 @@
         EXPLORE JEWELLERY
         <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
       </button>
-      <button class="cta-button secondary" routerLink="/sarees">
+      <button class="cta-button secondary" (click)="comingSoonService.open()">
         EXPLORE SAREES
         <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
       </button>
@@ -100,7 +100,7 @@
       <p class="sig-description">
         From minimalist elegance to bold statements, our jewelry is designed to elevate your style effortlessly.
       </p>
-      <button class="sig-shop-btn" routerLink="/sarees">
+      <button class="sig-shop-btn" routerLink="/jewellery">
         Shop Now <lucide-icon [img]="ArrowRightIcon" class="icon"></lucide-icon>
       </button>
     </div>
@@ -112,11 +112,11 @@
 </section>
 
 
-<!-- SAREE SHOWCASE SECTION -->
+<!-- SAREE SHOWCASE SECTION (Temporarily hidden) -->
+<!--
 <section #animatedElement class="reveal-section saree-showcase-section">
   <div class="saree-showcase-inner">
 
-    <!-- Left: Text Content -->
     <div class="saree-showcase-text">
       <div class="saree-showcase-label">
         <span class="saree-label-line"></span>
@@ -127,13 +127,12 @@
         <span class="saree-heading-gold">Endless Grace</span>
       </h2>
       <p class="saree-showcase-desc">Discover handcrafted sarees that celebrate tradition, elegance and you.</p>
-      <button class="saree-explore-btn" routerLink="/sarees">
+      <button class="saree-explore-btn" (click)="comingSoonService.open()">
         EXPLORE SAREE COLLECTION
         <lucide-icon [img]="ArrowRightIcon" size="16"></lucide-icon>
       </button>
     </div>
 
-    <!-- Right: Vertical Photo Strips -->
     <div class="saree-showcase-photos" *ngIf="sareeImages.length > 0">
       <div class="saree-photo-strip" *ngFor="let img of sareeImages; let i = index">
         <img [src]="img" alt="Saree {{i + 1}}" class="saree-strip-img" [style.animation-delay]="(i * 0.12) + 's'">
@@ -142,6 +141,7 @@
 
   </div>
 </section>
+-->
 
 <!-- 1. NECKLACE BANNER & GRID SECTION -->
 <section #animatedElement class="reveal-section split-banner-section">

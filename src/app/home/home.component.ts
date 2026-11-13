@@ -23,6 +23,7 @@ interface Product {
 
 import { FoldTextComponent } from '../shared/fold-text/fold-text.component';
 import { DepthCarouselComponent } from '../shared/depth-carousel/depth-carousel.component';
+import { ComingSoonService } from '../services/coming-soon.service';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,7 @@ import { DepthCarouselComponent } from '../shared/depth-carousel/depth-carousel.
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
+  comingSoonService = inject(ComingSoonService);
   readonly ChevronLeftIcon = ChevronLeft;
   readonly ChevronRightIcon = ChevronRight;
   readonly ArrowRightIcon = ArrowRight;

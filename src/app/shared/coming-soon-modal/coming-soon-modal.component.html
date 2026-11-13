@@ -1,0 +1,67 @@
+<div
+  class="cs-overlay"
+  *ngIf="comingSoonService.isOpen()"
+  (click)="close()"
+  aria-modal="true"
+  role="dialog"
+>
+  <div class="cs-card" (click)="$event.stopPropagation()">
+    <!-- Ambient glowing backdrop aura -->
+    <div class="cs-glow"></div>
+
+    <!-- Close Button -->
+    <button class="cs-close-btn" (click)="close()" aria-label="Close modal">
+      <lucide-icon [img]="XIcon" size="18"></lucide-icon>
+    </button>
+
+    <!-- Lotus Emblem -->
+    <div class="cs-emblem-wrap">
+      <svg class="cs-lotus" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 4 C43 20 40 38 50 56 C60 38 57 20 50 4 Z" stroke="#D6A44F" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M50 56 C34 48 24 30 35 15 C44 26 48 42 50 56 Z" stroke="#D6A44F" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M50 56 C66 48 76 30 65 15 C56 26 52 42 50 56 Z" stroke="#D6A44F" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M47 57 C26 55 12 42 16 28 C26 35 38 48 47 57 Z" stroke="#D6A44F" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M53 57 C74 55 88 42 84 28 C74 35 62 48 53 57 Z" stroke="#D6A44F" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M38 59 C44 63 56 63 62 59" stroke="#D6A44F" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- Badge -->
+    <div class="cs-badge">
+      <lucide-icon [img]="SparklesIcon" size="13" class="cs-badge-icon"></lucide-icon>
+      <span>CURATING EXCLUSIVITY</span>
+    </div>
+
+    <!-- Title -->
+    <h2 class="cs-title">Coming Soon</h2>
+    <div class="cs-subtitle-wrap">
+      <span class="cs-line"></span>
+      <span class="cs-category">{{ comingSoonService.details().title }}</span>
+      <span class="cs-line"></span>
+    </div>
+
+    <!-- Description -->
+    <p class="cs-description">
+      {{ comingSoonService.details().message }}
+    </p>
+
+    <!-- Highlight Box -->
+    <div class="cs-highlight-box">
+      <p class="cs-highlight-text">
+        <em>"Handcrafted Banarasi, Kanjivaram & Designer Drapes — soon to grace your celebrations."</em>
+      </p>
+    </div>
+
+    <!-- Actions -->
+    <div class="cs-actions">
+      <button class="cs-btn cs-btn-primary" (click)="notifyViaWhatsApp()">
+        <lucide-icon [img]="BellIcon" size="15"></lucide-icon>
+        <span>Get Notified on WhatsApp</span>
+      </button>
+
+      <button class="cs-btn cs-btn-secondary" (click)="close()">
+        <span>Continue Exploring</span>
+      </button>
+    </div>
+  </div>
+</div>
