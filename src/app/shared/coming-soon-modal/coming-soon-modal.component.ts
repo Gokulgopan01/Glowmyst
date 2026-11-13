@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule, X, Sparkles, Bell, ArrowRight } from 'lucide-angular';
+import { LucideAngularModule, X, ArrowRight } from 'lucide-angular';
 import { ComingSoonService } from '../../services/coming-soon.service';
 import { WhatsappService } from '../../services/whatsapp.service';
 
@@ -16,12 +16,31 @@ export class ComingSoonModalComponent {
   whatsappService = inject(WhatsappService);
 
   readonly XIcon = X;
-  readonly SparklesIcon = Sparkles;
-  readonly BellIcon = Bell;
   readonly ArrowRightIcon = ArrowRight;
 
+  /** Drives the graceful exit animation before the modal is actually removed. */
+  readonly closing = signal(false);
+
+  /** Floating gold dust particles (styled via --i in SCSS). */
+  readonly dust = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  private readonly closeDelayMs = 450;
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.comingSoonService.isOpen()) {
+      this.close();
+    }
+  }
+
   close(): void {
-    this.comingSoonService.close();
+    if (this.closing()) return;
+
+    this.closing.set(true);
+    setTimeout(() => {
+      this.comingSoonService.close();
+      this.closing.set(false);
+    }, this.closeDelayMs);
   }
 
   notifyViaWhatsApp(): void {
