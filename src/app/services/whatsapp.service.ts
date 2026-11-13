@@ -5,10 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class WhatsappService {
 
-  private whatsappNumber = '919072239489';
+  private whatsappNumber = '15169128424';
 
   openGeneralChat(): void {
     const message = `Hello Glowmyst, I would like to know more about your collections!`;
+    const whatsappUrl = `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  }
+
+  openCustomChat(message: string): void {
     const whatsappUrl = `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   }

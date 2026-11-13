@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+// ==========================================================================
+// 1. MODAL BACKDROP & OVERLAY
+// ==========================================================================
 
 .cs-overlay {
   position: fixed;
@@ -6,21 +10,23 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background: rgba(6, 5, 5, 0.82);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(5, 4, 3, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  animation: csFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  padding: 16px;
+  box-sizing: border-box;
+  animation: csFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes csFadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -29,234 +35,625 @@
 @keyframes csScaleUp {
   from {
     opacity: 0;
-    transform: scale(0.92) translateY(12px);
+    transform: scale(0.95) translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
 
+// ==========================================================================
+// 2. COMPACT MODAL CARD CONTAINER
+// ==========================================================================
+
 .cs-card {
   position: relative;
   width: 100%;
-  max-width: 480px;
-  background: radial-gradient(circle at 50% 0%, #1c1510 0%, #0d0a08 60%, #060504 100%);
-  border: 1px solid rgba(214, 164, 79, 0.35);
-  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.85), 0 0 40px rgba(214, 164, 79, 0.12);
-  border-radius: 20px;
-  padding: 42px 32px 36px;
-  text-align: center;
+  max-width: 650px;
+  min-height: 410px;
+  max-height: 92vh;
+  max-height: 92dvh;
+  background: #090706;
+  background-image:
+    radial-gradient(circle at 65% 30%, rgba(201, 154, 69, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(201, 154, 69, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #0C0A08 0%, #080605 50%, #050403 100%);
+  border: 1px solid rgba(214, 164, 79, 0.28);
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.94),
+    0 0 40px rgba(214, 164, 79, 0.1),
+    inset 0 1px 1px rgba(255, 235, 190, 0.12);
+  border-radius: 16px;
+  display: flex;
+  align-items: stretch;
   overflow: hidden;
-  animation: csScaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-sizing: border-box;
+  animation: csScaleUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.cs-glow {
+// ==========================================================================
+// 3. AMBIENT GLOW & FLOATING PETALS
+// ==========================================================================
+
+.cs-ambient-glow {
   position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  height: 180px;
-  background: radial-gradient(ellipse, rgba(214, 164, 79, 0.22) 0%, transparent 70%);
+  top: -50px;
+  right: 15%;
+  width: 240px;
+  height: 170px;
+  background: radial-gradient(ellipse, rgba(214, 164, 79, 0.14) 0%, transparent 70%);
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
+
+.cs-petal {
+  position: absolute;
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  background: linear-gradient(135deg, rgba(230, 115, 130, 0.7) 0%, rgba(180, 60, 80, 0.4) 100%);
+  filter: blur(1.2px);
+  pointer-events: none;
+  z-index: 3;
+  animation: csPetalDrift 8s ease-in-out infinite alternate;
+}
+
+.cs-petal-1 {
+  width: 14px;
+  height: 10px;
+  top: 45px;
+  right: 50px;
+  transform: rotate(-25deg);
+  animation-duration: 7s;
+}
+
+.cs-petal-2 {
+  width: 16px;
+  height: 11px;
+  bottom: 80px;
+  right: 35px;
+  transform: rotate(35deg);
+  animation-duration: 9s;
+}
+
+.cs-petal-3 {
+  width: 12px;
+  height: 8px;
+  bottom: 35px;
+  left: 45%;
+  transform: rotate(-15deg);
+  animation-duration: 8.5s;
+}
+
+@keyframes csPetalDrift {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(8deg);
+  }
+
+  100% {
+    transform: translateY(-12px) rotate(-6deg);
+  }
+}
+
+// ==========================================================================
+// 4. MINIMALIST CIRCULAR CLOSE BUTTON
+// ==========================================================================
 
 .cs-close-btn {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 1px solid rgba(214, 164, 79, 0.3);
-  background: rgba(214, 164, 79, 0.05);
-  color: #F5E6C8;
+  border: 1px solid rgba(214, 164, 79, 0.32);
+  background: rgba(10, 8, 7, 0.65);
+  backdrop-filter: blur(4px);
+  color: rgba(245, 230, 200, 0.85);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  padding: 0;
+  line-height: 0;
   cursor: pointer;
+  z-index: 10;
   transition: all 0.25s ease;
-  z-index: 2;
+
+  lucide-icon,
+  svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin: 0;
+  }
 
   &:hover {
     background: rgba(214, 164, 79, 0.2);
     border-color: #D6A44F;
     color: #FFFFFF;
     transform: rotate(90deg);
+    box-shadow: 0 0 10px rgba(214, 164, 79, 0.3);
   }
 }
 
-.cs-emblem-wrap {
+// ==========================================================================
+// 5. LEFT VISUAL AREA (LADY IN GOLDEN SAREE)
+// ==========================================================================
+
+.cs-visual {
+  flex: 0 0 42%;
+  max-width: 42%;
   position: relative;
-  z-index: 1;
-  margin-bottom: 12px;
+  overflow: hidden;
+  background: #090706;
+  display: flex;
+  align-items: stretch;
+}
+
+.cs-lady-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.8s ease;
+}
+
+.cs-visual-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 65%, #090706 100%),
+    linear-gradient(180deg, rgba(9, 7, 6, 0.2) 0%, transparent 35%, rgba(9, 7, 6, 0.45) 100%);
+  z-index: 2;
+}
+
+// ==========================================================================
+// 6. RIGHT CONTENT AREA
+// ==========================================================================
+
+.cs-content {
+  flex: 1 1 58%;
+  padding: 32px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+// Lotus Emblem
+.cs-lotus-wrap {
+  margin-bottom: 8px;
   display: flex;
   justify-content: center;
 
   .cs-lotus {
-    width: 56px;
-    height: 36px;
-    filter: drop-shadow(0 2px 8px rgba(214, 164, 79, 0.35));
+    width: 36px;
+    height: 25px;
+    filter: drop-shadow(0 2px 6px rgba(214, 164, 79, 0.3));
   }
 }
 
-.cs-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 14px;
-  border-radius: 30px;
-  background: rgba(214, 164, 79, 0.1);
-  border: 1px solid rgba(214, 164, 79, 0.3);
-  color: #D6A44F;
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-  position: relative;
-  z-index: 1;
-
-  .cs-badge-icon {
-    color: #D6A44F;
-  }
-}
-
-.cs-title {
-  font-family: 'Cinzel', serif;
-  font-size: 32px;
-  font-weight: 500;
-  letter-spacing: 2.5px;
-  color: #F5E6C8;
-  margin: 0 0 10px;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 1;
-  line-height: 1.15;
-}
-
-.cs-subtitle-wrap {
+// Brand Line Bar
+.cs-brand-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 18px;
-  position: relative;
-  z-index: 1;
+  gap: 10px;
+  margin-bottom: 12px;
+}
 
-  .cs-line {
-    width: 32px;
-    height: 1px;
-    background: rgba(214, 164, 79, 0.4);
-  }
+.cs-brand-line {
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(214, 164, 79, 0.45) 100%);
 
-  .cs-category {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-style: italic;
-    color: #D6A44F;
-    letter-spacing: 1px;
+  &:last-child {
+    background: linear-gradient(90deg, rgba(214, 164, 79, 0.45) 0%, transparent 100%);
   }
 }
 
-.cs-description {
-  font-family: 'Inter', sans-serif;
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: rgba(245, 230, 200, 0.8);
-  margin: 0 0 20px;
-  position: relative;
-  z-index: 1;
-  padding: 0 6px;
+.cs-brand-text {
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #D6A44F;
+  text-transform: uppercase;
 }
 
-.cs-highlight-box {
-  background: rgba(214, 164, 79, 0.05);
-  border-left: 2px solid #D6A44F;
-  border-right: 2px solid #D6A44F;
-  border-radius: 6px;
-  padding: 12px 16px;
-  margin-bottom: 26px;
-  position: relative;
-  z-index: 1;
-
-  .cs-highlight-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
-  }
+// Title: COMING SOON
+.cs-title-wrap {
+  margin-bottom: 8px;
 }
 
-.cs-actions {
+.cs-title {
+  margin: 0;
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  line-height: 0.94;
+  font-weight: 400;
+  color: #FAF6EF;
+  letter-spacing: 1.5px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+}
+
+.cs-title-word {
+  display: block;
+}
+
+.cs-title-soon {
   position: relative;
-  z-index: 1;
+  letter-spacing: 2.8px;
+  color: #F8E8CC;
+  text-shadow: 0 0 16px rgba(214, 164, 79, 0.22);
+}
 
-  .cs-btn {
-    width: 100%;
-    padding: 13px 20px;
-    border-radius: 999px;
-    font-family: 'Cinzel', serif;
-    font-size: 12.5px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border: none;
-    outline: none;
+// Golden Flare Line across "SOON"
+.cs-gold-flare {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  top: 52%;
+  height: 1.5px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(214, 164, 79, 0.3) 25%,
+      rgba(245, 215, 145, 0.95) 50%,
+      rgba(214, 164, 79, 0.3) 75%,
+      transparent 100%);
+  filter: drop-shadow(0 0 6px rgba(245, 215, 145, 0.85));
+  transform: rotate(-4deg);
+  pointer-events: none;
+}
 
-    &.cs-btn-primary {
-      background: linear-gradient(135deg, #D6A44F 0%, #B88A3C 100%);
-      color: #0A0807;
-      box-shadow: 0 6px 20px rgba(214, 164, 79, 0.3);
+// Subtitle Bar: — Saree Collection —
+.cs-subtitle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
 
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 26px rgba(214, 164, 79, 0.45);
-        background: linear-gradient(135deg, #E2B565 0%, #C99846 100%);
-      }
+.cs-sub-line {
+  width: 28px;
+  height: 1px;
+  background: rgba(214, 164, 79, 0.3);
+}
+
+.cs-subtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 400;
+  color: #E2B877;
+  letter-spacing: 0.4px;
+}
+
+// Description
+.cs-desc {
+  margin: 0 0 18px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #C0B7AB;
+  font-weight: 300;
+  max-width: 260px;
+}
+
+// ==========================================================================
+// 7. ACTIONS (WHATSAPP PILL BUTTON & CONTINUE EXPLORING)
+// ==========================================================================
+
+.cs-whatsapp-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #DEAE58 0%, #F5D38A 45%, #C8963E 100%);
+  color: #171008;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow:
+    0 6px 18px rgba(214, 164, 79, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 10px 24px rgba(214, 164, 79, 0.42),
+      0 3px 8px rgba(0, 0, 0, 0.4);
+    filter: brightness(1.04);
+
+    &::before {
+      transform: translateX(100%);
     }
 
-    &.cs-btn-secondary {
-      background: transparent;
-      border: 1px solid rgba(214, 164, 79, 0.3);
-      color: rgba(245, 230, 200, 0.75);
+    .cs-arrow {
+      transform: translateX(3px);
+    }
+  }
 
-      &:hover {
-        border-color: #D6A44F;
-        color: #F5E6C8;
-        background: rgba(214, 164, 79, 0.08);
-      }
+  &:active {
+    transform: translateY(0);
+  }
+
+  .cs-wa-icon {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .cs-btn-text {
+    display: inline-block;
+  }
+
+  .cs-arrow {
+    font-size: 13px;
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+}
+
+// Continue Exploring
+.cs-continue-btn {
+  margin-top: 14px;
+  background: transparent;
+  border: none;
+  padding: 4px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  outline: none;
+
+  .cs-cont-line {
+    width: 20px;
+    height: 1px;
+    background: rgba(214, 164, 79, 0.25);
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+
+  .cs-cont-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2.2px;
+    color: #8E8578;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    .cs-cont-text {
+      color: #E2B877;
+    }
+
+    .cs-cont-line {
+      width: 28px;
+      background: rgba(214, 164, 79, 0.6);
     }
   }
 }
 
-@media (max-width: 480px) {
+// ==========================================================================
+// 8. MOBILE VIEW: FULLY FITTED WITHOUT SCROLLING
+// ==========================================================================
+
+@media (max-width: 640px) {
+  .cs-overlay {
+    padding: 12px;
+  }
+
   .cs-card {
-    padding: 34px 22px 28px;
+    flex-direction: column;
+    max-width: 360px;
+    width: 100%;
+    min-height: auto;
+    max-height: calc(100dvh - 24px);
+    border-radius: 14px;
+    overflow: hidden; // Fits cleanly inside mobile screen with no scrollbar!
+  }
+
+  // Compact image header (shows lady's face, smile, jhumka & saree drape)
+  .cs-visual {
+    flex: 0 0 135px;
+    height: 135px;
+    min-height: 135px;
+    max-width: 100%;
+    width: 100%;
+
+    .cs-lady-img {
+      object-position: center 18%;
+    }
+
+    .cs-visual-vignette {
+      background:
+        linear-gradient(180deg, rgba(9, 7, 6, 0.15) 0%, transparent 40%, #090706 100%),
+        linear-gradient(90deg, transparent 80%, #090706 100%);
+    }
+  }
+
+  .cs-content {
+    flex: 1 1 auto;
+    padding: 12px 18px 16px;
+  }
+
+  .cs-lotus-wrap {
+    margin-bottom: 4px;
+
+    .cs-lotus {
+      width: 28px;
+      height: 20px;
+    }
+  }
+
+  .cs-brand-bar {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .cs-brand-line {
+    width: 18px;
+  }
+
+  .cs-brand-text {
+    font-size: 8.5px;
+    letter-spacing: 3px;
+  }
+
+  .cs-title-wrap {
+    margin-bottom: 6px;
   }
 
   .cs-title {
     font-size: 26px;
+    letter-spacing: 1px;
   }
 
-  .cs-description {
-    font-size: 12.5px;
+  .cs-title-soon {
+    letter-spacing: 2px;
   }
 
-  .cs-highlight-box {
-    padding: 10px 12px;
+  .cs-gold-flare {
+    height: 1px;
+  }
+
+  .cs-subtitle-bar {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .cs-sub-line {
+    width: 20px;
+  }
+
+  .cs-subtitle {
+    font-size: 13.5px;
+  }
+
+  .cs-desc {
+    font-size: 10.5px;
+    line-height: 1.45;
+    margin: 0 0 14px;
+    max-width: 270px;
+  }
+
+  .cs-whatsapp-pill-btn {
+    width: 100%;
+    max-width: 255px;
+    padding: 9px 16px;
+    font-size: 9.5px;
+    letter-spacing: 0.8px;
+    gap: 6px;
+
+    .cs-wa-icon {
+      width: 13px;
+      height: 13px;
+    }
+
+    .cs-arrow {
+      font-size: 11px;
+    }
+  }
+
+  .cs-continue-btn {
+    margin-top: 10px;
+    padding: 2px 8px;
+
+    .cs-cont-text {
+      font-size: 8px;
+      letter-spacing: 1.8px;
+    }
+
+    .cs-cont-line {
+      width: 16px;
+    }
+  }
+
+  .cs-close-btn {
+    top: 10px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .cs-petal-1 {
+    right: 20px;
+    top: 25px;
+    width: 10px;
+    height: 7px;
+  }
+
+  .cs-petal-2 {
+    right: 15px;
+    bottom: 35px;
+    width: 12px;
+    height: 8px;
+  }
+}
+
+// Extra small phones (<= 360px wide)
+@media (max-width: 360px) {
+  .cs-card {
+    max-width: 310px;
+  }
+
+  .cs-visual {
+    flex: 0 0 115px;
+    height: 115px;
+    min-height: 115px;
+  }
+
+  .cs-title {
+    font-size: 23px;
+  }
+
+  .cs-desc {
+    font-size: 10px;
+    margin-bottom: 11px;
+  }
+
+  .cs-whatsapp-pill-btn {
+    font-size: 8.5px;
+    padding: 8px 12px;
   }
 }

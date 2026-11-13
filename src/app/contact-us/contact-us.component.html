@@ -5,7 +5,8 @@
       <span class="hero-eyebrow">GET IN TOUCH</span>
       <h1 class="hero-title">We Are Here For You</h1>
       <p class="hero-subtitle">
-        Have questions about bridal jewellery, bespoke sizing, custom sarees, or existing orders? Our dedicated advisors are available to assist you.
+        Have questions about bridal jewellery, bespoke sizing, custom sarees, or existing orders? Our dedicated advisors
+        are available to assist you.
       </p>
     </div>
   </header>
@@ -20,14 +21,15 @@
             <span class="info-badge">QUICK SUPPORT</span>
             <h2 class="info-title">Connect Directly</h2>
             <p class="info-desc">
-              For instant queries, order tracking, and custom design inquiries, chat with our jewellery and saree consultants directly on WhatsApp.
+              For instant queries, order tracking, and custom design inquiries, chat with our jewellery and saree
+              consultants directly on WhatsApp.
             </p>
 
             <button class="whatsapp-card-btn" (click)="whatsappService.openGeneralChat()" type="button">
               <lucide-icon [img]="MessageCircleIcon" class="btn-icon"></lucide-icon>
               <div class="btn-content">
                 <span class="btn-title">Chat on WhatsApp</span>
-                <span class="btn-subtitle">+91 90722 39489 &bull; Instant Reply</span>
+                <span class="btn-subtitle">+1 516-912-8424 &bull; Instant Reply</span>
               </div>
             </button>
 
@@ -36,7 +38,7 @@
                 <div class="detail-icon"><lucide-icon [img]="PhoneIcon"></lucide-icon></div>
                 <div>
                   <span class="detail-label">Phone &amp; WhatsApp</span>
-                  <a href="tel:+919072239489" class="detail-value">+91 90722 39489</a>
+                  <a href="tel:+1 516-912-8424" class="detail-value">+1 516-912-8424</a>
                 </div>
               </div>
 
@@ -72,7 +74,8 @@
           <div class="form-card">
             <span class="info-badge">SEND AN INQUIRY</span>
             <h2 class="info-title">Leave Us a Message</h2>
-            <p class="info-desc">Fill out your details and our concierge will get back to you within 24 business hours.</p>
+            <p class="info-desc">Fill out your details and our concierge will get back to you within 24 business hours.
+            </p>
 
             <form class="contact-form" (submit)="$event.preventDefault(); onSendMessage()">
               <div class="form-row">
@@ -117,4 +120,3 @@
     </div>
   </section>
 </div>
-

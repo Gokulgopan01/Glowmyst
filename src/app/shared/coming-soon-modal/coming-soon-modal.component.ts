@@ -27,8 +27,7 @@ export class ComingSoonModalComponent {
   notifyViaWhatsApp(): void {
     const details = this.comingSoonService.details();
     const message = `Hello Glowmyst, please notify me when your luxury ${details.category || 'Saree'} collection launches!`;
-    const url = `https://wa.me/919072239489?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+    this.whatsappService.openCustomChat(message);
     this.close();
   }
 }
