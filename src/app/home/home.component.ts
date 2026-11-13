@@ -75,6 +75,18 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   sareeImages: string[] = [];
 
+  openSareeComingSoon(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    this.comingSoonService.open({
+      title: 'Saree Collection',
+      category: 'Sarees',
+      message: 'Our handcrafted luxury saree collection is currently being curated with timeless fabrics, royal weaves and artisan embroideries.'
+    });
+  }
+
   ngOnInit(): void {
     this.startAutoPlay();
     this.loadTrendingProducts();

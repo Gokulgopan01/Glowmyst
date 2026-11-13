@@ -47,7 +47,7 @@
         EXPLORE JEWELLERY
         <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
       </button>
-      <button class="cta-button secondary" (click)="comingSoonService.open()">
+      <button class="cta-button secondary" type="button" (click)="openSareeComingSoon($event)">
         EXPLORE SAREES
         <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
       </button>
@@ -113,7 +113,7 @@
 
 
 <!-- SAREE SHOWCASE SECTION (Temporarily hidden) -->
-<!--
+
 <section #animatedElement class="reveal-section saree-showcase-section">
   <div class="saree-showcase-inner">
 
@@ -127,21 +127,20 @@
         <span class="saree-heading-gold">Endless Grace</span>
       </h2>
       <p class="saree-showcase-desc">Discover handcrafted sarees that celebrate tradition, elegance and you.</p>
-      <button class="saree-explore-btn" (click)="comingSoonService.open()">
+      <button class="saree-explore-btn" type="button" (click)="openSareeComingSoon($event)">
         EXPLORE SAREE COLLECTION
         <lucide-icon [img]="ArrowRightIcon" size="16"></lucide-icon>
       </button>
     </div>
 
     <div class="saree-showcase-photos" *ngIf="sareeImages.length > 0">
-      <div class="saree-photo-strip" *ngFor="let img of sareeImages; let i = index">
+      <div class="saree-photo-strip" *ngFor="let img of sareeImages; let i = index" (click)="openSareeComingSoon($event)">
         <img [src]="img" alt="Saree {{i + 1}}" class="saree-strip-img" [style.animation-delay]="(i * 0.12) + 's'">
       </div>
     </div>
 
   </div>
 </section>
--->
 
 <!-- 1. NECKLACE BANNER & GRID SECTION -->
 <section #animatedElement class="reveal-section split-banner-section">
