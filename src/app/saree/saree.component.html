@@ -203,11 +203,11 @@
             </div>
             <div class="price-inputs" style="margin-top: 15px;">
               <div class="price-input">
-                <span class="currency">₹</span>
+                <span class="currency">$</span>
                 <input type="number" [(ngModel)]="minPrice" (change)="onFilterChange()">
               </div>
               <div class="price-input">
-                <span class="currency">₹</span>
+                <span class="currency">$</span>
                 <input type="number" [(ngModel)]="maxPrice" (change)="onFilterChange()">
               </div>
             </div>
@@ -297,7 +297,7 @@
           <div class="card-details">
             <h3 class="product-name">{{ p.name }}</h3>
             <div class="price-row">
-              <div class="product-price">₹ {{ p.price | number:'1.0-0' }}</div>
+              <div class="product-price">$ {{ p.price | number:'1.0-0' }}</div>
               <!-- <button class="cart-btn" (click)="$event.stopPropagation()">
                 <lucide-icon [img]="ShoppingBagIcon" class="icon"></lucide-icon>
               </button> -->

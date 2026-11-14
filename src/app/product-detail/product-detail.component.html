@@ -60,8 +60,8 @@
 
       <div class="pricing-block">
         <div class="price-row">
-          <span class="offer-price">₹{{ product.price | number:'1.0-0' }}</span>
-          <span class="mrp-value">₹{{ mrp | number:'1.0-0' }}</span>
+          <span class="offer-price">${{ product.price | number:'1.0-0' }}</span>
+          <span class="mrp-value">${{ mrp | number:'1.0-0' }}</span>
           <span class="discount-badge">({{ discountPercentage }}% OFF)</span>
         </div>
         <div class="tax-info">Price inclusive of all taxes. Shipping calculated at checkout.</div>
@@ -152,7 +152,7 @@
       </div>
       <div class="details">
         <h3 class="name">{{ rp.name }}</h3>
-        <div class="price">₹{{ rp.price | number:'1.0-0' }}</div>
+        <div class="price">${{ rp.price | number:'1.0-0' }}</div>
         <button class="buy-btn" (click)="$event.stopPropagation(); buyRelated(rp)">BUY NOW</button>
       </div>
     </div>

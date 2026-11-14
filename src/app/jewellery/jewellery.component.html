@@ -196,17 +196,17 @@
           </div>
           <div class="accordion-body" [class.closed]="!isPriceOpen">
             <div class="price-slider-container">
-              <input type="range" class="price-slider" style="width: 100%" min="0" max="10000" step="100"
-                [style.background]="'linear-gradient(90deg, #D4AF37 0%, #D4AF37 ' + (maxPrice / 100) + '%, rgba(212, 175, 55, 0.15) ' + (maxPrice / 100) + '%, rgba(212, 175, 55, 0.15) 100%)'"
+              <input type="range" class="price-slider" style="width: 100%" min="0" max="150" step="5"
+                [style.background]="'linear-gradient(90deg, #D4AF37 0%, #D4AF37 ' + (maxPrice / 1.5) + '%, rgba(212, 175, 55, 0.15) ' + (maxPrice / 1.5) + '%, rgba(212, 175, 55, 0.15) 100%)'"
                 [(ngModel)]="maxPrice" (change)="onFilterChange()">
             </div>
             <div class="price-inputs" style="margin-top: 15px;">
               <div class="price-input">
-                <span class="currency">₹</span>
+                <span class="currency">$</span>
                 <input type="number" [(ngModel)]="minPrice" (change)="onFilterChange()">
               </div>
               <div class="price-input">
-                <span class="currency">₹</span>
+                <span class="currency">$</span>
                 <input type="number" [(ngModel)]="maxPrice" (change)="onFilterChange()">
               </div>
             </div>
@@ -303,7 +303,7 @@
           <div class="card-details">
             <h3 class="product-name">{{ p.name }}</h3>
             <div class="price-row">
-              <div class="product-price">₹ {{ p.price | number:'1.0-0' }}</div>
+              <div class="product-price">$ {{ p.price | number:'1.0-0' }}</div>
               <!-- <button class="cart-btn" (click)="$event.stopPropagation()">
                 <lucide-icon [img]="ShoppingBagIcon" class="icon"></lucide-icon>
               </button> -->

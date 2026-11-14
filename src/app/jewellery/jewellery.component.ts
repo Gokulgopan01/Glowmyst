@@ -97,7 +97,7 @@ export class JewelleryComponent implements OnInit, OnDestroy {
   // Filter selections
   selectedCategory = 'All Jewellery';
   minPrice = 0;
-  maxPrice = 2000;
+  maxPrice = 150;
   selectedOccasions: string[] = [];
   currentSort = 'Popular';
 

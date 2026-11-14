@@ -26,7 +26,7 @@ export class WhatsappService {
 Hi, I am interested in buying this product.
 
 Product: ${product.name}
-Price: ₹${product.price}
+Price: $${product.price}
 Product ID: ${product.id}
 
 Product Link:
