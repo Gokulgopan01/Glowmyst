@@ -532,7 +532,7 @@
 @media (max-width: 768px) {
 
   .hero-section {
-    height: 100dvh;
+    height: 95dvh;
     min-height: 540px;
     position: relative;
     align-items: flex-start; // IMPORTANT
@@ -2465,8 +2465,8 @@
   box-sizing: border-box;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-              box-shadow 0.4s ease,
-              border-color 0.4s ease;
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 
   &:hover {
     transform: translateY(-6px);
